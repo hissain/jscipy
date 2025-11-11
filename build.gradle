@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'com.github.dcendents.android-maven' version '2.1' // JitPack plugin
 }
 
 group = 'com.hissain.jscipy'
