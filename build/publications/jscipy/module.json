@@ -1,0 +1,109 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.hissain.jscipy",
+    "module": "jscipy",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.2.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "jscipy-1.0.0.jar",
+          "url": "jscipy-1.0.0.jar",
+          "size": 37310,
+          "sha512": "08ce48ad9fffc66a766029c6a1c1e3716ff176ad9989a5f1f6a90b71c8799bda5c74289c5986cf131b5996035f2772b00d85dea155db78bb8b9bdf4be37bfe57",
+          "sha256": "7a0ee28ff99f08a4efdcc12f898c7ee0d3caf2d5f4b7ec5dcbae582cb81d15dd",
+          "sha1": "5608e86b2655541695d9d09972b747af753f0eb9",
+          "md5": "bc1a6f03a4c844f5220bafce1e947aa6"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "jscipy-1.0.0.jar",
+          "url": "jscipy-1.0.0.jar",
+          "size": 37310,
+          "sha512": "08ce48ad9fffc66a766029c6a1c1e3716ff176ad9989a5f1f6a90b71c8799bda5c74289c5986cf131b5996035f2772b00d85dea155db78bb8b9bdf4be37bfe57",
+          "sha256": "7a0ee28ff99f08a4efdcc12f898c7ee0d3caf2d5f4b7ec5dcbae582cb81d15dd",
+          "sha1": "5608e86b2655541695d9d09972b747af753f0eb9",
+          "md5": "bc1a6f03a4c844f5220bafce1e947aa6"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "jscipy-1.0.0-sources.jar",
+          "url": "jscipy-1.0.0-sources.jar",
+          "size": 29529,
+          "sha512": "66c84d1e4262a575006c131991fad646367edd1a35b39afad617258953fd7a36b699ea15b71b0caa29dd202f512ab433a6a54311d53c362925aa607b35e3d128",
+          "sha256": "e14ed4c0110bae5b701de48d4db915f2f51dc15a0c6af217c7200cbdccebfbc9",
+          "sha1": "8d5f0c4eda0f34701b08403667ebe80df72f2429",
+          "md5": "5a580f78bad43c7b010069f6b4ea9d77"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "jscipy-1.0.0-javadoc.jar",
+          "url": "jscipy-1.0.0-javadoc.jar",
+          "size": 170141,
+          "sha512": "3fa95718b870dc96d9170c5842e375f7c33e84f1045c18d5a1a3177843d3f60ecd9d31539356a322e9e5e1aed6c6f5d2dc69c8e1786936e9f0cc51b61deb09d1",
+          "sha256": "3d368efcb638367ec72cf2b1564c3eb36575e0a3a76bc56cf42616481e697caf",
+          "sha1": "14e0df18715a7e6b848e5aaa5e684b67809a4d3b",
+          "md5": "5fba63cd022ddc55b585ebb3a6b1cb32"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.hissain",
+    "module": "jSciPy",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "jSciPy-1.0.0.jar",
+          "url": "jSciPy-1.0.0.jar",
+          "size": 37310,
+          "sha512": "966eeedda899a0344a1a38ebf2c8c54957a8f3d47248411d206ec2956051d2e2ba2f4dbdc670dd82a99ac48fd6e4cc1d2586406e3373e957b4fb5aa7b62b0791",
+          "sha256": "ee631951b8dd37d7c842633b75e1dae7adf565acdd4373ecd161a0a8c0918965",
+          "sha1": "8938db5178f72cd2f4398ba1efdb64ff5e65b9d1",
+          "md5": "4222d07f6a824b061eda55ebb46a2ea5"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "jSciPy-1.0.0.jar",
+          "url": "jSciPy-1.0.0.jar",
+          "size": 37310,
+          "sha512": "966eeedda899a0344a1a38ebf2c8c54957a8f3d47248411d206ec2956051d2e2ba2f4dbdc670dd82a99ac48fd6e4cc1d2586406e3373e957b4fb5aa7b62b0791",
+          "sha256": "ee631951b8dd37d7c842633b75e1dae7adf565acdd4373ecd161a0a8c0918965",
+          "sha1": "8938db5178f72cd2f4398ba1efdb64ff5e65b9d1",
+          "md5": "4222d07f6a824b061eda55ebb46a2ea5"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "jSciPy-1.0.0-sources.jar",
+          "url": "jSciPy-1.0.0-sources.jar",
+          "size": 29529,
+          "sha512": "174ec853f42ebc94c7ed278d7532d432771530f53767d32348e5aa539a7119427665eac50e8709c699fd3f6628786ead46e4b1b851952acb10b7d3d5d370a09e",
+          "sha256": "ab540d0eb24738a137743255ba32e841cf9b7a68b27f4504092350074c0d7a1d",
+          "sha1": "b8c2aa17a3933e86d1968f671695429afeda795d",
+          "md5": "04eb6d06488577f9842fc75a169277fd"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "jSciPy-1.0.0-javadoc.jar",
+          "url": "jSciPy-1.0.0-javadoc.jar",
+          "size": 170141,
+          "sha512": "18592bd2c3bdce230d68fa1e57d742d6fdcaed0d88aa45ee286a20441427b09271ef770e9ea52a5d458bc2447b66e9470b2c461ffe76f01c447662f434bd85fa",
+          "sha256": "3eaa5bf60c1905d1a052d77a4ed0eed7225bf5c242534b3d63cddafc294b7727",
+          "sha1": "03393eb59ed121238a32e0ae0e652b931465a61e",
+          "md5": "1d13a602a23978330299575118469091"
+        }
+      ]
+    }
+  ]
+}
