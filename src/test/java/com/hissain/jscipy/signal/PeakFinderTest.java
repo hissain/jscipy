@@ -14,7 +14,7 @@ import com.hissain.jscipy.signal.PeakFinder;
 
 public class PeakFinderTest {
 
-    private static final String TEST_DATA_DIR = "../datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();

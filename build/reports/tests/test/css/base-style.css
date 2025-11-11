@@ -11,7 +11,10 @@ body, a, a:visited {
 }
 
 #content {
-    padding: 30px 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #content h1 {
@@ -49,33 +52,30 @@ h2 {
     font-size: 120%;
 }
 
-.tab-container .tab-container {
-    margin-left: 8px;
-}
-
 ul.tabLinks {
-    padding: 0;
-    margin-bottom: 0;
+    padding-left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     overflow: auto;
     min-width: 800px;
-    width: auto;
-    border-bottom: solid 1px #aaa;
+    width: auto !important;
+    width: 800px;
 }
 
 ul.tabLinks li {
     float: left;
     height: 100%;
     list-style: none;
-    padding: 5px 10px;
-    border-radius: 7px 7px 0 0;
-    border: solid 1px transparent;
-    border-bottom: none;
-    margin-right: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    margin-right: 25px;
+    border: solid 1px #d4d4d4;
     background-color: #f0f0f0;
-}
-
-ul.tabLinks li.deselected > a {
-    color: #6d6d6d;
 }
 
 ul.tabLinks li:hover {
@@ -84,7 +84,7 @@ ul.tabLinks li:hover {
 
 ul.tabLinks li.selected {
     background-color: #c5f0f5;
-    border-color: #aaa;
+    border-color: #c5f0f5;
 }
 
 ul.tabLinks a {
@@ -114,12 +114,13 @@ div.deselected {
 
 div.tab table {
     min-width: 350px;
-    width: auto;
+    width: auto !important;
+    width: 350px;
     border-collapse: collapse;
 }
 
 div.tab th, div.tab table {
-    border-bottom: solid 1px #d0d0d0;
+    border-bottom: solid #d0d0d0 1px;
 }
 
 div.tab th {
@@ -149,18 +150,22 @@ div.tab td.numeric, div.tab th.numeric {
 
 span.code {
     display: inline-block;
-    margin-top: 0;
+    margin-top: 0em;
     margin-bottom: 1em;
 }
 
 span.code pre {
     font-size: 11pt;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 0;
     background-color: #f7f7f7;
     border: solid 1px #d0d0d0;
     min-width: 700px;
-    width: auto;
+    width: auto !important;
+    width: 700px;
 }
 
 span.wrapped pre {

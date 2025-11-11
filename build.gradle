@@ -29,8 +29,8 @@ test {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.github.hissain'
-            artifactId = 'jscipy-library'
+            groupId = 'com.hissain.jscipy'
+            artifactId = 'jscipy'
             version = '1.0.0'
 
             from components.java
