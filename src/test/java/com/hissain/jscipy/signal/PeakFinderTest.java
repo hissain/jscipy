@@ -46,7 +46,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset1() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 1;
         runTest("findpeaks_input1.txt", "findpeaks_output1.txt", params);
     }
@@ -54,7 +54,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset2() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 20;
         runTest("findpeaks_input2.txt", "findpeaks_output2.txt", params);
     }
@@ -62,7 +62,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset3() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 30;
         runTest("findpeaks_input3.txt", "findpeaks_output3.txt", params);
     }
@@ -70,7 +70,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset4() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 20;
         runTest("findpeaks_input4.txt", "findpeaks_output4.txt", params);
     }
@@ -78,7 +78,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset5() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 70;
         runTest("findpeaks_input5.txt", "findpeaks_output5.txt", params);
     }
@@ -86,7 +86,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset6() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 20;
         params.height = 0.7;
         runTest("findpeaks_input6.txt", "findpeaks_output6.txt", params);
@@ -95,7 +95,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset7() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 20;
         params.prominence = 0.7;
         runTest("findpeaks_input7.txt", "findpeaks_output7.txt", params);
@@ -104,7 +104,7 @@ public class PeakFinderTest {
     @Test
     public void testDataset8() throws IOException {
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = peakFinder.new PeakParams();
+        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
         params.distance = 20;
         params.height = 0.7;
         params.prominence = 0.7;
@@ -127,7 +127,7 @@ public class PeakFinderTest {
         // For simplicity, using default parameters for command-line execution
         // In a real scenario, parameters might be passed as additional arguments
         PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakResult result = peakFinder.findPeaks(signal, peakFinder.new PeakParams());
+        PeakFinder.PeakResult result = peakFinder.findPeaks(signal, new PeakFinder.PeakParams());
         
         for (int peak : result.peaks) {
             System.out.println(peak);

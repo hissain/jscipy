@@ -24,10 +24,18 @@ public class RK4Solver implements IRK4Solver {
      * Result class to hold the solution
      */
     public static class Solution extends IRK4Solver.Solution {
+        /**
+         * Constructs a new Solution object.
+         * @param t Array of time points.
+         * @param y Array of solution values corresponding to time points.
+         */
         public Solution(double[] t, double[] y) {
             super(t, y);
         }
         
+        /**
+         * Prints the solution (time and y values) to the console.
+         */
         public void print() {
             System.out.println("t\t\ty");
             System.out.println("------------------------");
@@ -100,6 +108,11 @@ public class RK4Solver implements IRK4Solver {
     
     /**
      * Example usage and test cases
+     */
+    /**
+     * Main method for command-line execution of the RK4Solver.
+     * This method demonstrates solving various differential equations.
+     * @param args Command-line arguments (not directly used for solving, but for demonstration).
      */
     public static void main(String[] args) {
         System.out.println("=== Example 1: dy/dt = y (exponential growth) ===");

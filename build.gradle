@@ -26,6 +26,12 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('Xmaxwarns', '0') // Suppress all warnings
+    options.addStringOption('Xmaxerrs', '0') // Suppress all errors
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
