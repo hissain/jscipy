@@ -10,8 +10,19 @@ import com.hissain.jscipy.signal.butterworth.Biquad;
 import com.hissain.jscipy.signal.butterworth.Butterworth;
 import com.hissain.jscipy.signal.api.IButterworthFilter;
 
+/**
+ * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
+ * This class provides methods to apply Butterworth low-pass filters to signals.
+ */
 public class ButterworthFilter implements IButterworthFilter {
 
+    /**
+     * Calculates the initial conditions for `lfilter` (linear filter).
+     * This is a helper function for `filtfilt`.
+     * @param b The numerator coefficients of the filter.
+     * @param a The denominator coefficients of the filter.
+     * @return The initial conditions `zi`.
+     */
     private double[] lfilter_zi(double[] b, double[] a) {
         int n = Math.max(a.length, b.length);
         if (n <= 1) {
@@ -73,6 +84,15 @@ public class ButterworthFilter implements IButterworthFilter {
         return zi;
     }
 
+    /**
+     * Applies a zero-phase digital filter forward and backward to a signal.
+     * This function applies a Butterworth low-pass filter.
+     * @param signal The input signal to filter.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff The cutoff frequency of the filter.
+     * @param order The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
     public double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
         Butterworth butterworth = new Butterworth();
         butterworth.lowPass(order, sampleRate, cutoff);
@@ -87,6 +107,12 @@ public class ButterworthFilter implements IButterworthFilter {
         return output;
     }
 
+    /**
+     * Applies a zero-phase digital filter (biquad section) forward and backward to a signal.
+     * @param signal The input signal.
+     * @param biquad The biquad filter section.
+     * @return The filtered signal.
+     */
     private double[] filtfilt_biquad(double[] signal, Biquad biquad) {
         double[] b = biquad.getBCoefficients();
         double[] a = biquad.getACoefficients();
@@ -120,6 +146,13 @@ public class ButterworthFilter implements IButterworthFilter {
         return output;
     }
 
+    /**
+     * Applies a biquad filter section to a signal.
+     * @param signal The input signal.
+     * @param b The numerator coefficients of the filter.
+     * @param a The denominator coefficients of the filter.
+     * @return The filtered signal.
+     */
     private double[] filter_biquad(double[] signal, double[] b, double[] a) {
         double[] output = new double[signal.length];
         double[] z = lfilter_zi(b, a);
@@ -136,6 +169,15 @@ public class ButterworthFilter implements IButterworthFilter {
         return output;
     }
 
+    /**
+     * Applies a Butterworth low-pass filter to a signal.
+     * This function applies the filter in a causal manner (forward only).
+     * @param signal The input signal to filter.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff The cutoff frequency of the filter.
+     * @param order The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
     public double[] filter(double[] signal, double sampleRate, double cutoff, int order) {
         Butterworth butterworth = new Butterworth();
         butterworth.lowPass(order, sampleRate, cutoff);
@@ -148,6 +190,11 @@ public class ButterworthFilter implements IButterworthFilter {
         return output;
     }
 
+    /**
+     * Reverses the order of elements in a double array.
+     * @param array The input array.
+     * @return A new array with elements in reversed order.
+     */
     private double[] reverse(double[] array) {
         double[] reversed = new double[array.length];
         for (int i = 0; i < array.length; i++) {
@@ -156,6 +203,12 @@ public class ButterworthFilter implements IButterworthFilter {
         return reversed;
     }
 
+    /**
+     * Main method for command-line execution of the ButterworthFilter.
+     * Expects input file, order, cutoff, and sample rate as arguments.
+     * @param args Command-line arguments: `input_file`, `order`, `cutoff`, `sample_rate`
+     * @throws java.io.IOException If there is an error reading the input file.
+     */
     public static void main(String[] args) throws java.io.IOException {
         if (args.length != 4) {
             System.err.println("Usage: ButterworthFilter <input_file> <order> <cutoff> <sample_rate>");
