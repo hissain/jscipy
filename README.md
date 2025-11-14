@@ -43,6 +43,10 @@ dependencies {
 }
 ```
 
+## Exmple Demo Android Application
+
+A seperate demo android application is built on this library that might be helpful to understand how to consume this library. The application can be accessed [here](https://github.com/hissain/jscipy-android).
+
 ## Validation
 
 The Java implementations have been validated against scipy's implementation.
