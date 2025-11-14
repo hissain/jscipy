@@ -1,0 +1,46 @@
+name: Release Java Library
+
+# Trigger on tag push like v1.0.0
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Java (use same version as your project)
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      # 3. Build your library (Gradle)
+      - name: Build library
+        run: ./gradlew build
+
+      # 4. Optional: run tests
+      - name: Run tests
+        run: ./gradlew test
+
+      # 5. Create GitHub release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 6. (Optional) Upload built JAR/AAR to release if needed
+      - name: Upload JAR to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
