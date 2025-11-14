@@ -44,11 +44,6 @@ dependencies {
 ```
 
 ## Validation
-## API Usage
-
-For detailed examples on how to use the jSciPy library's public API, refer to the [API Usage Examples](docs/API_USAGE.md) document.
-
-## Validation
 
 The Java implementations have been validated against scipy's implementation.
 
