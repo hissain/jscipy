@@ -8,7 +8,7 @@ jSciPy is a Java library designed for scientific computing, offering functionali
   * Implement various types of Butterworth filters: low-pass, high-pass, band-pass, and band-stop.
   * Supports zero-phase filtering (`filtfilt`) for applications where phase distortion is critical.
   * Provides standard filtering (`filter`) for causal applications.
-* **Peak Finding**:
+* **Find Peaks**:
   * Efficiently detect peaks in one-dimensional signals.
   * Filter peaks based on properties like height, prominence, and minimum distance between peaks.
 * **RK4 Solver**:
@@ -59,9 +59,9 @@ The Java implementations have been validated against scipy's implementation.
 
 ![RK4 Comparison](figs/rk4_input.txt.png)
 
-### PeakFinder Comparison
+### FindPeaks Comparison
 
-![PeakFinder Comparison](figs/findpeaks_input1.txt_peaks.png)
+![FindPeaks Comparison](figs/findpeaks_input1.txt_peaks.png)
 
 ## Usage Examples
 
@@ -100,23 +100,23 @@ public class FilterExample {
 }
 ```
 
-### Peak Finder
+### Find Peaks
 
 ```java
-import com.hissain.jscipy.signal.PeakFinder;
+import com.hissain.jscipy.signal.FindPeaks;
 import java.util.Map;
 
-public class PeakFinderExample {
+public class FindPeaksExample {
     public static void main(String[] args) {
         double[] signal = {0.0, 1.0, 0.5, 2.0, 0.3, 1.5, 0.8, 3.0, 0.2, 1.0};
 
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 2; // Minimum distance between peaks
         params.height = 0.5; // Minimum height of peaks
         params.prominence = 0.5; // Minimum prominence of peaks
 
-        PeakFinder.PeakResult result = peakFinder.findPeaks(signal, params);
+        FindPeaks.PeakResult result = findPeaks.findPeaks(signal, params);
 
         System.out.println("Detected Peaks at indices:");
         for (int peakIndex : result.peaks) {

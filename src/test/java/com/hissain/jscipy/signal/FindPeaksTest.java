@@ -10,9 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import com.hissain.jscipy.signal.PeakFinder;
+import com.hissain.jscipy.signal.FindPeaks;
 
-public class PeakFinderTest {
+public class FindPeaksTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
 
@@ -35,58 +35,58 @@ public class PeakFinderTest {
         return Arrays.stream(doubleData).mapToInt(d -> (int) d).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedOutputFilename, PeakFinder.PeakParams params) throws IOException {
+    private void runTest(String inputFilename, String expectedOutputFilename, FindPeaks.PeakParams params) throws IOException {
         double[] signal = readDataFile(inputFilename);
         int[] expectedPeaks = readPeakIndices(expectedOutputFilename);
-        PeakFinder peakFinder = new PeakFinder();
-        int[] peaks = peakFinder.findPeaks(signal, params).peaks;
+        FindPeaks findPeaks = new FindPeaks();
+        int[] peaks = findPeaks.findPeaks(signal, params).peaks;
         assertArrayEquals(expectedPeaks, peaks);
     }
 
     @Test
     public void testDataset1() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 1;
         runTest("findpeaks_input1.txt", "findpeaks_output1.txt", params);
     }
 
     @Test
     public void testDataset2() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 20;
         runTest("findpeaks_input2.txt", "findpeaks_output2.txt", params);
     }
 
     @Test
     public void testDataset3() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 30;
         runTest("findpeaks_input3.txt", "findpeaks_output3.txt", params);
     }
 
     @Test
     public void testDataset4() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 20;
         runTest("findpeaks_input4.txt", "findpeaks_output4.txt", params);
     }
 
     @Test
     public void testDataset5() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 70;
         runTest("findpeaks_input5.txt", "findpeaks_output5.txt", params);
     }
 
     @Test
     public void testDataset6() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 20;
         params.height = 0.7;
         runTest("findpeaks_input6.txt", "findpeaks_output6.txt", params);
@@ -94,8 +94,8 @@ public class PeakFinderTest {
 
     @Test
     public void testDataset7() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 20;
         params.prominence = 0.7;
         runTest("findpeaks_input7.txt", "findpeaks_output7.txt", params);
@@ -103,8 +103,8 @@ public class PeakFinderTest {
 
     @Test
     public void testDataset8() throws IOException {
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 20;
         params.height = 0.7;
         params.prominence = 0.7;
@@ -126,8 +126,8 @@ public class PeakFinderTest {
         
         // For simplicity, using default parameters for command-line execution
         // In a real scenario, parameters might be passed as additional arguments
-        PeakFinder peakFinder = new PeakFinder();
-        PeakFinder.PeakResult result = peakFinder.findPeaks(signal, new PeakFinder.PeakParams());
+        FindPeaks findPeaks = new FindPeaks();
+        FindPeaks.PeakResult result = findPeaks.findPeaks(signal, new FindPeaks.PeakParams());
         
         for (int peak : result.peaks) {
             System.out.println(peak);

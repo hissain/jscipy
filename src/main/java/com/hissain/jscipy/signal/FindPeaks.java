@@ -2,13 +2,13 @@ package com.hissain.jscipy.signal;
 
 import java.util.*;
 import java.util.stream.IntStream;
-import com.hissain.jscipy.signal.api.IPeakFinder;
+import com.hissain.jscipy.signal.api.IFindPeaks;
 
 /**
  * A utility class for finding peaks in a signal.
- * Implements the IPeakFinder interface.
+ * Implements the IFindPeaks interface.
  */
-public class PeakFinder implements IPeakFinder {
+public class FindPeaks implements IFindPeaks {
 
     /**
      * Represents the result of a peak finding operation.

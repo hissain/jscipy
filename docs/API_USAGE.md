@@ -2,30 +2,30 @@
 
 This document provides examples of how to use the public API of the jSciPy library.
 
-## 1. PeakFinder
+## 1. FindPeaks
 
-The `IPeakFinder` interface and its implementation `PeakFinder` allow you to detect peaks in a 1D signal.
+The `IFindPeaks` interface and its implementation `FindPeaks` allow you to detect peaks in a 1D signal.
 
 ```java
-import com.hissain.jscipy.signal.PeakFinder;
-import com.hissain.jscipy.signal.api.IPeakFinder;
+import com.hissain.jscipy.signal.FindPeaks;
+import com.hissain.jscipy.signal.api.IFindPeaks;
 
-public class PeakFinderExample {
+public class FindPeaksExample {
     public static void main(String[] args) {
         // Sample signal data
         double[] signal = {0.0, 1.0, 0.5, 2.0, 1.5, 3.0, 2.5, 0.0};
 
-        // Create an instance of the PeakFinder
-        IPeakFinder peakFinder = new PeakFinder();
+        // Create an instance of the FindPeaks
+        IFindPeaks findPeaks = new FindPeaks();
 
         // Define peak parameters (optional)
-        PeakFinder.PeakParams params = new PeakFinder.PeakParams();
+        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.distance = 1; // Minimum distance between peaks
         params.height = 1.0; // Minimum height of peaks
         params.prominence = 0.5; // Minimum prominence of peaks
 
         // Find peaks
-        PeakFinder.PeakResult result = peakFinder.findPeaks(signal, params);
+        FindPeaks.PeakResult result = findPeaks.findPeaks(signal, params);
 
         System.out.println("Detected Peaks:");
         for (int peakIndex : result.peaks) {
@@ -33,7 +33,7 @@ public class PeakFinderExample {
         }
 
         // You can also find peaks without specific parameters
-        PeakFinder.PeakResult defaultResult = peakFinder.findPeaks(signal, null);
+        FindPeaks.PeakResult defaultResult = findPeaks.findPeaks(signal, null);
         System.out.println("\nDetected Peaks (default parameters):");
         for (int peakIndex : defaultResult.peaks) {
             System.out.println("  Index: " + peakIndex + ", Value: " + signal[peakIndex]);
