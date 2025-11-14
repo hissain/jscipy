@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.hissain.jscipy'
-version = '1.0.0' // Use a proper version for release, e.g., 1.0.0
+version = '1.0.2' // Use a proper version for release, e.g., 1.0.0
 
 repositories {
     mavenCentral()
