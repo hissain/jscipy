@@ -5,6 +5,10 @@ on:
   push:
     tags:
       - "v*"
+        
+permissions:
+  contents: write       # needed to create releases
+  actions: read         # default, can stay
 
 jobs:
   build-and-release:
