@@ -14,6 +14,9 @@ jSciPy is a Java library designed for scientific computing, offering functionali
 * **RK4 Solver**:
   * Solve ordinary differential equations using the Runge-Kutta 4th order method.
   * Flexible interface for defining custom differential equations.
+* **Interpolation**:
+  * Perform linear interpolation between data points.
+  * Perform cubic spline interpolation for smoother curves.
 
 ## Getting Started
 
@@ -155,6 +158,37 @@ public class RK4SolverExample {
         System.out.println("Time (t)\tValue (y)");
         for (int i = 0; i < solution.t.length; i++) {
             System.out.printf("%.2f\t\t%.4f\n", solution.t[i], solution.y[i]);
+        }
+    }
+}
+```
+
+### Interpolation
+
+```java
+import com.hissain.jscipy.signal.interpolate.Interpolation;
+
+public class InterpolationExample {
+    public static void main(String[] args) {
+        double[] x = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] y = {0.0, 0.8, 0.9, 0.1, -0.8, -1.0};
+        double[] newX = {0.5, 1.5, 2.5, 3.5, 4.5};
+
+        Interpolation interpolation = new Interpolation();
+
+        // Perform linear interpolation
+        double[] linearY = interpolation.linear(x, y, newX);
+        System.out.println("Linear Interpolation:");
+        for (int i = 0; i < newX.length; i++) {
+            System.out.printf("x = %.1f, y = %.4f\n", newX[i], linearY[i]);
+        }
+        System.out.println();
+
+        // Perform cubic interpolation
+        double[] cubicY = interpolation.cubic(x, y, newX);
+        System.out.println("Cubic Interpolation:");
+        for (int i = 0; i < newX.length; i++) {
+            System.out.printf("x = %.1f, y = %.4f\n", newX[i], cubicY[i]);
         }
     }
 }
