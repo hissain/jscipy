@@ -5,31 +5,59 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.hissain.jscipy.signal.RK4Solver;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.hissain.jscipy.signal.RK4Solver.DifferentialEquation;
 import com.hissain.jscipy.signal.RK4Solver.Solution;
 
 public class RK4SolverTest {
-    public static void main(String[] args) throws IOException {
-        String inputFilename = args[0];
-        
-        List<Double> tSpanList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFilename))) {
+
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final double TOLERANCE = 1e-4;
+
+    private double[] readDataFile(String filename) throws IOException {
+        List<Double> data = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(TEST_DATA_DIR + filename))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                tSpanList.add(Double.parseDouble(line.trim()));
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (!line.isEmpty()) {
+                    data.add(Double.parseDouble(line));
+                }
             }
         }
-        
-        double[] tSpan = tSpanList.stream().mapToDouble(d -> d).toArray();
-        
+        return data.stream().mapToDouble(Double::doubleValue).toArray();
+    }
+
+    @Test
+    public void testRK4Solver() throws IOException {
+        String inputFilename = "rk4_input.txt";
+        String expectedOutputFilename = "rk4_output.txt";
+
+        double[] tSpan = readDataFile(inputFilename);
+        double[] expectedOutput = readDataFile(expectedOutputFilename);
+
         DifferentialEquation eq = (t, y) -> -2 * t * y;
-        
+
         RK4Solver solver = new RK4Solver();
         Solution solution = solver.solve(eq, 1.0, tSpan);
-        
-        for (double y : solution.y) {
-            System.out.println(y);
+
+        // Save the Java output
+        String outputFilename = expectedOutputFilename.replace(".txt", "_java.txt");
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + outputFilename)) {
+            for (double v : solution.y) {
+                writer.println(v);
+            }
         }
+
+        double rmse = 0;
+        for (int i = 0; i < solution.y.length; i++) {
+            rmse += Math.pow(solution.y[i] - expectedOutput[i], 2);
+        }
+        rmse = Math.sqrt(rmse / solution.y.length);
+        System.out.println("RMSE for " + inputFilename + ": " + rmse);
+        assertTrue(rmse < TOLERANCE);
     }
 }

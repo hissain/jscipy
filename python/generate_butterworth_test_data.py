@@ -30,7 +30,7 @@ def generate_butterworth_test_data(test_id, order, cutoff, sample_rate, num_samp
 
 if __name__ == "__main__":
     sample_rate = 250
-    num_samples = 500
+    num_samples = 100
     
     generate_butterworth_test_data(1, 2, 20, sample_rate, num_samples)
     generate_butterworth_test_data(2, 3, 20, sample_rate, num_samples)

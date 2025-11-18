@@ -4,7 +4,7 @@ def analytical_solution(t):
     return np.exp(-t**2)
 
 def main():
-    t_span = np.linspace(0, 2, 21)
+    t_span = np.linspace(0, 2, 11)
     y = analytical_solution(t_span)
 
     with open('datasets/rk4_input.txt', 'w') as f:

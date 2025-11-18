@@ -17,6 +17,9 @@ jSciPy is a Java library designed for scientific computing, offering functionali
 * **Interpolation**:
   * Perform linear interpolation between data points.
   * Perform cubic spline interpolation for smoother curves.
+* **FFT and RFFT**:
+  * Compute the Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT) of a signal.
+  * Compute the Real Fast Fourier Transform (RFFT) and Inverse Real Fast Fourier Transform (IRFFT) for real-valued signals, which are more efficient.
 
 ## Getting Started
 
@@ -50,21 +53,27 @@ dependencies {
 
 A seperate demo android application is built on this library that might be helpful to understand how to consume this library. The application can be accessed [here](https://github.com/hissain/jscipy-android).
 
-## Validation
-
-The Java implementations have been validated against scipy's implementation.
+## Comparison Graphs
 
 ### Butterworth Filter Comparison
 
-![Butterworth Comparison](figs/butterworth_input1.txt.png)
+![Butterworth Comparison](python/figs/butterworth_input1.txt.png)
 
 ### RK4 Solver Comparison
 
-![RK4 Comparison](figs/rk4_input.txt.png)
+![RK4 Comparison](python/figs/rk4_input.txt.png)
 
 ### FindPeaks Comparison
 
-![FindPeaks Comparison](figs/findpeaks_input1.txt_peaks.png)
+![FindPeaks Comparison](python/figs/findpeaks_input1.txt_peaks.png)
+
+### Interpolation Comparison
+
+![Interpolation Comparison](python/figs/interpolation_comparison_1.png)
+
+### FFT Comparison
+
+![FFT Comparison](python/figs/fft_comparison_1.png)
 
 ## Usage Examples
 
@@ -190,6 +199,53 @@ public class InterpolationExample {
         for (int i = 0; i < newX.length; i++) {
             System.out.printf("x = %.1f, y = %.4f\n", newX[i], cubicY[i]);
         }
+    }
+}
+```
+
+### FFT and RFFT
+
+```java
+import com.hissain.jscipy.signal.fft.FFT;
+import org.apache.commons.math3.complex.Complex;
+
+public class FFTExample {
+    public static void main(String[] args) {
+        double[] signal = {0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0};
+
+        FFT fft = new FFT();
+
+        // Compute the FFT
+        Complex[] fftResult = fft.fft(signal);
+        System.out.println("FFT Result:");
+        for (Complex c : fftResult) {
+            System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
+        }
+        System.out.println();
+
+        // Compute the RFFT
+        Complex[] rfftResult = fft.rfft(signal);
+        System.out.println("RFFT Result:");
+        for (Complex c : rfftResult) {
+            System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
+        }
+        System.out.println();
+
+        // Compute the IFFT
+        Complex[] ifftResult = fft.ifft(fftResult);
+        System.out.println("IFFT Result:");
+        for (Complex c : ifftResult) {
+            System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
+        }
+        System.out.println();
+
+        // Compute the IRFFT
+        double[] irfftResult = fft.irfft(rfftResult, signal.length);
+        System.out.println("IRFFT Result:");
+        for (double d : irfftResult) {
+            System.out.printf("%.2f ", d);
+        }
+        System.out.println();
     }
 }
 ```

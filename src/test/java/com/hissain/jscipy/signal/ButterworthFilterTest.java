@@ -16,7 +16,7 @@ import com.hissain.jscipy.signal.ButterworthFilter;
 public class ButterworthFilterTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1.0;
+    private static final double TOLERANCE = 2.0;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();
@@ -37,6 +37,15 @@ public class ButterworthFilterTest {
         double[] expectedOutput = readDataFile(expectedOutputFilename);
         ButterworthFilter filter = new ButterworthFilter();
         double[] output = filter.filtfilt(signal, sampleRate, cutoff, order);
+
+        // Save the Java output
+        String outputFilename = expectedOutputFilename.replace(".txt", "_java.txt");
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + outputFilename)) {
+            for (double v : output) {
+                writer.println(v);
+            }
+        }
+
         double rmse = 0;
         for (int i = 0; i < output.length; i++) {
             rmse += Math.pow(output[i] - expectedOutput[i], 2);

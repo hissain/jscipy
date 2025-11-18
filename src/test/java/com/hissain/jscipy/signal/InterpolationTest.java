@@ -23,6 +23,12 @@ public class InterpolationTest {
 
         double[] actualY = interpolation.linear(x, y, newX);
 
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_linear_java_1.txt")) {
+            for (double v : actualY) {
+                writer.println(v);
+            }
+        }
+
         assertArrayEquals(expectedY, actualY, 0.001);
     }
 
@@ -34,6 +40,12 @@ public class InterpolationTest {
         double[] expectedY = readData("datasets/interpolation_output_linear_2.txt");
 
         double[] actualY = interpolation.linear(x, y, newX);
+
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_linear_java_2.txt")) {
+            for (double v : actualY) {
+                writer.println(v);
+            }
+        }
 
         assertArrayEquals(expectedY, actualY, 0.001);
     }
@@ -47,6 +59,12 @@ public class InterpolationTest {
 
         double[] actualY = interpolation.cubic(x, y, newX);
 
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_cubic_java_1.txt")) {
+            for (double v : actualY) {
+                writer.println(v);
+            }
+        }
+
         assertArrayEquals(expectedY, actualY, 0.001);
     }
 
@@ -58,6 +76,12 @@ public class InterpolationTest {
         double[] expectedY = readData("datasets/interpolation_output_cubic_2.txt");
 
         double[] actualY = interpolation.cubic(x, y, newX);
+
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_cubic_java_2.txt")) {
+            for (double v : actualY) {
+                writer.println(v);
+            }
+        }
 
         assertArrayEquals(expectedY, actualY, 0.001);
     }

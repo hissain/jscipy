@@ -40,6 +40,15 @@ public class FindPeaksTest {
         int[] expectedPeaks = readPeakIndices(expectedOutputFilename);
         FindPeaks findPeaks = new FindPeaks();
         int[] peaks = findPeaks.findPeaks(signal, params).peaks;
+
+        // Save the Java output
+        String outputFilename = expectedOutputFilename.replace(".txt", "_java.txt");
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + outputFilename)) {
+            for (int p : peaks) {
+                writer.println(p);
+            }
+        }
+
         assertArrayEquals(expectedPeaks, peaks);
     }
 
@@ -109,28 +118,5 @@ public class FindPeaksTest {
         params.height = 0.7;
         params.prominence = 0.7;
         runTest("findpeaks_input8.txt", "findpeaks_output8.txt", params);
-    }
-
-    public static void main(String[] args) throws IOException {
-        String inputFilename = args[0];
-        
-        List<Double> signalList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFilename))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                signalList.add(Double.parseDouble(line.trim()));
-            }
-        }
-        
-        double[] signal = signalList.stream().mapToDouble(Double::doubleValue).toArray();
-        
-        // For simplicity, using default parameters for command-line execution
-        // In a real scenario, parameters might be passed as additional arguments
-        FindPeaks findPeaks = new FindPeaks();
-        FindPeaks.PeakResult result = findPeaks.findPeaks(signal, new FindPeaks.PeakParams());
-        
-        for (int peak : result.peaks) {
-            System.out.println(peak);
-        }
     }
 }
