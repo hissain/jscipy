@@ -22,6 +22,9 @@ jSciPy is a Java library designed for scientific computing, offering functionali
   * Compute the Real Fast Fourier Transform (RFFT) and Inverse Real Fast Fourier Transform (IRFFT) for real-valued signals, which are more efficient.
 * **Resample**:
   * Resample a signal to a new number of samples using Fourier method.
+* **Savitzky-Golay Filter**:
+  * Smooth data and calculate derivatives using a least-squares polynomial fitting.
+  * Supports smoothing and differentiation.
 
 ## Getting Started
 
@@ -80,6 +83,16 @@ A seperate demo android application is built on this library that might be helpf
 ### Resample Comparison
 
 ![Resample Comparison](python/figs/resample_comparison_1.png)
+
+### Savitzky-Golay Comparison
+
+**Smoothing:**
+
+![Savitzky-Golay Smoothing](python/figs/savitzky_golay_smoothing.png)
+
+**Differentiation:**
+
+![Savitzky-Golay Differentiation](python/figs/savitzky_golay_differentiation.png)
 
 
 
@@ -273,6 +286,38 @@ public class ResampleExample {
 
         System.out.println("Resampled Signal:");
         for (double d : resampledSignal) {
+            System.out.printf("%.2f ", d);
+        }
+        System.out.println();
+    }
+}
+```
+
+### Savitzky-Golay Filter
+
+```java
+import com.hissain.jscipy.signal.SavitzkyGolayFilter;
+
+public class SavGolExample {
+    public static void main(String[] args) {
+        double[] signal = {0.0, 1.0, 2.0, 1.0, 0.0, -1.0, -2.0, -1.0, 0.0};
+        int windowLength = 5;
+        int polyOrder = 2;
+
+        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
+
+        // Smooth the signal
+        double[] smoothed = filter.smooth(signal, windowLength, polyOrder);
+        System.out.println("Smoothed Signal:");
+        for (double d : smoothed) {
+            System.out.printf("%.2f ", d);
+        }
+        System.out.println();
+
+        // Calculate derivative
+        double[] derivative = filter.differentiate(signal, windowLength, polyOrder, 1, 1.0);
+        System.out.println("First Derivative:");
+        for (double d : derivative) {
             System.out.printf("%.2f ", d);
         }
         System.out.println();
