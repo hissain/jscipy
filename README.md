@@ -1,6 +1,8 @@
 # jSciPy: A Java Scientific Computing Library
 
-jSciPy is a Java library designed for scientific computing, offering functionalities inspired by popular scientific computing libraries. It currently provides modules for signal processing, including Fourier Transformations, Resampling, Butterworth filters, peak finding algorithms, and an RK4 solver for ordinary differential equations.
+jSciPy is a Java library for scientific computing, providing functionality inspired by widely used scientific toolkits. It currently includes modules for signal processing, such as Butterworth filters, peak detection algorithms, and an RK4 solver for ordinary differential equations.
+
+In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
 ## Features
 
