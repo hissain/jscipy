@@ -1,0 +1,79 @@
+package com.hissain.jscipy.signal;
+
+import com.hissain.jscipy.signal.api.IDetrend;
+
+/**
+ * Implementation of {@link IDetrend} for removing trends from signals.
+ */
+public class Detrend implements IDetrend {
+
+    @Override
+    public double[] detrend(double[] signal, String type) {
+        if (signal == null) {
+            throw new NullPointerException("Signal cannot be null");
+        }
+        if (signal.length == 0) {
+            return new double[0];
+        }
+
+        if ("constant".equalsIgnoreCase(type)) {
+            return detrendConstant(signal);
+        } else if ("linear".equalsIgnoreCase(type)) {
+            return detrendLinear(signal);
+        } else {
+            throw new IllegalArgumentException("Invalid detrend type: " + type + ". Supported types are 'linear' and 'constant'.");
+        }
+    }
+
+    @Override
+    public double[] detrend(double[] signal) {
+        return detrend(signal, "linear");
+    }
+
+    private double[] detrendConstant(double[] signal) {
+        double sum = 0;
+        for (double v : signal) {
+            sum += v;
+        }
+        double mean = sum / signal.length;
+
+        double[] result = new double[signal.length];
+        for (int i = 0; i < signal.length; i++) {
+            result[i] = signal[i] - mean;
+        }
+        return result;
+    }
+
+    private double[] detrendLinear(double[] signal) {
+        int n = signal.length;
+        if (n < 2) {
+            return new double[n]; // Cannot fit a line with less than 2 points (or result is 0s)
+            // Scipy behavior for 1 point? It probably returns 0.
+            // Let's assume standard least squares works or we handle it.
+            // If n=1, mean is the point, so constant detrend returns 0. Linear also 0.
+        }
+
+        double sumX = 0;
+        double sumY = 0;
+        double sumXY = 0;
+        double sumXX = 0;
+
+        for (int i = 0; i < n; i++) {
+            double x = i;
+            double y = signal[i];
+            sumX += x;
+            sumY += y;
+            sumXY += x * y;
+            sumXX += x * x;
+        }
+
+        double slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+        double intercept = (sumY - slope * sumX) / n;
+
+        double[] result = new double[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = signal[i] - (slope * i + intercept);
+        }
+        return result;
+    }
+}

@@ -27,6 +27,9 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 * **Savitzky-Golay Filter**:
   * Smooth data and calculate derivatives using a least-squares polynomial fitting.
   * Supports smoothing and differentiation.
+* **Detrend**:
+  * Remove linear trend from data.
+  * Remove constant trend (mean) from data.
 
 ## Getting Started
 
@@ -96,7 +99,9 @@ A seperate demo android application is built on this library that might be helpf
 
 ![Savitzky-Golay Differentiation](python/figs/savitzky_golay_differentiation.png)
 
+### Detrend Comparison
 
+![Detrend Comparison](python/figs/detrend_comparison_1.png)
 
 ## Usage Examples
 
@@ -320,6 +325,29 @@ public class SavGolExample {
         double[] derivative = filter.differentiate(signal, windowLength, polyOrder, 1, 1.0);
         System.out.println("First Derivative:");
         for (double d : derivative) {
+            System.out.printf("%.2f ", d);
+        }
+        System.out.println();
+    }
+}
+```
+
+### Detrend
+
+```java
+import com.hissain.jscipy.signal.Detrend;
+
+public class DetrendExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0}; // Linear trend
+        
+        Detrend detrender = new Detrend();
+        
+        // Remove linear trend
+        double[] detrended = detrender.detrend(signal, "linear");
+        
+        System.out.println("Detrended Signal:");
+        for (double d : detrended) {
             System.out.printf("%.2f ", d);
         }
         System.out.println();
