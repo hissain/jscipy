@@ -30,6 +30,8 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 * **Detrend**:
   * Remove linear trend from data.
   * Remove constant trend (mean) from data.
+* **Hilbert Transform**:
+  * Compute the analytic signal using the Hilbert transform.
 
 ## Getting Started
 
@@ -102,6 +104,10 @@ A seperate demo android application is built on this library that might be helpf
 ### Detrend Comparison
 
 ![Detrend Comparison](python/figs/detrend_comparison_1.png)
+
+### Hilbert Transform Comparison
+
+![Hilbert Transform Comparison](python/figs/hilbert_comparison_1.png)
 
 ## Usage Examples
 
@@ -351,6 +357,27 @@ public class DetrendExample {
             System.out.printf("%.2f ", d);
         }
         System.out.println();
+    }
+}
+```
+
+### Hilbert Transform
+
+```java
+import com.hissain.jscipy.signal.Hilbert;
+import org.apache.commons.math3.complex.Complex;
+
+public class HilbertExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 0.0, -1.0, 0.0};
+        
+        Hilbert hilbert = new Hilbert();
+        Complex[] analyticSignal = hilbert.hilbert(signal);
+        
+        System.out.println("Analytic Signal (Real + j*Imag):");
+        for (Complex c : analyticSignal) {
+            System.out.printf("%.2f + j%.2f\n", c.getReal(), c.getImaginary());
+        }
     }
 }
 ```
