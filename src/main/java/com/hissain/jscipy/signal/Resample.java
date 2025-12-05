@@ -24,7 +24,6 @@ public class Resample implements IResample {
         // 1. Get the RFFT spectrum
         // FFT.rfft returns a Complex array of length N/2 + 1, where N is input signal length.
         Complex[] rfftSpectrum = fft.rfft(signal);
-        System.out.println("DEBUG: Original RFFT Spectrum (len=" + rfftSpectrum.length + "): " + Arrays.toString(rfftSpectrum));
 
         // 2. Create new RFFT spectrum of target length, initialized to zeros
         // The new RFFT spectrum will have length num/2 + 1.
@@ -40,11 +39,8 @@ public class Resample implements IResample {
         int copyLength = Math.min(originalRfftLength, newRfftLength);
         System.arraycopy(rfftSpectrum, 0, resampledRfftSpectrum, 0, copyLength);
 
-        System.out.println("DEBUG: Resampled RFFT Spectrum (len=" + resampledRfftSpectrum.length + "): " + Arrays.toString(resampledRfftSpectrum));
-
         // 4. Perform Inverse RFFT
         double[] realResult = fft.irfft(resampledRfftSpectrum, num);
-        System.out.println("DEBUG: IRFFT Result (before final scale, len=" + realResult.length + "): " + Arrays.toString(realResult));
 
         // 5. Apply final scaling
         // SciPy's signal.resample documentation states it scales by num / len so energy is conserved.

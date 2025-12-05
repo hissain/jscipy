@@ -1,6 +1,6 @@
 # jSciPy: A Java Scientific Computing Library
 
-jSciPy is a Java library for scientific computing, providing functionality inspired by widely used scientific toolkits. It currently includes modules for signal processing, such as Butterworth filters, peak detection algorithms, and an RK4 solver for ordinary differential equations.
+jSciPy is a Java library for scientific computing, providing functionality inspired by widely used scientific toolkits. It currently includes modules for signal processing, such as Butterworth filters, peak detection algorithms, RK4 solver, interpolation, FFT, resampling, Savitzky-Golay filter, detrending, median filtering, convolution, and Hilbert transform.
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
@@ -30,6 +30,12 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 * **Detrend**:
   * Remove linear trend from data.
   * Remove constant trend (mean) from data.
+* **Medfilt**:
+  * Perform a median filter on a signal.
+  * Supports custom kernel sizes.
+* **Convolve**:
+  * Convolve two signals using the 'same' mode.
+  * Supports 1D convolution.
 * **Hilbert Transform**:
   * Compute the analytic signal using the Hilbert transform.
 
@@ -104,6 +110,14 @@ A seperate demo android application is built on this library that might be helpf
 ### Detrend Comparison
 
 ![Detrend Comparison](python/figs/detrend_comparison_1.png)
+
+### MedFilt Comparison
+
+![MedFilt Comparison](python/figs/medfilt_comparison.png)
+
+### Convolve Comparison
+
+![Convolve Comparison](python/figs/convolve_comparison.png)
 
 ### Hilbert Transform Comparison
 
@@ -356,6 +370,37 @@ public class DetrendExample {
         for (double d : detrended) {
             System.out.printf("%.2f ", d);
         }
+        System.out.println();
+    }
+}
+```
+
+### MedFilt and Convolve
+
+```java
+import com.hissain.jscipy.signal.MedFilt;
+import com.hissain.jscipy.signal.Convolve;
+
+public class FilterExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0};
+        
+        // Median Filter
+        MedFilt medFilt = new MedFilt();
+        int kernelSize = 3;
+        double[] medFiltered = medFilt.medfilt(signal, kernelSize);
+        
+        System.out.println("Median Filtered:");
+        for(double v : medFiltered) System.out.print(v + " ");
+        System.out.println();
+        
+        // Convolution
+        Convolve convolve = new Convolve();
+        double[] window = {0.25, 0.5, 0.25};
+        double[] convolved = convolve.convolve(signal, window, "same");
+        
+        System.out.println("Convolved:");
+        for(double v : convolved) System.out.print(v + " ");
         System.out.println();
     }
 }
