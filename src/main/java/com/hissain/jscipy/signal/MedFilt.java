@@ -1,11 +1,9 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.IMedFilt;
 import java.util.Arrays;
 
-public class MedFilt implements IMedFilt {
+class MedFilt {
 
-    @Override
     public double[] medfilt(double[] data, int kernelSize) {
         if (kernelSize % 2 == 0) {
             throw new IllegalArgumentException("Kernel size must be odd.");

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.hissain.jscipy.signal.Detrend;
-import com.hissain.jscipy.signal.api.DetrendType;
+import com.hissain.jscipy.signal.DetrendType;
 
 public class DetrendTest {
 

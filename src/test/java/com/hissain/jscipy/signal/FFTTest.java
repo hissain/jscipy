@@ -1,6 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.fft.FFT;
 import org.apache.commons.math3.complex.Complex;
 import org.junit.jupiter.api.Test;
 
@@ -161,4 +160,3 @@ public class FFTTest {
         }
     }
 }
-

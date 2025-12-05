@@ -1,14 +1,10 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.DetrendType;
-import com.hissain.jscipy.signal.api.IDetrend;
-
 /**
- * Implementation of {@link IDetrend} for removing trends from signals.
+ * Implementation for removing trends from signals.
  */
-public class Detrend implements IDetrend {
+class Detrend {
 
-    @Override
     public double[] detrend(double[] signal, DetrendType type) {
         if (signal == null) {
             throw new NullPointerException("Signal cannot be null");
@@ -30,7 +26,6 @@ public class Detrend implements IDetrend {
         }
     }
 
-    @Override
     public double[] detrend(double[] signal) {
         return detrend(signal, DetrendType.LINEAR);
     }

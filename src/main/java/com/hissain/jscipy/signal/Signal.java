@@ -1,6 +1,6 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.*;
+import com.hissain.jscipy.signal.butterworth.ButterworthFilter;
 import org.apache.commons.math3.complex.Complex;
 
 import java.util.Map;
@@ -54,6 +54,7 @@ public class Signal {
 
     /**
      * Removes a linear or constant trend from the signal using a string type.
+     * Consider using {@link #detrend(double[], DetrendType)} instead for type safety.
      *
      * @param signal The input signal.
      * @param type   The type of detrending ("linear" or "constant").
@@ -141,6 +142,7 @@ public class Signal {
 
     /**
      * Convolves two signals using a string mode ("same", "full", "valid").
+     * Consider using {@link #convolve(double[], double[], ConvolutionMode)} instead for type safety.
      *
      * @param signal The first signal.
      * @param window The second signal (window).
@@ -205,5 +207,31 @@ public class Signal {
      */
     public static double[] savgol_filter(double[] x, int windowLength, int polyOrder) {
         return savgol_filter(x, windowLength, polyOrder, 0, 1.0);
+    }
+
+    // --- Interpolation ---
+
+    /**
+     * Performs linear interpolation on the given data points.
+     *
+     * @param x    The x-coordinates of the data points.
+     * @param y    The y-coordinates of the data points.
+     * @param newX The x-coordinates at which to evaluate the interpolated values.
+     * @return The interpolated values.
+     */
+    public static double[] interp1d_linear(double[] x, double[] y, double[] newX) {
+        return new Interpolation().linear(x, y, newX);
+    }
+
+    /**
+     * Performs cubic spline interpolation on the given data points.
+     *
+     * @param x    The x-coordinates of the data points.
+     * @param y    The y-coordinates of the data points.
+     * @param newX The x-coordinates at which to evaluate the interpolated values.
+     * @return The interpolated values.
+     */
+    public static double[] interp1d_cubic(double[] x, double[] y, double[] newX) {
+        return new Interpolation().cubic(x, y, newX);
     }
 }

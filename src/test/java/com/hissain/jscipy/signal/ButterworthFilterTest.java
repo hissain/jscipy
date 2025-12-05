@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.hissain.jscipy.signal.ButterworthFilter;
+import com.hissain.jscipy.signal.butterworth.ButterworthFilter;
 
 public class ButterworthFilterTest {
 

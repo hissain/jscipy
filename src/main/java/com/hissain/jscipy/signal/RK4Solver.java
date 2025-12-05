@@ -3,34 +3,38 @@ package com.hissain.jscipy.signal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
-import com.hissain.jscipy.signal.api.IRK4Solver;
 
 /**
  * Runge-Kutta 4th Order Method for solving ODEs
  * Usage similar to Python's scipy.integrate.odeint
  */
-public class RK4Solver implements IRK4Solver {
+public class RK4Solver {
     
     /**
      * Functional interface for defining the differential equation dy/dt = f(t, y)
      */
     @FunctionalInterface
-    public interface DifferentialEquation extends IRK4Solver.DifferentialEquation {
-        @Override
+    public interface DifferentialEquation {
         double compute(double t, double y);
     }
     
     /**
      * Result class to hold the solution
      */
-    public static class Solution extends IRK4Solver.Solution {
+    public static class Solution {
+        /** Array of time points */
+        public final double[] t;
+        /** Array of solution values corresponding to time points */
+        public final double[] y;
+
         /**
          * Constructs a new Solution object.
          * @param t Array of time points.
          * @param y Array of solution values corresponding to time points.
          */
         public Solution(double[] t, double[] y) {
-            super(t, y);
+            this.t = t;
+            this.y = y;
         }
         
         /**
@@ -55,8 +59,7 @@ public class RK4Solver implements IRK4Solver {
      * @param h     Step size
      * @return      Solution object containing t and y arrays
      */
-    @Override
-    public Solution solve(IRK4Solver.DifferentialEquation f, double y0, double t0, double tf, double h) {
+    public Solution solve(DifferentialEquation f, double y0, double t0, double tf, double h) {
         int n = (int) Math.ceil((tf - t0) / h) + 1;
         double[] t = new double[n];
         double[] y = new double[n];
@@ -85,8 +88,7 @@ public class RK4Solver implements IRK4Solver {
      * @param tSpan Array of time points where solution is desired
      * @return      Solution object containing t and y arrays
      */
-    @Override
-    public Solution solve(IRK4Solver.DifferentialEquation f, double y0, double[] tSpan) {
+    public Solution solve(DifferentialEquation f, double y0, double[] tSpan) {
         int n = tSpan.length;
         double[] y = new double[n];
         y[0] = y0;

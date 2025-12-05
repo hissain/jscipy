@@ -1,20 +1,16 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.butterworth;
 
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.ArrayRealVector;
-import org.apache.commons.math3.linear.DecompositionSolver;
 import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
-import com.hissain.jscipy.signal.butterworth.Biquad;
-import com.hissain.jscipy.signal.butterworth.Butterworth;
-import com.hissain.jscipy.signal.api.IButterworthFilter;
 
 /**
  * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
  * This class provides methods to apply Butterworth low-pass filters to signals.
  */
-public class ButterworthFilter implements IButterworthFilter {
+public class ButterworthFilter {
 
     /**
      * Calculates the initial conditions for `lfilter` (linear filter).

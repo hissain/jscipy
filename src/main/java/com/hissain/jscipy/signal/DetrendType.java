@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal.api;
+package com.hissain.jscipy.signal;
 
 public enum DetrendType {
     LINEAR,

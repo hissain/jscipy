@@ -50,7 +50,7 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -71,9 +71,7 @@ loadScripts(document, 'script');</script>
 <h1 title="Class RK4Solver.Solution" class="title">Class RK4Solver.Solution</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="api/IRK4Solver.Solution.html" title="class in com.hissain.jscipy.signal.api">com.hissain.jscipy.signal.api.IRK4Solver.Solution</a>
 <div class="inheritance">com.hissain.jscipy.signal.RK4Solver.Solution</div>
-</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
@@ -82,7 +80,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public static class </span><span class="element-name type-name-label">RK4Solver.Solution</span>
-<span class="extends-implements">extends <a href="api/IRK4Solver.Solution.html" title="class in com.hissain.jscipy.signal.api">IRK4Solver.Solution</a></span></div>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Result class to hold the solution</div>
 </section>
 <section class="summary">
@@ -91,9 +89,22 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="field-summary" id="field-summary">
 <h2>Field Summary</h2>
-<div class="inherited-list">
-<h3 id="fields-inherited-from-class-com.hissain.jscipy.signal.api.IRK4Solver.Solution">Fields inherited from class&nbsp;com.hissain.jscipy.signal.api.<a href="api/IRK4Solver.Solution.html" title="class in com.hissain.jscipy.signal.api">IRK4Solver.Solution</a></h3>
-<code><a href="api/IRK4Solver.Solution.html#t">t</a>, <a href="api/IRK4Solver.Solution.html#y">y</a></code></div>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>final double[]</code></div>
+<div class="col-second even-row-color"><code><a href="#t" class="member-name-link">t</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Array of time points</div>
+</div>
+<div class="col-first odd-row-color"><code>final double[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#y" class="member-name-link">y</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Array of solution values corresponding to time points</div>
+</div>
+</div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -140,6 +151,28 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="t">
+<h3>t</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">t</span></div>
+<div class="block">Array of time points</div>
+</section>
+</li>
+<li>
+<section class="detail" id="y">
+<h3>y</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">y</span></div>
+<div class="block">Array of solution values corresponding to time points</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">

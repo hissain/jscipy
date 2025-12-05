@@ -29,7 +29,7 @@ import com.hissain.jscipy.signal.butterworth.Biquad;
  *
  */
 
-public class DirectFormII extends DirectFormAbstract {
+class DirectFormII extends DirectFormAbstract {
 
     public DirectFormII() {
         reset();

@@ -28,7 +28,7 @@ import com.hissain.jscipy.signal.butterworth.MathSupplement;
 /**
  * Transforms from an analogue lowpass filter to a digital bandstop filter
  */
-public class BandStopTransform {
+class BandStopTransform {
 
 
   private double wc;

@@ -1,6 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.interpolate.Interpolation;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

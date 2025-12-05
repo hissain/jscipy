@@ -27,7 +27,7 @@ import org.apache.commons.math3.complex.Complex;
  * Useful math functions which come back over and over again
  *
  */
-public class MathSupplement {
+class MathSupplement {
 	
 	public static double doubleLn10 =2.3025850929940456840179914546844;
 

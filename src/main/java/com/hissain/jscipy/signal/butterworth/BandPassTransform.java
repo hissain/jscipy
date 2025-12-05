@@ -30,7 +30,7 @@ import com.hissain.jscipy.signal.butterworth.MathSupplement;
 /**
  * Transforms from an analogue bandpass filter to a digital bandstop filter
  */
-public class BandPassTransform {
+class BandPassTransform {
 
 	private double wc2;
 	private double wc;

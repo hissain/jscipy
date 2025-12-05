@@ -36,7 +36,7 @@ import com.hissain.jscipy.signal.butterworth.DirectFormAbstract;
  *         set the SOS coefficients. See the unit
  *         test for examples how to set the coefficients.
  */
-public class SOSCascade extends Cascade {
+class SOSCascade extends Cascade {
 
 	/**
 	 * Sets directly the coefficients of the chain of

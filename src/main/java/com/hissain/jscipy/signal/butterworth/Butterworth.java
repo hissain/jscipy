@@ -38,7 +38,7 @@ import com.hissain.jscipy.signal.butterworth.DirectFormAbstract;
  *         low-,high-,band-, or stopband filters. For example:
  *         butterworth.bandPass(2,250,50,5);
  */
-public class Butterworth extends Cascade {
+class Butterworth extends Cascade {
 
 	class AnalogLowPass extends LayoutBase {
 

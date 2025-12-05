@@ -1,6 +1,5 @@
-package com.hissain.jscipy.signal.fft;
+package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.IFFT;
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.transform.DftNormalization;
 import org.apache.commons.math3.transform.FastFourierTransformer;
@@ -8,7 +7,7 @@ import org.apache.commons.math3.transform.TransformType;
 
 import java.util.Arrays;
 
-public class FFT implements IFFT {
+class FFT {
 
     private final FastFourierTransformer transformer;
 
@@ -25,7 +24,6 @@ public class FFT implements IFFT {
         return power;
     }
 
-    @Override
     public Complex[] fft(double[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
@@ -51,7 +49,6 @@ public class FFT implements IFFT {
         return output;
     }
 
-    @Override
     public Complex[] rfft(double[] input) {
         Complex[] fftResult = fft(input);
         int n = input.length;
@@ -59,7 +56,6 @@ public class FFT implements IFFT {
         return Arrays.copyOf(fftResult, resultSize);
     }
 
-    @Override
     public Complex[] ifft(Complex[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
@@ -85,7 +81,6 @@ public class FFT implements IFFT {
         return output;
     }
 
-    @Override
     public double[] irfft(Complex[] input, int n) {
         // Reconstruct the full complex spectrum from the RFFT output
         Complex[] fullSpectrum = new Complex[n];

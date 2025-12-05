@@ -28,7 +28,7 @@ import com.hissain.jscipy.signal.butterworth.Biquad;
  * are supplied from the outside.
  *
  */
-public class DirectFormI extends DirectFormAbstract {
+class DirectFormI extends DirectFormAbstract {
 
     public DirectFormI() {
         reset();

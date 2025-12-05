@@ -1,12 +1,10 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.IResample;
-import com.hissain.jscipy.signal.fft.FFT;
 import org.apache.commons.math3.complex.Complex;
 
 import java.util.Arrays;
 
-public class Resample implements IResample {
+class Resample {
 
     private final FFT fft;
 
@@ -14,7 +12,6 @@ public class Resample implements IResample {
         this.fft = new FFT();
     }
 
-    @Override
     public double[] resample(double[] signal, int num) {
         int len = signal.length;
         if (len == 0) {

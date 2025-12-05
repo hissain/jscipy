@@ -28,7 +28,7 @@ import com.hissain.jscipy.signal.butterworth.ComplexPair;
  * It's written on the tin.
  *
  */
-public class PoleZeroPair {
+class PoleZeroPair {
 
 	public ComplexPair poles;
 	public ComplexPair zeros;

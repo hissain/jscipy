@@ -28,7 +28,7 @@ import com.hissain.jscipy.signal.butterworth.PoleZeroPair;
 /**
  * Transforms from an analogue lowpass filter to a digital lowpass filter
  */
-public class LowPassTransform {
+class LowPassTransform {
 
 	private double f;
 

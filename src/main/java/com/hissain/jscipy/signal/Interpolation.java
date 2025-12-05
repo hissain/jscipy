@@ -1,14 +1,12 @@
-package com.hissain.jscipy.signal.interpolate;
+package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.IInterpolation;
 import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
 import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 
 import java.util.Arrays;
 
-public class Interpolation implements IInterpolation {
+class Interpolation {
 
-    @Override
     public double[] linear(double[] x, double[] y, double[] newX) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("x and y must have the same length");
@@ -24,7 +22,6 @@ public class Interpolation implements IInterpolation {
         return newY;
     }
 
-    @Override
     public double[] cubic(double[] x, double[] y, double[] newX) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("x and y must have the same length");

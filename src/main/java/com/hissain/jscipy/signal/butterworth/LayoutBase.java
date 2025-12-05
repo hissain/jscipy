@@ -30,7 +30,7 @@ import com.hissain.jscipy.signal.butterworth.ComplexPair;
  * storage as PoleZeroPairs so that we have as always a 2nd order filter
  *
  */
-public class LayoutBase {
+class LayoutBase {
 
 	private int m_numPoles;
 	private PoleZeroPair[] m_pair;

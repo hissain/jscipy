@@ -29,7 +29,7 @@ import com.hissain.jscipy.signal.butterworth.MathSupplement;
 /**
  * Contains the coefficients of a 2nd order digital filter with two poles and two zeros
  */
-public class Biquad {
+class Biquad {
 
     double m_a0;
     double m_a1;

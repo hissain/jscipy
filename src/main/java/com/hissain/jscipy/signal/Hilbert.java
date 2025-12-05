@@ -1,15 +1,13 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.api.IHilbert;
-import com.hissain.jscipy.signal.fft.FFT;
 import org.apache.commons.math3.complex.Complex;
 
 import java.util.Arrays;
 
 /**
- * Implementation of {@link IHilbert} for computing the analytic signal.
+ * Implementation for computing the analytic signal.
  */
-public class Hilbert implements IHilbert {
+class Hilbert {
 
     private final FFT fft;
 
@@ -17,7 +15,6 @@ public class Hilbert implements IHilbert {
         this.fft = new FFT();
     }
 
-    @Override
     public Complex[] hilbert(double[] signal) {
         if (signal == null) {
             throw new NullPointerException("Signal cannot be null");

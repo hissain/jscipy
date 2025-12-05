@@ -28,7 +28,7 @@ import org.apache.commons.math3.complex.Complex;
  * A complex pair
  *
  */
-public class ComplexPair {
+class ComplexPair {
 
         public Complex first;
         public Complex second;

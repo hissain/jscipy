@@ -2,8 +2,8 @@ package com.hissain.jscipy.signal;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import com.hissain.jscipy.signal.api.DetrendType;
-import com.hissain.jscipy.signal.api.ConvolutionMode;
+import com.hissain.jscipy.signal.DetrendType;
+import com.hissain.jscipy.signal.ConvolutionMode;
 
 public class SignalFacadeTest {
 

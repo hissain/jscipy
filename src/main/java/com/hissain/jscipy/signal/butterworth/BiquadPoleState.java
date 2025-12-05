@@ -27,7 +27,7 @@ import com.hissain.jscipy.signal.butterworth.PoleZeroPair;
 /**
  * PoleZeroPair with gain factor
  */
-public class BiquadPoleState extends PoleZeroPair {
+class BiquadPoleState extends PoleZeroPair {
 
 
 	public BiquadPoleState(Complex p, Complex z) {

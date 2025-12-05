@@ -38,7 +38,7 @@ import com.hissain.jscipy.signal.butterworth.MathSupplement;
  * of the 2nd order filters which also imply if it's direct form I or II
  *
  */
-public class Cascade {
+class Cascade {
 
 	// coefficients
 	private Biquad[] m_biquads;

@@ -27,7 +27,7 @@ import com.hissain.jscipy.signal.butterworth.Biquad;
  *
  * Direct form I or II is derived from it
  */
-public abstract class DirectFormAbstract {
+abstract class DirectFormAbstract {
 
     public DirectFormAbstract () {
         reset();
