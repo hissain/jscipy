@@ -7,10 +7,17 @@ import org.apache.commons.math3.transform.TransformType;
 
 import java.util.Arrays;
 
-class FFT {
+/**
+ * A class for performing Fast Fourier Transforms (FFT).
+ * This class uses the Apache Commons Math library for FFT calculations.
+ */
+public class FFT {
 
     private final FastFourierTransformer transformer;
 
+    /**
+     * Constructs a new FFT object.
+     */
     public FFT() {
         this.transformer = new FastFourierTransformer(DftNormalization.STANDARD);
     }
@@ -24,6 +31,11 @@ class FFT {
         return power;
     }
 
+    /**
+     * Computes the forward FFT of a real-valued signal.
+     * @param input The input signal.
+     * @return The complex-valued FFT of the signal.
+     */
     public Complex[] fft(double[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
@@ -49,6 +61,11 @@ class FFT {
         return output;
     }
 
+    /**
+     * Computes the forward FFT of a real-valued signal and returns the positive frequency components.
+     * @param input The input signal.
+     * @return The positive frequency components of the FFT.
+     */
     public Complex[] rfft(double[] input) {
         Complex[] fftResult = fft(input);
         int n = input.length;
@@ -56,6 +73,11 @@ class FFT {
         return Arrays.copyOf(fftResult, resultSize);
     }
 
+    /**
+     * Computes the inverse FFT of a complex-valued signal.
+     * @param input The complex-valued input signal.
+     * @return The complex-valued inverse FFT of the signal.
+     */
     public Complex[] ifft(Complex[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
@@ -81,6 +103,12 @@ class FFT {
         return output;
     }
 
+    /**
+     * Computes the inverse FFT of a real-valued signal.
+     * @param input The complex-valued input signal.
+     * @param n The length of the original signal.
+     * @return The real-valued inverse FFT of the signal.
+     */
     public double[] irfft(Complex[] input, int n) {
         // Reconstruct the full complex spectrum from the RFFT output
         Complex[] fullSpectrum = new Complex[n];
