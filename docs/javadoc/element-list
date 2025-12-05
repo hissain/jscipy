@@ -1,0 +1,5 @@
+com.hissain.jscipy.signal
+com.hissain.jscipy.signal.api
+com.hissain.jscipy.signal.butterworth
+com.hissain.jscipy.signal.fft
+com.hissain.jscipy.signal.interpolate

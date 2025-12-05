@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.hissain.jscipy.signal"},{"l":"com.hissain.jscipy.signal.api"},{"l":"com.hissain.jscipy.signal.butterworth"},{"l":"com.hissain.jscipy.signal.fft"},{"l":"com.hissain.jscipy.signal.interpolate"}];updateSearchResults();

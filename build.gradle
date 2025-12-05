@@ -49,6 +49,7 @@ test {
 }
 
 tasks.withType(Javadoc) {
+    destinationDir = file("$rootDir/docs/javadoc")
     options.addStringOption('Xdoclint:none', '-quiet')
     options.addStringOption('Xmaxwarns', '0') // Suppress all warnings
     options.addStringOption('Xmaxerrs', '0') // Suppress all errors
