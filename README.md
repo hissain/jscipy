@@ -128,7 +128,7 @@ A seperate demo android application is built on this library that might be helpf
 ### Butterworth Filter
 
 ```java
-import com.hissain.jscipy.signal.ButterworthFilter;
+import com.hissain.jscipy.signal.Signal;
 
 public class FilterExample {
     public static void main(String[] args) {
@@ -137,10 +137,8 @@ public class FilterExample {
         double cutoffFrequency = 10.0; // Hz
         int order = 4;
 
-        ButterworthFilter filter = new ButterworthFilter();
-
         // Apply a low-pass filter (zero-phase)
-        double[] filteredSignal = filter.filtfilt(signal, sampleRate, cutoffFrequency, order);
+        double[] filteredSignal = Signal.filtfilt(signal, sampleRate, cutoffFrequency, order);
 
         System.out.println("Filtered Signal (filtfilt):");
         for (double value : filteredSignal) {
@@ -149,7 +147,7 @@ public class FilterExample {
         System.out.println();
 
         // Apply a low-pass filter (causal)
-        double[] causalFilteredSignal = filter.filter(signal, sampleRate, cutoffFrequency, order);
+        double[] causalFilteredSignal = Signal.lfilter(signal, sampleRate, cutoffFrequency, order);
 
         System.out.println("Filtered Signal (causal filter):");
         for (double value : causalFilteredSignal) {
@@ -163,31 +161,20 @@ public class FilterExample {
 ### Find Peaks
 
 ```java
-import com.hissain.jscipy.signal.FindPeaks;
-import java.util.Map;
+import com.hissain.jscipy.signal.Signal;
 
 public class FindPeaksExample {
     public static void main(String[] args) {
         double[] signal = {0.0, 1.0, 0.5, 2.0, 0.3, 1.5, 0.8, 3.0, 0.2, 1.0};
 
-        FindPeaks findPeaks = new FindPeaks();
-        FindPeaks.PeakParams params = new FindPeaks.PeakParams();
-        params.distance = 2; // Minimum distance between peaks
-        params.height = 0.5; // Minimum height of peaks
-        params.prominence = 0.5; // Minimum prominence of peaks
-
-        FindPeaks.PeakResult result = findPeaks.findPeaks(signal, params);
+        // Find peaks with parameters (height=0.5, distance=2, prominence=0.5)
+        int[] peaks = Signal.find_peaks(signal, 0.5, 2, 0.5);
 
         System.out.println("Detected Peaks at indices:");
-        for (int peakIndex : result.peaks) {
+        for (int peakIndex : peaks) {
             System.out.print(peakIndex + " ");
         }
         System.out.println();
-
-        System.out.println("Peak Properties:");
-        for (Map.Entry<String, double[]> entry : result.properties.entrySet()) {
-            System.out.println(entry.getKey() + ": " + java.util.Arrays.toString(entry.getValue()));
-        }
     }
 }
 ```
@@ -301,15 +288,14 @@ public class FFTExample {
 ### Resample
 
 ```java
-import com.hissain.jscipy.signal.Resample;
+import com.hissain.jscipy.signal.Signal;
 
 public class ResampleExample {
     public static void main(String[] args) {
         double[] signal = {0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0};
         int num = 4;
 
-        Resample resample = new Resample();
-        double[] resampledSignal = resample.resample(signal, num);
+        double[] resampledSignal = Signal.resample(signal, num);
 
         System.out.println("Resampled Signal:");
         for (double d : resampledSignal) {
@@ -323,7 +309,7 @@ public class ResampleExample {
 ### Savitzky-Golay Filter
 
 ```java
-import com.hissain.jscipy.signal.SavitzkyGolayFilter;
+import com.hissain.jscipy.signal.Signal;
 
 public class SavGolExample {
     public static void main(String[] args) {
@@ -331,18 +317,16 @@ public class SavGolExample {
         int windowLength = 5;
         int polyOrder = 2;
 
-        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
-
         // Smooth the signal
-        double[] smoothed = filter.smooth(signal, windowLength, polyOrder);
+        double[] smoothed = Signal.savgol_filter(signal, windowLength, polyOrder);
         System.out.println("Smoothed Signal:");
         for (double d : smoothed) {
             System.out.printf("%.2f ", d);
         }
         System.out.println();
 
-        // Calculate derivative
-        double[] derivative = filter.differentiate(signal, windowLength, polyOrder, 1, 1.0);
+        // Calculate derivative (deriv=1)
+        double[] derivative = Signal.savgol_filter(signal, windowLength, polyOrder, 1, 1.0);
         System.out.println("First Derivative:");
         for (double d : derivative) {
             System.out.printf("%.2f ", d);
@@ -355,17 +339,15 @@ public class SavGolExample {
 ### Detrend
 
 ```java
-import com.hissain.jscipy.signal.Detrend;
+import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.api.DetrendType;
 
 public class DetrendExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0}; // Linear trend
         
-        Detrend detrender = new Detrend();
-        
         // Remove linear trend
-        // Note: Import com.hissain.jscipy.signal.api.DetrendType;
-        double[] detrended = detrender.detrend(signal, com.hissain.jscipy.signal.api.DetrendType.LINEAR);
+        double[] detrended = Signal.detrend(signal, DetrendType.LINEAR);
         
         System.out.println("Detrended Signal:");
         for (double d : detrended) {
@@ -379,27 +361,24 @@ public class DetrendExample {
 ### MedFilt and Convolve
 
 ```java
-import com.hissain.jscipy.signal.MedFilt;
-import com.hissain.jscipy.signal.Convolve;
+import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.api.ConvolutionMode;
 
 public class FilterExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0};
         
         // Median Filter
-        MedFilt medFilt = new MedFilt();
         int kernelSize = 3;
-        double[] medFiltered = medFilt.medfilt(signal, kernelSize);
+        double[] medFiltered = Signal.medfilt(signal, kernelSize);
         
         System.out.println("Median Filtered:");
         for(double v : medFiltered) System.out.print(v + " ");
         System.out.println();
         
         // Convolution
-        Convolve convolve = new Convolve();
         double[] window = {0.25, 0.5, 0.25};
-        // Note: Import com.hissain.jscipy.signal.api.ConvolutionMode;
-        double[] convolved = convolve.convolve(signal, window, com.hissain.jscipy.signal.api.ConvolutionMode.SAME);
+        double[] convolved = Signal.convolve(signal, window, ConvolutionMode.SAME);
         
         System.out.println("Convolved:");
         for(double v : convolved) System.out.print(v + " ");
@@ -411,15 +390,14 @@ public class FilterExample {
 ### Hilbert Transform
 
 ```java
-import com.hissain.jscipy.signal.Hilbert;
+import com.hissain.jscipy.signal.Signal;
 import org.apache.commons.math3.complex.Complex;
 
 public class HilbertExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 0.0, -1.0, 0.0};
         
-        Hilbert hilbert = new Hilbert();
-        Complex[] analyticSignal = hilbert.hilbert(signal);
+        Complex[] analyticSignal = Signal.hilbert(signal);
         
         System.out.println("Analytic Signal (Real + j*Imag):");
         for (Complex c : analyticSignal) {
