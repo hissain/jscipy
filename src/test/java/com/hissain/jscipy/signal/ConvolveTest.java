@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import com.hissain.jscipy.signal.util.LoadTxt;
+import com.hissain.jscipy.signal.api.ConvolutionMode;
 
 public class ConvolveTest {
 
@@ -14,7 +15,7 @@ public class ConvolveTest {
         double[] expected = LoadTxt.read("datasets/convolve_output.txt");
 
         Convolve convolve = new Convolve();
-        double[] actual = convolve.convolve(signal, window, "same");
+        double[] actual = convolve.convolve(signal, window, ConvolutionMode.SAME);
 
         com.hissain.jscipy.signal.util.LoadTxt.write("datasets/convolve_output_java.txt", actual);
 

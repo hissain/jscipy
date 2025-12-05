@@ -1,5 +1,6 @@
 package com.hissain.jscipy.signal;
 
+import com.hissain.jscipy.signal.api.DetrendType;
 import com.hissain.jscipy.signal.api.IDetrend;
 
 /**
@@ -8,7 +9,7 @@ import com.hissain.jscipy.signal.api.IDetrend;
 public class Detrend implements IDetrend {
 
     @Override
-    public double[] detrend(double[] signal, String type) {
+    public double[] detrend(double[] signal, DetrendType type) {
         if (signal == null) {
             throw new NullPointerException("Signal cannot be null");
         }
@@ -16,18 +17,22 @@ public class Detrend implements IDetrend {
             return new double[0];
         }
 
-        if ("constant".equalsIgnoreCase(type)) {
+        if (type == DetrendType.CONSTANT) {
             return detrendConstant(signal);
-        } else if ("linear".equalsIgnoreCase(type)) {
+        } else if (type == DetrendType.LINEAR) {
             return detrendLinear(signal);
         } else {
-            throw new IllegalArgumentException("Invalid detrend type: " + type + ". Supported types are 'linear' and 'constant'.");
+            // Should theoretically not happen if Enum is used, unless null is passed.
+            if (type == null) {
+                throw new IllegalArgumentException("Detrend type cannot be null.");
+            }
+            throw new IllegalArgumentException("Unsupported detrend type: " + type);
         }
     }
 
     @Override
     public double[] detrend(double[] signal) {
-        return detrend(signal, "linear");
+        return detrend(signal, DetrendType.LINEAR);
     }
 
     private double[] detrendConstant(double[] signal) {

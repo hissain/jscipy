@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.hissain.jscipy.signal.Detrend;
+import com.hissain.jscipy.signal.api.DetrendType;
 
 public class DetrendTest {
 
@@ -30,7 +31,7 @@ public class DetrendTest {
         return data.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedOutputFilename, String type) throws IOException {
+    private void runTest(String inputFilename, String expectedOutputFilename, DetrendType type) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
         Detrend detrender = new Detrend();
@@ -59,21 +60,21 @@ public class DetrendTest {
 
     @Test
     public void testLinearDetrend1() throws IOException {
-        runTest("detrend_input_1.txt", "detrend_output_linear_1.txt", "linear");
+        runTest("detrend_input_1.txt", "detrend_output_linear_1.txt", DetrendType.LINEAR);
     }
 
     @Test
     public void testConstantDetrend1() throws IOException {
-        runTest("detrend_input_1.txt", "detrend_output_constant_1.txt", "constant");
+        runTest("detrend_input_1.txt", "detrend_output_constant_1.txt", DetrendType.CONSTANT);
     }
 
     @Test
     public void testLinearDetrend2() throws IOException {
-        runTest("detrend_input_2.txt", "detrend_output_linear_2.txt", "linear");
+        runTest("detrend_input_2.txt", "detrend_output_linear_2.txt", DetrendType.LINEAR);
     }
 
     @Test
     public void testConstantDetrend2() throws IOException {
-        runTest("detrend_input_2.txt", "detrend_output_constant_2.txt", "constant");
+        runTest("detrend_input_2.txt", "detrend_output_constant_2.txt", DetrendType.CONSTANT);
     }
 }

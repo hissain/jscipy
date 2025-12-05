@@ -1,12 +1,13 @@
 package com.hissain.jscipy.signal;
 
+import com.hissain.jscipy.signal.api.ConvolutionMode;
 import com.hissain.jscipy.signal.api.IConvolve;
 
 public class Convolve implements IConvolve {
 
     @Override
-    public double[] convolve(double[] signal, double[] window, String mode) {
-        if (!"same".equals(mode)) {
+    public double[] convolve(double[] signal, double[] window, ConvolutionMode mode) {
+        if (mode != ConvolutionMode.SAME) {
             throw new UnsupportedOperationException("Only 'same' mode is supported for now.");
         }
         int signalLen = signal.length;

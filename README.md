@@ -364,7 +364,8 @@ public class DetrendExample {
         Detrend detrender = new Detrend();
         
         // Remove linear trend
-        double[] detrended = detrender.detrend(signal, "linear");
+        // Note: Import com.hissain.jscipy.signal.api.DetrendType;
+        double[] detrended = detrender.detrend(signal, com.hissain.jscipy.signal.api.DetrendType.LINEAR);
         
         System.out.println("Detrended Signal:");
         for (double d : detrended) {
@@ -397,7 +398,8 @@ public class FilterExample {
         // Convolution
         Convolve convolve = new Convolve();
         double[] window = {0.25, 0.5, 0.25};
-        double[] convolved = convolve.convolve(signal, window, "same");
+        // Note: Import com.hissain.jscipy.signal.api.ConvolutionMode;
+        double[] convolved = convolve.convolve(signal, window, com.hissain.jscipy.signal.api.ConvolutionMode.SAME);
         
         System.out.println("Convolved:");
         for(double v : convolved) System.out.print(v + " ");

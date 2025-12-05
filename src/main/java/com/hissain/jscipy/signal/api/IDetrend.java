@@ -12,12 +12,12 @@ public interface IDetrend {
      * Removes a trend from the signal.
      *
      * @param signal The input 1D signal as a {@code double} array. Must not be {@code null} or empty.
-     * @param type The type of detrending. Can be "linear" or "constant".
+     * @param type The type of detrending. Can be DetrendType.LINEAR or DetrendType.CONSTANT.
      * @return A new {@code double} array containing the detrended signal.
      * @throws IllegalArgumentException if {@code type} is invalid.
      * @throws NullPointerException if {@code signal} is {@code null}.
      */
-    double[] detrend(double[] signal, String type);
+    double[] detrend(double[] signal, DetrendType type);
 
     /**
      * Removes a linear trend from the signal (default behavior).
