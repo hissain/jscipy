@@ -39,6 +39,10 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 * **Hilbert Transform**:
   * Compute the analytic signal using the Hilbert transform.
 
+## Documentation
+
+You can access full documentation javadoc of the jscipy library [HERE](https://hissain.github.io/jscipy).
+
 ## Getting Started
 
 ### Prerequisites
@@ -345,10 +349,10 @@ import com.hissain.jscipy.signal.api.DetrendType;
 public class DetrendExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0}; // Linear trend
-        
+      
         // Remove linear trend
         double[] detrended = Signal.detrend(signal, DetrendType.LINEAR);
-        
+      
         System.out.println("Detrended Signal:");
         for (double d : detrended) {
             System.out.printf("%.2f ", d);
@@ -367,19 +371,19 @@ import com.hissain.jscipy.signal.api.ConvolutionMode;
 public class FilterExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 2.0, 3.0, 4.0, 5.0};
-        
+      
         // Median Filter
         int kernelSize = 3;
         double[] medFiltered = Signal.medfilt(signal, kernelSize);
-        
+      
         System.out.println("Median Filtered:");
         for(double v : medFiltered) System.out.print(v + " ");
         System.out.println();
-        
+      
         // Convolution
         double[] window = {0.25, 0.5, 0.25};
         double[] convolved = Signal.convolve(signal, window, ConvolutionMode.SAME);
-        
+      
         System.out.println("Convolved:");
         for(double v : convolved) System.out.print(v + " ");
         System.out.println();
@@ -396,9 +400,9 @@ import org.apache.commons.math3.complex.Complex;
 public class HilbertExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 0.0, -1.0, 0.0};
-        
+      
         Complex[] analyticSignal = Signal.hilbert(signal);
-        
+      
         System.out.println("Analytic Signal (Real + j*Imag):");
         for (Complex c : analyticSignal) {
             System.out.printf("%.2f + j%.2f\n", c.getReal(), c.getImaginary());
