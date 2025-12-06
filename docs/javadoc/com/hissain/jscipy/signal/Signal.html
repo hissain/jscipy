@@ -114,23 +114,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Convolves two signals using the specified mode.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#convolve(double%5B%5D,double%5B%5D,java.lang.String)" class="member-name-link">convolve</a><wbr>(double[]&nbsp;signal,
- double[]&nbsp;window,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mode)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Convolves two signals using a string mode ("same", "full", "valid").</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#detrend(double%5B%5D,com.hissain.jscipy.signal.DetrendType)" class="member-name-link">detrend</a><wbr>(double[]&nbsp;signal,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#detrend(double%5B%5D,com.hissain.jscipy.signal.DetrendType)" class="member-name-link">detrend</a><wbr>(double[]&nbsp;signal,
  <a href="DetrendType.html" title="enum class in com.hissain.jscipy.signal">DetrendType</a>&nbsp;type)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Removes a linear or constant trend from the signal.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#detrend(double%5B%5D,java.lang.String)" class="member-name-link">detrend</a><wbr>(double[]&nbsp;signal,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Removes a linear or constant trend from the signal using a string type.</div>
+<div class="block">Removes a linear or constant trend from the signal.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#filtfilt(double%5B%5D,double,double,int)" class="member-name-link">filtfilt</a><wbr>(double[]&nbsp;signal,
@@ -293,22 +280,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="detrend(double[],java.lang.String)">
-<h3>detrend</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">detrend</span><wbr><span class="parameters">(double[]&nbsp;signal,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type)</span></div>
-<div class="block">Removes a linear or constant trend from the signal using a string type.
- Consider using <a href="#detrend(double%5B%5D,com.hissain.jscipy.signal.DetrendType)"><code>detrend(double[], DetrendType)</code></a> instead for type safety.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>signal</code> - The input signal.</dd>
-<dd><code>type</code> - The type of detrending ("linear" or "constant").</dd>
-<dt>Returns:</dt>
-<dd>The detrended signal.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="find_peaks(double[],java.lang.Double,java.lang.Integer,java.lang.Double)">
 <h3>find_peaks</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">find_peaks</span><wbr><span class="parameters">(double[]&nbsp;x,
@@ -380,24 +351,6 @@ loadScripts(document, 'script');</script>
 <dd><code>signal</code> - The first signal.</dd>
 <dd><code>window</code> - The second signal (window).</dd>
 <dd><code>mode</code> - The convolution mode (e.g., ConvolutionMode.SAME).</dd>
-<dt>Returns:</dt>
-<dd>The convolved signal.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="convolve(double[],double[],java.lang.String)">
-<h3>convolve</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">convolve</span><wbr><span class="parameters">(double[]&nbsp;signal,
- double[]&nbsp;window,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mode)</span></div>
-<div class="block">Convolves two signals using a string mode ("same", "full", "valid").
- Consider using <a href="#convolve(double%5B%5D,double%5B%5D,com.hissain.jscipy.signal.ConvolutionMode)"><code>convolve(double[], double[], ConvolutionMode)</code></a> instead for type safety.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>signal</code> - The first signal.</dd>
-<dd><code>window</code> - The second signal (window).</dd>
-<dd><code>mode</code> - The convolution mode ("same", "full", "valid").</dd>
 <dt>Returns:</dt>
 <dd>The convolved signal.</dd>
 </dl>

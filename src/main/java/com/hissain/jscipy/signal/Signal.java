@@ -51,26 +51,6 @@ public class Signal {
         return new Detrend().detrend(signal, type);
     }
 
-    /**
-     * Removes a linear or constant trend from the signal using a string type.
-     * Consider using {@link #detrend(double[], DetrendType)} instead for type safety.
-     *
-     * @param signal The input signal.
-     * @param type   The type of detrending ("linear" or "constant").
-     * @return The detrended signal.
-     */
-    public static double[] detrend(double[] signal, String type) {
-        DetrendType enumType;
-        if ("linear".equalsIgnoreCase(type)) {
-            enumType = DetrendType.LINEAR;
-        } else if ("constant".equalsIgnoreCase(type)) {
-            enumType = DetrendType.CONSTANT;
-        } else {
-            throw new IllegalArgumentException("Invalid detrend type: " + type);
-        }
-        return detrend(signal, enumType);
-    }
-
     // --- Find Peaks ---
 
     /**
@@ -137,29 +117,6 @@ public class Signal {
      */
     public static double[] convolve(double[] signal, double[] window, ConvolutionMode mode) {
         return new Convolve().convolve(signal, window, mode);
-    }
-
-    /**
-     * Convolves two signals using a string mode ("same", "full", "valid").
-     * Consider using {@link #convolve(double[], double[], ConvolutionMode)} instead for type safety.
-     *
-     * @param signal The first signal.
-     * @param window The second signal (window).
-     * @param mode   The convolution mode ("same", "full", "valid").
-     * @return The convolved signal.
-     */
-    public static double[] convolve(double[] signal, double[] window, String mode) {
-        ConvolutionMode enumMode;
-        if ("same".equalsIgnoreCase(mode)) {
-            enumMode = ConvolutionMode.SAME;
-        } else if ("full".equalsIgnoreCase(mode)) {
-            enumMode = ConvolutionMode.FULL;
-        } else if ("valid".equalsIgnoreCase(mode)) {
-            enumMode = ConvolutionMode.VALID;
-        } else {
-            throw new IllegalArgumentException("Invalid convolution mode: " + mode);
-        }
-        return convolve(signal, window, enumMode);
     }
 
     // --- Resample ---
