@@ -103,6 +103,13 @@ public class Chebyshev2 {
 
     /**
      * Applies a zero-phase Chebyshev Type II low-pass filter (filtfilt).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
      */
     public static double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
         return lowPass(signal, sampleRate, cutoff, order, stopBandDb, true);
@@ -110,6 +117,13 @@ public class Chebyshev2 {
 
     /**
      * Applies a causal Chebyshev Type II low-pass filter (lfilter).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
      */
     public static double[] filter(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
         return lowPass(signal, sampleRate, cutoff, order, stopBandDb, false);
