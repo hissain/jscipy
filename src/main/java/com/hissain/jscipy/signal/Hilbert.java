@@ -1,7 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import org.apache.commons.math3.complex.Complex;
-
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Arrays;
@@ -17,16 +15,16 @@ class Hilbert {
         this.fft = new FFT();
     }
 
-    public Complex[] hilbert(double[] signal) {
+    public JComplex[] hilbert(double[] signal) {
         if (signal == null) {
             throw new NullPointerException("Signal cannot be null");
         }
         if (signal.length == 0) {
-            return new Complex[0];
+            return new JComplex[0];
         }
 
         int n = signal.length;
-        Complex[] spectrum = fft.fft(signal);
+        JComplex[] spectrum = fft.fft(signal);
         double[] h = new double[n];
 
         if (n % 2 == 0) {
@@ -48,7 +46,7 @@ class Hilbert {
             }
         }
 
-        Complex[] weightedSpectrum = new Complex[n];
+        JComplex[] weightedSpectrum = new JComplex[n];
         for (int i = 0; i < n; i++) {
             weightedSpectrum[i] = spectrum[i].multiply(h[i]);
         }

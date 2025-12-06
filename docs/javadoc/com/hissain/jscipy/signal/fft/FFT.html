@@ -108,23 +108,23 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.commons.math3.complex.Complex[]</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fft(double%5B%5D)" class="member-name-link">fft</a><wbr>(double[]&nbsp;input)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the forward FFT of a real-valued signal.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.commons.math3.complex.Complex[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ifft(org.apache.commons.math3.complex.Complex%5B%5D)" class="member-name-link">ifft</a><wbr>(org.apache.commons.math3.complex.Complex[]&nbsp;input)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)" class="member-name-link">ifft</a><wbr>(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;input)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#irfft(org.apache.commons.math3.complex.Complex%5B%5D,int)" class="member-name-link">irfft</a><wbr>(org.apache.commons.math3.complex.Complex[]&nbsp;input,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#irfft(com.hissain.jscipy.signal.JComplex%5B%5D,int)" class="member-name-link">irfft</a><wbr>(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;input,
  int&nbsp;n)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the inverse FFT of a real-valued signal.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.commons.math3.complex.Complex[]</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rfft(double%5B%5D)" class="member-name-link">rfft</a><wbr>(double[]&nbsp;input)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components.</div>
@@ -164,46 +164,46 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fft(double[])">
 <h3>fft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.commons.math3.complex.Complex[]</span>&nbsp;<span class="element-name">fft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">fft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
 <div class="block">Computes the forward FFT of a real-valued signal.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - The input signal.</dd>
 <dt>Returns:</dt>
-<dd>The complex-valued FFT of the signal.</dd>
+<dd>The complex-valued FFT of the signal as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="rfft(double[])">
 <h3>rfft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.commons.math3.complex.Complex[]</span>&nbsp;<span class="element-name">rfft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">rfft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - The input signal.</dd>
 <dt>Returns:</dt>
-<dd>The positive frequency components of the FFT.</dd>
+<dd>The positive frequency components of the FFT as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="ifft(org.apache.commons.math3.complex.Complex[])">
+<section class="detail" id="ifft(com.hissain.jscipy.signal.JComplex[])">
 <h3>ifft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.commons.math3.complex.Complex[]</span>&nbsp;<span class="element-name">ifft</span><wbr><span class="parameters">(org.apache.commons.math3.complex.Complex[]&nbsp;input)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">ifft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;input)</span></div>
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - The complex-valued input signal.</dd>
 <dt>Returns:</dt>
-<dd>The complex-valued inverse FFT of the signal.</dd>
+<dd>The complex-valued inverse FFT of the signal as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="irfft(org.apache.commons.math3.complex.Complex[],int)">
+<section class="detail" id="irfft(com.hissain.jscipy.signal.JComplex[],int)">
 <h3>irfft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">irfft</span><wbr><span class="parameters">(org.apache.commons.math3.complex.Complex[]&nbsp;input,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">irfft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;input,
  int&nbsp;n)</span></div>
 <div class="block">Computes the inverse FFT of a real-valued signal.</div>
 <dl class="notes">

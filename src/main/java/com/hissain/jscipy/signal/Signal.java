@@ -1,7 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import org.apache.commons.math3.complex.Complex;
-
 import com.hissain.jscipy.signal.filter.ButterworthFilter;
 
 import java.util.Map;
@@ -108,9 +106,9 @@ public class Signal {
      * Computes the analytic signal using the Hilbert transform.
      *
      * @param signal The input signal (real-valued).
-     * @return The analytic signal (complex-valued).
+     * @return The analytic signal as an array of {@link JComplex} objects.
      */
-    public static Complex[] hilbert(double[] signal) {
+    public static JComplex[] hilbert(double[] signal) {
         return new Hilbert().hilbert(signal);
     }
 

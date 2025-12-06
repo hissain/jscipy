@@ -1,5 +1,6 @@
 package com.hissain.jscipy.signal.fft;
 
+import com.hissain.jscipy.signal.JComplex;
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.transform.DftNormalization;
 import org.apache.commons.math3.transform.FastFourierTransformer;
@@ -34,20 +35,21 @@ public class FFT {
     /**
      * Computes the forward FFT of a real-valued signal.
      * @param input The input signal.
-     * @return The complex-valued FFT of the signal.
+     * @return The complex-valued FFT of the signal as an array of {@link JComplex} objects.
      */
-    public Complex[] fft(double[] input) {
+    public JComplex[] fft(double[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
-            return transformer.transform(input, TransformType.FORWARD);
+            Complex[] result = transformer.transform(input, TransformType.FORWARD);
+            return toJComplex(result);
         } else {
             return dft(input);
         }
     }
 
-    private Complex[] dft(double[] input) {
+    private JComplex[] dft(double[] input) {
         int n = input.length;
-        Complex[] output = new Complex[n];
+        JComplex[] output = new JComplex[n];
         for (int k = 0; k < n; k++) {
             double sumReal = 0;
             double sumImag = 0;
@@ -56,7 +58,7 @@ public class FFT {
                 sumReal += input[t] * Math.cos(angle);
                 sumImag += input[t] * Math.sin(angle);
             }
-            output[k] = new Complex(sumReal, sumImag);
+            output[k] = new JComplex(sumReal, sumImag);
         }
         return output;
     }
@@ -64,10 +66,10 @@ public class FFT {
     /**
      * Computes the forward FFT of a real-valued signal and returns the positive frequency components.
      * @param input The input signal.
-     * @return The positive frequency components of the FFT.
+     * @return The positive frequency components of the FFT as an array of {@link JComplex} objects.
      */
-    public Complex[] rfft(double[] input) {
-        Complex[] fftResult = fft(input);
+    public JComplex[] rfft(double[] input) {
+        JComplex[] fftResult = fft(input);
         int n = input.length;
         int resultSize = n / 2 + 1;
         return Arrays.copyOf(fftResult, resultSize);
@@ -76,20 +78,22 @@ public class FFT {
     /**
      * Computes the inverse FFT of a complex-valued signal.
      * @param input The complex-valued input signal.
-     * @return The complex-valued inverse FFT of the signal.
+     * @return The complex-valued inverse FFT of the signal as an array of {@link JComplex} objects.
      */
-    public Complex[] ifft(Complex[] input) {
+    public JComplex[] ifft(JComplex[] input) {
         int n = input.length;
         if (Integer.bitCount(n) == 1) { // Power of 2
-            return transformer.transform(input, TransformType.INVERSE);
+            Complex[] complexInput = fromJComplex(input);
+            Complex[] result = transformer.transform(complexInput, TransformType.INVERSE);
+            return toJComplex(result);
         } else {
             return idft(input);
         }
     }
 
-    private Complex[] idft(Complex[] input) {
+    private JComplex[] idft(JComplex[] input) {
         int n = input.length;
-        Complex[] output = new Complex[n];
+        JComplex[] output = new JComplex[n];
         for (int t = 0; t < n; t++) {
             double sumReal = 0;
             double sumImag = 0;
@@ -98,7 +102,7 @@ public class FFT {
                 sumReal += input[k].getReal() * Math.cos(angle) - input[k].getImaginary() * Math.sin(angle);
                 sumImag += input[k].getReal() * Math.sin(angle) + input[k].getImaginary() * Math.cos(angle);
             }
-            output[t] = new Complex(sumReal / n, sumImag / n);
+            output[t] = new JComplex(sumReal / n, sumImag / n);
         }
         return output;
     }
@@ -109,9 +113,9 @@ public class FFT {
      * @param n The length of the original signal.
      * @return The real-valued inverse FFT of the signal.
      */
-    public double[] irfft(Complex[] input, int n) {
+    public double[] irfft(JComplex[] input, int n) {
         // Reconstruct the full complex spectrum from the RFFT output
-        Complex[] fullSpectrum = new Complex[n];
+        JComplex[] fullSpectrum = new JComplex[n];
         fullSpectrum[0] = input[0]; // DC component
 
         for (int i = 1; i < input.length - 1; i++) {
@@ -127,11 +131,27 @@ public class FFT {
             // The loop above handles this correctly for n-i.
         }
 
-        Complex[] ifftResult = ifft(fullSpectrum);
+        JComplex[] ifftResult = ifft(fullSpectrum);
         double[] realResult = new double[n];
         for (int i = 0; i < n; i++) {
             realResult[i] = ifftResult[i].getReal();
         }
         return realResult;
+    }
+
+    private JComplex[] toJComplex(Complex[] input) {
+        JComplex[] output = new JComplex[input.length];
+        for (int i = 0; i < input.length; i++) {
+            output[i] = new JComplex(input[i].getReal(), input[i].getImaginary());
+        }
+        return output;
+    }
+
+    private Complex[] fromJComplex(JComplex[] input) {
+        Complex[] output = new Complex[input.length];
+        for (int i = 0; i < input.length; i++) {
+            output[i] = new Complex(input[i].getReal(), input[i].getImaginary());
+        }
+        return output;
     }
 }

@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.math3.complex.Complex;
+import com.hissain.jscipy.signal.JComplex;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -38,7 +38,7 @@ public class HilbertTest {
         double[] expectedImag = readDataFile(expectedImagFilename);
 
         Hilbert hilbert = new Hilbert();
-        Complex[] output = hilbert.hilbert(signal);
+        JComplex[] output = hilbert.hilbert(signal);
 
         double[] outputReal = new double[output.length];
         double[] outputImag = new double[output.length];

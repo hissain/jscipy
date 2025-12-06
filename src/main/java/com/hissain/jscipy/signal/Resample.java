@@ -1,7 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import org.apache.commons.math3.complex.Complex;
-
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Arrays;
@@ -21,14 +19,14 @@ class Resample {
         }
 
         // 1. Get the RFFT spectrum
-        // FFT.rfft returns a Complex array of length N/2 + 1, where N is input signal length.
-        Complex[] rfftSpectrum = fft.rfft(signal);
+        // FFT.rfft returns a JComplex array of length N/2 + 1, where N is input signal length.
+        JComplex[] rfftSpectrum = fft.rfft(signal);
 
         // 2. Create new RFFT spectrum of target length, initialized to zeros
         // The new RFFT spectrum will have length num/2 + 1.
         int newRfftLength = num / 2 + 1;
-        Complex[] resampledRfftSpectrum = new Complex[newRfftLength];
-        Arrays.fill(resampledRfftSpectrum, Complex.ZERO);
+        JComplex[] resampledRfftSpectrum = new JComplex[newRfftLength];
+        Arrays.fill(resampledRfftSpectrum, JComplex.ZERO);
 
         // 3. Spectral Manipulation (copying DC, positive freqs, and handling Nyquist)
         // The simplest RFFT spectral manipulation: copy DC component and all positive frequencies
