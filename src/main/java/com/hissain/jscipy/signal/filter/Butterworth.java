@@ -1,270 +1,245 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- *  Copyright (c) 2009 by Vinnie Falco
- *  Copyright (c) 2016 by Bernd Porr
- */
-
-
 package com.hissain.jscipy.signal.filter;
 
-import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.complex.ComplexUtils;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.ArrayRealVector;
+import org.apache.commons.math3.linear.LUDecomposition;
+import org.apache.commons.math3.linear.RealMatrix;
+import org.apache.commons.math3.linear.RealVector;
 
+import com.hissain.jscipy.signal.filter.Biquad;
+import com.hissain.jscipy.signal.filter.ButterworthDesign;
 
 /**
- *         User facing class which contains all the methods the user uses
- *         to create Butterworth filters. This done in this way:
- *         Butterworth butterworth = new Butterworth(); 
- *         Then call one of the methods below to create
- *         low-,high-,band-, or stopband filters. For example:
- *         butterworth.bandPass(2,250,50,5);
+ * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
+ * This class provides methods to apply Butterworth low-pass filters to signals.
  */
-class Butterworth extends Cascade {
+public class Butterworth {
 
-	class AnalogLowPass extends LayoutBase {
+    /**
+     * Calculates the initial conditions for `lfilter` (linear filter).
+     * This is a helper function for `filtfilt`.
+     * @param b The numerator coefficients of the filter.
+     * @param a The denominator coefficients of the filter.
+     * @return The initial conditions `zi`.
+     */
+    private double[] lfilter_zi(double[] b, double[] a) {
+        int n = Math.max(a.length, b.length);
+        if (n <= 1) {
+            return new double[0];
+        }
 
-		private int nPoles;
+        // The state space matrices for the transposed direct form II implementation
+        // are A = scipy.linalg.companion(a).T and B = b[1:] - a[1:]*b[0]
+        // The lfilter_zi solves (I-A)zi = B
+        RealMatrix A = new Array2DRowRealMatrix(n - 1, n - 1);
+        if (n > 1) {
+            for (int i = 0; i < n - 2; i++) {
+                A.setEntry(i, i + 1, 1.0);
+            }
+            for (int i = 0; i < n - 1; i++) {
+                A.setEntry(n - 2, i, -a[i + 1]);
+            }
+        }
 
-		public AnalogLowPass(int _nPoles) {
-			super(_nPoles);
-			nPoles = _nPoles;
-			setNormal(0, 1);
-		}
+        RealMatrix IminusA = new Array2DRowRealMatrix(n - 1, n - 1);
+        for (int i = 0; i < n - 1; i++) {
+            IminusA.setEntry(i, i, 1.0);
+        }
+        IminusA = IminusA.subtract(A);
 
-		public void design() {
-			reset();
-			double n2 = 2 * nPoles;
-			int pairs = nPoles / 2;
-			for (int i = 0; i < pairs; ++i) {
-				Complex c = ComplexUtils.polar2Complex(1F, Math.PI/2.0
-						+ (2 * i + 1) * Math.PI / n2);
-				addPoleZeroConjugatePairs(c, Complex.INF);
-			}
+        RealVector B = new ArrayRealVector(n - 1);
+        for (int i = 0; i < n - 1; i++) {
+            double val = 0;
+            if (i + 1 < b.length) {
+                val = b[i + 1];
+            }
+            if (i + 1 < a.length) {
+                val -= a[i + 1] * b[0];
+            }
+            B.setEntry(i, val);
+        }
 
-			if ((nPoles & 1) == 1)
-				add(new Complex(-1), Complex.INF);
-		}
-	}
+        double[] zi = new double[n - 1];
+        if (n > 1) {
+            double asum = 0;
+            for (double v : a) {
+                asum += v;
+            }
+            double csum = 0;
+            for (int i = 1; i < b.length; i++) {
+                csum += b[i] - a[i] * b[0];
+            }
+            zi[0] = csum / asum;
+            for (int i = 1; i < n - 1; i++) {
+                asum = 1.0;
+                csum = 0.0;
+                for (int j = 1; j < i + 1; j++) {
+                    asum += a[j];
+                    csum += b[j] - a[j] * b[0];
+                }
+                zi[i] = asum * zi[0] - csum;
+            }
+        }
+        return zi;
+    }
 
-	private void setupLowPass(int order, double sampleRate,
-			double cutoffFrequency, int directFormType) {
+    /**
+     * Applies a zero-phase digital filter forward and backward to a signal.
+     * This function applies a Butterworth low-pass filter.
+     * @param signal The input signal to filter.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff The cutoff frequency of the filter.
+     * @param order The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
+    public double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
+        ButterworthDesign butterworth = new ButterworthDesign();
+        butterworth.lowPass(order, sampleRate, cutoff);
 
-		AnalogLowPass m_analogProto = new AnalogLowPass(order);
-		m_analogProto.design();
+        Biquad[] biquads = butterworth.getBiquads();
+        double[] output = signal.clone();
 
-		LayoutBase m_digitalProto = new LayoutBase(order);
+        for (Biquad biquad : biquads) {
+            output = filtfilt_biquad(output, biquad);
+        }
 
-		new LowPassTransform(cutoffFrequency / sampleRate, m_digitalProto,
-				m_analogProto);
+        return output;
+    }
 
-		setLayout(m_digitalProto, directFormType);
-	}
+    /**
+     * Applies a zero-phase digital filter (biquad section) forward and backward to a signal.
+     * @param signal The input signal.
+     * @param biquad The biquad filter section.
+     * @return The filtered signal.
+     */
+    private double[] filtfilt_biquad(double[] signal, Biquad biquad) {
+        double[] b = biquad.getBCoefficients();
+        double[] a = biquad.getACoefficients();
 
-	/**
-	 * Butterworth Lowpass filter with default topology
-	 * 
-	 * @param order
-	 *            The order of the filter
-	 * @param sampleRate
-	 *            The sampling rate of the system
-	 * @param cutoffFrequency
-	 *            the cutoff frequency
-	 */
-	public void lowPass(int order, double sampleRate, double cutoffFrequency) {
-		setupLowPass(order, sampleRate, cutoffFrequency,
-				DirectFormAbstract.DIRECT_FORM_II);
-	}
+        int padlen = 3 * (Math.max(a.length, b.length) - 1);
 
-	/**
-	 * Butterworth Lowpass filter with custom topology
-	 * 
-	 * @param order
-	 *            The order of the filter
-	 * @param sampleRate
-	 *            The sampling rate of the system
-	 * @param cutoffFrequency
-	 *            The cutoff frequency
-	 * @param directFormType
-	 *            The filter topology. This is either
-	 *            DirectFormAbstract.DIRECT_FORM_I or DIRECT_FORM_II
-	 */
-	public void lowPass(int order, double sampleRate, double cutoffFrequency,
-			int directFormType) {
-		setupLowPass(order, sampleRate, cutoffFrequency, directFormType);
-	}
+        if (signal.length <= padlen) {
+            return signal; // Not enough data to pad
+        }
 
-	
-	
-	
-	private void setupHighPass(int order, double sampleRate,
-			double cutoffFrequency, int directFormType) {
+        // Pad the signal
+        double[] paddedSignal = new double[signal.length + 2 * padlen];
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[i] = 2 * signal[0] - signal[padlen - i];
+        }
+        System.arraycopy(signal, 0, paddedSignal, padlen, signal.length);
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[padlen + signal.length + i] = 2 * signal[signal.length - 1] - signal[signal.length - 2 - i];
+        }
 
-		AnalogLowPass m_analogProto = new AnalogLowPass(order);
-		m_analogProto.design();
+        // Forward and backward filtering
+        double[] forward = filter_biquad(paddedSignal, b, a);
+        double[] reversed = reverse(forward);
+        double[] backward = filter_biquad(reversed, b, a);
+        double[] reversedBackward = reverse(backward);
 
-		LayoutBase m_digitalProto = new LayoutBase(order);
+        // Unpad the signal
+        double[] output = new double[signal.length];
+        System.arraycopy(reversedBackward, padlen, output, 0, signal.length);
 
-		new HighPassTransform(cutoffFrequency / sampleRate, m_digitalProto,
-				m_analogProto);
+        return output;
+    }
 
-		setLayout(m_digitalProto, directFormType);
-	}
+    /**
+     * Applies a biquad filter section to a signal.
+     * @param signal The input signal.
+     * @param b The numerator coefficients of the filter.
+     * @param a The denominator coefficients of the filter.
+     * @return The filtered signal.
+     */
+    private double[] filter_biquad(double[] signal, double[] b, double[] a) {
+        double[] output = new double[signal.length];
+        double[] z = lfilter_zi(b, a);
+        // Scale initial conditions by the first signal value
+        for (int k = 0; k < z.length; k++) {
+            z[k] *= signal[0];
+        }
 
-	/**
-	 * Highpass filter with custom topology
-	 * 
-	 * @param order
-	 *            Filter order (ideally only even orders)
-	 * @param sampleRate
-	 *            Sampling rate of the system
-	 * @param cutoffFrequency
-	 *            Cutoff of the system
-	 * @param directFormType
-	 *            The filter topology. See DirectFormAbstract.
-	 */
-	public void highPass(int order, double sampleRate, double cutoffFrequency,
-			int directFormType) {
-		setupHighPass(order, sampleRate, cutoffFrequency, directFormType);
-	}
+        for (int i = 0; i < signal.length; i++) {
+            double y = b[0] * signal[i] + z[0];
+            for (int j = 1; j < z.length; j++) {
+                z[j - 1] = b[j] * signal[i] + z[j] - a[j] * y;
+            }
+            if (z.length > 0) {
+                z[z.length - 1] = b[z.length] * signal[i] - a[z.length] * y;
+            }
+            output[i] = y;
+        }
+        return output;
+    }
 
-	/**
-	 * Highpass filter with default filter topology
-	 * 
-	 * @param order
-	 *            Filter order (ideally only even orders)
-	 * @param sampleRate
-	 *            Sampling rate of the system
-	 * @param cutoffFrequency
-	 *            Cutoff of the system
-	 */
-	public void highPass(int order, double sampleRate, double cutoffFrequency) {
-		setupHighPass(order, sampleRate, cutoffFrequency,
-				DirectFormAbstract.DIRECT_FORM_II);
-	}
+    /**
+     * Applies a Butterworth low-pass filter to a signal.
+     * This function applies the filter in a causal manner (forward only).
+     * @param signal The input signal to filter.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff The cutoff frequency of the filter.
+     * @param order The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
+    public double[] filter(double[] signal, double sampleRate, double cutoff, int order) {
+        ButterworthDesign butterworth = new ButterworthDesign();
+        butterworth.lowPass(order, sampleRate, cutoff);
 
-	
-	
-	
-	private void setupBandStop(int order, double sampleRate,
-			double centerFrequency, double widthFrequency, int directFormType) {
+        double[] output = new double[signal.length];
+        for (int i = 0; i < signal.length; i++) {
+            output[i] = butterworth.filter(signal[i]);
+        }
 
-		AnalogLowPass m_analogProto = new AnalogLowPass(order);
-		m_analogProto.design();
+        return output;
+    }
 
-		LayoutBase m_digitalProto = new LayoutBase(order * 2);
+    /**
+     * Reverses the order of elements in a double array.
+     * @param array The input array.
+     * @return A new array with elements in reversed order.
+     */
+    private double[] reverse(double[] array) {
+        double[] reversed = new double[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i];
+        }
+        return reversed;
+    }
 
-		new BandStopTransform(centerFrequency / sampleRate, widthFrequency
-				/ sampleRate, m_digitalProto, m_analogProto);
+    /**
+     * Main method for command-line execution of the Butterworth filter.
+     * Expects input file, order, cutoff, and sample rate as arguments.
+     * @param args Command-line arguments: `input_file`, `order`, `cutoff`, `sample_rate`
+     * @throws java.io.IOException If there is an error reading the input file.
+     */
+    public static void main(String[] args) throws java.io.IOException {
+        if (args.length != 4) {
+            System.err.println("Usage: Butterworth <input_file> <order> <cutoff> <sample_rate>");
+            System.exit(1);
+        }
+        String inputFile = args[0];
+        int order = Integer.parseInt(args[1]);
+        double cutoff = Double.parseDouble(args[2]);
+        double sampleRate = Double.parseDouble(args[3]);
 
-		setLayout(m_digitalProto, directFormType);
-	}
+        java.util.List<Double> data = new java.util.ArrayList<>();
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(inputFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (!line.isEmpty()) {
+                    data.add(Double.parseDouble(line));
+                }
+            }
+        }
+        double[] signal = data.stream().mapToDouble(Double::doubleValue).toArray();
 
-	/**
-	 * Bandstop filter with default topology
-	 * 
-	 * @param order
-	 *            Filter order (actual order is twice)
-	 * @param sampleRate
-	 *            Samping rate of the system
-	 * @param centerFrequency
-	 *            Center frequency
-	 * @param widthFrequency
-	 *            Width of the notch
-	 */
-	public void bandStop(int order, double sampleRate, double centerFrequency,
-			double widthFrequency) {
-		setupBandStop(order, sampleRate, centerFrequency, widthFrequency,
-				DirectFormAbstract.DIRECT_FORM_II);
-	}
+        Butterworth filterInstance = new Butterworth();
+        double[] output = filterInstance.filtfilt(signal, sampleRate, cutoff, order);
 
-	/**
-	 * Bandstop filter with custom topology
-	 * 
-	 * @param order
-	 *            Filter order (actual order is twice)
-	 * @param sampleRate
-	 *            Samping rate of the system
-	 * @param centerFrequency
-	 *            Center frequency
-	 * @param widthFrequency
-	 *            Width of the notch
-	 * @param directFormType
-	 *            The filter topology
-	 */
-	public void bandStop(int order, double sampleRate, double centerFrequency,
-			double widthFrequency, int directFormType) {
-		setupBandStop(order, sampleRate, centerFrequency, widthFrequency,
-				directFormType);
-	}
-
-	
-	
-	
-	private void setupBandPass(int order, double sampleRate,
-			double centerFrequency, double widthFrequency, int directFormType) {
-
-		AnalogLowPass m_analogProto = new AnalogLowPass(order);
-		m_analogProto.design();
-
-		LayoutBase m_digitalProto = new LayoutBase(order * 2);
-
-		new BandPassTransform(centerFrequency / sampleRate, widthFrequency
-				/ sampleRate, m_digitalProto, m_analogProto);
-
-		setLayout(m_digitalProto, directFormType);
-
-	}
-
-	/**
-	 * Bandpass filter with default topology
-	 * 
-	 * @param order
-	 *            Filter order
-	 * @param sampleRate
-	 *            Sampling rate
-	 * @param centerFrequency
-	 *            Center frequency
-	 * @param widthFrequency
-	 *            Width of the notch
-	 */
-	public void bandPass(int order, double sampleRate, double centerFrequency,
-			double widthFrequency) {
-		setupBandPass(order, sampleRate, centerFrequency, widthFrequency,
-				DirectFormAbstract.DIRECT_FORM_II);
-	}
-
-	/**
-	 * Bandpass filter with custom topology
-	 * 
-	 * @param order
-	 *            Filter order
-	 * @param sampleRate
-	 *            Sampling rate
-	 * @param centerFrequency
-	 *            Center frequency
-	 * @param widthFrequency
-	 *            Width of the notch
-	 * @param directFormType
-	 *            The filter topology (see DirectFormAbstract)
-	 */
-	public void bandPass(int order, double sampleRate, double centerFrequency,
-			double widthFrequency, int directFormType) {
-		setupBandPass(order, sampleRate, centerFrequency, widthFrequency,
-				directFormType);
-	}
-
+        for (double v : output) {
+            System.out.println(v);
+        }
+    }
 }

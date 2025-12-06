@@ -1,145 +1,217 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- *  Copyright (c) 2009 by Vinnie Falco
- *  Copyright (c) 2016 by Bernd Porr
- */
-
 package com.hissain.jscipy.signal.filter;
 
-import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.ArrayRealVector;
+import org.apache.commons.math3.linear.RealMatrix;
+import org.apache.commons.math3.linear.RealVector;
 
 /**
- * User facing class which contains all the methods the user uses to create
- * Chebyshev Type I filters.
+ * Chebyshev Type I Filter implementation.
+ * Provides static methods for filtering.
  */
-public class Chebyshev1 extends Cascade {
+public class Chebyshev1 {
 
-    class AnalogLowPass extends LayoutBase {
+    private Chebyshev1() {
+        // Prevent instantiation
+    }
 
-        private int nPoles;
-        private double rippleDb;
-
-        public AnalogLowPass(int _nPoles, double _rippleDb) {
-            super(_nPoles);
-            nPoles = _nPoles;
-            rippleDb = _rippleDb;
-        }
-
-        public void design() {
-            reset();
-            double eps = Math.sqrt(Math.pow(10, rippleDb / 10.0) - 1);
-            double v0 = MathSupplement.asinh(1 / eps) / nPoles;
-            double sinh_v0 = Math.sinh(v0);
-            double cosh_v0 = Math.cosh(v0);
-
-            double n2 = 2 * nPoles;
-            int pairs = nPoles / 2;
-            for (int i = 0; i < pairs; ++i) {
-                double k = 2 * i + 1;
-                double theta = k * Math.PI / n2;
-                double re = -sinh_v0 * Math.sin(theta);
-                double im = cosh_v0 * Math.cos(theta);
-                addPoleZeroConjugatePairs(new Complex(re, im), Complex.INF);
-            }
-
-            if ((nPoles & 1) == 1) {
-                add(new Complex(-sinh_v0), Complex.INF);
-                setNormal(0, 1);
-            } else {
-                setNormal(0, Math.pow(10, -rippleDb / 20.0));
-            }
+    /**
+     * Applies a low-pass Chebyshev Type I filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @return The filtered signal.
+     */
+    public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb, boolean zeroPhase) {
+        Chebyshev1Design design = new Chebyshev1Design();
+        design.lowPass(order, rippleDb, sampleRate, cutoff);
+        if (zeroPhase) {
+            return runFiltFilt(signal, design);
+        } else {
+            return runFilter(signal, design);
         }
     }
 
-    private void setupLowPass(int order, double rippleDb, double sampleRate,
-            double cutoffFrequency, int directFormType) {
-
-        AnalogLowPass m_analogProto = new AnalogLowPass(order, rippleDb);
-        m_analogProto.design();
-
-        LayoutBase m_digitalProto = new LayoutBase(order);
-
-        new LowPassTransform(cutoffFrequency / sampleRate, m_digitalProto,
-                m_analogProto);
-
-        setLayout(m_digitalProto, directFormType);
+    public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb, boolean zeroPhase) {
+        Chebyshev1Design design = new Chebyshev1Design();
+        design.highPass(order, rippleDb, sampleRate, cutoff);
+        if (zeroPhase) {
+            return runFiltFilt(signal, design);
+        } else {
+            return runFilter(signal, design);
+        }
     }
 
-    public void lowPass(int order, double rippleDb, double sampleRate, double cutoffFrequency) {
-        setupLowPass(order, rippleDb, sampleRate, cutoffFrequency,
-                DirectFormAbstract.DIRECT_FORM_II);
+    public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double rippleDb, boolean zeroPhase) {
+        Chebyshev1Design design = new Chebyshev1Design();
+        design.bandPass(order, rippleDb, sampleRate, centerFreq, widthFreq);
+        if (zeroPhase) {
+            return runFiltFilt(signal, design);
+        } else {
+            return runFilter(signal, design);
+        }
     }
 
-    private void setupHighPass(int order, double rippleDb, double sampleRate,
-            double cutoffFrequency, int directFormType) {
-
-        AnalogLowPass m_analogProto = new AnalogLowPass(order, rippleDb);
-        m_analogProto.design();
-
-        LayoutBase m_digitalProto = new LayoutBase(order);
-
-        new HighPassTransform(cutoffFrequency / sampleRate, m_digitalProto,
-                m_analogProto);
-
-        setLayout(m_digitalProto, directFormType);
+    public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double rippleDb, boolean zeroPhase) {
+        Chebyshev1Design design = new Chebyshev1Design();
+        design.bandStop(order, rippleDb, sampleRate, centerFreq, widthFreq);
+        if (zeroPhase) {
+            return runFiltFilt(signal, design);
+        } else {
+            return runFilter(signal, design);
+        }
     }
 
-    public void highPass(int order, double rippleDb, double sampleRate, double cutoffFrequency) {
-        setupHighPass(order, rippleDb, sampleRate, cutoffFrequency,
-                DirectFormAbstract.DIRECT_FORM_II);
+    /**
+     * Applies a zero-phase Chebyshev Type I low-pass filter (filtfilt).
+     */
+    public static double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+        return lowPass(signal, sampleRate, cutoff, order, rippleDb, true);
     }
 
-    private void setupBandStop(int order, double rippleDb, double sampleRate,
-            double centerFrequency, double widthFrequency, int directFormType) {
-
-        AnalogLowPass m_analogProto = new AnalogLowPass(order, rippleDb);
-        m_analogProto.design();
-
-        LayoutBase m_digitalProto = new LayoutBase(order * 2);
-
-        new BandStopTransform(centerFrequency / sampleRate, widthFrequency
-                / sampleRate, m_digitalProto, m_analogProto);
-
-        setLayout(m_digitalProto, directFormType);
+    /**
+     * Applies a causal Chebyshev Type I low-pass filter (lfilter).
+     */
+    public static double[] filter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+        return lowPass(signal, sampleRate, cutoff, order, rippleDb, false);
     }
 
-    public void bandStop(int order, double rippleDb, double sampleRate, double centerFrequency,
-            double widthFrequency) {
-        setupBandStop(order, rippleDb, sampleRate, centerFrequency, widthFrequency,
-                DirectFormAbstract.DIRECT_FORM_II);
+    // --- Private Implementation ---
+
+    private static double[] runFilter(double[] signal, Chebyshev1Design design) {
+        double[] output = new double[signal.length];
+        for (int i = 0; i < signal.length; i++) {
+            output[i] = design.filter(signal[i]);
+        }
+        return output;
     }
 
-    private void setupBandPass(int order, double rippleDb, double sampleRate,
-            double centerFrequency, double widthFrequency, int directFormType) {
-
-        AnalogLowPass m_analogProto = new AnalogLowPass(order, rippleDb);
-        m_analogProto.design();
-
-        LayoutBase m_digitalProto = new LayoutBase(order * 2);
-
-        new BandPassTransform(centerFrequency / sampleRate, widthFrequency
-                / sampleRate, m_digitalProto, m_analogProto);
-
-        setLayout(m_digitalProto, directFormType);
+    private static double[] runFiltFilt(double[] signal, Chebyshev1Design design) {
+        Biquad[] biquads = design.getBiquads();
+        double[] output = signal.clone();
+        for (Biquad biquad : biquads) {
+            output = filtfilt_biquad(output, biquad);
+        }
+        return output;
     }
 
-    public void bandPass(int order, double rippleDb, double sampleRate, double centerFrequency,
-            double widthFrequency) {
-        setupBandPass(order, rippleDb, sampleRate, centerFrequency, widthFrequency,
-                DirectFormAbstract.DIRECT_FORM_II);
+    private static double[] lfilter_zi(double[] b, double[] a) {
+        int n = Math.max(a.length, b.length);
+        if (n <= 1) {
+            return new double[0];
+        }
+
+        RealMatrix A = new Array2DRowRealMatrix(n - 1, n - 1);
+        if (n > 1) {
+            for (int i = 0; i < n - 2; i++) {
+                A.setEntry(i, i + 1, 1.0);
+            }
+            for (int i = 0; i < n - 1; i++) {
+                A.setEntry(n - 2, i, -a[i + 1]);
+            }
+        }
+
+        RealMatrix IminusA = new Array2DRowRealMatrix(n - 1, n - 1);
+        for (int i = 0; i < n - 1; i++) {
+            IminusA.setEntry(i, i, 1.0);
+        }
+        IminusA = IminusA.subtract(A);
+
+        RealVector B = new ArrayRealVector(n - 1);
+        for (int i = 0; i < n - 1; i++) {
+            double val = 0;
+            if (i + 1 < b.length) {
+                val = b[i + 1];
+            }
+            if (i + 1 < a.length) {
+                val -= a[i + 1] * b[0];
+            }
+            B.setEntry(i, val);
+        }
+
+        double[] zi = new double[n - 1];
+        if (n > 1) {
+            double asum = 0;
+            for (double v : a) {
+                asum += v;
+            }
+            double csum = 0;
+            for (int i = 1; i < b.length; i++) {
+                csum += b[i] - a[i] * b[0];
+            }
+            zi[0] = csum / asum;
+            for (int i = 1; i < n - 1; i++) {
+                asum = 1.0;
+                csum = 0.0;
+                for (int j = 1; j < i + 1; j++) {
+                    asum += a[j];
+                    csum += b[j] - a[j] * b[0];
+                }
+                zi[i] = asum * zi[0] - csum;
+            }
+        }
+        return zi;
+    }
+
+    private static double[] filtfilt_biquad(double[] signal, Biquad biquad) {
+        double[] b = biquad.getBCoefficients();
+        double[] a = biquad.getACoefficients();
+
+        int padlen = 3 * (Math.max(a.length, b.length) - 1);
+
+        if (signal.length <= padlen) {
+            return signal; // Not enough data to pad
+        }
+
+        double[] paddedSignal = new double[signal.length + 2 * padlen];
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[i] = 2 * signal[0] - signal[padlen - i];
+        }
+        System.arraycopy(signal, 0, paddedSignal, padlen, signal.length);
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[padlen + signal.length + i] = 2 * signal[signal.length - 1] - signal[signal.length - 2 - i];
+        }
+
+        double[] forward = filter_biquad(paddedSignal, b, a);
+        double[] reversed = reverse(forward);
+        double[] backward = filter_biquad(reversed, b, a);
+        double[] reversedBackward = reverse(backward);
+
+        double[] output = new double[signal.length];
+        System.arraycopy(reversedBackward, padlen, output, 0, signal.length);
+
+        return output;
+    }
+
+    private static double[] filter_biquad(double[] signal, double[] b, double[] a) {
+        double[] output = new double[signal.length];
+        double[] z = lfilter_zi(b, a);
+        for (int k = 0; k < z.length; k++) {
+            z[k] *= signal[0];
+        }
+
+        for (int i = 0; i < signal.length; i++) {
+            double y = b[0] * signal[i] + z[0];
+            for (int j = 1; j < z.length; j++) {
+                z[j - 1] = b[j] * signal[i] + z[j] - a[j] * y;
+            }
+            if (z.length > 0) {
+                z[z.length - 1] = b[z.length] * signal[i] - a[z.length] * y;
+            }
+            output[i] = y;
+        }
+        return output;
+    }
+
+    private static double[] reverse(double[] array) {
+        double[] reversed = new double[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i];
+        }
+        return reversed;
     }
 }

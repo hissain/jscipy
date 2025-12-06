@@ -1,8 +1,8 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.filter.ButterworthFilter;
-import com.hissain.jscipy.signal.filter.Chebyshev1Filter;
-import com.hissain.jscipy.signal.filter.Chebyshev2Filter;
+import com.hissain.jscipy.signal.filter.Butterworth;
+import com.hissain.jscipy.signal.filter.Chebyshev1;
+import com.hissain.jscipy.signal.filter.Chebyshev2;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
-        return new ButterworthFilter().filtfilt(signal, sampleRate, cutoff, order);
+        return new Butterworth().filtfilt(signal, sampleRate, cutoff, order);
     }
 
     /**
@@ -37,7 +37,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] lfilter(double[] signal, double sampleRate, double cutoff, int order) {
-        return new ButterworthFilter().filter(signal, sampleRate, cutoff, order);
+        return new Butterworth().filter(signal, sampleRate, cutoff, order);
     }
 
     // --- Chebyshev Type I Filter ---
@@ -53,7 +53,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] cheby1_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
-        return new Chebyshev1Filter().filtfilt(signal, sampleRate, cutoff, order, rippleDb);
+        return Chebyshev1.filtfilt(signal, sampleRate, cutoff, order, rippleDb);
     }
 
     /**
@@ -67,7 +67,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] cheby1_lfilter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
-        return new Chebyshev1Filter().filter(signal, sampleRate, cutoff, order, rippleDb);
+        return Chebyshev1.filter(signal, sampleRate, cutoff, order, rippleDb);
     }
 
     // --- Chebyshev Type II Filter ---
@@ -83,7 +83,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] cheby2_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
-        return new Chebyshev2Filter().filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
+        return Chebyshev2.filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
     }
 
     /**
@@ -97,7 +97,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] cheby2_lfilter(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
-        return new Chebyshev2Filter().filter(signal, sampleRate, cutoff, order, stopBandDb);
+        return Chebyshev2.filter(signal, sampleRate, cutoff, order, stopBandDb);
     }
 
     // --- Detrend ---

@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.filter.Chebyshev2Filter;
+import com.hissain.jscipy.signal.filter.Chebyshev2;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,8 +34,7 @@ public class Chebyshev2FilterTest {
     private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff, double sampleRate, double stopBandDb) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
-        Chebyshev2Filter filter = new Chebyshev2Filter();
-        double[] output = filter.filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
+        double[] output = Chebyshev2.filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
 
         // Save the Java output
         String outputFilename = expectedOutputFilename.replace(".txt", "_java.txt");

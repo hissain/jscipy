@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.filter.ButterworthFilter;
+import com.hissain.jscipy.signal.filter.Butterworth;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -36,7 +36,7 @@ public class ButterworthFilterTest {
     private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff, double sampleRate) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
-        ButterworthFilter filter = new ButterworthFilter();
+        Butterworth filter = new Butterworth();
         double[] output = filter.filtfilt(signal, sampleRate, cutoff, order);
 
         // Save the Java output
