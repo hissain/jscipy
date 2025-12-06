@@ -18,18 +18,32 @@
  *  Copyright (c) 2016 by Bernd Porr
  */
 
-package com.hissain.jscipy.signal.butterworth;
+
+package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.complex.Complex;
 
 /**
- * Transforms from an analogue lowpass filter to a digital highpass filter
+ * Transforms from an analogue lowpass filter to a digital lowpass filter
  */
-class HighPassTransform {
+class LowPassTransform {
 
-	double f;
+	private double f;
 
-	public HighPassTransform(double fc, LayoutBase digital, LayoutBase analog) {
+	private Complex transform(Complex c) {
+		if (c.isInfinite())
+			return new Complex(-1, 0);
+
+		// frequency transform
+		c = c.multiply(f);
+
+		Complex one = new Complex(1, 0);
+
+		// bilinear low pass transform
+		return (one.add(c)).divide(one.subtract(c));
+	}
+
+	public LowPassTransform(double fc, LayoutBase digital, LayoutBase analog) {
 		digital.reset();
 
 		if (fc < 0) {
@@ -41,7 +55,7 @@ class HighPassTransform {
 		}
 
 		// prewarp
-		f = 1. / Math.tan(Math.PI * fc);
+		f = Math.tan(Math.PI * fc);
 
 		int numPoles = analog.getNumPoles();
 		int pairs = numPoles / 2;
@@ -57,19 +71,7 @@ class HighPassTransform {
 					transform(pair.zeros.first));
 		}
 
-		digital.setNormal(Math.PI - analog.getNormalW(), analog.getNormalGain());
-	}
-
-	private Complex transform(Complex c) {
-		if (c.isInfinite())
-			return new Complex(1, 0);
-
-		// frequency transform
-		c = c.multiply(f);
-
-		// bilinear high pass transform
-		return new Complex(-1).multiply((new Complex(1)).add(c)).divide(
-				(new Complex(1)).subtract(c));
+		digital.setNormal(analog.getNormalW(), analog.getNormalGain());
 	}
 
 }

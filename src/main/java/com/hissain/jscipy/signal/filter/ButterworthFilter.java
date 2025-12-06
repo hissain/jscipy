@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal.butterworth;
+package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.ArrayRealVector;
@@ -6,7 +6,8 @@ import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 
-import com.hissain.jscipy.signal.butterworth.Butterworth;
+import com.hissain.jscipy.signal.filter.Biquad;
+import com.hissain.jscipy.signal.filter.Butterworth;
 
 /**
  * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.

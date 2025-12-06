@@ -18,26 +18,41 @@
  *  Copyright (c) 2016 by Bernd Porr
  */
 
-package com.hissain.jscipy.signal.butterworth;
-
-
-import org.apache.commons.math3.complex.Complex;
+package com.hissain.jscipy.signal.filter;
 
 /**
- * PoleZeroPair with gain factor
+ * 
+ * Implementation of a Direct Form I filter with its states. The coefficients
+ * are supplied from the outside.
+ *
  */
-class BiquadPoleState extends PoleZeroPair {
+class DirectFormI extends DirectFormAbstract {
 
-
-	public BiquadPoleState(Complex p, Complex z) {
-        super(p, z);
+    public DirectFormI() {
+        reset();
     }
 
-	public BiquadPoleState(Complex p1, Complex z1,
-                    Complex p2, Complex z2) {
-        super(p1, z1, p2, z2);
+    public void reset() {
+        m_x1 = 0;
+        m_x2 = 0;
+        m_y1 = 0;
+        m_y2 = 0;
     }
 
-    double gain;
+    public double process1(double in, Biquad s) {
 
-}
+        double out = s.m_b0 * in + s.m_b1 * m_x1 + s.m_b2 * m_x2
+                - s.m_a1 * m_y1 - s.m_a2 * m_y2;
+        m_x2 = m_x1;
+        m_y2 = m_y1;
+        m_x1 = in;
+        m_y1 = out;
+
+        return out;
+    }
+
+    double m_x2; // x[n-2]
+    double m_y2; // y[n-2]
+    double m_x1; // x[n-1]
+    double m_y1; // y[n-1]
+};

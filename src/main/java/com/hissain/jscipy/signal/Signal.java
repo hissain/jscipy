@@ -2,7 +2,7 @@ package com.hissain.jscipy.signal;
 
 import org.apache.commons.math3.complex.Complex;
 
-import com.hissain.jscipy.signal.butterworth.ButterworthFilter;
+import com.hissain.jscipy.signal.filter.ButterworthFilter;
 
 import java.util.Map;
 

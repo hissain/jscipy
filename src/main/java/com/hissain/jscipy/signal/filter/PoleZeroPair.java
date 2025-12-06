@@ -1,3 +1,5 @@
+package com.hissain.jscipy.signal.filter;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -18,41 +20,36 @@
  *  Copyright (c) 2016 by Bernd Porr
  */
 
-package com.hissain.jscipy.signal.butterworth;
+import org.apache.commons.math3.complex.Complex;
 
 /**
  * 
- * Implementation of a Direct Form I filter with its states. The coefficients
- * are supplied from the outside.
+ * It's written on the tin.
  *
  */
-class DirectFormI extends DirectFormAbstract {
+class PoleZeroPair {
 
-    public DirectFormI() {
-        reset();
-    }
+	public ComplexPair poles;
+	public ComplexPair zeros;
 
-    public void reset() {
-        m_x1 = 0;
-        m_x2 = 0;
-        m_y1 = 0;
-        m_y2 = 0;
-    }
+	// single pole/zero
+	public PoleZeroPair(Complex p, Complex z) {
+		poles = new ComplexPair(p);
+		zeros = new ComplexPair(z);
+	}
 
-    public double process1(double in, Biquad s) {
+	// pole/zero pair
+	public PoleZeroPair(Complex p1, Complex z1, Complex p2, Complex z2) {
+		poles = new ComplexPair(p1, p2);
+		zeros = new ComplexPair(z1, z2);
+	}
 
-        double out = s.m_b0 * in + s.m_b1 * m_x1 + s.m_b2 * m_x2
-                - s.m_a1 * m_y1 - s.m_a2 * m_y2;
-        m_x2 = m_x1;
-        m_y2 = m_y1;
-        m_x1 = in;
-        m_y1 = out;
+	public boolean isSinglePole() {
+		return poles.second.equals(new Complex(0, 0))
+				&& zeros.second.equals(new Complex(0, 0));
+	}
 
-        return out;
-    }
-
-    double m_x2; // x[n-2]
-    double m_y2; // y[n-2]
-    double m_x1; // x[n-1]
-    double m_y1; // y[n-1]
+	public boolean is_nan() {
+		return poles.is_nan() || zeros.is_nan();
+	}
 };

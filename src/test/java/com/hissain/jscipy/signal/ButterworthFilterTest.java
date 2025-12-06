@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.butterworth.ButterworthFilter;
+import com.hissain.jscipy.signal.filter.ButterworthFilter;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

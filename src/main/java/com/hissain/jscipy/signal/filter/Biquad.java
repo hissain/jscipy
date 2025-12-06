@@ -18,12 +18,10 @@
  *  Copyright (c) 2016 by Bernd Porr
  */
 
-package com.hissain.jscipy.signal.butterworth;
+package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.complex.ComplexUtils;
-
-import com.hissain.jscipy.signal.butterworth.BiquadPoleState;
 
 /**
  * Contains the coefficients of a 2nd order digital filter with two poles and two zeros
