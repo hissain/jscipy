@@ -101,7 +101,9 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a band-pass Chebyshev Type I filter.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#bandStop(double%5B%5D,double,double,double,int,double,boolean)" class="member-name-link">bandStop</a><wbr>(double[]&nbsp;signal,
  double&nbsp;sampleRate,
@@ -110,7 +112,9 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a band-stop Chebyshev Type I filter.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#filter(double%5B%5D,double,double,int,double)" class="member-name-link">filter</a><wbr>(double[]&nbsp;signal,
  double&nbsp;sampleRate,
@@ -136,7 +140,9 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a high-pass Chebyshev Type I filter.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lowPass(double%5B%5D,double,double,int,double,boolean)" class="member-name-link">lowPass</a><wbr>(double[]&nbsp;signal,
  double&nbsp;sampleRate,
@@ -196,6 +202,18 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</span></div>
+<div class="block">Applies a high-pass Chebyshev Type I filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -208,6 +226,19 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</span></div>
+<div class="block">Applies a band-pass Chebyshev Type I filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate.</dd>
+<dd><code>centerFreq</code> - The center frequency.</dd>
+<dd><code>widthFreq</code> - The bandwidth.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -220,6 +251,19 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;rippleDb,
  boolean&nbsp;zeroPhase)</span></div>
+<div class="block">Applies a band-stop Chebyshev Type I filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate.</dd>
+<dd><code>centerFreq</code> - The center frequency.</dd>
+<dd><code>widthFreq</code> - The notch bandwidth.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
 </section>
 </li>
 <li>

@@ -15,6 +15,17 @@ public class Chebyshev2 {
         // Prevent instantiation
     }
 
+    /**
+     * Applies a low-pass Chebyshev Type II filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @return The filtered signal.
+     */
     public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.lowPass(order, stopBandDb, sampleRate, cutoff);
@@ -25,6 +36,17 @@ public class Chebyshev2 {
         }
     }
 
+    /**
+     * Applies a high-pass Chebyshev Type II filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @return The filtered signal.
+     */
     public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.highPass(order, stopBandDb, sampleRate, cutoff);
@@ -35,6 +57,18 @@ public class Chebyshev2 {
         }
     }
 
+    /**
+     * Applies a band-pass Chebyshev Type II filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param centerFreq The center frequency.
+     * @param widthFreq  The bandwidth.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @return The filtered signal.
+     */
     public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.bandPass(order, stopBandDb, sampleRate, centerFreq, widthFreq);
@@ -45,6 +79,18 @@ public class Chebyshev2 {
         }
     }
 
+    /**
+     * Applies a band-stop Chebyshev Type II filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate.
+     * @param centerFreq The center frequency.
+     * @param widthFreq  The notch bandwidth.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @return The filtered signal.
+     */
     public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.bandStop(order, stopBandDb, sampleRate, centerFreq, widthFreq);
