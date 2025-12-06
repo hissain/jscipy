@@ -154,6 +154,21 @@ public class Signal {
         return new Hilbert().hilbert(signal);
     }
 
+    // --- Spectral ---
+
+    /**
+     * Compute Power Spectral Density using Welch's method.
+     * Uses default Hanning window and 50% overlap.
+     *
+     * @param x       Input signal.
+     * @param fs      Sampling frequency.
+     * @param nperseg Length of each segment.
+     * @return WelchResult containing frequency array (f) and PSD array (Pxx).
+     */
+    public static Welch.WelchResult welch(double[] x, double fs, int nperseg) {
+        return new Welch().welch(x, fs, nperseg);
+    }
+
     // --- Median Filter ---
 
     /**

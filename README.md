@@ -71,7 +71,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:2.0.1' // Replace 2.0.1 with the desired version or commit hash
+    implementation 'com.github.hissain:jSciPy:2.0.2' // Replace 2.0.2 with the desired version or commit hash
 }
 ```
 
@@ -110,6 +110,10 @@ A seperate demo android application is built on this library that might be helpf
 ### FFT Comparison
 
 ![FFT Comparison](python/figs/fft_comparison_1.png)
+
+### Welch's Method Comparison
+
+![Welch Comparison](python/figs/welch_comparison.png)
 
 ### Resample Comparison
 
@@ -327,6 +331,36 @@ public class FFTExample {
         for (double d : irfftResult) {
             System.out.printf("%.2f ", d);
         }
+        System.out.println();
+    }
+}
+```
+
+### Welch's Method (PSD)
+
+```java
+import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.Welch;
+
+public class WelchExample {
+    public static void main(String[] args) {
+        double fs = 1000.0;
+        int n = 2000;
+        double[] t = new double[n];
+        double[] signal = new double[n];
+        
+        for(int i=0; i<n; i++) {
+            t[i] = i / fs;
+            signal[i] = Math.sin(2 * Math.PI * 50 * t[i]) + 0.5 * Math.sin(2 * Math.PI * 80 * t[i]);
+        }
+        
+        // Compute PSD with segment length 256
+        Welch.WelchResult result = Signal.welch(signal, fs, 256);
+        
+        System.out.println("Frequencies (first 5):");
+        for(int i=0; i<5; i++) System.out.printf("%.2f ", result.f[i]);
+        System.out.println("\nPSD (first 5):");
+        for(int i=0; i<5; i++) System.out.printf("%.2e ", result.Pxx[i]);
         System.out.println();
     }
 }
