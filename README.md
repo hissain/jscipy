@@ -292,17 +292,15 @@ public class InterpolationExample {
 ### FFT and RFFT
 
 ```java
-import com.hissain.jscipy.signal.fft.FFT;
+import com.hissain.jscipy.signal.Signal;
 import com.hissain.jscipy.signal.JComplex;
 
 public class FFTExample {
     public static void main(String[] args) {
         double[] signal = {0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0};
 
-        FFT fft = new FFT();
-
         // Compute the FFT
-        JComplex[] fftResult = fft.fft(signal);
+        JComplex[] fftResult = Signal.fft(signal);
         System.out.println("FFT Result:");
         for (JComplex c : fftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
@@ -310,7 +308,7 @@ public class FFTExample {
         System.out.println();
 
         // Compute the RFFT
-        JComplex[] rfftResult = fft.rfft(signal);
+        JComplex[] rfftResult = Signal.rfft(signal);
         System.out.println("RFFT Result:");
         for (JComplex c : rfftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
@@ -318,7 +316,7 @@ public class FFTExample {
         System.out.println();
 
         // Compute the IFFT
-        JComplex[] ifftResult = fft.ifft(fftResult);
+        JComplex[] ifftResult = Signal.ifft(fftResult);
         System.out.println("IFFT Result:");
         for (JComplex c : ifftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
@@ -326,7 +324,7 @@ public class FFTExample {
         System.out.println();
 
         // Compute the IRFFT
-        double[] irfftResult = fft.irfft(rfftResult, signal.length);
+        double[] irfftResult = Signal.irfft(rfftResult, signal.length);
         System.out.println("IRFFT Result:");
         for (double d : irfftResult) {
             System.out.printf("%.2f ", d);

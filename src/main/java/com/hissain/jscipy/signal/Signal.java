@@ -3,6 +3,7 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
+import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Map;
 
@@ -154,7 +155,62 @@ public class Signal {
         return new Hilbert().hilbert(signal);
     }
 
-    // --- Spectral ---
+    // --- Window Functions ---
+
+    /**
+     * Returns a Hanning window of length M.
+     *
+     * @param m The length of the window.
+     * @return The Hanning window.
+     */
+    public static double[] hanning(int m) {
+        return Windows.hanning(m);
+    }
+
+    // --- FFT ---
+
+    /**
+     * Computes the forward FFT of a real-valued signal.
+     *
+     * @param x The input signal.
+     * @return The complex-valued FFT of the signal.
+     */
+    public static JComplex[] fft(double[] x) {
+        return new FFT().fft(x);
+    }
+
+    /**
+     * Computes the inverse FFT of a complex-valued signal.
+     *
+     * @param x The complex-valued input signal.
+     * @return The complex-valued inverse FFT of the signal.
+     */
+    public static JComplex[] ifft(JComplex[] x) {
+        return new FFT().ifft(x);
+    }
+
+    /**
+     * Computes the forward FFT of a real-valued signal and returns the positive frequency components (RFFT).
+     *
+     * @param x The input signal.
+     * @return The positive frequency components of the FFT.
+     */
+    public static JComplex[] rfft(double[] x) {
+        return new FFT().rfft(x);
+    }
+
+    /**
+     * Computes the inverse FFT of a real-valued signal (IRFFT).
+     *
+     * @param x The complex-valued input signal (positive frequencies).
+     * @param n The length of the original signal.
+     * @return The real-valued inverse FFT of the signal.
+     */
+    public static double[] irfft(JComplex[] x, int n) {
+        return new FFT().irfft(x, n);
+    }
+
+    // --- Spectral (Welch) ---
 
     /**
      * Compute Power Spectral Density using Welch's method.
@@ -167,6 +223,20 @@ public class Signal {
      */
     public static Welch.WelchResult welch(double[] x, double fs, int nperseg) {
         return new Welch().welch(x, fs, nperseg);
+    }
+
+    /**
+     * Compute Power Spectral Density using Welch's method with custom parameters.
+     *
+     * @param x        Input signal.
+     * @param fs       Sampling frequency.
+     * @param window   Window function array (length must match nperseg).
+     * @param nperseg  Length of each segment.
+     * @param noverlap Number of points to overlap between segments.
+     * @return WelchResult containing frequency array (f) and PSD array (Pxx).
+     */
+    public static Welch.WelchResult welch(double[] x, double fs, double[] window, int nperseg, int noverlap) {
+        return new Welch().welch(x, fs, window, nperseg, noverlap);
     }
 
     // --- Median Filter ---
