@@ -13,22 +13,6 @@ def generate_welch_test_data(test_id, sample_rate, num_samples, nperseg):
     # detrend: False (no detrending) to match Java
     f, Pxx = signal.welch(sig, fs=sample_rate, nperseg=nperseg, detrend=False)
     
-    # Debug info
-    win = signal.get_window('hann', nperseg, fftbins=True) # Periodic
-    scale = 1.0 / (sample_rate * (win*win).sum())
-    print(f"Python Scale: {scale}")
-    
-    # Check Segment 0 without detrend (since detrend=False)
-    seg0 = sig[0:nperseg]
-    windowed_seg0 = seg0 * win
-    print(f"Python Windowed Seg0 Sum: {np.sum(windowed_seg0)}")
-    
-    fft0 = np.fft.rfft(windowed_seg0)
-    print(f"Python FFT0[0]: {fft0[0].real}")
-    
-    calc_psd0 = (fft0[0].real**2 + fft0[0].imag**2) * scale
-    print(f"Python Calc PSD[0]: {calc_psd0}")
-    print(f"Python Welch PSD[0]: {Pxx[0]}")
     
     output_dir = "datasets"
     if not os.path.exists(output_dir):
