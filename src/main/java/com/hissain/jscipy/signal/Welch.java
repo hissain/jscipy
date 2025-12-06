@@ -6,19 +6,6 @@ import com.hissain.jscipy.signal.fft.FFT;
  * Implementation of Welch's method for spectral density estimation.
  */
 class Welch {
-    
-    /**
-     * Result of Welch's method.
-     */
-    public static class WelchResult {
-        public final double[] f;
-        public final double[] Pxx;
-        
-        public WelchResult(double[] f, double[] Pxx) {
-            this.f = f;
-            this.Pxx = Pxx;
-        }
-    }
 
     /**
      * Compute Power Spectral Density using Welch's method.

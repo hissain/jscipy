@@ -340,7 +340,7 @@ public class FFTExample {
 
 ```java
 import com.hissain.jscipy.signal.Signal;
-import com.hissain.jscipy.signal.Welch;
+import com.hissain.jscipy.signal.WelchResult;
 
 public class WelchExample {
     public static void main(String[] args) {
@@ -355,7 +355,7 @@ public class WelchExample {
         }
         
         // Compute PSD with segment length 256
-        Welch.WelchResult result = Signal.welch(signal, fs, 256);
+        WelchResult result = Signal.welch(signal, fs, 256);
         
         System.out.println("Frequencies (first 5):");
         for(int i=0; i<5; i++) System.out.printf("%.2f ", result.f[i]);

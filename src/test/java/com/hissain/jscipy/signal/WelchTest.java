@@ -34,7 +34,7 @@ public class WelchTest {
         double[] expectedFreq = readDataFile(expectedFreqFilename);
         double[] expectedPsd = readDataFile(expectedPsdFilename);
 
-        Welch.WelchResult result = Signal.welch(signal, sampleRate, nperseg);
+        WelchResult result = Signal.welch(signal, sampleRate, nperseg);
 
         // Save output for plotting
         try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + "welch_output_psd1_java.txt")) {

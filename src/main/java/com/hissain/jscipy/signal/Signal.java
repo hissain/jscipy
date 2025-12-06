@@ -167,6 +167,18 @@ public class Signal {
         return Windows.hanning(m);
     }
 
+    /**
+     * Returns a Hanning window of length M.
+     *
+     * @param m The length of the window.
+     * @param symmetric If true, generates a symmetric window (for filter design).
+     *                  If false, generates a periodic window (for spectral analysis).
+     * @return The Hanning window.
+     */
+    public static double[] hanning(int m, boolean symmetric) {
+        return Windows.hanning(m, symmetric);
+    }
+
     // --- FFT ---
 
     /**
@@ -221,7 +233,7 @@ public class Signal {
      * @param nperseg Length of each segment.
      * @return WelchResult containing frequency array (f) and PSD array (Pxx).
      */
-    public static Welch.WelchResult welch(double[] x, double fs, int nperseg) {
+    public static WelchResult welch(double[] x, double fs, int nperseg) {
         return new Welch().welch(x, fs, nperseg);
     }
 
@@ -235,7 +247,7 @@ public class Signal {
      * @param noverlap Number of points to overlap between segments.
      * @return WelchResult containing frequency array (f) and PSD array (Pxx).
      */
-    public static Welch.WelchResult welch(double[] x, double fs, double[] window, int nperseg, int noverlap) {
+    public static WelchResult welch(double[] x, double fs, double[] window, int nperseg, int noverlap) {
         return new Welch().welch(x, fs, window, nperseg, noverlap);
     }
 
