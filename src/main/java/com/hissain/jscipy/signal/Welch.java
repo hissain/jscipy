@@ -31,7 +31,8 @@ public class Welch {
      */
     public WelchResult welch(double[] x, double fs, int nperseg) {
         int noverlap = nperseg / 2;
-        double[] window = Windows.hanning(nperseg);
+        // SciPy uses periodic window for spectral analysis
+        double[] window = Windows.hanning(nperseg, false);
         return welch(x, fs, window, nperseg, noverlap);
     }
 
@@ -78,15 +79,8 @@ public class Welch {
             int start = i * step;
             double[] segment = new double[nperseg];
             
-            // Detrend (constant) - subtract mean
-            double mean = 0;
             for (int j = 0; j < nperseg; j++) {
-                mean += x[start + j];
-            }
-            mean /= nperseg;
-            
-            for (int j = 0; j < nperseg; j++) {
-                segment[j] = (x[start + j] - mean) * window[j];
+                segment[j] = x[start + j] * window[j];
             }
             
             JComplex[] spectrum = fft.rfft(segment);
