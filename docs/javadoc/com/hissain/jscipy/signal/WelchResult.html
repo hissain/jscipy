@@ -73,7 +73,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">WelchResult</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Result of Welch's method.</div>
+<div class="block">Holds the result of Welch's method for spectral density estimation.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,10 +88,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>final double[]</code></div>
 <div class="col-second even-row-color"><code><a href="#f" class="member-name-link">f</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Array of sample frequencies.</div>
+</div>
 <div class="col-first odd-row-color"><code>final double[]</code></div>
 <div class="col-second odd-row-color"><code><a href="#Pxx" class="member-name-link">Pxx</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Power Spectral Density or power spectrum of x.</div>
+</div>
 </div>
 </section>
 </li>
@@ -105,7 +109,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(double%5B%5D,double%5B%5D)" class="member-name-link">WelchResult</a><wbr>(double[]&nbsp;f,
  double[]&nbsp;Pxx)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructs a WelchResult.</div>
+</div>
 </div>
 </section>
 </li>
@@ -131,12 +137,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="f">
 <h3>f</h3>
 <div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">f</span></div>
+<div class="block">Array of sample frequencies.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="Pxx">
 <h3>Pxx</h3>
 <div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">Pxx</span></div>
+<div class="block">Power Spectral Density or power spectrum of x.</div>
 </section>
 </li>
 </ul>
@@ -152,6 +160,12 @@ loadScripts(document, 'script');</script>
 <h3>WelchResult</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WelchResult</span><wbr><span class="parameters">(double[]&nbsp;f,
  double[]&nbsp;Pxx)</span></div>
+<div class="block">Constructs a WelchResult.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>f</code> - Array of sample frequencies.</dd>
+<dd><code>Pxx</code> - Power Spectral Density or power spectrum.</dd>
+</dl>
 </section>
 </li>
 </ul>
