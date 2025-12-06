@@ -23,12 +23,9 @@ package com.hissain.jscipy.signal.butterworth;
 
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.complex.ComplexUtils;
-import com.hissain.jscipy.signal.butterworth.LayoutBase;
-import com.hissain.jscipy.signal.butterworth.LowPassTransform;
-import com.hissain.jscipy.signal.butterworth.HighPassTransform;
-import com.hissain.jscipy.signal.butterworth.BandStopTransform;
+
 import com.hissain.jscipy.signal.butterworth.BandPassTransform;
-import com.hissain.jscipy.signal.butterworth.DirectFormAbstract;
+import com.hissain.jscipy.signal.butterworth.BandStopTransform;
 
 /**
  *         User facing class which contains all the methods the user uses

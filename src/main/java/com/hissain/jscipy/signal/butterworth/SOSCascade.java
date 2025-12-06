@@ -23,7 +23,7 @@ package com.hissain.jscipy.signal.butterworth;
 
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.complex.ComplexUtils;
-import com.hissain.jscipy.signal.butterworth.Cascade;
+
 import com.hissain.jscipy.signal.butterworth.DirectFormAbstract;
 
 /**

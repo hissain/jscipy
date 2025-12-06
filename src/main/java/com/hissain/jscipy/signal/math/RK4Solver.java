@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.math;
 
 import java.util.ArrayList;
 import java.util.List;

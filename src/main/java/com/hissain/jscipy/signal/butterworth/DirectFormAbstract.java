@@ -20,8 +20,6 @@
 
 package com.hissain.jscipy.signal.butterworth;
 
-import com.hissain.jscipy.signal.butterworth.Biquad;
-
 /**
  * Abstract form of the a filter which can have different state variables
  *

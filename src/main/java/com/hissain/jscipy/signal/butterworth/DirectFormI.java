@@ -20,8 +20,6 @@
 
 package com.hissain.jscipy.signal.butterworth;
 
-import com.hissain.jscipy.signal.butterworth.Biquad;
-
 /**
  * 
  * Implementation of a Direct Form I filter with its states. The coefficients

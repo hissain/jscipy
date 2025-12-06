@@ -6,6 +6,8 @@ import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 
+import com.hissain.jscipy.signal.butterworth.Butterworth;
+
 /**
  * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
  * This class provides methods to apply Butterworth low-pass filters to signals.

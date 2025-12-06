@@ -22,7 +22,6 @@ package com.hissain.jscipy.signal.butterworth;
 
 
 import org.apache.commons.math3.complex.Complex;
-import com.hissain.jscipy.signal.butterworth.PoleZeroPair;
 
 /**
  * PoleZeroPair with gain factor

@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.hissain.jscipy.signal.RK4Solver.DifferentialEquation;
-import com.hissain.jscipy.signal.RK4Solver.Solution;
+import com.hissain.jscipy.signal.math.RK4Solver;
+import com.hissain.jscipy.signal.math.RK4Solver.DifferentialEquation;
+import com.hissain.jscipy.signal.math.RK4Solver.Solution;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RK4SolverTest {
 

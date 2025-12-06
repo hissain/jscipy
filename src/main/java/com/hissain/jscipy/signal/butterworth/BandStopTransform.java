@@ -20,10 +20,6 @@
 
 package com.hissain.jscipy.signal.butterworth;
 import org.apache.commons.math3.complex.Complex;
-import com.hissain.jscipy.signal.butterworth.LayoutBase;
-import com.hissain.jscipy.signal.butterworth.PoleZeroPair;
-import com.hissain.jscipy.signal.butterworth.ComplexPair;
-import com.hissain.jscipy.signal.butterworth.MathSupplement;
 
 /**
  * Transforms from an analogue lowpass filter to a digital bandstop filter

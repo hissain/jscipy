@@ -2,6 +2,8 @@ package com.hissain.jscipy.signal;
 
 import org.apache.commons.math3.complex.Complex;
 
+import com.hissain.jscipy.signal.fft.FFT;
+
 import java.util.Arrays;
 
 /**

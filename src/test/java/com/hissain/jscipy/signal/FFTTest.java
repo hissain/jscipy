@@ -3,6 +3,8 @@ package com.hissain.jscipy.signal;
 import org.apache.commons.math3.complex.Complex;
 import org.junit.jupiter.api.Test;
 
+import com.hissain.jscipy.signal.fft.FFT;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
