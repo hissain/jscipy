@@ -26,6 +26,8 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 * **FFT and RFFT**:
   * Compute the Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT) of a signal.
   * Compute the Real Fast Fourier Transform (RFFT) and Inverse Real Fast Fourier Transform (IRFFT) for real-valued signals, which are more efficient.
+* **Welch's Method**:
+  * Compute Power Spectral Density (PSD) using Welch's method.
 * **Resample**:
   * Resample a signal to a new number of samples using Fourier method.
 * **Savitzky-Golay Filter**:

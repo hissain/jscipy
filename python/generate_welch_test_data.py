@@ -10,8 +10,8 @@ def generate_welch_test_data(test_id, sample_rate, num_samples, nperseg):
     # Welch's method (default: window='hann', scaling='density', average='mean')
     # nperseg: Length of each segment
     # noverlap: nperseg // 2 (default)
-    # detrend: False to match Java implementation which currently doesn't detrend
-    f, Pxx = signal.welch(sig, fs=sample_rate, nperseg=nperseg, detrend=False)
+    # detrend: 'constant' (default) - subtract mean
+    f, Pxx = signal.welch(sig, fs=sample_rate, nperseg=nperseg)
     
     output_dir = "datasets"
     if not os.path.exists(output_dir):

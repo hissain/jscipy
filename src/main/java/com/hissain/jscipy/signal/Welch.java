@@ -77,8 +77,16 @@ public class Welch {
         for (int i = 0; i < numSegments; i++) {
             int start = i * step;
             double[] segment = new double[nperseg];
+            
+            // Detrend (constant) - subtract mean
+            double mean = 0;
             for (int j = 0; j < nperseg; j++) {
-                segment[j] = x[start + j] * window[j];
+                mean += x[start + j];
+            }
+            mean /= nperseg;
+            
+            for (int j = 0; j < nperseg; j++) {
+                segment[j] = (x[start + j] - mean) * window[j];
             }
             
             JComplex[] spectrum = fft.rfft(segment);
