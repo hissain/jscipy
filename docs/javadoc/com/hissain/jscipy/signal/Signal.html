@@ -107,6 +107,42 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cheby1_filtfilt(double%5B%5D,double,double,int,double)" class="member-name-link">cheby1_filtfilt</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a zero-phase Chebyshev Type I low-pass filter (forward and backward).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cheby1_lfilter(double%5B%5D,double,double,int,double)" class="member-name-link">cheby1_lfilter</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a standard (causal) Chebyshev Type I low-pass filter.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cheby2_filtfilt(double%5B%5D,double,double,int,double)" class="member-name-link">cheby2_filtfilt</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;stopBandDb)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cheby2_lfilter(double%5B%5D,double,double,int,double)" class="member-name-link">cheby2_lfilter</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;stopBandDb)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a standard (causal) Chebyshev Type II low-pass filter.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#convolve(double%5B%5D,double%5B%5D,com.hissain.jscipy.signal.ConvolutionMode)" class="member-name-link">convolve</a><wbr>(double[]&nbsp;signal,
  double[]&nbsp;window,
  <a href="ConvolutionMode.html" title="enum class in com.hissain.jscipy.signal">ConvolutionMode</a>&nbsp;mode)</code></div>
@@ -259,6 +295,90 @@ loadScripts(document, 'script');</script>
 <dd><code>sampleRate</code> - The sample rate of the signal.</dd>
 <dd><code>cutoff</code> - The cutoff frequency.</dd>
 <dd><code>order</code> - The filter order.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="cheby1_filtfilt(double[],double,double,int,double)">
+<h3>cheby1_filtfilt</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">cheby1_filtfilt</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb)</span></div>
+<div class="block">Applies a zero-phase Chebyshev Type I low-pass filter (forward and backward).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="cheby1_lfilter(double[],double,double,int,double)">
+<h3>cheby1_lfilter</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">cheby1_lfilter</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb)</span></div>
+<div class="block">Applies a standard (causal) Chebyshev Type I low-pass filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="cheby2_filtfilt(double[],double,double,int,double)">
+<h3>cheby2_filtfilt</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">cheby2_filtfilt</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;stopBandDb)</span></div>
+<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="cheby2_lfilter(double[],double,double,int,double)">
+<h3>cheby2_lfilter</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">cheby2_lfilter</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;stopBandDb)</span></div>
+<div class="block">Applies a standard (causal) Chebyshev Type II low-pass filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
 </dl>
