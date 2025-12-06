@@ -5,7 +5,7 @@ import com.hissain.jscipy.signal.fft.FFT;
 /**
  * Implementation of Welch's method for spectral density estimation.
  */
-public class Welch {
+class Welch {
     
     /**
      * Result of Welch's method.
