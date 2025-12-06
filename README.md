@@ -10,6 +10,10 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   * Implement various types of Butterworth filters: low-pass, high-pass, band-pass, and band-stop.
   * Supports zero-phase filtering (`filtfilt`) for applications where phase distortion is critical.
   * Provides standard filtering (`filter`) for causal applications.
+* **Chebyshev Filters**:
+  * **Type I (`cheby1`)**: Filter with passband ripple and steep rolloff.
+  * **Type II (`cheby2`)**: Filter with stopband ripple and maximally flat passband.
+  * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
 * **Find Peaks**:
   * Efficiently detect peaks in one-dimensional signals.
   * Filter peaks based on properties like height, prominence, and minimum distance between peaks.
@@ -80,6 +84,16 @@ A seperate demo android application is built on this library that might be helpf
 ### Butterworth Filter Comparison
 
 ![Butterworth Comparison](python/figs/butterworth_input1.txt.png)
+
+### Chebyshev Filter Comparison
+
+**Type I:**
+
+![Chebyshev Type I Comparison](python/figs/cheby1_input1.txt.png)
+
+**Type II:**
+
+![Chebyshev Type II Comparison](python/figs/cheby2_input1.txt.png)
 
 ### RK4 Solver Comparison
 
@@ -157,6 +171,35 @@ public class FilterExample {
         for (double value : causalFilteredSignal) {
             System.out.printf("%.2f ", value);
         }
+        System.out.println();
+    }
+}
+```
+
+### Chebyshev Filters
+
+```java
+import com.hissain.jscipy.signal.Signal;
+
+public class ChebyExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0};
+        double sampleRate = 100.0;
+        double cutoff = 10.0;
+        int order = 4;
+        
+        // Chebyshev Type I (passband ripple 1dB)
+        double rippleDb = 1.0;
+        double[] cheby1 = Signal.cheby1_filtfilt(signal, sampleRate, cutoff, order, rippleDb);
+        System.out.println("Chebyshev I Filtered:");
+        for(double v : cheby1) System.out.printf("%.2f ", v);
+        System.out.println();
+        
+        // Chebyshev Type II (stopband attenuation 20dB)
+        double stopBandDb = 20.0;
+        double[] cheby2 = Signal.cheby2_filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
+        System.out.println("Chebyshev II Filtered:");
+        for(double v : cheby2) System.out.printf("%.2f ", v);
         System.out.println();
     }
 }

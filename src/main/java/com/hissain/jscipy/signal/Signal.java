@@ -1,6 +1,8 @@
 package com.hissain.jscipy.signal;
 
 import com.hissain.jscipy.signal.filter.ButterworthFilter;
+import com.hissain.jscipy.signal.filter.Chebyshev1Filter;
+import com.hissain.jscipy.signal.filter.Chebyshev2Filter;
 
 import java.util.Map;
 
@@ -36,6 +38,66 @@ public class Signal {
      */
     public static double[] lfilter(double[] signal, double sampleRate, double cutoff, int order) {
         return new ButterworthFilter().filter(signal, sampleRate, cutoff, order);
+    }
+
+    // --- Chebyshev Type I Filter ---
+
+    /**
+     * Applies a zero-phase Chebyshev Type I low-pass filter (forward and backward).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby1_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+        return new Chebyshev1Filter().filtfilt(signal, sampleRate, cutoff, order, rippleDb);
+    }
+
+    /**
+     * Applies a standard (causal) Chebyshev Type I low-pass filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby1_lfilter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+        return new Chebyshev1Filter().filter(signal, sampleRate, cutoff, order, rippleDb);
+    }
+
+    // --- Chebyshev Type II Filter ---
+
+    /**
+     * Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby2_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
+        return new Chebyshev2Filter().filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
+    }
+
+    /**
+     * Applies a standard (causal) Chebyshev Type II low-pass filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby2_lfilter(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
+        return new Chebyshev2Filter().filter(signal, sampleRate, cutoff, order, stopBandDb);
     }
 
     // --- Detrend ---
