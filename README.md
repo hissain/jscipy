@@ -246,7 +246,7 @@ public class InterpolationExample {
 
 ```java
 import com.hissain.jscipy.signal.fft.FFT;
-import org.apache.commons.math3.complex.Complex;
+import com.hissain.jscipy.signal.JComplex;
 
 public class FFTExample {
     public static void main(String[] args) {
@@ -255,25 +255,25 @@ public class FFTExample {
         FFT fft = new FFT();
 
         // Compute the FFT
-        Complex[] fftResult = fft.fft(signal);
+        JComplex[] fftResult = fft.fft(signal);
         System.out.println("FFT Result:");
-        for (Complex c : fftResult) {
+        for (JComplex c : fftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
         }
         System.out.println();
 
         // Compute the RFFT
-        Complex[] rfftResult = fft.rfft(signal);
+        JComplex[] rfftResult = fft.rfft(signal);
         System.out.println("RFFT Result:");
-        for (Complex c : rfftResult) {
+        for (JComplex c : rfftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
         }
         System.out.println();
 
         // Compute the IFFT
-        Complex[] ifftResult = fft.ifft(fftResult);
+        JComplex[] ifftResult = fft.ifft(fftResult);
         System.out.println("IFFT Result:");
-        for (Complex c : ifftResult) {
+        for (JComplex c : ifftResult) {
             System.out.printf("(%.2f, %.2f) ", c.getReal(), c.getImaginary());
         }
         System.out.println();
@@ -395,16 +395,16 @@ public class FilterExample {
 
 ```java
 import com.hissain.jscipy.signal.Signal;
-import org.apache.commons.math3.complex.Complex;
+import com.hissain.jscipy.signal.JComplex;
 
 public class HilbertExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 0.0, -1.0, 0.0};
       
-        Complex[] analyticSignal = Signal.hilbert(signal);
+        JComplex[] analyticSignal = Signal.hilbert(signal);
       
         System.out.println("Analytic Signal (Real + j*Imag):");
-        for (Complex c : analyticSignal) {
+        for (JComplex c : analyticSignal) {
             System.out.printf("%.2f + j%.2f\n", c.getReal(), c.getImaginary());
         }
     }
