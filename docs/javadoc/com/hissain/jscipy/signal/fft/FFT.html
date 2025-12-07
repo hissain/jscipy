@@ -207,19 +207,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="rfft(double[])">
-<h3>rfft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">rfft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
-<div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>input</code> - The input signal.</dd>
-<dt>Returns:</dt>
-<dd>The positive frequency components of the FFT as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="ifft(com.hissain.jscipy.signal.JComplex[])">
 <h3>ifft</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">ifft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;input)</span></div>
@@ -229,6 +216,19 @@ loadScripts(document, 'script');</script>
 <dd><code>input</code> - The complex-valued input signal.</dd>
 <dt>Returns:</dt>
 <dd>The complex-valued inverse FFT of the signal as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="rfft(double[])">
+<h3>rfft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">rfft</span><wbr><span class="parameters">(double[]&nbsp;input)</span></div>
+<div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>input</code> - The input signal.</dd>
+<dt>Returns:</dt>
+<dd>The positive frequency components of the FFT as an array of <a href="../JComplex.html" title="class in com.hissain.jscipy.signal"><code>JComplex</code></a> objects.</dd>
 </dl>
 </section>
 </li>
@@ -244,6 +244,34 @@ loadScripts(document, 'script');</script>
 <dd><code>n</code> - The length of the original signal.</dd>
 <dt>Returns:</dt>
 <dd>The real-valued inverse FFT of the signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="stft(double[])">
+<h3>stft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">stft</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
+<div class="block">Computes the Short-Time Fourier Transform (STFT) with default parameters.
+ Uses nperseg=256, noverlap=128, Hann window, and zero-padding.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input signal.</dd>
+<dt>Returns:</dt>
+<dd>A 2D array of complex values [frequency bins][time frames] representing the STFT.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="istft(com.hissain.jscipy.signal.JComplex[][])">
+<h3>istft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">istft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</span></div>
+<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.
+ Uses nperseg=256, noverlap=128, Hann window, and assumes zero-padding was used.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stftMatrix</code> - The STFT matrix [frequency bins][time frames].</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed time-domain signal.</dd>
 </dl>
 </section>
 </li>
@@ -274,20 +302,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="stft(double[])">
-<h3>stft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">stft</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
-<div class="block">Computes the Short-Time Fourier Transform (STFT) with default parameters.
- Uses nperseg=256, noverlap=128, Hann window, and zero-padding.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>x</code> - The input signal.</dd>
-<dt>Returns:</dt>
-<dd>A 2D array of complex values [frequency bins][time frames] representing the STFT.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="istft(com.hissain.jscipy.signal.JComplex[][],java.lang.Integer,java.lang.Integer,java.lang.Integer,double[],java.lang.String,java.lang.Integer)">
 <h3>istft</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">istft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
@@ -308,20 +322,6 @@ loadScripts(document, 'script');</script>
 <dd><code>window</code> - The window function used in STFT. If null, uses Hann window.</dd>
 <dd><code>boundary</code> - The boundary extension mode used in STFT. "zeros" means padding was used.</dd>
 <dd><code>inputLength</code> - The expected output length. If null, inferred from stftMatrix.</dd>
-<dt>Returns:</dt>
-<dd>The reconstructed time-domain signal.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="istft(com.hissain.jscipy.signal.JComplex[][])">
-<h3>istft</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">istft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</span></div>
-<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.
- Uses nperseg=256, noverlap=128, Hann window, and assumes zero-padding was used.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>stftMatrix</code> - The STFT matrix [frequency bins][time frames].</dd>
 <dt>Returns:</dt>
 <dd>The reconstructed time-domain signal.</dd>
 </dl>

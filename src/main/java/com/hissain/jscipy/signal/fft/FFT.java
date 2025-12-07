@@ -25,30 +25,6 @@ public class FFT {
         this.transformer = new FastFourierTransformer(DftNormalization.STANDARD);
     }
 
-    private int nextPowerOf2(int n) {
-        if (n == 0) return 1;
-        int power = 1;
-        while (power < n) {
-            power <<= 1;
-        }
-        return power;
-    }
-
-    /**
-     * Computes the forward FFT of a real-valued signal.
-     * @param input The input signal.
-     * @return The complex-valued FFT of the signal as an array of {@link JComplex} objects.
-     */
-    public JComplex[] fft(double[] input) {
-        int n = input.length;
-        if (Integer.bitCount(n) == 1) { // Power of 2
-            Complex[] result = transformer.transform(input, TransformType.FORWARD);
-            return toJComplex(result);
-        } else {
-            return dft(input);
-        }
-    }
-
     private JComplex[] dft(double[] input) {
         int n = input.length;
         JComplex[] output = new JComplex[n];
@@ -65,16 +41,35 @@ public class FFT {
         return output;
     }
 
-    /**
-     * Computes the forward FFT of a real-valued signal and returns the positive frequency components.
-     * @param input The input signal.
-     * @return The positive frequency components of the FFT as an array of {@link JComplex} objects.
-     */
-    public JComplex[] rfft(double[] input) {
-        JComplex[] fftResult = fft(input);
+    private JComplex[] idft(JComplex[] input) {
         int n = input.length;
-        int resultSize = n / 2 + 1;
-        return Arrays.copyOf(fftResult, resultSize);
+        JComplex[] output = new JComplex[n];
+        for (int t = 0; t < n; t++) {
+            double sumReal = 0;
+            double sumImag = 0;
+            for (int k = 0; k < n; k++) {
+                double angle = 2 * Math.PI * k * t / n;
+                sumReal += input[k].getReal() * Math.cos(angle) - input[k].getImaginary() * Math.sin(angle);
+                sumImag += input[k].getReal() * Math.sin(angle) + input[k].getImaginary() * Math.cos(angle);
+            }
+            output[t] = new JComplex(sumReal / n, sumImag / n);
+        }
+        return output;
+    }
+
+    /**
+     * Computes the forward FFT of a real-valued signal.
+     * @param input The input signal.
+     * @return The complex-valued FFT of the signal as an array of {@link JComplex} objects.
+     */
+    public JComplex[] fft(double[] input) {
+        int n = input.length;
+        if (Integer.bitCount(n) == 1) { // Power of 2
+            Complex[] result = transformer.transform(input, TransformType.FORWARD);
+            return toJComplex(result);
+        } else {
+            return dft(input);
+        }
     }
 
     /**
@@ -93,20 +88,16 @@ public class FFT {
         }
     }
 
-    private JComplex[] idft(JComplex[] input) {
+    /**
+     * Computes the forward FFT of a real-valued signal and returns the positive frequency components.
+     * @param input The input signal.
+     * @return The positive frequency components of the FFT as an array of {@link JComplex} objects.
+     */
+    public JComplex[] rfft(double[] input) {
+        JComplex[] fftResult = fft(input);
         int n = input.length;
-        JComplex[] output = new JComplex[n];
-        for (int t = 0; t < n; t++) {
-            double sumReal = 0;
-            double sumImag = 0;
-            for (int k = 0; k < n; k++) {
-                double angle = 2 * Math.PI * k * t / n;
-                sumReal += input[k].getReal() * Math.cos(angle) - input[k].getImaginary() * Math.sin(angle);
-                sumImag += input[k].getReal() * Math.sin(angle) + input[k].getImaginary() * Math.cos(angle);
-            }
-            output[t] = new JComplex(sumReal / n, sumImag / n);
-        }
-        return output;
+        int resultSize = n / 2 + 1;
+        return Arrays.copyOf(fftResult, resultSize);
     }
 
     /**
@@ -137,6 +128,28 @@ public class FFT {
         return realResult;
     }
 
+    /**
+     * Computes the Short-Time Fourier Transform (STFT) with default parameters.
+     * Uses nperseg=256, noverlap=128, Hann window, and zero-padding.
+     * 
+     * @param x The input signal.
+     * @return A 2D array of complex values [frequency bins][time frames] representing the STFT.
+     */
+    public JComplex[][] stft(double[] x) {
+        return stft(x, null, null, null, null, "zeros", true);
+    }
+
+    /**
+     * Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.
+     * Uses nperseg=256, noverlap=128, Hann window, and assumes zero-padding was used.
+     * 
+     * @param stftMatrix The STFT matrix [frequency bins][time frames].
+     * @return The reconstructed time-domain signal.
+     */
+    public double[] istft(JComplex[][] stftMatrix) {
+        return istft(stftMatrix, null, null, null, null, "zeros", null);
+    }
+    
     /**
      * Computes the Short-Time Fourier Transform (STFT) of a signal.
      * This implementation matches the behavior of scipy.signal.stft with default parameters.
@@ -227,17 +240,7 @@ public class FFT {
         return stftResult;
     }
     
-    /**
-     * Computes the Short-Time Fourier Transform (STFT) with default parameters.
-     * Uses nperseg=256, noverlap=128, Hann window, and zero-padding.
-     * 
-     * @param x The input signal.
-     * @return A 2D array of complex values [frequency bins][time frames] representing the STFT.
-     */
-    public JComplex[][] stft(double[] x) {
-        return stft(x, null, null, null, null, "zeros", true);
-    }
-
+    
     /**
      * Computes the Inverse Short-Time Fourier Transform (ISTFT).
      * This implementation matches the behavior of scipy.signal.istft with default parameters.
@@ -325,17 +328,6 @@ public class FFT {
         }
         
         return output;
-    }
-    
-    /**
-     * Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.
-     * Uses nperseg=256, noverlap=128, Hann window, and assumes zero-padding was used.
-     * 
-     * @param stftMatrix The STFT matrix [frequency bins][time frames].
-     * @return The reconstructed time-domain signal.
-     */
-    public double[] istft(JComplex[][] stftMatrix) {
-        return istft(stftMatrix, null, null, null, null, "zeros", null);
     }
 
     private JComplex[] toJComplex(Complex[] input) {
