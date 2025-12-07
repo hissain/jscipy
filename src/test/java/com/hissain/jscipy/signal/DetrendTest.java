@@ -15,7 +15,7 @@ import com.hissain.jscipy.signal.DetrendType;
 public class DetrendTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1e-10; // High precision expected for linear algebra
+    private static final double TOLERANCE = 2e-14;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();
@@ -51,11 +51,8 @@ public class DetrendTest {
         }
         rmse = Math.sqrt(rmse / output.length);
         System.out.println("RMSE for " + inputFilename + " (" + type + "): " + rmse);
-        
-        // Use a slightly larger tolerance for RMSE to account for floating point differences
-        // But 1e-10 might be too strict if python and java use different float precision or algorithms
-        // Let's use 1e-6 which is standard for float comparisons
-        assertTrue(rmse < 1e-6, "RMSE too high: " + rmse);
+
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
     }
 
     @Test

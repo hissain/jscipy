@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class WelchTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1e-4;
+    private static final double TOLERANCE = 1e-16;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();

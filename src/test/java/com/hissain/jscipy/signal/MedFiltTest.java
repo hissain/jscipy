@@ -3,9 +3,12 @@ package com.hissain.jscipy.signal;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.hissain.jscipy.signal.util.LoadTxt;
 
 public class MedFiltTest {
+
+    private static final double TOLERANCE = 1e-10;
 
     @Test
     void testMedFilt() throws IOException {
@@ -21,7 +24,8 @@ public class MedFiltTest {
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for MedFilt: " + rmse);
 
-        assertArrayEquals(expected, actual, 1e-6);
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
+        assertArrayEquals(expected, actual, TOLERANCE);
     }
 
     private double calculateRMSE(double[] expected, double[] actual) {

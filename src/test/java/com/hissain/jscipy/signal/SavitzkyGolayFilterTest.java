@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class SavitzkyGolayFilterTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1e-9; // Strict tolerance
+    private static final double TOLERANCE = 1e-14; // Strict tolerance
 
     private double[] readDataFile(String fileName) throws IOException {
         Path path = Paths.get(TEST_DATA_DIR + fileName);

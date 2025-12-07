@@ -16,7 +16,7 @@ import com.hissain.jscipy.signal.Hilbert;
 public class HilbertTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1e-10;
+    private static final double TOLERANCE = 1e-14;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();

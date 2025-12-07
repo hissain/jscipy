@@ -8,10 +8,12 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class InterpolationTest {
 
     private final Interpolation interpolation = new Interpolation();
+    private static final double TOLERANCE = 0.001;
 
     @Test
     public void testLinearInterpolationData1() throws IOException {
@@ -28,7 +30,10 @@ public class InterpolationTest {
             }
         }
 
-        assertArrayEquals(expectedY, actualY, 0.001);
+        double rmse = calculateRMSE(expectedY, actualY);
+        System.out.println("RMSE for Linear Interpolation 1: " + rmse);
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
+        assertArrayEquals(expectedY, actualY, TOLERANCE);
     }
 
     @Test
@@ -46,7 +51,10 @@ public class InterpolationTest {
             }
         }
 
-        assertArrayEquals(expectedY, actualY, 0.001);
+        double rmse = calculateRMSE(expectedY, actualY);
+        System.out.println("RMSE for Linear Interpolation 2: " + rmse);
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
+        assertArrayEquals(expectedY, actualY, TOLERANCE);
     }
 
     @Test
@@ -64,7 +72,10 @@ public class InterpolationTest {
             }
         }
 
-        assertArrayEquals(expectedY, actualY, 0.001);
+        double rmse = calculateRMSE(expectedY, actualY);
+        System.out.println("RMSE for Cubic Interpolation 1: " + rmse);
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
+        assertArrayEquals(expectedY, actualY, TOLERANCE);
     }
 
     @Test
@@ -82,12 +93,23 @@ public class InterpolationTest {
             }
         }
 
-        assertArrayEquals(expectedY, actualY, 0.001);
+        double rmse = calculateRMSE(expectedY, actualY);
+        System.out.println("RMSE for Cubic Interpolation 2: " + rmse);
+        assertTrue(rmse < TOLERANCE, "RMSE too high: " + rmse);
+        assertArrayEquals(expectedY, actualY, TOLERANCE);
     }
 
     private double[] readData(String filePath) throws IOException {
         return Files.lines(Paths.get(filePath))
                 .mapToDouble(Double::parseDouble)
                 .toArray();
+    }
+
+    private double calculateRMSE(double[] expected, double[] actual) {
+        double sumSquareError = 0;
+        for (int i = 0; i < expected.length; i++) {
+            sumSquareError += Math.pow(expected[i] - actual[i], 2);
+        }
+        return Math.sqrt(sumSquareError / expected.length);
     }
 }

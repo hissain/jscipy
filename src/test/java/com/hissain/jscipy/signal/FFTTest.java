@@ -12,10 +12,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FFTTest {
 
     private final FFT fft = new FFT();
+    private static final double FFT_RMSE_TOLLARENCE = 1e-14;
+    private static final double FFT_MAX_ERROR_TOLERANCE = 1e-13;
 
     @Test
     public void testFFTData1() throws IOException {
@@ -29,7 +32,12 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        double maxError = calculateMaxError(expected, actual);
+        System.out.println("RMSE for FFT Data 1: " + rmse);
+        System.out.println("Max Error for FFT Data 1: " + maxError);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -44,7 +52,12 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        double maxError = calculateMaxError(expected, actual);
+        System.out.println("RMSE for FFT Data 2: " + rmse);
+        System.out.println("Max Error for FFT Data 2: " + maxError);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -59,7 +72,12 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        double maxError = calculateMaxError(expected, actual);
+        System.out.println("RMSE for RFFT Data 1: " + rmse);
+        System.out.println("Max Error for RFFT Data 1: " + maxError);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -74,7 +92,12 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        double maxError = calculateMaxError(expected, actual);
+        System.out.println("RMSE for RFFT Data 2: " + rmse);
+        System.out.println("Max Error for RFFT Data 2: " + maxError);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -89,7 +112,10 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE for IFFT Data 1: " + rmse);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -104,7 +130,10 @@ public class FFTTest {
             }
         }
 
-        assertComplexArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE for IFFT Data 2: " + rmse);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -119,7 +148,10 @@ public class FFTTest {
             }
         }
 
-        assertArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE for IRFFT Data 1: " + rmse);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     @Test
@@ -134,7 +166,10 @@ public class FFTTest {
             }
         }
 
-        assertArrayEquals(expected, actual, 0.001);
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE for IRFFT Data 2: " + rmse);
+        assertTrue(rmse < FFT_RMSE_TOLLARENCE, "RMSE is too high");
+        assertArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
 
     private double[] readData(String filePath) throws IOException {
@@ -160,5 +195,36 @@ public class FFTTest {
             assertEquals(expected[i].getReal(), actual[i].getReal(), delta, "Real part of element " + i + " is not equal");
             assertEquals(expected[i].getImaginary(), actual[i].getImaginary(), delta, "Imaginary part of element " + i + " is not equal");
         }
+    }
+
+    private double calculateRMSE(JComplex[] expected, JComplex[] actual) {
+        double sumSquareError = 0;
+        for (int i = 0; i < expected.length; i++) {
+            double realDiff = expected[i].getReal() - actual[i].getReal();
+            double imagDiff = expected[i].getImaginary() - actual[i].getImaginary();
+            sumSquareError += realDiff * realDiff + imagDiff * imagDiff;
+        }
+        return Math.sqrt(sumSquareError / expected.length);
+    }
+
+    private double calculateRMSE(double[] expected, double[] actual) {
+        double sumSquareError = 0;
+        for (int i = 0; i < expected.length; i++) {
+            sumSquareError += Math.pow(expected[i] - actual[i], 2);
+        }
+        return Math.sqrt(sumSquareError / expected.length);
+    }
+
+    private double calculateMaxError(JComplex[] expected, JComplex[] actual) {
+        double maxError = 0;
+        for (int i = 0; i < expected.length; i++) {
+            double realDiff = Math.abs(expected[i].getReal() - actual[i].getReal());
+            double imagDiff = Math.abs(expected[i].getImaginary() - actual[i].getImaginary());
+            double currentMax = Math.max(realDiff, imagDiff);
+            if (currentMax > maxError) {
+                maxError = currentMax;
+            }
+        }
+        return maxError;
     }
 }

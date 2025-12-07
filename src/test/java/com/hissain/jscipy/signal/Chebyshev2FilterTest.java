@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Chebyshev2FilterTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 1.0; 
+    private static final double TOLERANCE = 0.05;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();
