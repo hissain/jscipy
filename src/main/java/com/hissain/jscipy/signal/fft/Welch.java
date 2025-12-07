@@ -1,11 +1,14 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
+import com.hissain.jscipy.signal.JComplex;
+import com.hissain.jscipy.signal.WelchResult;
+import com.hissain.jscipy.signal.Windows;
 import com.hissain.jscipy.signal.fft.FFT;
 
 /**
  * Implementation of Welch's method for spectral density estimation.
  */
-class Welch {
+public class Welch {
 
     /**
      * Compute Power Spectral Density using Welch's method.

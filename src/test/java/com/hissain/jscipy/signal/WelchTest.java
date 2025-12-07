@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.hissain.jscipy.signal.fft.Welch;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WelchTest {
@@ -34,7 +35,7 @@ public class WelchTest {
         double[] expectedFreq = readDataFile(expectedFreqFilename);
         double[] expectedPsd = readDataFile(expectedPsdFilename);
 
-        WelchResult result = Signal.welch(signal, sampleRate, nperseg);
+        WelchResult result = new Welch().welch(signal, sampleRate, nperseg);
 
         // Save output for plotting
         try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + "welch_output_psd1_java.txt")) {

@@ -339,7 +339,7 @@ public class FFTExample {
 ### Welch's Method (PSD)
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.fft.Welch;
 import com.hissain.jscipy.signal.WelchResult;
 
 public class WelchExample {
@@ -355,7 +355,8 @@ public class WelchExample {
         }
         
         // Compute PSD with segment length 256
-        WelchResult result = Signal.welch(signal, fs, 256);
+        Welch welch = new Welch();
+        WelchResult result = welch.welch(signal, fs, 256);
         
         System.out.println("Frequencies (first 5):");
         for(int i=0; i<5; i++) System.out.printf("%.2f ", result.f[i]);
@@ -475,14 +476,15 @@ public class FilterExample {
 ### Hilbert Transform
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.fft.Hilbert;
 import com.hissain.jscipy.signal.JComplex;
 
 public class HilbertExample {
     public static void main(String[] args) {
         double[] signal = {1.0, 0.0, -1.0, 0.0};
       
-        JComplex[] analyticSignal = Signal.hilbert(signal);
+        Hilbert hilbert = new Hilbert();
+        JComplex[] analyticSignal = hilbert.hilbert(signal);
       
         System.out.println("Analytic Signal (Real + j*Imag):");
         for (JComplex c : analyticSignal) {

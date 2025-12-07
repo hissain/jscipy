@@ -3,7 +3,7 @@ package com.hissain.jscipy.signal;
 /**
  * Utility class for window functions.
  */
-class Windows {
+public class Windows {
     
     /**
      * Returns a symmetric Hanning window of length M.

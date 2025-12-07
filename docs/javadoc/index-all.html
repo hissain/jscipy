@@ -219,7 +219,15 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns a Hanning window of length M.</div>
 </dd>
+<dt><a href="com/hissain/jscipy/signal/Windows.html#hanning(int)" class="member-name-link">hanning(int)</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Windows.html" title="class in com.hissain.jscipy.signal">Windows</a></dt>
+<dd>
+<div class="block">Returns a symmetric Hanning window of length M.</div>
+</dd>
 <dt><a href="com/hissain/jscipy/signal/Signal.html#hanning(int,boolean)" class="member-name-link">hanning(int, boolean)</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Signal.html" title="class in com.hissain.jscipy.signal">Signal</a></dt>
+<dd>
+<div class="block">Returns a Hanning window of length M.</div>
+</dd>
+<dt><a href="com/hissain/jscipy/signal/Windows.html#hanning(int,boolean)" class="member-name-link">hanning(int, boolean)</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Windows.html" title="class in com.hissain.jscipy.signal">Windows</a></dt>
 <dd>
 <div class="block">Returns a Hanning window of length M.</div>
 </dd>
@@ -231,9 +239,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Applies a high-pass Chebyshev Type II filter.</div>
 </dd>
-<dt><a href="com/hissain/jscipy/signal/Signal.html#hilbert(double%5B%5D)" class="member-name-link">hilbert(double[])</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Signal.html" title="class in com.hissain.jscipy.signal">Signal</a></dt>
+<dt><a href="com/hissain/jscipy/signal/fft/Hilbert.html#hilbert(double%5B%5D)" class="member-name-link">hilbert(double[])</a> - Method in class com.hissain.jscipy.signal.fft.<a href="com/hissain/jscipy/signal/fft/Hilbert.html" title="class in com.hissain.jscipy.signal.fft">Hilbert</a></dt>
 <dd>
-<div class="block">Computes the analytic signal using the Hilbert transform.</div>
+<div class="block">Computes the analytic signal of a real-valued input array.</div>
+</dd>
+<dt><a href="com/hissain/jscipy/signal/fft/Hilbert.html" class="type-name-link" title="class in com.hissain.jscipy.signal.fft">Hilbert</a> - Class in <a href="com/hissain/jscipy/signal/fft/package-summary.html">com.hissain.jscipy.signal.fft</a></dt>
+<dd>
+<div class="block">Provides a method to compute the analytic signal using the Hilbert transform.</div>
+</dd>
+<dt><a href="com/hissain/jscipy/signal/fft/Hilbert.html#%3Cinit%3E()" class="member-name-link">Hilbert()</a> - Constructor for class com.hissain.jscipy.signal.fft.<a href="com/hissain/jscipy/signal/fft/Hilbert.html" title="class in com.hissain.jscipy.signal.fft">Hilbert</a></dt>
+<dd>
+<div class="block">Constructs a Hilbert transformer.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
@@ -440,14 +456,20 @@ the order they are declared.</div>
 </dl>
 <h2 class="title" id="I:W">W</h2>
 <dl class="index">
-<dt><a href="com/hissain/jscipy/signal/Signal.html#welch(double%5B%5D,double,double%5B%5D,int,int)" class="member-name-link">welch(double[], double, double[], int, int)</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Signal.html" title="class in com.hissain.jscipy.signal">Signal</a></dt>
+<dt><a href="com/hissain/jscipy/signal/fft/Welch.html#welch(double%5B%5D,double,double%5B%5D,int,int)" class="member-name-link">welch(double[], double, double[], int, int)</a> - Method in class com.hissain.jscipy.signal.fft.<a href="com/hissain/jscipy/signal/fft/Welch.html" title="class in com.hissain.jscipy.signal.fft">Welch</a></dt>
 <dd>
 <div class="block">Compute Power Spectral Density using Welch's method with custom parameters.</div>
 </dd>
-<dt><a href="com/hissain/jscipy/signal/Signal.html#welch(double%5B%5D,double,int)" class="member-name-link">welch(double[], double, int)</a> - Static method in class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Signal.html" title="class in com.hissain.jscipy.signal">Signal</a></dt>
+<dt><a href="com/hissain/jscipy/signal/fft/Welch.html#welch(double%5B%5D,double,int)" class="member-name-link">welch(double[], double, int)</a> - Method in class com.hissain.jscipy.signal.fft.<a href="com/hissain/jscipy/signal/fft/Welch.html" title="class in com.hissain.jscipy.signal.fft">Welch</a></dt>
 <dd>
 <div class="block">Compute Power Spectral Density using Welch's method.</div>
 </dd>
+<dt><a href="com/hissain/jscipy/signal/fft/Welch.html" class="type-name-link" title="class in com.hissain.jscipy.signal.fft">Welch</a> - Class in <a href="com/hissain/jscipy/signal/fft/package-summary.html">com.hissain.jscipy.signal.fft</a></dt>
+<dd>
+<div class="block">Implementation of Welch's method for spectral density estimation.</div>
+</dd>
+<dt><a href="com/hissain/jscipy/signal/fft/Welch.html#%3Cinit%3E()" class="member-name-link">Welch()</a> - Constructor for class com.hissain.jscipy.signal.fft.<a href="com/hissain/jscipy/signal/fft/Welch.html" title="class in com.hissain.jscipy.signal.fft">Welch</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/hissain/jscipy/signal/WelchResult.html" class="type-name-link" title="class in com.hissain.jscipy.signal">WelchResult</a> - Class in <a href="com/hissain/jscipy/signal/package-summary.html">com.hissain.jscipy.signal</a></dt>
 <dd>
 <div class="block">Holds the result of Welch's method for spectral density estimation.</div>
@@ -456,6 +478,12 @@ the order they are declared.</div>
 <dd>
 <div class="block">Constructs a WelchResult.</div>
 </dd>
+<dt><a href="com/hissain/jscipy/signal/Windows.html" class="type-name-link" title="class in com.hissain.jscipy.signal">Windows</a> - Class in <a href="com/hissain/jscipy/signal/package-summary.html">com.hissain.jscipy.signal</a></dt>
+<dd>
+<div class="block">Utility class for window functions.</div>
+</dd>
+<dt><a href="com/hissain/jscipy/signal/Windows.html#%3Cinit%3E()" class="member-name-link">Windows()</a> - Constructor for class com.hissain.jscipy.signal.<a href="com/hissain/jscipy/signal/Windows.html" title="class in com.hissain.jscipy.signal">Windows</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:Y">Y</h2>
 <dl class="index">

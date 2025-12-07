@@ -1,20 +1,36 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
+import com.hissain.jscipy.signal.JComplex;
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Arrays;
 
 /**
- * Implementation for computing the analytic signal.
+ * Provides a method to compute the analytic signal using the Hilbert transform.
+ * The Hilbert transform is a linear operator that takes a function, u(t), and produces a function, H(u)(t),
+ * with the same domain. The Hilbert transform is important in signal processing, where it gives rise to
+ * the analytic representation of a signal.
  */
-class Hilbert {
+public class Hilbert {
 
     private final FFT fft;
 
+    /**
+     * Constructs a Hilbert transformer.
+     */
     public Hilbert() {
         this.fft = new FFT();
     }
 
+    /**
+     * Computes the analytic signal of a real-valued input array.
+     * The analytic signal of a real-valued signal `x(t)` is a complex-valued signal `z(t) = x(t) + j*y(t)`,
+     * where `y(t)` is the Hilbert transform of `x(t)`.
+     *
+     * @param signal The real-valued input signal array.
+     * @return The complex-valued analytic signal.
+     * @throws NullPointerException if the input signal is null.
+     */
     public JComplex[] hilbert(double[] signal) {
         if (signal == null) {
             throw new NullPointerException("Signal cannot be null");

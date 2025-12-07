@@ -11,7 +11,7 @@ import com.hissain.jscipy.signal.JComplex;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.hissain.jscipy.signal.Hilbert;
+import com.hissain.jscipy.signal.fft.Hilbert;
 
 public class HilbertTest {
 

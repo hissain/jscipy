@@ -145,16 +145,6 @@ public class Signal {
 
     // --- Hilbert Transform ---
 
-    /**
-     * Computes the analytic signal using the Hilbert transform.
-     *
-     * @param signal The input signal (real-valued).
-     * @return The analytic signal as an array of {@link JComplex} objects.
-     */
-    public static JComplex[] hilbert(double[] signal) {
-        return new Hilbert().hilbert(signal);
-    }
-
     // --- Window Functions ---
 
     /**
@@ -223,33 +213,6 @@ public class Signal {
     }
 
     // --- Spectral (Welch) ---
-
-    /**
-     * Compute Power Spectral Density using Welch's method.
-     * Uses default Hanning window and 50% overlap.
-     *
-     * @param x       Input signal.
-     * @param fs      Sampling frequency.
-     * @param nperseg Length of each segment.
-     * @return WelchResult containing frequency array (f) and PSD array (Pxx).
-     */
-    public static WelchResult welch(double[] x, double fs, int nperseg) {
-        return new Welch().welch(x, fs, nperseg);
-    }
-
-    /**
-     * Compute Power Spectral Density using Welch's method with custom parameters.
-     *
-     * @param x        Input signal.
-     * @param fs       Sampling frequency.
-     * @param window   Window function array (length must match nperseg).
-     * @param nperseg  Length of each segment.
-     * @param noverlap Number of points to overlap between segments.
-     * @return WelchResult containing frequency array (f) and PSD array (Pxx).
-     */
-    public static WelchResult welch(double[] x, double fs, double[] window, int nperseg, int noverlap) {
-        return new Welch().welch(x, fs, window, nperseg, noverlap);
-    }
 
     // --- Convolution ---
 
