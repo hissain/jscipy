@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FFT</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">A class for performing Fast Fourier Transforms (FFT).
+<div class="block">A class for performing Fast Fourier Transforms (FFT) and Short-Time Fourier Transforms (STFT).
  This class uses the Apache Commons Math library for FFT calculations.</div>
 </section>
 <section class="summary">
@@ -124,10 +124,42 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the inverse FFT of a real-valued signal.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)" class="member-name-link">istft</a><wbr>(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D,java.lang.Integer,java.lang.Integer,java.lang.Integer,double%5B%5D,java.lang.String,java.lang.Integer)" class="member-name-link">istft</a><wbr>(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nperseg,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;noverlap,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nfft,
+ double[]&nbsp;window,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boundary,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;inputLength)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT).</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rfft(double%5B%5D)" class="member-name-link">rfft</a><wbr>(double[]&nbsp;input)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stft(double%5B%5D)" class="member-name-link">stft</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Computes the Short-Time Fourier Transform (STFT) with default parameters.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stft(double%5B%5D,java.lang.Integer,java.lang.Integer,java.lang.Integer,double%5B%5D,java.lang.String,java.lang.Boolean)" class="member-name-link">stft</a><wbr>(double[]&nbsp;x,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nperseg,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;noverlap,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nfft,
+ double[]&nbsp;window,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boundary,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;padded)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Computes the Short-Time Fourier Transform (STFT) of a signal.</div>
 </div>
 </div>
 </div>
@@ -212,6 +244,86 @@ loadScripts(document, 'script');</script>
 <dd><code>n</code> - The length of the original signal.</dd>
 <dt>Returns:</dt>
 <dd>The real-valued inverse FFT of the signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="stft(double[],java.lang.Integer,java.lang.Integer,java.lang.Integer,double[],java.lang.String,java.lang.Boolean)">
+<h3>stft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">stft</span><wbr><span class="parameters">(double[]&nbsp;x,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nperseg,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;noverlap,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nfft,
+ double[]&nbsp;window,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boundary,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;padded)</span></div>
+<div class="block">Computes the Short-Time Fourier Transform (STFT) of a signal.
+ This implementation matches the behavior of scipy.signal.stft with default parameters.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input signal.</dd>
+<dd><code>nperseg</code> - The length of each segment (window size). Default is 256.</dd>
+<dd><code>noverlap</code> - The number of points to overlap between segments. Default is nperseg // 2.</dd>
+<dd><code>nfft</code> - The FFT size to use. If null, uses nperseg. Must be >= nperseg.</dd>
+<dd><code>window</code> - The window function to apply. If null, uses Hann window.</dd>
+<dd><code>boundary</code> - The boundary extension mode. "zeros" pads with zeros, null means no padding.</dd>
+<dd><code>padded</code> - Whether to pad the signal on both sides. Default is true.</dd>
+<dt>Returns:</dt>
+<dd>A 2D array of complex values [frequency bins][time frames] representing the STFT.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="stft(double[])">
+<h3>stft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">stft</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
+<div class="block">Computes the Short-Time Fourier Transform (STFT) with default parameters.
+ Uses nperseg=256, noverlap=128, Hann window, and zero-padding.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input signal.</dd>
+<dt>Returns:</dt>
+<dd>A 2D array of complex values [frequency bins][time frames] representing the STFT.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="istft(com.hissain.jscipy.signal.JComplex[][],java.lang.Integer,java.lang.Integer,java.lang.Integer,double[],java.lang.String,java.lang.Integer)">
+<h3>istft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">istft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nperseg,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;noverlap,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;nfft,
+ double[]&nbsp;window,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;boundary,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;inputLength)</span></div>
+<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT).
+ This implementation matches the behavior of scipy.signal.istft with default parameters.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stftMatrix</code> - The STFT matrix [frequency bins][time frames].</dd>
+<dd><code>nperseg</code> - The length of each segment (window size). Must match the STFT parameters.</dd>
+<dd><code>noverlap</code> - The number of points to overlap between segments. Must match the STFT parameters.</dd>
+<dd><code>nfft</code> - The FFT size used. If null, inferred from stftMatrix dimensions.</dd>
+<dd><code>window</code> - The window function used in STFT. If null, uses Hann window.</dd>
+<dd><code>boundary</code> - The boundary extension mode used in STFT. "zeros" means padding was used.</dd>
+<dd><code>inputLength</code> - The expected output length. If null, inferred from stftMatrix.</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed time-domain signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="istft(com.hissain.jscipy.signal.JComplex[][])">
+<h3>istft</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">istft</span><wbr><span class="parameters">(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</span></div>
+<div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT) with default parameters.
+ Uses nperseg=256, noverlap=128, Hann window, and assumes zero-padding was used.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stftMatrix</code> - The STFT matrix [frequency bins][time frames].</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed time-domain signal.</dd>
 </dl>
 </section>
 </li>
