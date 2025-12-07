@@ -390,7 +390,7 @@ public class ResampleExample {
 ### Savitzky-Golay Filter
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
 
 public class SavGolExample {
     public static void main(String[] args) {
@@ -398,8 +398,10 @@ public class SavGolExample {
         int windowLength = 5;
         int polyOrder = 2;
 
+        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
+
         // Smooth the signal
-        double[] smoothed = Signal.savgol_filter(signal, windowLength, polyOrder);
+        double[] smoothed = filter.savgol_filter(signal, windowLength, polyOrder);
         System.out.println("Smoothed Signal:");
         for (double d : smoothed) {
             System.out.printf("%.2f ", d);
@@ -407,7 +409,7 @@ public class SavGolExample {
         System.out.println();
 
         // Calculate derivative (deriv=1)
-        double[] derivative = Signal.savgol_filter(signal, windowLength, polyOrder, 1, 1.0);
+        double[] derivative = filter.savgol_filter(signal, windowLength, polyOrder, 1, 1.0);
         System.out.println("First Derivative:");
         for (double d : derivative) {
             System.out.printf("%.2f ", d);
@@ -421,7 +423,7 @@ public class SavGolExample {
 
 ```java
 import com.hissain.jscipy.signal.Signal;
-import com.hissain.jscipy.signal.api.DetrendType;
+import com.hissain.jscipy.signal.DetrendType;
 
 public class DetrendExample {
     public static void main(String[] args) {
@@ -442,8 +444,9 @@ public class DetrendExample {
 ### MedFilt and Convolve
 
 ```java
+import com.hissain.jscipy.signal.filter.MedFilt;
 import com.hissain.jscipy.signal.Signal;
-import com.hissain.jscipy.signal.api.ConvolutionMode;
+import com.hissain.jscipy.signal.ConvolutionMode;
 
 public class FilterExample {
     public static void main(String[] args) {
@@ -451,7 +454,8 @@ public class FilterExample {
       
         // Median Filter
         int kernelSize = 3;
-        double[] medFiltered = Signal.medfilt(signal, kernelSize);
+        MedFilt medFilt = new MedFilt();
+        double[] medFiltered = medFilt.medfilt(signal, kernelSize);
       
         System.out.println("Median Filtered:");
         for(double v : medFiltered) System.out.print(v + " ");

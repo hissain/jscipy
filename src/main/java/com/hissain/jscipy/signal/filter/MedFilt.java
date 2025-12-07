@@ -2,6 +2,9 @@ package com.hissain.jscipy.signal.filter;
 
 import java.util.Arrays;
 
+/**
+ * Implements a median filter for signal smoothing.
+ */
 public class MedFilt {
 
     /**
