@@ -106,6 +106,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a symmetric Hamming window of length M.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Hamming window of length M.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Hanning window of length M.</div>
@@ -173,6 +184,35 @@ loadScripts(document, 'script');</script>
                   If false, generates a periodic window (for spectral analysis).</dd>
 <dt>Returns:</dt>
 <dd>The Hanning window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hamming(int)">
+<h3>hamming</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">hamming</span><wbr><span class="parameters">(int&nbsp;m)</span></div>
+<div class="block">Returns a symmetric Hamming window of length M.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt>Returns:</dt>
+<dd>The Hamming window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hamming(int,boolean)">
+<h3>hamming</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">hamming</span><wbr><span class="parameters">(int&nbsp;m,
+ boolean&nbsp;symmetric)</span></div>
+<div class="block">Returns a Hamming window of length M.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
+                  If false, generates a periodic window (for spectral analysis).</dd>
+<dt>Returns:</dt>
+<dd>The Hamming window.</dd>
 </dl>
 </section>
 </li>

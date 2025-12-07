@@ -169,6 +169,27 @@ public class Signal {
         return Windows.hanning(m, symmetric);
     }
 
+    /**
+     * Returns a Hamming window of length M.
+     *
+     * @param m The length of the window.
+     * @return The Hamming window.
+     */
+    public static double[] hamming(int m) {
+        return Windows.hamming(m);
+    }
+
+    /**
+     * Returns a Hamming window of length M.
+     *
+     * @param m The length of the window.
+     * @param symmetric If true, generates a symmetric window (for filter design).
+     *                  If false, generates a periodic window (for spectral analysis).
+     * @return The Hamming window.
+     */
+    public static double[] hamming(int m, boolean symmetric) {
+        return Windows.hamming(m, symmetric);
+    }
     // --- FFT ---
 
     /**

@@ -494,6 +494,34 @@ public class HilbertExample {
 }
 ```
 
+### Window Functions
+
+```java
+import com.hissain.jscipy.signal.Signal;
+
+public class WindowExample {
+    public static void main(String[] args) {
+        int m = 10;
+
+        // Hanning Window
+        double[] hanningWindow = Signal.hanning(m);
+        System.out.println("Hanning Window:");
+        for (double d : hanningWindow) {
+            System.out.printf("%.4f ", d);
+        }
+        System.out.println();
+
+        // Hamming Window
+        double[] hammingWindow = Signal.hamming(m);
+        System.out.println("Hamming Window:");
+        for (double d : hammingWindow) {
+            System.out.printf("%.4f ", d);
+        }
+        System.out.println();
+    }
+}
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit issues or pull requests.

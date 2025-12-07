@@ -35,4 +35,35 @@ public class Windows {
         }
         return w;
     }
+
+    /**
+     * Returns a symmetric Hamming window of length M.
+     *
+     * @param m The length of the window.
+     * @return The Hamming window.
+     */
+    public static double[] hamming(int m) {
+        return hamming(m, true);
+    }
+
+    /**
+     * Returns a Hamming window of length M.
+     *
+     * @param m The length of the window.
+     * @param symmetric If true, generates a symmetric window (for filter design).
+     *                  If false, generates a periodic window (for spectral analysis).
+     * @return The Hamming window.
+     */
+    public static double[] hamming(int m, boolean symmetric) {
+        double[] w = new double[m];
+        if (m == 1) {
+            w[0] = 1.0;
+            return w;
+        }
+        double div = symmetric ? (m - 1) : m;
+        for (int n = 0; n < m; n++) {
+            w[n] = 0.54 - 0.46 * Math.cos(2.0 * Math.PI * n / div);
+        }
+        return w;
+    }
 }
