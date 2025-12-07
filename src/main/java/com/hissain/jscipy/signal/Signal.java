@@ -3,6 +3,8 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
+import com.hissain.jscipy.signal.filter.MedFilt;
+import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Map;

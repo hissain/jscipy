@@ -1,6 +1,9 @@
 package com.hissain.jscipy.signal;
 
 import org.junit.jupiter.api.Test;
+
+import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

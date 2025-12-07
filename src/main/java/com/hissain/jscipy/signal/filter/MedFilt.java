@@ -1,8 +1,8 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.filter;
 
 import java.util.Arrays;
 
-class MedFilt {
+public class MedFilt {
 
     public double[] medfilt(double[] data, int kernelSize) {
         if (kernelSize % 2 == 0) {

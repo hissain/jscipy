@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.hissain.jscipy.signal.filter.MedFilt;
 import com.hissain.jscipy.signal.util.LoadTxt;
 
 public class MedFiltTest {

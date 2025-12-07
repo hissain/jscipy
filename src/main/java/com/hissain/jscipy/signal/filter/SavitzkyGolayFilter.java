@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.linear.*;
 
@@ -6,7 +6,7 @@ import org.apache.commons.math3.linear.*;
  * Implements Savitzky-Golay filter for data smoothing and differentiation.
  * Based on the method described in Numerical Recipes and SciPy's implementation.
  */
-class SavitzkyGolayFilter {
+public class SavitzkyGolayFilter {
 
     public double[] smooth(double[] data, int windowLength, int polyOrder) {
         return applySavitzkyGolay(data, windowLength, polyOrder, 0, 1.0);
