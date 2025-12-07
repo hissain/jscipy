@@ -4,21 +4,28 @@ import java.util.Arrays;
 
 public class MedFilt {
 
-    public double[] medfilt(double[] data, int kernelSize) {
+    /**
+     * Applies a median filter to the signal.
+     *
+     * @param signal     The input signal.
+     * @param kernelSize The size of the kernel (must be odd).
+     * @return The filtered signal.
+     */
+    public double[] medfilt(double[] signal, int kernelSize) {
         if (kernelSize % 2 == 0) {
             throw new IllegalArgumentException("Kernel size must be odd.");
         }
         int halfKernel = kernelSize / 2;
-        double[] result = new double[data.length];
+        double[] result = new double[signal.length];
         double[] window = new double[kernelSize];
 
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < signal.length; i++) {
             for (int k = 0; k < kernelSize; k++) {
                 int idx = i - halfKernel + k;
-                if (idx < 0 || idx >= data.length) {
+                if (idx < 0 || idx >= signal.length) {
                     window[k] = 0.0;
                 } else {
-                    window[k] = data[idx];
+                    window[k] = signal[idx];
                 }
             }
             Arrays.sort(window);

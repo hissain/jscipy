@@ -66,7 +66,7 @@ public class SavitzkyGolayFilterTest {
         double[] expectedOutput = readDataFile("savitzky_golay_smoothing_output.txt");
 
         SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
-        double[] actualOutput = filter.smooth(input, 11, 3);
+        double[] actualOutput = filter.savgol_filter(input, 11, 3);
 
         writeDataFile("savitzky_golay_smoothing_output_java.txt", actualOutput);
 
@@ -81,7 +81,7 @@ public class SavitzkyGolayFilterTest {
         double[] expectedOutput = readDataFile("savitzky_golay_differentiation_output.txt");
 
         SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
-        double[] actualOutput = filter.differentiate(input, 11, 3, 1, 1.0);
+        double[] actualOutput = filter.savgol_filter(input, 11, 3, 1, 1.0);
 
         writeDataFile("savitzky_golay_differentiation_output_java.txt", actualOutput);
 

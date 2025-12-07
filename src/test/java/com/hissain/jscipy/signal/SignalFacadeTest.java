@@ -3,6 +3,7 @@ package com.hissain.jscipy.signal;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import com.hissain.jscipy.signal.DetrendType;
+import com.hissain.jscipy.signal.filter.MedFilt;
 import com.hissain.jscipy.signal.ConvolutionMode;
 
 public class SignalFacadeTest {
@@ -12,7 +13,7 @@ public class SignalFacadeTest {
         double[] input = {1.0, 2.0, 3.0, 4.0, 5.0};
         double[] expected = {1.0, 2.0, 3.0, 4.0, 4.0}; // Assuming kernel 3 and zero padding logic: [0,1,2]->1, [1,2,3]->2, [2,3,4]->3, [3,4,5]->4, [4,5,0]->4 (sorted 0,4,5 -> 4)
         
-        double[] actual = Signal.medfilt(input, 3);
+        double[] actual = new MedFilt().medfilt(input, 3);
         assertArrayEquals(expected, actual, 1e-6);
     }
 

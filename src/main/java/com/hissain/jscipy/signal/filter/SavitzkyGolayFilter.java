@@ -8,18 +8,36 @@ import org.apache.commons.math3.linear.*;
  */
 public class SavitzkyGolayFilter {
 
-    public double[] smooth(double[] data, int windowLength, int polyOrder) {
-        return applySavitzkyGolay(data, windowLength, polyOrder, 0, 1.0);
-    }
-
-    public double[] differentiate(double[] data, int windowLength, int polyOrder, int deriv, double delta) {
+    /**
+     * Applies a Savitzky-Golay filter to an array.
+     *
+     * @param x           The data to be filtered.
+     * @param windowLength The length of the filter window (i.e., the number of coefficients). window_length must be a positive odd integer.
+     * @param polyOrder   The order of the polynomial used to fit the samples. polyorder must be less than window_length.
+     * @param deriv       The order of the derivative to compute. This must be a non-negative integer. The default is 0, which means to filter the data without differentiating.
+     * @param delta       The spacing of the samples to which the data will be applied. This is only used if deriv > 0. Default is 1.0.
+     * @return The filtered data.
+     */
+    public double[] savgol_filter(double[] x, int windowLength, int polyOrder, int deriv, double delta) {
         if (deriv < 0) {
             throw new IllegalArgumentException("Derivative order must be non-negative.");
         }
         if (delta <= 0) {
             throw new IllegalArgumentException("Delta must be positive.");
         }
-        return applySavitzkyGolay(data, windowLength, polyOrder, deriv, delta);
+        return applySavitzkyGolay(x, windowLength, polyOrder, deriv, delta);
+    }
+
+    /**
+     * Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).
+     *
+     * @param x           The data to be filtered.
+     * @param windowLength The length of the filter window.
+     * @param polyOrder   The order of the polynomial.
+     * @return The filtered (smoothed) data.
+     */
+    public double[] savgol_filter(double[] x, int windowLength, int polyOrder) {
+        return savgol_filter(x, windowLength, polyOrder, 0, 1.0);
     }
 
     /**

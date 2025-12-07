@@ -105,9 +105,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#medfilt(double%5B%5D,int)" class="member-name-link">medfilt</a><wbr>(double[]&nbsp;data,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#medfilt(double%5B%5D,int)" class="member-name-link">medfilt</a><wbr>(double[]&nbsp;signal,
  int&nbsp;kernelSize)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Applies a median filter to the signal.</div>
+</div>
 </div>
 </div>
 </div>
@@ -142,8 +144,16 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="medfilt(double[],int)">
 <h3>medfilt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">medfilt</span><wbr><span class="parameters">(double[]&nbsp;data,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">medfilt</span><wbr><span class="parameters">(double[]&nbsp;signal,
  int&nbsp;kernelSize)</span></div>
+<div class="block">Applies a median filter to the signal.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>kernelSize</code> - The size of the kernel (must be odd).</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
 </section>
 </li>
 </ul>

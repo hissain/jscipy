@@ -107,17 +107,21 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#differentiate(double%5B%5D,int,int,int,double)" class="member-name-link">differentiate</a><wbr>(double[]&nbsp;data,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
+ int&nbsp;windowLength,
+ int&nbsp;polyOrder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int,int,double)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
  int&nbsp;windowLength,
  int&nbsp;polyOrder,
  int&nbsp;deriv,
  double&nbsp;delta)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#smooth(double%5B%5D,int,int)" class="member-name-link">smooth</a><wbr>(double[]&nbsp;data,
- int&nbsp;windowLength,
- int&nbsp;polyOrder)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Applies a Savitzky-Golay filter to an array.</div>
+</div>
 </div>
 </div>
 </div>
@@ -150,21 +154,41 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="smooth(double[],int,int)">
-<h3>smooth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">smooth</span><wbr><span class="parameters">(double[]&nbsp;data,
- int&nbsp;windowLength,
- int&nbsp;polyOrder)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="differentiate(double[],int,int,int,double)">
-<h3>differentiate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">differentiate</span><wbr><span class="parameters">(double[]&nbsp;data,
+<section class="detail" id="savgol_filter(double[],int,int,int,double)">
+<h3>savgol_filter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">savgol_filter</span><wbr><span class="parameters">(double[]&nbsp;x,
  int&nbsp;windowLength,
  int&nbsp;polyOrder,
  int&nbsp;deriv,
  double&nbsp;delta)</span></div>
+<div class="block">Applies a Savitzky-Golay filter to an array.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The data to be filtered.</dd>
+<dd><code>windowLength</code> - The length of the filter window (i.e., the number of coefficients). window_length must be a positive odd integer.</dd>
+<dd><code>polyOrder</code> - The order of the polynomial used to fit the samples. polyorder must be less than window_length.</dd>
+<dd><code>deriv</code> - The order of the derivative to compute. This must be a non-negative integer. The default is 0, which means to filter the data without differentiating.</dd>
+<dd><code>delta</code> - The spacing of the samples to which the data will be applied. This is only used if deriv > 0. Default is 1.0.</dd>
+<dt>Returns:</dt>
+<dd>The filtered data.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="savgol_filter(double[],int,int)">
+<h3>savgol_filter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">savgol_filter</span><wbr><span class="parameters">(double[]&nbsp;x,
+ int&nbsp;windowLength,
+ int&nbsp;polyOrder)</span></div>
+<div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The data to be filtered.</dd>
+<dd><code>windowLength</code> - The length of the filter window.</dd>
+<dd><code>polyOrder</code> - The order of the polynomial.</dd>
+<dt>Returns:</dt>
+<dd>The filtered (smoothed) data.</dd>
+</dl>
 </section>
 </li>
 </ul>

@@ -3,8 +3,6 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
-import com.hissain.jscipy.signal.filter.MedFilt;
-import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Map;
@@ -253,19 +251,6 @@ public class Signal {
         return new Welch().welch(x, fs, window, nperseg, noverlap);
     }
 
-    // --- Median Filter ---
-
-    /**
-     * Applies a median filter to the signal.
-     *
-     * @param signal     The input signal.
-     * @param kernelSize The size of the kernel (must be odd).
-     * @return The filtered signal.
-     */
-    public static double[] medfilt(double[] signal, int kernelSize) {
-        return new MedFilt().medfilt(signal, kernelSize);
-    }
-
     // --- Convolution ---
 
     /**
@@ -292,40 +277,7 @@ public class Signal {
     public static double[] resample(double[] x, int num) {
         return new Resample().resample(x, num);
     }
-
-    // --- Savitzky-Golay Filter ---
-
-    /**
-     * Applies a Savitzky-Golay filter to an array.
-     *
-     * @param x           The data to be filtered.
-     * @param windowLength The length of the filter window (i.e., the number of coefficients). window_length must be a positive odd integer.
-     * @param polyOrder   The order of the polynomial used to fit the samples. polyorder must be less than window_length.
-     * @param deriv       The order of the derivative to compute. This must be a non-negative integer. The default is 0, which means to filter the data without differentiating.
-     * @param delta       The spacing of the samples to which the data will be applied. This is only used if deriv > 0. Default is 1.0.
-     * @return The filtered data.
-     */
-    public static double[] savgol_filter(double[] x, int windowLength, int polyOrder, int deriv, double delta) {
-        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
-        if (deriv == 0) {
-            return filter.smooth(x, windowLength, polyOrder);
-        } else {
-            return filter.differentiate(x, windowLength, polyOrder, deriv, delta);
-        }
-    }
-
-    /**
-     * Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).
-     *
-     * @param x           The data to be filtered.
-     * @param windowLength The length of the filter window.
-     * @param polyOrder   The order of the polynomial.
-     * @return The filtered (smoothed) data.
-     */
-    public static double[] savgol_filter(double[] x, int windowLength, int polyOrder) {
-        return savgol_filter(x, windowLength, polyOrder, 0, 1.0);
-    }
-
+    
     // --- Interpolation ---
 
     /**
