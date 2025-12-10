@@ -106,6 +106,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#blackman(int)" class="member-name-link">blackman</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a symmetric Blackman window of length M.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#blackman(int,boolean)" class="member-name-link">blackman</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Blackman window of length M.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Hamming window of length M.</div>
@@ -126,6 +137,19 @@ loadScripts(document, 'script');</script>
  boolean&nbsp;symmetric)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hanning window of length M.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
+ double&nbsp;beta)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double,boolean)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
+ double&nbsp;beta,
+ boolean&nbsp;symmetric)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
 </div>
 </div>
 </div>
@@ -181,7 +205,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>m</code> - The length of the window.</dd>
 <dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
-                  If false, generates a periodic window (for spectral analysis).</dd>
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
 <dt>Returns:</dt>
 <dd>The Hanning window.</dd>
 </dl>
@@ -210,9 +235,74 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>m</code> - The length of the window.</dd>
 <dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
-                  If false, generates a periodic window (for spectral analysis).</dd>
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
 <dt>Returns:</dt>
 <dd>The Hamming window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="blackman(int)">
+<h3>blackman</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">blackman</span><wbr><span class="parameters">(int&nbsp;m)</span></div>
+<div class="block">Returns a symmetric Blackman window of length M.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt>Returns:</dt>
+<dd>The Blackman window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="blackman(int,boolean)">
+<h3>blackman</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">blackman</span><wbr><span class="parameters">(int&nbsp;m,
+ boolean&nbsp;symmetric)</span></div>
+<div class="block">Returns a Blackman window of length M.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
+<dt>Returns:</dt>
+<dd>The Blackman window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="kaiser(int,double)">
+<h3>kaiser</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">kaiser</span><wbr><span class="parameters">(int&nbsp;m,
+ double&nbsp;beta)</span></div>
+<div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>beta</code> - The shape parameter.</dd>
+<dt>Returns:</dt>
+<dd>The Kaiser window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="kaiser(int,double,boolean)">
+<h3>kaiser</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">kaiser</span><wbr><span class="parameters">(int&nbsp;m,
+ double&nbsp;beta,
+ boolean&nbsp;symmetric)</span></div>
+<div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>beta</code> - The shape parameter.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
+<dt>Returns:</dt>
+<dd>The Kaiser window.</dd>
 </dl>
 </section>
 </li>

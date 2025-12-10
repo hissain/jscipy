@@ -44,6 +44,9 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   * Supports 1D convolution.
 * **Hilbert Transform**:
   * Compute the analytic signal using the Hilbert transform.
+* **Window Functions**:
+  * Supports Hanning, Hamming, Blackman, and Kaiser windows.
+  * Essential for filter design and spectral analysis.
 
 ## Documentation
 
@@ -515,6 +518,22 @@ public class WindowExample {
         double[] hammingWindow = Signal.hamming(m);
         System.out.println("Hamming Window:");
         for (double d : hammingWindow) {
+            System.out.printf("%.4f ", d);
+        }
+        System.out.println();
+
+        // Blackman Window
+        double[] blackmanWindow = Signal.blackman(m);
+        System.out.println("Blackman Window:");
+        for (double d : blackmanWindow) {
+            System.out.printf("%.4f ", d);
+        }
+        System.out.println();
+
+        // Kaiser Window (beta=14)
+        double[] kaiserWindow = Signal.kaiser(m, 14.0);
+        System.out.println("Kaiser Window:");
+        for (double d : kaiserWindow) {
             System.out.printf("%.4f ", d);
         }
         System.out.println();

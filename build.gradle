@@ -1,11 +1,16 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'application'
 }
 
 
 group = 'com.hissain.jscipy'
 version = '2.1.0'
+
+application {
+    mainClassName = 'com.hissain.jscipy.Main'
+}
 
 repositories {
     mavenCentral()
