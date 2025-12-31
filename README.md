@@ -2,7 +2,7 @@
 
 ![Build Status](https://github.com/hissain/jscipy/actions/workflows/android.yml/badge.svg)
 [![](https://jitpack.io/v/hissain/jscipy.svg)](https://jitpack.io/#hissain/jscipy)
-![License](https://img.shields.io/github/license/hissain/jscipy)
+![License](https://img.shields.io/github/license/hissain/jscipy?color=blue)
 
 **jSciPy** is a comprehensive **Java Scientific Computing Library** designed for **Signal Processing**, **Machine Learning**, and **Data Science** on the JVM and Android. Inspired by Python's **SciPy** and **NumPy**, it provides high-performance implementations of essential algorithms.
 
