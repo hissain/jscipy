@@ -1,6 +1,15 @@
-# jSciPy: A Java Scientific Computing Library
+# jSciPy: Java Scientific Computing Library
 
-jSciPy is a Java library for scientific computing, providing functionality inspired by widely used scientific toolkits. It currently includes modules for signal processing, such as Butterworth filters, peak detection algorithms, RK4 solver, interpolation, FFT, resampling, Savitzky-Golay filter, detrending, median filtering, convolution, and Hilbert transform.
+![Build Status](https://github.com/hissain/jscipy/actions/workflows/android.yml/badge.svg)
+[![](https://jitpack.io/v/hissain/jscipy.svg)](https://jitpack.io/#hissain/jscipy)
+![License](https://img.shields.io/github/license/hissain/jscipy)
+
+**jSciPy** is a comprehensive **Java Scientific Computing Library** designed for **Signal Processing**, **Machine Learning**, and **Data Science** on the JVM and Android. Inspired by Python's **SciPy** and **NumPy**, it provides high-performance implementations of essential algorithms.
+
+It currently includes modules for:
+*   **Signal Processing**: Butterworth filters, Savitzky-Golay smoothing, Peak detection.
+*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Convolution.
+*   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
