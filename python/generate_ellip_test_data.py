@@ -39,53 +39,7 @@ def save_signal(filename, data):
     np.savetxt(filepath, data, fmt='%.18e')
     print(f"Saved: {filepath}")
 
-def plot_comparison(input_signal, scipy_output, java_output, title, filename):
-    """Create a comparison plot."""
-    plt.figure(figsize=(12, 6))
-    
-    # Time domain
-    plt.subplot(2, 1, 1)
-    plt.plot(input_signal, label='Input', alpha=0.3, color='gray')
-    plt.plot(scipy_output, label='SciPy (Reference)', linewidth=3, alpha=0.7, color='C0')
-    if java_output is not None:
-        plt.plot(java_output, label='Java (Implementation)', linewidth=1.5, linestyle='--', color='C1')
-        
-    plt.xlabel('Sample')
-    plt.ylabel('Amplitude')
-    plt.title(f'{title} - Time Domain')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    
-    # Frequency domain
-    plt.subplot(2, 1, 2)
-    freqs_in = np.fft.rfftfreq(len(input_signal), 1/250.0)
-    fft_in = np.abs(np.fft.rfft(input_signal))
-    fft_scipy = np.abs(np.fft.rfft(scipy_output))
-    
-    plt.plot(freqs_in, fft_in, label='Input', alpha=0.3, color='gray')
-    plt.plot(freqs_in, fft_scipy, label='SciPy (Reference)', linewidth=3, alpha=0.7, color='C0')
-    
-    if java_output is not None:
-        fft_java = np.abs(np.fft.rfft(java_output))
-        plt.plot(freqs_in, fft_java, label='Java (Implementation)', linewidth=1.5, linestyle='--', color='C1')
-        
-        # Calculate error
-        error = np.sqrt(np.mean((scipy_output - java_output)**2))
-        plt.text(0.02, 0.95, f'RMSE (Time Domain): {error:.2e}', transform=plt.gca().transAxes, 
-                 bbox=dict(facecolor='white', alpha=0.8))
 
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Magnitude')
-    plt.title(f'{title} - Frequency Domain')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.xlim(0, 60)
-    
-    plt.tight_layout()
-    filepath = os.path.join(FIGS_DIR, filename)
-    plt.savefig(filepath, dpi=150, bbox_inches='tight')
-    print(f"Plot saved: {filepath}")
-    plt.close()
 
 def main():
     """Generate test data for elliptic filter."""
@@ -113,21 +67,7 @@ def main():
     scipy_filtered = apply_elliptic_filter(test_signal, sample_rate, cutoff, 
                                            order, ripple_db, stopband_db)
     
-    save_signal("ellip_output1.txt", scipy_filtered)
-    
-    # Load Java filtered output if available
-    java_file = os.path.join(OUTPUT_DIR, "ellip_output1_java.txt")
-    java_filtered = None
-    if os.path.exists(java_file):
-        java_filtered = np.loadtxt(java_file)
-        print(f"Loaded Java output: {java_file}")
-    else:
-        print(f"Warning: Java output not found at {java_file}")
 
-    # Create comparison plot
-    plot_comparison(test_signal, scipy_filtered, java_filtered,
-                   f"Elliptic Filter (order={order}, rp={ripple_db}dB, rs={stopband_db}dB, fc={cutoff}Hz)",
-                   "ellip_comparison.png")
 
     
     print("\nTest data generation complete!")
