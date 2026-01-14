@@ -133,8 +133,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Butterworth</span>
 extends java.lang.Object</pre>
-<div class="block">Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
- This class provides methods to apply Butterworth low-pass filters to signals.</div>
+<div class="block">Implements Butterworth filter operations.
+ <p>
+ Butterworth filters are designed to have a frequency response that is as flat
+ as possible
+ in the passband (maximally flat magnitude filter).
+ <p>
+ This class provides methods to apply Butterworth low-pass filters to signals
+ using
+ both causal (<a href="#filter(double%5B%5D,double,double,int)"><code>filter(double[], double, double, int)</code></a>) and
+ zero-phase (<a href="#filtfilt(double%5B%5D,double,double,int)"><code>filtfilt(double[], double, double, int)</code></a>) filtering.</div>
 </li>
 </ul>
 </div>
@@ -193,7 +201,8 @@ extends java.lang.Object</pre>
         double&nbsp;cutoff,
         int&nbsp;order)</code></th>
 <td class="colLast">
-<div class="block">Applies a zero-phase digital filter forward and backward to a signal.</div>
+<div class="block">Applies a zero-phase digital filter forward and backward to a signal
+ (filtfilt).</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -256,13 +265,18 @@ extends java.lang.Object</pre>
                          double&nbsp;sampleRate,
                          double&nbsp;cutoff,
                          int&nbsp;order)</pre>
-<div class="block">Applies a zero-phase digital filter forward and backward to a signal.
- This function applies a Butterworth low-pass filter.</div>
+<div class="block">Applies a zero-phase digital filter forward and backward to a signal
+ (filtfilt).
+ This function applies a Butterworth low-pass filter.
+ <p>
+ Zero-phase filtering avoids phase distortion by filtering forward and then
+ backward.
+ This doubles the effective order of the filter.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>signal</code> - The input signal to filter.</dd>
-<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
-<dd><code>cutoff</code> - The cutoff frequency of the filter.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal in Hz.</dd>
+<dd><code>cutoff</code> - The cutoff frequency of the filter in Hz.</dd>
 <dd><code>order</code> - The order of the Butterworth filter.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The filtered signal.</dd>
@@ -280,12 +294,16 @@ extends java.lang.Object</pre>
                        double&nbsp;cutoff,
                        int&nbsp;order)</pre>
 <div class="block">Applies a Butterworth low-pass filter to a signal.
- This function applies the filter in a causal manner (forward only).</div>
+ This function applies the filter in a causal manner (forward only), similar
+ to `lfilter`.
+ <p>
+ This method introduces phase distortion/delay. Use <a href="#filtfilt(double%5B%5D,double,double,int)"><code>filtfilt(double[], double, double, int)</code></a> for
+ zero-phase filtering.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>signal</code> - The input signal to filter.</dd>
-<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
-<dd><code>cutoff</code> - The cutoff frequency of the filter.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal in Hz.</dd>
+<dd><code>cutoff</code> - The cutoff frequency of the filter in Hz.</dd>
 <dd><code>order</code> - The order of the Butterworth filter.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The filtered signal.</dd>
@@ -304,7 +322,8 @@ extends java.lang.Object</pre>
  Expects input file, order, cutoff, and sample rate as arguments.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>args</code> - Command-line arguments: `input_file`, `order`, `cutoff`, `sample_rate`</dd>
+<dd><code>args</code> - Command-line arguments: `input_file`, `order`, `cutoff`,
+             `sample_rate`</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code> - If there is an error reading the input file.</dd>
 </dl>
