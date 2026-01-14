@@ -27,7 +27,7 @@ package com.hissain.jscipy.signal.filter;
  *
  */
 
-class DirectFormII extends DirectFormAbstract {
+public class DirectFormII extends DirectFormAbstract {
 
     public DirectFormII() {
         reset();
@@ -38,19 +38,28 @@ class DirectFormII extends DirectFormAbstract {
         m_v2 = 0;
     }
 
+    /**
+     * Set the internal delay states.
+     * For Direct Form II, v1 is w[n-1] and v2 is w[n-2].
+     */
+    public void convertAndSetState(double v1, double v2) {
+        m_v1 = v1;
+        m_v2 = v2;
+    }
+
     public double process1(double in,
-                    Biquad s) {
-    	if (s != null) {
-        double w = in - s.m_a1 * m_v1 - s.m_a2 * m_v2;
-        double out = s.m_b0 * w + s.m_b1 * m_v1 + s.m_b2 * m_v2;
+            Biquad s) {
+        if (s != null) {
+            double w = in - s.m_a1 * m_v1 - s.m_a2 * m_v2;
+            double out = s.m_b0 * w + s.m_b1 * m_v1 + s.m_b2 * m_v2;
 
-        m_v2 = m_v1;
-        m_v1 = w;
+            m_v2 = m_v1;
+            m_v1 = w;
 
-        return out;
-    	} else {
-    		return in;
-    	}
+            return out;
+        } else {
+            return in;
+        }
     }
 
     double m_v1; // v[-1]

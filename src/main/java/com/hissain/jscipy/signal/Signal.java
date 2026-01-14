@@ -3,7 +3,9 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
+import com.hissain.jscipy.signal.filter.Chebyshev2;
 import com.hissain.jscipy.signal.filter.Elliptic;
+import com.hissain.jscipy.signal.filter.Bessel;
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Map;
@@ -140,6 +142,41 @@ public class Signal {
     public static double[] ellip_lfilter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb,
             double stopBandDb) {
         return Elliptic.filter(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
+    }
+
+    // --- Bessel Filter ---
+
+    /**
+     * Applies a zero-phase Bessel low-pass filter (forward and backward).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] bessel_filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
+        return Bessel.filtfilt(signal, sampleRate, cutoff, order);
+    }
+
+    // --- Utilities ---
+
+    /**
+     * Helper to pad signal with odd extension.
+     */
+    public static double[] padSignal(double[] x, int padlen) {
+        double[] padded = new double[x.length + 2 * padlen];
+        // Left pad: 2*x[0] - x[padlen..1]
+        for (int i = 0; i < padlen; i++) {
+            padded[i] = 2 * x[0] - x[padlen - i];
+        }
+        // Middle: x
+        System.arraycopy(x, 0, padded, padlen, x.length);
+        // Right pad: 2*x[end] - x[end-1..end-padlen]
+        for (int i = 0; i < padlen; i++) {
+            padded[padlen + x.length + i] = 2 * x[x.length - 1] - x[x.length - 2 - i];
+        }
+        return padded;
     }
 
     // --- Detrend ---

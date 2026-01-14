@@ -117,6 +117,10 @@ A seperate demo android application is built on this library that might be helpf
 
 ![Elliptic Filter Comparison](python/figs/ellip_input1.txt.png)
 
+### Bessel Filter Comparison
+
+![Bessel Filter Comparison](python/figs/bessel_comparison_v2.png)
+
 ### RK4 Solver Comparison
 
 ![RK4 Comparison](python/figs/rk4_input.txt.png)
@@ -251,6 +255,30 @@ public class EllipticExample {
         double[] filtered = Signal.ellip_filtfilt(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
         
         System.out.println("Elliptic Filtered:");
+        for(double v : filtered) System.out.printf("%.2f ", v);
+        System.out.println();
+    }
+}
+```
+
+```
+
+### Bessel Filter
+
+```java
+import com.hissain.jscipy.signal.Signal;
+
+public class BesselExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0};
+        double sampleRate = 100.0;
+        double cutoff = 10.0;
+        int order = 4;
+        
+        // Bessel Filter (Linear Phase)
+        double[] filtered = Signal.bessel_filtfilt(signal, sampleRate, cutoff, order);
+        
+        System.out.println("Bessel Filtered:");
         for(double v : filtered) System.out.printf("%.2f ", v);
         System.out.println();
     }
