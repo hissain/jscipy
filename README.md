@@ -119,7 +119,7 @@ A seperate demo android application is built on this library that might be helpf
 
 ### Bessel Filter Comparison
 
-![Bessel Filter Comparison](python/figs/bessel_comparison_v2.png)
+![Bessel Filter Comparison](python/figs/bessel_comparison.png)
 
 ### RK4 Solver Comparison
 
