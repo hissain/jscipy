@@ -29,7 +29,7 @@ If applicable, add a code snippet to help explain your problem.
 **Environment (please complete the following information):**
  - OS: [e.g. macOS, Windows]
  - Java Version [e.g. 11, 17]
- - jSciPy Version [e.g. 2.1.0]
+ - jSciPy Version [e.g. 2.1.1]
 
 **Additional context**
 Add any other context about the problem here.
