@@ -7,7 +7,7 @@
 **jSciPy** is a comprehensive **Java Scientific Computing Library** designed for **Signal Processing**, **Machine Learning**, and **Data Science** on the JVM and Android. Inspired by Python's **SciPy** and **NumPy**, it provides high-performance implementations of essential algorithms.
 
 It currently includes modules for:
-*   **Signal Processing**: Butterworth filters, Savitzky-Golay smoothing, Peak detection.
+*   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, Savitzky-Golay smoothing, Peak detection.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
@@ -27,6 +27,10 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   * **Cauer/Equiripple**: Filter with equiripple behavior in both passband and stopband.
   * Offers steeper rolloff than Butterworth or Chebyshev for the same order.
   * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
+* **Bessel Filters**:
+  * Implements Bessel (Thomson) filters, characterized by maximally flat group delay.
+  * Preserves the wave shape of filtered signals in the passband better than other IIR filters.
+  * Supports both zero-phase (`filtfilt`) and standard causal (`lowPass`, `highPass` etc.) filtering.
 * **Find Peaks**:
   * Efficiently detect peaks in one-dimensional signals.
   * Filter peaks based on properties like height, prominence, and minimum distance between peaks.

@@ -28,7 +28,7 @@ package com.hissain.jscipy.signal.filter;
  * The coefficients are supplied externally via a {@link Biquad} object during
  * processing.
  */
-public class DirectFormII extends DirectFormAbstract {
+class DirectFormII extends DirectFormAbstract {
 
     double m_v1; // v[-1]
     double m_v2; // v[-2]
