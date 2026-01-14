@@ -58,6 +58,7 @@ tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')
     options.addStringOption('Xmaxwarns', '0') // Suppress all warnings
     options.addStringOption('Xmaxerrs', '0') // Suppress all errors
+    exclude '**/Main.java'
 }
 
 publishing {
@@ -65,7 +66,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.hissain.jscipy'
             artifactId = 'jscipy'
-            version = '2.1.0'
+            version = '2.1.1'
 
             from components.java
         }

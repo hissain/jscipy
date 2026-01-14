@@ -77,7 +77,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Signal</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">A facade class providing static utility methods for signal processing, similar to <code>scipy.signal</code>.
+<div class="block">A facade class providing static utility methods for signal processing,
+ similar to <code>scipy.signal</code>.
  This class delegates to specific implementations within the library.</div>
 </section>
 <section class="summary">
@@ -131,7 +132,8 @@ loadScripts(document, 'script');</script>
  int&nbsp;order,
  double&nbsp;stopBandDb)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).</div>
+<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and
+ backward).</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cheby2_lfilter(double%5B%5D,double,double,int,double)" class="member-name-link">cheby2_lfilter</a><wbr>(double[]&nbsp;signal,
@@ -154,6 +156,26 @@ loadScripts(document, 'script');</script>
  <a href="DetrendType.html" title="enum class in com.hissain.jscipy.signal">DetrendType</a>&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Removes a linear or constant trend from the signal.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ellip_filtfilt(double%5B%5D,double,double,int,double,double)" class="member-name-link">ellip_filtfilt</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb,
+ double&nbsp;stopBandDb)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a zero-phase Elliptic low-pass filter (forward and backward).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ellip_lfilter(double%5B%5D,double,double,int,double,double)" class="member-name-link">ellip_lfilter</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb,
+ double&nbsp;stopBandDb)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Applies a standard (causal) Elliptic low-pass filter.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fft(double%5B%5D)" class="member-name-link">fft</a><wbr>(double[]&nbsp;x)</code></div>
@@ -245,7 +267,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#rfft(double%5B%5D)" class="member-name-link">rfft</a><wbr>(double[]&nbsp;x)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components (RFFT).</div>
+<div class="block">Computes the forward FFT of a real-valued signal and returns the positive
+ frequency components (RFFT).</div>
 </div>
 </div>
 </div>
@@ -366,7 +389,8 @@ loadScripts(document, 'script');</script>
  double&nbsp;cutoff,
  int&nbsp;order,
  double&nbsp;stopBandDb)</span></div>
-<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).</div>
+<div class="block">Applies a zero-phase Chebyshev Type II low-pass filter (forward and
+ backward).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>signal</code> - The input signal.</dd>
@@ -394,6 +418,52 @@ loadScripts(document, 'script');</script>
 <dd><code>sampleRate</code> - The sample rate of the signal.</dd>
 <dd><code>cutoff</code> - The cutoff frequency.</dd>
 <dd><code>order</code> - The filter order.</dd>
+<dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="ellip_filtfilt(double[],double,double,int,double,double)">
+<h3>ellip_filtfilt</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">ellip_filtfilt</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb,
+ double&nbsp;stopBandDb)</span></div>
+<div class="block">Applies a zero-phase Elliptic low-pass filter (forward and backward).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
+<dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
+<dt>Returns:</dt>
+<dd>The filtered signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="ellip_lfilter(double[],double,double,int,double,double)">
+<h3>ellip_lfilter</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">ellip_lfilter</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;sampleRate,
+ double&nbsp;cutoff,
+ int&nbsp;order,
+ double&nbsp;rippleDb,
+ double&nbsp;stopBandDb)</span></div>
+<div class="block">Applies a standard (causal) Elliptic low-pass filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal.</dd>
+<dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dd><code>rippleDb</code> - The passband ripple in decibels.</dd>
 <dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
@@ -470,7 +540,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>m</code> - The length of the window.</dd>
 <dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
-                  If false, generates a periodic window (for spectral analysis).</dd>
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
 <dt>Returns:</dt>
 <dd>The Hanning window.</dd>
 </dl>
@@ -499,7 +570,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>m</code> - The length of the window.</dd>
 <dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
-                  If false, generates a periodic window (for spectral analysis).</dd>
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
 <dt>Returns:</dt>
 <dd>The Hamming window.</dd>
 </dl>
@@ -535,7 +607,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="rfft(double[])">
 <h3>rfft</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</span>&nbsp;<span class="element-name">rfft</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
-<div class="block">Computes the forward FFT of a real-valued signal and returns the positive frequency components (RFFT).</div>
+<div class="block">Computes the forward FFT of a real-valued signal and returns the positive
+ frequency components (RFFT).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>x</code> - The input signal.</dd>

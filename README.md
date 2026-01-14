@@ -23,6 +23,10 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   * **Type I (`cheby1`)**: Filter with passband ripple and steep rolloff.
   * **Type II (`cheby2`)**: Filter with stopband ripple and maximally flat passband.
   * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
+* **Elliptic Filters**:
+  * **Cauer/Equiripple**: Filter with equiripple behavior in both passband and stopband.
+  * Offers steeper rolloff than Butterworth or Chebyshev for the same order.
+  * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
 * **Find Peaks**:
   * Efficiently detect peaks in one-dimensional signals.
   * Filter peaks based on properties like height, prominence, and minimum distance between peaks.
@@ -108,6 +112,10 @@ A seperate demo android application is built on this library that might be helpf
 **Type II:**
 
 ![Chebyshev Type II Comparison](python/figs/cheby2_input1.txt.png)
+
+### Elliptic Filter Comparison
+
+![Elliptic Filter Comparison](python/figs/ellip_input1.txt.png)
 
 ### RK4 Solver Comparison
 
@@ -218,6 +226,32 @@ public class ChebyExample {
         double[] cheby2 = Signal.cheby2_filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
         System.out.println("Chebyshev II Filtered:");
         for(double v : cheby2) System.out.printf("%.2f ", v);
+        System.out.println();
+    }
+}
+```
+
+### Elliptic Filters
+
+```java
+import com.hissain.jscipy.signal.Signal;
+
+public class EllipticExample {
+    public static void main(String[] args) {
+        double[] signal = {1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0};
+        double sampleRate = 100.0;
+        double cutoff = 10.0;
+        int order = 4;
+        
+        // Elliptic Filter (1dB passband ripple, 40dB stopband attenuation)
+        double rippleDb = 1.0;
+        double stopBandDb = 40.0;
+
+        // Zero-phase filtering
+        double[] filtered = Signal.ellip_filtfilt(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
+        
+        System.out.println("Elliptic Filtered:");
+        for(double v : filtered) System.out.printf("%.2f ", v);
         System.out.println();
     }
 }

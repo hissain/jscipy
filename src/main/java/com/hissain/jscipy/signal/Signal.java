@@ -3,12 +3,14 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
+import com.hissain.jscipy.signal.filter.Elliptic;
 import com.hissain.jscipy.signal.fft.FFT;
 
 import java.util.Map;
 
 /**
- * A facade class providing static utility methods for signal processing, similar to {@code scipy.signal}.
+ * A facade class providing static utility methods for signal processing,
+ * similar to {@code scipy.signal}.
  * This class delegates to specific implementations within the library.
  */
 public class Signal {
@@ -53,7 +55,8 @@ public class Signal {
      * @param rippleDb   The passband ripple in decibels.
      * @return The filtered signal.
      */
-    public static double[] cheby1_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+    public static double[] cheby1_filtfilt(double[] signal, double sampleRate, double cutoff, int order,
+            double rippleDb) {
         return Chebyshev1.filtfilt(signal, sampleRate, cutoff, order, rippleDb);
     }
 
@@ -67,14 +70,16 @@ public class Signal {
      * @param rippleDb   The passband ripple in decibels.
      * @return The filtered signal.
      */
-    public static double[] cheby1_lfilter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb) {
+    public static double[] cheby1_lfilter(double[] signal, double sampleRate, double cutoff, int order,
+            double rippleDb) {
         return Chebyshev1.filter(signal, sampleRate, cutoff, order, rippleDb);
     }
 
     // --- Chebyshev Type II Filter ---
 
     /**
-     * Applies a zero-phase Chebyshev Type II low-pass filter (forward and backward).
+     * Applies a zero-phase Chebyshev Type II low-pass filter (forward and
+     * backward).
      *
      * @param signal     The input signal.
      * @param sampleRate The sample rate of the signal.
@@ -83,7 +88,8 @@ public class Signal {
      * @param stopBandDb The stopband attenuation in decibels.
      * @return The filtered signal.
      */
-    public static double[] cheby2_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
+    public static double[] cheby2_filtfilt(double[] signal, double sampleRate, double cutoff, int order,
+            double stopBandDb) {
         return Chebyshev2.filtfilt(signal, sampleRate, cutoff, order, stopBandDb);
     }
 
@@ -97,8 +103,43 @@ public class Signal {
      * @param stopBandDb The stopband attenuation in decibels.
      * @return The filtered signal.
      */
-    public static double[] cheby2_lfilter(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb) {
+    public static double[] cheby2_lfilter(double[] signal, double sampleRate, double cutoff, int order,
+            double stopBandDb) {
         return Chebyshev2.filter(signal, sampleRate, cutoff, order, stopBandDb);
+    }
+
+    // --- Elliptic Filter ---
+
+    /**
+     * Applies a zero-phase Elliptic low-pass filter (forward and backward).
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] ellip_filtfilt(double[] signal, double sampleRate, double cutoff, int order, double rippleDb,
+            double stopBandDb) {
+        return Elliptic.filtfilt(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
+    }
+
+    /**
+     * Applies a standard (causal) Elliptic low-pass filter.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal.
+     * @param cutoff     The cutoff frequency.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] ellip_lfilter(double[] signal, double sampleRate, double cutoff, int order, double rippleDb,
+            double stopBandDb) {
+        return Elliptic.filter(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
     }
 
     // --- Detrend ---
@@ -119,9 +160,9 @@ public class Signal {
     /**
      * Finds peaks in a signal with optional parameters.
      *
-     * @param x      The input signal.
-     * @param height Minimum height of peaks (optional, null to ignore).
-     * @param distance Minimum distance between peaks (optional, null to ignore).
+     * @param x          The input signal.
+     * @param height     Minimum height of peaks (optional, null to ignore).
+     * @param distance   Minimum distance between peaks (optional, null to ignore).
      * @param prominence Minimum prominence of peaks (optional, null to ignore).
      * @return The indices of found peaks.
      */
@@ -160,9 +201,10 @@ public class Signal {
     /**
      * Returns a Hanning window of length M.
      *
-     * @param m The length of the window.
+     * @param m         The length of the window.
      * @param symmetric If true, generates a symmetric window (for filter design).
-     *                  If false, generates a periodic window (for spectral analysis).
+     *                  If false, generates a periodic window (for spectral
+     *                  analysis).
      * @return The Hanning window.
      */
     public static double[] hanning(int m, boolean symmetric) {
@@ -182,9 +224,10 @@ public class Signal {
     /**
      * Returns a Hamming window of length M.
      *
-     * @param m The length of the window.
+     * @param m         The length of the window.
      * @param symmetric If true, generates a symmetric window (for filter design).
-     *                  If false, generates a periodic window (for spectral analysis).
+     *                  If false, generates a periodic window (for spectral
+     *                  analysis).
      * @return The Hamming window.
      */
     public static double[] hamming(int m, boolean symmetric) {
@@ -213,7 +256,8 @@ public class Signal {
     }
 
     /**
-     * Computes the forward FFT of a real-valued signal and returns the positive frequency components (RFFT).
+     * Computes the forward FFT of a real-valued signal and returns the positive
+     * frequency components (RFFT).
      *
      * @param x The input signal.
      * @return The positive frequency components of the FFT.
@@ -261,7 +305,7 @@ public class Signal {
     public static double[] resample(double[] x, int num) {
         return new Resample().resample(x, num);
     }
-    
+
     // --- Interpolation ---
 
     /**
