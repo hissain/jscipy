@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.hissain.jscipy"},{"l":"com.hissain.jscipy.signal"},{"l":"com.hissain.jscipy.signal.fft"},{"l":"com.hissain.jscipy.signal.filter"},{"l":"com.hissain.jscipy.signal.math"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.hissain.jscipy.signal"},{"l":"com.hissain.jscipy.signal.fft"},{"l":"com.hissain.jscipy.signal.filter"},{"l":"com.hissain.jscipy.signal.math"}]
