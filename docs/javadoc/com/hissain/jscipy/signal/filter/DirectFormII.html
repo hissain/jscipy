@@ -77,8 +77,12 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DirectFormII</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Implementation of a Direct Form II filter with its states. The coefficients
- are supplied from the outside.</div>
+<div class="block">Implementation of a Direct Form II filter with its states.
+ <p>
+ This class maintains the state (delay lines) for a Direct Form II filter
+ structure.
+ The coefficients are supplied externally via a <code>Biquad</code> object during
+ processing.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -133,7 +137,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#process1(double,com.hissain.jscipy.signal.filter.Biquad)" class="member-name-link">process1</a><wbr>(double&nbsp;in,
  com.hissain.jscipy.signal.filter.Biquad&nbsp;s)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Process a single sample through a biquad section using Direct Form II.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset()" class="member-name-link">reset</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -217,6 +223,11 @@ loadScripts(document, 'script');</script>
  double&nbsp;v2)</span></div>
 <div class="block">Set the internal delay states.
  For Direct Form II, v1 is w[n-1] and v2 is w[n-2].</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>v1</code> - First delay state w[n-1]</dd>
+<dd><code>v2</code> - Second delay state w[n-2]</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -224,6 +235,14 @@ loadScripts(document, 'script');</script>
 <h3>process1</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">process1</span><wbr><span class="parameters">(double&nbsp;in,
  com.hissain.jscipy.signal.filter.Biquad&nbsp;s)</span></div>
+<div class="block">Process a single sample through a biquad section using Direct Form II.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>in</code> - The input sample.</dd>
+<dd><code>s</code> - The biquad section containing coefficients (a1, a2, b0, b1, b2).</dd>
+<dt>Returns:</dt>
+<dd>The filtered output sample.</dd>
+</dl>
 </section>
 </li>
 </ul>

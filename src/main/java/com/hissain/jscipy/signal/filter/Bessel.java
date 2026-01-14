@@ -1,7 +1,6 @@
 package com.hissain.jscipy.signal.filter;
 
 import com.hissain.jscipy.signal.Signal;
-import java.util.Arrays;
 
 /**
  * Bessel (Thomson) Filter implementation.
@@ -11,18 +10,43 @@ import java.util.Arrays;
  */
 public class Bessel {
 
+    /**
+     * Design a low-pass Bessel filter.
+     *
+     * @param sampleRate The sampling rate in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The order of the filter.
+     * @return Array of Biquad sections representing the filter.
+     */
     public static Biquad[] lowPass(double sampleRate, double cutoff, int order) {
         BesselDesign design = new BesselDesign(order, "phase");
         design.lowPass(order, sampleRate, cutoff);
         return design.getBiquads();
     }
 
+    /**
+     * Design a high-pass Bessel filter.
+     *
+     * @param sampleRate The sampling rate in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The order of the filter.
+     * @return Array of Biquad sections representing the filter.
+     */
     public static Biquad[] highPass(double sampleRate, double cutoff, int order) {
         BesselDesign design = new BesselDesign(order, "phase");
         design.highPass(order, sampleRate, cutoff);
         return design.getBiquads();
     }
 
+    /**
+     * Design a band-pass Bessel filter.
+     *
+     * @param sampleRate The sampling rate in Hz.
+     * @param lowCutoff  The lower cutoff frequency in Hz.
+     * @param highCutoff The upper cutoff frequency in Hz.
+     * @param order      The order of the filter.
+     * @return Array of Biquad sections representing the filter.
+     */
     public static Biquad[] bandPass(double sampleRate, double lowCutoff, double highCutoff, int order) {
         BesselDesign design = new BesselDesign(order, "phase");
         double center = Math.sqrt(lowCutoff * highCutoff);
@@ -31,6 +55,15 @@ public class Bessel {
         return design.getBiquads();
     }
 
+    /**
+     * Design a band-stop (notch) Bessel filter.
+     *
+     * @param sampleRate The sampling rate in Hz.
+     * @param lowCutoff  The lower cutoff frequency in Hz.
+     * @param highCutoff The upper cutoff frequency in Hz.
+     * @param order      The order of the filter.
+     * @return Array of Biquad sections representing the filter.
+     */
     public static Biquad[] bandStop(double sampleRate, double lowCutoff, double highCutoff, int order) {
         BesselDesign design = new BesselDesign(order, "phase");
         double center = Math.sqrt(lowCutoff * highCutoff);
@@ -42,6 +75,12 @@ public class Bessel {
     /**
      * Apply a Bessel filter forward and backward (zero-phase filtering).
      * Defaults to low-pass filter.
+     *
+     * @param signal     Input signal array.
+     * @param sampleRate Sampling rate in Hz.
+     * @param cutoff     Cutoff frequency in Hz.
+     * @param order      Filter order.
+     * @return Filtered signal with zero phase distortion.
      */
     public static double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
         Biquad[] sos = lowPass(sampleRate, cutoff, order);

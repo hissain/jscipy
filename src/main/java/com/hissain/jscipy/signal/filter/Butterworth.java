@@ -10,14 +10,23 @@ import com.hissain.jscipy.signal.filter.Biquad;
 import com.hissain.jscipy.signal.filter.ButterworthDesign;
 
 /**
- * Implements Butterworth filter operations, including `filtfilt` for zero-phase filtering.
- * This class provides methods to apply Butterworth low-pass filters to signals.
+ * Implements Butterworth filter operations.
+ * <p>
+ * Butterworth filters are designed to have a frequency response that is as flat
+ * as possible
+ * in the passband (maximally flat magnitude filter).
+ * <p>
+ * This class provides methods to apply Butterworth low-pass filters to signals
+ * using
+ * both causal ({@link #filter(double[], double, double, int)}) and
+ * zero-phase ({@link #filtfilt(double[], double, double, int)}) filtering.
  */
 public class Butterworth {
 
     /**
      * Calculates the initial conditions for `lfilter` (linear filter).
      * This is a helper function for `filtfilt`.
+     * 
      * @param b The numerator coefficients of the filter.
      * @param a The denominator coefficients of the filter.
      * @return The initial conditions `zi`.
@@ -84,12 +93,18 @@ public class Butterworth {
     }
 
     /**
-     * Applies a zero-phase digital filter forward and backward to a signal.
+     * Applies a zero-phase digital filter forward and backward to a signal
+     * (filtfilt).
      * This function applies a Butterworth low-pass filter.
-     * @param signal The input signal to filter.
-     * @param sampleRate The sample rate of the signal.
-     * @param cutoff The cutoff frequency of the filter.
-     * @param order The order of the Butterworth filter.
+     * <p>
+     * Zero-phase filtering avoids phase distortion by filtering forward and then
+     * backward.
+     * This doubles the effective order of the filter.
+     *
+     * @param signal     The input signal to filter.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency of the filter in Hz.
+     * @param order      The order of the Butterworth filter.
      * @return The filtered signal.
      */
     public double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
@@ -107,7 +122,9 @@ public class Butterworth {
     }
 
     /**
-     * Applies a zero-phase digital filter (biquad section) forward and backward to a signal.
+     * Applies a zero-phase digital filter (biquad section) forward and backward to
+     * a signal.
+     * 
      * @param signal The input signal.
      * @param biquad The biquad filter section.
      * @return The filtered signal.
@@ -147,9 +164,10 @@ public class Butterworth {
 
     /**
      * Applies a biquad filter section to a signal.
+     * 
      * @param signal The input signal.
-     * @param b The numerator coefficients of the filter.
-     * @param a The denominator coefficients of the filter.
+     * @param b      The numerator coefficients of the filter.
+     * @param a      The denominator coefficients of the filter.
      * @return The filtered signal.
      */
     private double[] filter_biquad(double[] signal, double[] b, double[] a) {
@@ -175,11 +193,16 @@ public class Butterworth {
 
     /**
      * Applies a Butterworth low-pass filter to a signal.
-     * This function applies the filter in a causal manner (forward only).
-     * @param signal The input signal to filter.
-     * @param sampleRate The sample rate of the signal.
-     * @param cutoff The cutoff frequency of the filter.
-     * @param order The order of the Butterworth filter.
+     * This function applies the filter in a causal manner (forward only), similar
+     * to `lfilter`.
+     * <p>
+     * This method introduces phase distortion/delay. Use {@link #filtfilt} for
+     * zero-phase filtering.
+     *
+     * @param signal     The input signal to filter.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency of the filter in Hz.
+     * @param order      The order of the Butterworth filter.
      * @return The filtered signal.
      */
     public double[] filter(double[] signal, double sampleRate, double cutoff, int order) {
@@ -196,6 +219,7 @@ public class Butterworth {
 
     /**
      * Reverses the order of elements in a double array.
+     * 
      * @param array The input array.
      * @return A new array with elements in reversed order.
      */
@@ -210,7 +234,9 @@ public class Butterworth {
     /**
      * Main method for command-line execution of the Butterworth filter.
      * Expects input file, order, cutoff, and sample rate as arguments.
-     * @param args Command-line arguments: `input_file`, `order`, `cutoff`, `sample_rate`
+     * 
+     * @param args Command-line arguments: `input_file`, `order`, `cutoff`,
+     *             `sample_rate`
      * @throws java.io.IOException If there is an error reading the input file.
      */
     public static void main(String[] args) throws java.io.IOException {

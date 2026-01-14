@@ -77,8 +77,15 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Chebyshev2</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Chebyshev Type II Filter implementation.
- Provides static methods for filtering.</div>
+<div class="block">Chebyshev Type II Filter implementation (Inverse Chebyshev).
+ <p>
+ Chebyshev Type II filters have ripples in the stopband and a monotonic (flat)
+ passband.
+ They roll off slower than Type I for the same order, but preserve the
+ passband signal quality better.
+ <p>
+ This class provides static methods for designing and applying Chebyshev Type
+ II filters.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -187,7 +194,8 @@ loadScripts(document, 'script');</script>
 <dd><code>cutoff</code> - The cutoff frequency.</dd>
 <dd><code>order</code> - The filter order.</dd>
 <dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
-<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise
+                   causal (lfilter).</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
 </dl>
@@ -210,7 +218,8 @@ loadScripts(document, 'script');</script>
 <dd><code>cutoff</code> - The cutoff frequency.</dd>
 <dd><code>order</code> - The filter order.</dd>
 <dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
-<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise
+                   causal (lfilter).</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
 </dl>
@@ -235,7 +244,8 @@ loadScripts(document, 'script');</script>
 <dd><code>widthFreq</code> - The bandwidth.</dd>
 <dd><code>order</code> - The filter order.</dd>
 <dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
-<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise
+                   causal (lfilter).</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
 </dl>
@@ -260,7 +270,8 @@ loadScripts(document, 'script');</script>
 <dd><code>widthFreq</code> - The notch bandwidth.</dd>
 <dd><code>order</code> - The filter order.</dd>
 <dd><code>stopBandDb</code> - The stopband attenuation in decibels.</dd>
-<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).</dd>
+<dd><code>zeroPhase</code> - If true, applies zero-phase filtering (filtfilt); otherwise
+                   causal (lfilter).</dd>
 <dt>Returns:</dt>
 <dd>The filtered signal.</dd>
 </dl>

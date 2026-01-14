@@ -7,7 +7,15 @@ import org.apache.commons.math3.linear.RealVector;
 
 /**
  * Chebyshev Type I Filter implementation.
- * Provides static methods for filtering.
+ * <p>
+ * Chebyshev Type I filters are characterized by a steep roll-off and ripples in
+ * the passband.
+ * They minimize the error between the idealized and the actual filter
+ * characteristic
+ * over the range of the filter, but with ripples in the passband.
+ * <p>
+ * This class provides static methods for designing and applying Chebyshev Type
+ * I filters.
  */
 public class Chebyshev1 {
 
@@ -23,10 +31,12 @@ public class Chebyshev1 {
      * @param cutoff     The cutoff frequency.
      * @param order      The filter order.
      * @param rippleDb   The passband ripple in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb, boolean zeroPhase) {
+    public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb,
+            boolean zeroPhase) {
         Chebyshev1Design design = new Chebyshev1Design();
         design.lowPass(order, rippleDb, sampleRate, cutoff);
         if (zeroPhase) {
@@ -44,10 +54,12 @@ public class Chebyshev1 {
      * @param cutoff     The cutoff frequency.
      * @param order      The filter order.
      * @param rippleDb   The passband ripple in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb, boolean zeroPhase) {
+    public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double rippleDb,
+            boolean zeroPhase) {
         Chebyshev1Design design = new Chebyshev1Design();
         design.highPass(order, rippleDb, sampleRate, cutoff);
         if (zeroPhase) {
@@ -66,10 +78,12 @@ public class Chebyshev1 {
      * @param widthFreq  The bandwidth.
      * @param order      The filter order.
      * @param rippleDb   The passband ripple in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double rippleDb, boolean zeroPhase) {
+    public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order,
+            double rippleDb, boolean zeroPhase) {
         Chebyshev1Design design = new Chebyshev1Design();
         design.bandPass(order, rippleDb, sampleRate, centerFreq, widthFreq);
         if (zeroPhase) {
@@ -88,10 +102,12 @@ public class Chebyshev1 {
      * @param widthFreq  The notch bandwidth.
      * @param order      The filter order.
      * @param rippleDb   The passband ripple in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double rippleDb, boolean zeroPhase) {
+    public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order,
+            double rippleDb, boolean zeroPhase) {
         Chebyshev1Design design = new Chebyshev1Design();
         design.bandStop(order, rippleDb, sampleRate, centerFreq, widthFreq);
         if (zeroPhase) {

@@ -113,13 +113,17 @@ loadScripts(document, 'script');</script>
  double&nbsp;lowCutoff,
  double&nbsp;highCutoff,
  int&nbsp;order)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a band-pass Bessel filter.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.hissain.jscipy.signal.filter.Biquad[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#bandStop(double,double,double,int)" class="member-name-link">bandStop</a><wbr>(double&nbsp;sampleRate,
  double&nbsp;lowCutoff,
  double&nbsp;highCutoff,
  int&nbsp;order)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a band-stop (notch) Bessel filter.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#filtfilt(double%5B%5D,double,double,int)" class="member-name-link">filtfilt</a><wbr>(double[]&nbsp;signal,
  double&nbsp;sampleRate,
@@ -132,12 +136,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#highPass(double,double,int)" class="member-name-link">highPass</a><wbr>(double&nbsp;sampleRate,
  double&nbsp;cutoff,
  int&nbsp;order)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a high-pass Bessel filter.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.hissain.jscipy.signal.filter.Biquad[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lowPass(double,double,int)" class="member-name-link">lowPass</a><wbr>(double&nbsp;sampleRate,
  double&nbsp;cutoff,
  int&nbsp;order)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a low-pass Bessel filter.</div>
+</div>
 </div>
 </div>
 </div>
@@ -175,6 +183,15 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.hissain.jscipy.signal.filter.Biquad[]</span>&nbsp;<span class="element-name">lowPass</span><wbr><span class="parameters">(double&nbsp;sampleRate,
  double&nbsp;cutoff,
  int&nbsp;order)</span></div>
+<div class="block">Design a low-pass Bessel filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sampleRate</code> - The sampling rate in Hz.</dd>
+<dd><code>cutoff</code> - The cutoff frequency in Hz.</dd>
+<dd><code>order</code> - The order of the filter.</dd>
+<dt>Returns:</dt>
+<dd>Array of Biquad sections representing the filter.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -183,6 +200,15 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.hissain.jscipy.signal.filter.Biquad[]</span>&nbsp;<span class="element-name">highPass</span><wbr><span class="parameters">(double&nbsp;sampleRate,
  double&nbsp;cutoff,
  int&nbsp;order)</span></div>
+<div class="block">Design a high-pass Bessel filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sampleRate</code> - The sampling rate in Hz.</dd>
+<dd><code>cutoff</code> - The cutoff frequency in Hz.</dd>
+<dd><code>order</code> - The order of the filter.</dd>
+<dt>Returns:</dt>
+<dd>Array of Biquad sections representing the filter.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -192,6 +218,16 @@ loadScripts(document, 'script');</script>
  double&nbsp;lowCutoff,
  double&nbsp;highCutoff,
  int&nbsp;order)</span></div>
+<div class="block">Design a band-pass Bessel filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sampleRate</code> - The sampling rate in Hz.</dd>
+<dd><code>lowCutoff</code> - The lower cutoff frequency in Hz.</dd>
+<dd><code>highCutoff</code> - The upper cutoff frequency in Hz.</dd>
+<dd><code>order</code> - The order of the filter.</dd>
+<dt>Returns:</dt>
+<dd>Array of Biquad sections representing the filter.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -201,6 +237,16 @@ loadScripts(document, 'script');</script>
  double&nbsp;lowCutoff,
  double&nbsp;highCutoff,
  int&nbsp;order)</span></div>
+<div class="block">Design a band-stop (notch) Bessel filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sampleRate</code> - The sampling rate in Hz.</dd>
+<dd><code>lowCutoff</code> - The lower cutoff frequency in Hz.</dd>
+<dd><code>highCutoff</code> - The upper cutoff frequency in Hz.</dd>
+<dd><code>order</code> - The order of the filter.</dd>
+<dt>Returns:</dt>
+<dd>Array of Biquad sections representing the filter.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -212,6 +258,15 @@ loadScripts(document, 'script');</script>
  int&nbsp;order)</span></div>
 <div class="block">Apply a Bessel filter forward and backward (zero-phase filtering).
  Defaults to low-pass filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - Input signal array.</dd>
+<dd><code>sampleRate</code> - Sampling rate in Hz.</dd>
+<dd><code>cutoff</code> - Cutoff frequency in Hz.</dd>
+<dd><code>order</code> - Filter order.</dd>
+<dt>Returns:</dt>
+<dd>Filtered signal with zero phase distortion.</dd>
+</dl>
 </section>
 </li>
 </ul>

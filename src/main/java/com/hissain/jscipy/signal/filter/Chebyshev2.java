@@ -6,8 +6,15 @@ import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 
 /**
- * Chebyshev Type II Filter implementation.
- * Provides static methods for filtering.
+ * Chebyshev Type II Filter implementation (Inverse Chebyshev).
+ * <p>
+ * Chebyshev Type II filters have ripples in the stopband and a monotonic (flat)
+ * passband.
+ * They roll off slower than Type I for the same order, but preserve the
+ * passband signal quality better.
+ * <p>
+ * This class provides static methods for designing and applying Chebyshev Type
+ * II filters.
  */
 public class Chebyshev2 {
 
@@ -23,10 +30,12 @@ public class Chebyshev2 {
      * @param cutoff     The cutoff frequency.
      * @param order      The filter order.
      * @param stopBandDb The stopband attenuation in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb, boolean zeroPhase) {
+    public static double[] lowPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb,
+            boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.lowPass(order, stopBandDb, sampleRate, cutoff);
         if (zeroPhase) {
@@ -44,10 +53,12 @@ public class Chebyshev2 {
      * @param cutoff     The cutoff frequency.
      * @param order      The filter order.
      * @param stopBandDb The stopband attenuation in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb, boolean zeroPhase) {
+    public static double[] highPass(double[] signal, double sampleRate, double cutoff, int order, double stopBandDb,
+            boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.highPass(order, stopBandDb, sampleRate, cutoff);
         if (zeroPhase) {
@@ -66,10 +77,12 @@ public class Chebyshev2 {
      * @param widthFreq  The bandwidth.
      * @param order      The filter order.
      * @param stopBandDb The stopband attenuation in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double stopBandDb, boolean zeroPhase) {
+    public static double[] bandPass(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order,
+            double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.bandPass(order, stopBandDb, sampleRate, centerFreq, widthFreq);
         if (zeroPhase) {
@@ -88,10 +101,12 @@ public class Chebyshev2 {
      * @param widthFreq  The notch bandwidth.
      * @param order      The filter order.
      * @param stopBandDb The stopband attenuation in decibels.
-     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise causal (lfilter).
+     * @param zeroPhase  If true, applies zero-phase filtering (filtfilt); otherwise
+     *                   causal (lfilter).
      * @return The filtered signal.
      */
-    public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order, double stopBandDb, boolean zeroPhase) {
+    public static double[] bandStop(double[] signal, double sampleRate, double centerFreq, double widthFreq, int order,
+            double stopBandDb, boolean zeroPhase) {
         Chebyshev2Design design = new Chebyshev2Design();
         design.bandStop(order, stopBandDb, sampleRate, centerFreq, widthFreq);
         if (zeroPhase) {
