@@ -39,14 +39,17 @@ def save_signal(filename, data):
     np.savetxt(filepath, data, fmt='%.18e')
     print(f"Saved: {filepath}")
 
-def plot_comparison(input_signal, output_signal, title, filename):
+def plot_comparison(input_signal, scipy_output, java_output, title, filename):
     """Create a comparison plot."""
     plt.figure(figsize=(12, 6))
     
     # Time domain
     plt.subplot(2, 1, 1)
-    plt.plot(input_signal, label='Input', alpha=0.7)
-    plt.plot(output_signal, label='Filtered (Elliptic)', linewidth=2)
+    plt.plot(input_signal, label='Input', alpha=0.3, color='gray')
+    plt.plot(scipy_output, label='SciPy (Reference)', linewidth=3, alpha=0.7, color='C0')
+    if java_output is not None:
+        plt.plot(java_output, label='Java (Implementation)', linewidth=1.5, linestyle='--', color='C1')
+        
     plt.xlabel('Sample')
     plt.ylabel('Amplitude')
     plt.title(f'{title} - Time Domain')
@@ -57,10 +60,20 @@ def plot_comparison(input_signal, output_signal, title, filename):
     plt.subplot(2, 1, 2)
     freqs_in = np.fft.rfftfreq(len(input_signal), 1/250.0)
     fft_in = np.abs(np.fft.rfft(input_signal))
-    fft_out = np.abs(np.fft.rfft(output_signal))
+    fft_scipy = np.abs(np.fft.rfft(scipy_output))
     
-    plt.plot(freqs_in, fft_in, label='Input', alpha=0.7)
-    plt.plot(freqs_in, fft_out, label='Filtered (Elliptic)', linewidth=2)
+    plt.plot(freqs_in, fft_in, label='Input', alpha=0.3, color='gray')
+    plt.plot(freqs_in, fft_scipy, label='SciPy (Reference)', linewidth=3, alpha=0.7, color='C0')
+    
+    if java_output is not None:
+        fft_java = np.abs(np.fft.rfft(java_output))
+        plt.plot(freqs_in, fft_java, label='Java (Implementation)', linewidth=1.5, linestyle='--', color='C1')
+        
+        # Calculate error
+        error = np.sqrt(np.mean((scipy_output - java_output)**2))
+        plt.text(0.02, 0.95, f'RMSE (Time Domain): {error:.2e}', transform=plt.gca().transAxes, 
+                 bbox=dict(facecolor='white', alpha=0.8))
+
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('Magnitude')
     plt.title(f'{title} - Frequency Domain')
@@ -81,41 +94,47 @@ def main():
     print("Generating test case 1: Order 4, rp=1dB, rs=20dB, cutoff=20Hz, sr=250Hz")
     
     # Use the same input as Chebyshev tests for consistency
-    input_file = os.path.join(OUTPUT_DIR, "cheby1_input1.txt")
+    input_file = os.path.join(OUTPUT_DIR, "ellip_input1.txt")
     if os.path.exists(input_file):
-        # Reuse existing test input
         test_signal = np.loadtxt(input_file)
         print(f"Loaded existing input: {input_file}")
     else:
-        # Generate new signal
+        # Should normally be there from previous runs, but fallback:
         test_signal = generate_test_signal(length=1000, freq1=5, freq2=35, sample_rate=250)
         save_signal("ellip_input1.txt", test_signal)
-        # Also save as cheby1_input1.txt for consistency
-        save_signal("cheby1_input1.txt", test_signal)
     
-    # Apply elliptic filter
+    # Apply elliptic filter (SciPy)
     order = 4
     ripple_db = 1.0  # Passband ripple
     stopband_db = 20.0  # Stopband attenuation
     cutoff = 20.0
     sample_rate = 250.0
     
-    filtered_signal = apply_elliptic_filter(test_signal, sample_rate, cutoff, 
+    scipy_filtered = apply_elliptic_filter(test_signal, sample_rate, cutoff, 
                                            order, ripple_db, stopband_db)
     
-    # Save output
-    save_signal("ellip_output1.txt", filtered_signal)
+    save_signal("ellip_output1.txt", scipy_filtered)
     
+    # Load Java filtered output if available
+    java_file = os.path.join(OUTPUT_DIR, "ellip_output1_java.txt")
+    java_filtered = None
+    if os.path.exists(java_file):
+        java_filtered = np.loadtxt(java_file)
+        print(f"Loaded Java output: {java_file}")
+    else:
+        print(f"Warning: Java output not found at {java_file}")
+
     # Create comparison plot
-    plot_comparison(test_signal, filtered_signal, 
+    plot_comparison(test_signal, scipy_filtered, java_filtered,
                    f"Elliptic Filter (order={order}, rp={ripple_db}dB, rs={stopband_db}dB, fc={cutoff}Hz)",
-                   "ellip_input1.txt.png")
+                   "ellip_comparison.png")
+
     
     print("\nTest data generation complete!")
     print(f"Input samples: {len(test_signal)}")
-    print(f"Output samples: {len(filtered_signal)}")
+    print(f"Output samples: {len(scipy_filtered)}")
     print(f"Input RMS: {np.sqrt(np.mean(test_signal**2)):.6f}")
-    print(f"Output RMS: {np.sqrt(np.mean(filtered_signal**2)):.6f}")
+    print(f"Output RMS: {np.sqrt(np.mean(scipy_filtered**2)):.6f}")
 
 if __name__ == "__main__":
     main()

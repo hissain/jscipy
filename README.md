@@ -115,7 +115,7 @@ A seperate demo android application is built on this library that might be helpf
 
 ### Elliptic Filter Comparison
 
-![Elliptic Filter Comparison](python/figs/ellip_input1.txt.png)
+![Elliptic Filter Comparison](python/figs/ellip_comparison.png)
 
 ### RK4 Solver Comparison
 
