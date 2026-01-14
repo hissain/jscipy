@@ -12,7 +12,7 @@ import org.apache.commons.math3.analysis.solvers.LaguerreSolver;
  * to digital filters using the bilinear transform.
  * Use {@link Bessel} for the user-facing API.
  */
-public class BesselDesign extends Cascade {
+class BesselDesign extends Cascade {
 
     class AnalogLowPass extends LayoutBase {
         private int nPoles;
