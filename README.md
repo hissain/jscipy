@@ -273,8 +273,6 @@ public class EllipticExample {
 }
 ```
 
-```
-
 ### Bessel Filter
 
 ```java
