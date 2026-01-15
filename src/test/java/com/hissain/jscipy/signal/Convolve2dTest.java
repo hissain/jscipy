@@ -76,6 +76,31 @@ public class Convolve2dTest {
         assertMatrixEquals(expected, actual, 1e-8);
     }
 
+    private double calculateRMSE(double[][] expected, double[][] actual) {
+        double sumSq = 0;
+        int count = 0;
+        for (int i = 0; i < expected.length; i++) {
+            for (int j = 0; j < expected[0].length; j++) {
+                double diff = expected[i][j] - actual[i][j];
+                sumSq += diff * diff;
+                count++;
+            }
+        }
+        return Math.sqrt(sumSq / count);
+    }
+
+    private void saveMatrix(String filename, double[][] matrix) throws IOException {
+        java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter(filename));
+        pw.println(matrix.length + " " + matrix[0].length);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                pw.print(matrix[i][j] + (j < matrix[0].length - 1 ? " " : ""));
+            }
+            pw.println();
+        }
+        pw.close();
+    }
+
     @Test
     public void testRandomFull() throws IOException {
         double[][] in1 = loadMatrix("test_data/conv2d_in1_2.txt");
@@ -83,6 +108,13 @@ public class Convolve2dTest {
         double[][] expected = loadMatrix("test_data/conv2d_out_full_2.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.FULL);
+
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE for Convolve2d Random Full: " + rmse);
+
+        // Export for Python visualization
+        saveMatrix("test_data/java_conv2d_result.txt", actual);
+
         assertMatrixEquals(expected, actual, 1e-8);
     }
 }

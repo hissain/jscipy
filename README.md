@@ -7,7 +7,7 @@
 **jSciPy** is a comprehensive **Java Scientific Computing Library** designed for **Signal Processing**, **Machine Learning**, and **Data Science** on the JVM and Android. Inspired by Python's **SciPy** and **NumPy**, it provides high-performance implementations of essential algorithms.
 
 It currently includes modules for:
-*   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, Savitzky-Golay smoothing, Peak detection.
+*   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, 2D Convolution, Savitzky-Golay smoothing, Peak detection.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
@@ -93,7 +93,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:2.2.0' // Replace 2.2.0 with the desired version or commit hash
+    implementation 'com.github.hissain:jSciPy:2.2.1' // Replace 2.2.1 with the desired version or commit hash
 }
 ```
 
