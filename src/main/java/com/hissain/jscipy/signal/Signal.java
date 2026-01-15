@@ -318,6 +318,8 @@ public class Signal {
 
     // --- Convolution ---
 
+    // --- Convolution ---
+
     /**
      * Convolves two signals using the specified mode.
      *
@@ -328,6 +330,18 @@ public class Signal {
      */
     public static double[] convolve(double[] signal, double[] window, ConvolutionMode mode) {
         return new Convolve().convolve(signal, window, mode);
+    }
+
+    /**
+     * Convolves two 2D signals using the specified mode.
+     *
+     * @param in1  The first input array.
+     * @param in2  The second input array.
+     * @param mode The convolution mode (FULL, VALID, SAME).
+     * @return The convolved 2D array.
+     */
+    public static double[][] convolve2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
+        return new Convolve().convolve2d(in1, in2, mode);
     }
 
     // --- Resample ---
