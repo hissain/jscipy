@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -242,6 +242,15 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>static double[][]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#convolve2d(double%5B%5D%5B%5D,double%5B%5D%5B%5D,com.hissain.jscipy.signal.ConvolutionMode)">convolve2d</a></span>&#8203;(double[][]&nbsp;in1,
+          double[][]&nbsp;in2,
+          <a href="ConvolutionMode.html" title="enum in com.hissain.jscipy.signal">ConvolutionMode</a>&nbsp;mode)</code></th>
+<td class="colLast">
+<div class="block">Convolves two 2D signals using the specified mode.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#detrend(double%5B%5D,com.hissain.jscipy.signal.DetrendType)">detrend</a></span>&#8203;(double[]&nbsp;signal,
        <a href="DetrendType.html" title="enum in com.hissain.jscipy.signal">DetrendType</a>&nbsp;type)</code></th>
@@ -249,7 +258,7 @@ extends java.lang.Object</pre>
 <div class="block">Removes a linear or constant trend from the signal.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ellip_filtfilt(double%5B%5D,double,double,int,double,double)">ellip_filtfilt</a></span>&#8203;(double[]&nbsp;signal,
               double&nbsp;sampleRate,
@@ -261,7 +270,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Elliptic low-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ellip_lfilter(double%5B%5D,double,double,int,double,double)">ellip_lfilter</a></span>&#8203;(double[]&nbsp;signal,
              double&nbsp;sampleRate,
@@ -273,14 +282,14 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Elliptic low-pass filter.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fft(double%5B%5D)">fft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Computes the forward FFT of a real-valued signal.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filtfilt(double%5B%5D,double,double,int)">filtfilt</a></span>&#8203;(double[]&nbsp;signal,
         double&nbsp;sampleRate,
@@ -290,14 +299,14 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Butterworth low-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D)">find_peaks</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Finds peaks in a signal with default parameters.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D,java.lang.Double,java.lang.Integer,java.lang.Double)">find_peaks</a></span>&#8203;(double[]&nbsp;x,
           java.lang.Double&nbsp;height,
@@ -307,14 +316,14 @@ extends java.lang.Object</pre>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int)">hamming</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int,boolean)">hamming</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -322,14 +331,14 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int)">hanning</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int,boolean)">hanning</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -337,14 +346,14 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)">ifft</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#interp1d_cubic(double%5B%5D,double%5B%5D,double%5B%5D)">interp1d_cubic</a></span>&#8203;(double[]&nbsp;x,
               double[]&nbsp;y,
@@ -353,7 +362,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs cubic spline interpolation on the given data points.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#interp1d_linear(double%5B%5D,double%5B%5D,double%5B%5D)">interp1d_linear</a></span>&#8203;(double[]&nbsp;x,
                double[]&nbsp;y,
@@ -362,7 +371,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs linear interpolation on the given data points.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#irfft(com.hissain.jscipy.signal.JComplex%5B%5D,int)">irfft</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x,
      int&nbsp;n)</code></th>
@@ -370,7 +379,7 @@ extends java.lang.Object</pre>
 <div class="block">Computes the inverse FFT of a real-valued signal (IRFFT).</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lfilter(double%5B%5D,double,double,int)">lfilter</a></span>&#8203;(double[]&nbsp;signal,
        double&nbsp;sampleRate,
@@ -380,7 +389,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Butterworth low-pass filter.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#padSignal(double%5B%5D,int)">padSignal</a></span>&#8203;(double[]&nbsp;x,
          int&nbsp;padlen)</code></th>
@@ -388,7 +397,7 @@ extends java.lang.Object</pre>
 <div class="block">Helper to pad signal with odd extension.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resample(double%5B%5D,int)">resample</a></span>&#8203;(double[]&nbsp;x,
         int&nbsp;num)</code></th>
@@ -396,7 +405,7 @@ extends java.lang.Object</pre>
 <div class="block">Resamples x to num samples using Fourier method along the given axis.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rfft(double%5B%5D)">rfft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
@@ -885,6 +894,26 @@ extends java.lang.Object</pre>
 <dd><code>mode</code> - The convolution mode (e.g., ConvolutionMode.SAME).</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The convolved signal.</dd>
+</dl>
+</li>
+</ul>
+<a id="convolve2d(double[][],double[][],com.hissain.jscipy.signal.ConvolutionMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>convolve2d</h4>
+<pre class="methodSignature">public static&nbsp;double[][]&nbsp;convolve2d&#8203;(double[][]&nbsp;in1,
+                                    double[][]&nbsp;in2,
+                                    <a href="ConvolutionMode.html" title="enum in com.hissain.jscipy.signal">ConvolutionMode</a>&nbsp;mode)</pre>
+<div class="block">Convolves two 2D signals using the specified mode.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in1</code> - The first input array.</dd>
+<dd><code>in2</code> - The second input array.</dd>
+<dd><code>mode</code> - The convolution mode (FULL, VALID, SAME).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The convolved 2D array.</dd>
 </dl>
 </li>
 </ul>
