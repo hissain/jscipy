@@ -167,9 +167,13 @@ A seperate demo android application is built on this library that might be helpf
 
 ![MedFilt Comparison](python/figs/medfilt_comparison.png)
 
-### Convolve Comparison
+### 1D Convolve Comparison
 
 ![Convolve Comparison](python/figs/convolve_comparison.png)
+
+### 2D Convolve Comparison
+
+![2D Convolve Comparison](python/figs/convolve2d_comparison.png)
 
 ### Hilbert Transform Comparison
 
