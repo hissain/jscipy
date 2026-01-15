@@ -314,6 +314,26 @@ public class Signal {
         return new FFT().irfft(x, n);
     }
 
+    /**
+     * Computes the 2D FFT of a real-valued 2D array.
+     *
+     * @param input The 2D input array [rows][cols].
+     * @return The 2D complex-valued FFT.
+     */
+    public static JComplex[][] fft2(double[][] input) {
+        return new FFT().fft2(input);
+    }
+
+    /**
+     * Computes the inverse 2D FFT.
+     *
+     * @param input The 2D complex spectrum [rows][cols].
+     * @return The 2D complex spatial domain signal.
+     */
+    public static JComplex[][] ifft2(JComplex[][] input) {
+        return new FFT().ifft2(input);
+    }
+
     // --- Spectral (Welch) ---
 
     // --- Convolution ---

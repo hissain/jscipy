@@ -26,7 +26,7 @@ def main():
         print(f"RMSE: {rmse}")
         print(f"Max Diff: {max_diff}")
 
-        fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+        fig, axes = plt.subplots(1, 2, figsize=(12, 5))
         
         im0 = axes[0].imshow(java_res, cmap='viridis')
         axes[0].set_title("Java convolve2d")
@@ -36,10 +36,6 @@ def main():
         axes[1].set_title("SciPy convolve2d")
         plt.colorbar(im1, ax=axes[1])
         
-        im2 = axes[2].imshow(diff, cmap='inferno')
-        axes[2].set_title(f"Absolute Difference\n(Max: {max_diff:.2e})")
-        plt.colorbar(im2, ax=axes[2])
-
         plt.tight_layout()
         
         output_path = os.path.join(ARTIFACT_DIR, "convolve2d_comparison.png")

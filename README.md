@@ -175,6 +175,10 @@ A seperate demo android application is built on this library that might be helpf
 
 ![2D Convolve Comparison](python/figs/convolve2d_comparison.png)
 
+### 2D FFT Comparison
+
+![2D FFT Comparison](python/figs/fft2_comparison.png)
+
 ### Hilbert Transform Comparison
 
 ![Hilbert Transform Comparison](python/figs/hilbert_comparison_1.png)
