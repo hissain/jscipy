@@ -13,57 +13,24 @@ It currently includes modules for:
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
+## Why jSciPy?
+
+| Feature / Characteristic | **jSciPy** | **JDSP** | **TarsosDSP** |
+| :--- | :---: | :---: | :---: |
+| **Primary Goal** | **SciPy Clone** (Java) | Signal Processing | Audio Processing |
+| **Zero-Phase Filtering (`filtfilt`)** | ✅ **Yes** | ❌ No | ❌ No |
+| **SciPy Verified Accuracy** | ✅ **High** (RMSE ~1e-16) | ❓ Unknown | ❌ No |
+| **2D Signal Processing** | ✅ **Yes** (`convolve2d`, `fft2`) | ❌ No | ❌ No |
+| **Algorithm Variety** | 📶 Broad (Filters, FFT, RK4, Interp) | 📶 Broad | 🎵 Audio Focused (Pitch, MFCC) |
+
 ## Features
 
-* **Butterworth Filters**:
-  * Implement various types of Butterworth filters: low-pass, high-pass, band-pass, and band-stop.
-  * Supports zero-phase filtering (`filtfilt`) for applications where phase distortion is critical.
-  * Provides standard filtering (`filter`) for causal applications.
-* **Chebyshev Filters**:
-  * **Type I (`cheby1`)**: Filter with passband ripple and steep rolloff.
-  * **Type II (`cheby2`)**: Filter with stopband ripple and maximally flat passband.
-  * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
-* **Elliptic Filters**:
-  * **Cauer/Equiripple**: Filter with equiripple behavior in both passband and stopband.
-  * Offers steeper rolloff than Butterworth or Chebyshev for the same order.
-  * Supports both zero-phase (`filtfilt`) and standard causal (`lfilter`) filtering.
-* **Bessel Filters**:
-  * Implements Bessel (Thomson) filters, characterized by maximally flat group delay.
-  * Preserves the wave shape of filtered signals in the passband better than other IIR filters.
-  * Supports both zero-phase (`filtfilt`) and standard causal (`lowPass`, `highPass` etc.) filtering.
-* **Find Peaks**:
-  * Efficiently detect peaks in one-dimensional signals.
-  * Filter peaks based on properties like height, prominence, and minimum distance between peaks.
-* **RK4 Solver**:
-  * Solve ordinary differential equations using the Runge-Kutta 4th order method.
-  * Flexible interface for defining custom differential equations.
-* **Interpolation**:
-  * Perform linear interpolation between data points.
-  * Perform cubic spline interpolation for smoother curves.
-* **FFT and RFFT**:
-  * Compute the Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT) of a signal.
-  * Compute the Real Fast Fourier Transform (RFFT) and Inverse Real Fast Fourier Transform (IRFFT) for real-valued signals, which are more efficient.
-* **Welch's Method**:
-  * Compute Power Spectral Density (PSD) using Welch's method.
-* **Resample**:
-  * Resample a signal to a new number of samples using Fourier method.
-* **Savitzky-Golay Filter**:
-  * Smooth data and calculate derivatives using a least-squares polynomial fitting.
-  * Supports smoothing and differentiation.
-* **Detrend**:
-  * Remove linear trend from data.
-  * Remove constant trend (mean) from data.
-* **Medfilt**:
-  * Perform a median filter on a signal.
-  * Supports custom kernel sizes.
-* **Convolve**:
-  * Convolve two signals using the 'same' mode.
-  * Supports 1D convolution.
-* **Hilbert Transform**:
-  * Compute the analytic signal using the Hilbert transform.
-* **Window Functions**:
-  * Supports Hanning, Hamming, Blackman, and Kaiser windows.
-  * Essential for filter design and spectral analysis.
+*   **Advanced Filtering**: Butterworth, Chebyshev (I & II), Elliptic, Bessel. Supports **zero-phase (`filtfilt`)** and causal (`lfilter`) modes.
+*   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
+*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `hilbert` transform.
+*   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `detrend`, `resample`.
+*   **Math**: RK4 ODE Solver, Linear & Cubic Spline Interpolation.
+*   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
 
 ## Documentation
 
