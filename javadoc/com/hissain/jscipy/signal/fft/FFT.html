@@ -232,13 +232,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>double[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D,java.lang.Integer,java.lang.Integer,java.lang.Integer,double%5B%5D,java.lang.String,java.lang.Integer)">istft</a></span>&#8203;(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
-     java.lang.Integer&nbsp;nperseg,
-     java.lang.Integer&nbsp;noverlap,
-     java.lang.Integer&nbsp;nfft,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D,int,int,int,double%5B%5D,java.lang.String,int)">istft</a></span>&#8203;(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
+     int&nbsp;nperseg,
+     int&nbsp;noverlap,
+     int&nbsp;nfft,
      double[]&nbsp;window,
      java.lang.String&nbsp;boundary,
-     java.lang.Integer&nbsp;inputLength)</code></th>
+     int&nbsp;inputLength)</code></th>
 <td class="colLast">
 <div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT).</div>
 </td>
@@ -260,13 +260,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stft(double%5B%5D,java.lang.Integer,java.lang.Integer,java.lang.Integer,double%5B%5D,java.lang.String,java.lang.Boolean)">stft</a></span>&#8203;(double[]&nbsp;x,
-    java.lang.Integer&nbsp;nperseg,
-    java.lang.Integer&nbsp;noverlap,
-    java.lang.Integer&nbsp;nfft,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stft(double%5B%5D,int,int,int,double%5B%5D,java.lang.String,boolean)">stft</a></span>&#8203;(double[]&nbsp;x,
+    int&nbsp;nperseg,
+    int&nbsp;noverlap,
+    int&nbsp;nfft,
     double[]&nbsp;window,
     java.lang.String&nbsp;boundary,
-    java.lang.Boolean&nbsp;padded)</code></th>
+    boolean&nbsp;padded)</code></th>
 <td class="colLast">
 <div class="block">Computes the Short-Time Fourier Transform (STFT) of a signal.</div>
 </td>
@@ -470,29 +470,30 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="stft(double[],java.lang.Integer,java.lang.Integer,java.lang.Integer,double[],java.lang.String,java.lang.Boolean)">
+<a id="stft(double[],int,int,int,double[],java.lang.String,boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>stft</h4>
 <pre class="methodSignature">public&nbsp;<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stft&#8203;(double[]&nbsp;x,
-                         java.lang.Integer&nbsp;nperseg,
-                         java.lang.Integer&nbsp;noverlap,
-                         java.lang.Integer&nbsp;nfft,
+                         int&nbsp;nperseg,
+                         int&nbsp;noverlap,
+                         int&nbsp;nfft,
                          double[]&nbsp;window,
                          java.lang.String&nbsp;boundary,
-                         java.lang.Boolean&nbsp;padded)</pre>
+                         boolean&nbsp;padded)</pre>
 <div class="block">Computes the Short-Time Fourier Transform (STFT) of a signal.
  This implementation matches the behavior of scipy.signal.stft with default
  parameters.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>x</code> - The input signal.</dd>
-<dd><code>nperseg</code> - The length of each segment (window size). Default is 256.</dd>
+<dd><code>nperseg</code> - The length of each segment (window size). Default is 256.
+                 Pass -1 to use default.</dd>
 <dd><code>noverlap</code> - The number of points to overlap between segments. Default is
-                 nperseg // 2.</dd>
-<dd><code>nfft</code> - The FFT size to use. If null, uses nperseg. Must be >=
+                 nperseg // 2. Pass -1 to use default.</dd>
+<dd><code>nfft</code> - The FFT size to use. If -1, uses nperseg. Must be >=
                  nperseg.</dd>
 <dd><code>window</code> - The window function to apply. If null, uses Hann window.</dd>
 <dd><code>boundary</code> - The boundary extension mode. "zeros" pads with zeros, null
@@ -504,19 +505,19 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="istft(com.hissain.jscipy.signal.JComplex[][],java.lang.Integer,java.lang.Integer,java.lang.Integer,double[],java.lang.String,java.lang.Integer)">
+<a id="istft(com.hissain.jscipy.signal.JComplex[][],int,int,int,double[],java.lang.String,int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>istft</h4>
 <pre class="methodSignature">public&nbsp;double[]&nbsp;istft&#8203;(<a href="../JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix,
-                      java.lang.Integer&nbsp;nperseg,
-                      java.lang.Integer&nbsp;noverlap,
-                      java.lang.Integer&nbsp;nfft,
+                      int&nbsp;nperseg,
+                      int&nbsp;noverlap,
+                      int&nbsp;nfft,
                       double[]&nbsp;window,
                       java.lang.String&nbsp;boundary,
-                      java.lang.Integer&nbsp;inputLength)</pre>
+                      int&nbsp;inputLength)</pre>
 <div class="block">Computes the Inverse Short-Time Fourier Transform (ISTFT).
  This implementation matches the behavior of scipy.signal.istft with default
  parameters.</div>
@@ -527,13 +528,13 @@ extends java.lang.Object</pre>
                     STFT parameters.</dd>
 <dd><code>noverlap</code> - The number of points to overlap between segments. Must
                     match the STFT parameters.</dd>
-<dd><code>nfft</code> - The FFT size used. If null, inferred from stftMatrix
+<dd><code>nfft</code> - The FFT size used. If -1, inferred from stftMatrix
                     dimensions.</dd>
 <dd><code>window</code> - The window function used in STFT. If null, uses Hann
                     window.</dd>
 <dd><code>boundary</code> - The boundary extension mode used in STFT. "zeros" means
                     padding was used.</dd>
-<dd><code>inputLength</code> - The expected output length. If null, inferred from
+<dd><code>inputLength</code> - The expected output length. If -1, inferred from
                     stftMatrix.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The reconstructed time-domain signal.</dd>
