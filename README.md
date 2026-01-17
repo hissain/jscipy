@@ -34,7 +34,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
   <tbody>
     <tr>
       <td>Primary Focus</td>
-      <td><b>SciPy‑style Scientific & Signal DSP</b></td>
+      <td><b>SciPy‑style Signal + Scientific</b></td>
       <td>General Math/Stats</td>
       <td>Java DSP Toolbox</td>
       <td>Audio Processing</td>
@@ -42,7 +42,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>Linear Algebra</td>
     </tr>
     <tr>
-      <td>Zero-Phase Filtering (filtfilt)</td>
+      <td>Zero‑Phase Filtering (`filtfilt`)</td>
       <td>✅ Yes (SciPy‑compatible)</td>
       <td>❌ No</td>
       <td>❌ No</td>
@@ -51,7 +51,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>❌ No</td>
     </tr>
     <tr>
-      <td>2D Signal Ops (conv2d, fft2)</td>
+      <td>2D Signal Ops (`conv2d`, `fft2`)</td>
       <td>✅ Yes</td>
       <td>❌ No</td>
       <td>❌ No</td>
@@ -60,10 +60,10 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>❌ No</td>
     </tr>
     <tr>
-      <td>SciPy-like API Consistency</td>
+      <td>SciPy‑like API Consistency</td>
       <td>✅ High (SciPy semantics)</td>
       <td>❌ Low</td>
-      <td>⚠️ Partial</td>
+      <td>⚠️ Partial Java DSP</td>
       <td>❌ No</td>
       <td>❌ No</td>
       <td>❌ No</td>
@@ -72,7 +72,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>Filtering Capabilities</td>
       <td>⭐⭐⭐⭐⭐ (IIR+FIR+advanced)</td>
       <td>⭐ Basic</td>
-      <td>⭐⭐⭐ (IIR/FIR)</td>
+      <td>⭐⭐⭐ (IIR/FIR & adaptive)</td>
       <td>⭐⭐ (audio filters)</td>
       <td>⭐⭐ (IIR only)</td>
       <td>❌ No</td>
@@ -80,9 +80,9 @@ The table below compares jSciPy’s signal processing and scientific computing f
     <tr>
       <td>Transforms (FFT/Hilbert)</td>
       <td>✅ FFT + Hilbert</td>
-      <td>Limited</td>
-      <td>✅ FFT</td>
-      <td>✅ FFT</td>
+      <td>Limited / Basic FFT only</td>
+      <td>✅ FFT (general)</td>
+      <td>✅ FFT spectrum tools (audio)</td>
       <td>❌ No</td>
       <td>❌ No</td>
     </tr>
@@ -108,8 +108,8 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>Signal Analysis (Peak/PSD)</td>
       <td>✅ Yes</td>
       <td>❌ No</td>
-      <td>⚠️ Partial</td>
-      <td>⚠️ Partial</td>
+      <td>⚠️ Partial (peak detection)</td>
+      <td>⚠️ Partial (audio metrics)</td>
       <td>❌ No</td>
       <td>❌ No</td>
     </tr>
@@ -135,7 +135,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
       <td>Window Functions</td>
       <td>✅ Yes</td>
       <td>❌ No</td>
-      <td>❌ No</td>
+      <td>✅ Basic (windowing)</td>
       <td>❌ No</td>
       <td>❌ No</td>
       <td>❌ No</td>
