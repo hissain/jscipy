@@ -39,7 +39,8 @@ def plot_comparison(py_file, java_file, title_suffix):
     plt.colorbar(im1, ax=axes[1])
 
     diff = py_data - java_data
-    im2 = axes[2].imshow(diff, cmap='coolwarm', aspect='auto')
+    vmin, vmax = style_utils.finalize_diff_plot(None, py_data, is_2d=True)
+    im2 = axes[2].imshow(diff, cmap='coolwarm', aspect='auto', vmin=vmin, vmax=vmax)
     axes[2].set_title(f'Diff (RMSE={rmse:.2e})')
     plt.colorbar(im2, ax=axes[2])
 

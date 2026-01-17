@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import numpy as np
 
 # --- Configuration ---
 FIG_SIZE_WIDE = (10, 6)
@@ -36,3 +37,25 @@ def save_plot(fig, filename):
 def get_colors():
     """Returns the current seaborn color palette."""
     return sns.color_palette(PALETTE)
+
+def finalize_diff_plot(ax, signal_data, is_2d=False):
+    """
+    Sets the Y-axis (or color scale) of the difference plot to match the signal's magnitude.
+    This prevents tiny 1e-15 errors from looking like huge fluctuations due to autoscaling.
+    """
+    # Calculate signal amplitude (max absolute value)
+    ampl = np.max(np.abs(signal_data)) if len(signal_data) > 0 else 1.0
+    if ampl == 0: ampl = 1.0 # Safety
+    
+    # Margin factor to ensure peaks don't touch the edge
+    margin = 1.1
+    limit = ampl * margin
+    
+    if is_2d:
+        # For 2D heatmaps (imshow), we return vmin/vmax to be used by caller
+        return (-limit, limit)
+    else:
+        # For 1D plots, set ylim centered at 0
+        ax.set_ylim(-limit, limit)
+        # Optional: Add grid to emphasize the 'flatness'
+        ax.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.5)

@@ -34,6 +34,7 @@ def plot_comparison():
     diff = scipy_out - java_out
     rmse = np.sqrt(np.mean(diff**2))
     ax3.plot(t, diff, label=f'Diff (RMSE={rmse:.2e})', color='red', linewidth=1.0)
+    style_utils.finalize_diff_plot(ax3, scipy_out)
     ax3.legend()
     ax3.set_title("Difference (Python - Java)")
 
