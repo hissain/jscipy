@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 /**
  * A utility class for finding peaks in a signal.
  */
-class FindPeaks {
+public class FindPeaks {
 
     /**
      * Represents the result of a peak finding operation.

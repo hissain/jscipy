@@ -1,15 +1,29 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.math;
 
 import com.hissain.jscipy.signal.fft.FFT;
+import com.hissain.jscipy.signal.JComplex;
 
-class Resample {
+/**
+ * Helper class for signal resampling using FFT.
+ */
+public class Resample {
 
     private final FFT fft;
 
+    /**
+     * Constructs a Resample instance.
+     */
     public Resample() {
         this.fft = new FFT();
     }
 
+    /**
+     * Resamples a signal to a specific number of samples using the Fourier method.
+     *
+     * @param signal The input signal.
+     * @param num    The desired number of samples in the output.
+     * @return The resampled signal.
+     */
     public double[] resample(double[] signal, int num) {
         int len = signal.length;
         if (len == 0) {

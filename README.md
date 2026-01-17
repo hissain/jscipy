@@ -73,7 +73,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:2.3.1' // Replace 2.3.1 with the desired version or commit hash
+    implementation 'com.github.hissain:jSciPy:3.0.1' // Replace 3.0.1 with the desired version or commit hash
 }
 ```
 
@@ -173,7 +173,7 @@ A seperate demo android application is built on this library that might be helpf
 All standard IIR filters (Butterworth, Chebyshev I/II, Elliptic, Bessel) are supported with consistent APIs.
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.Signal;
 
 public class FilterExample {
     public static void main(String[] args) {
@@ -207,9 +207,10 @@ public class FilterExample {
 Includes 1D/2D FFT, Hilbert Transform, Welch's Method, and Spectrograms.
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.Signal;
 import com.hissain.jscipy.signal.JComplex;
-import com.hissain.jscipy.signal.WelchResult;
+import com.hissain.jscipy.signal.fft.Welch;
+import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Hilbert;
 
 public class SpectralExample {
@@ -225,11 +226,11 @@ public class SpectralExample {
         JComplex[] rfft = Signal.rfft(signal);
         
         // 3. Welch's Method (PSD)
-        WelchResult psd = Signal.welch(signal, fs, 256);
+        Welch.WelchResult psd = Signal.welch(signal, fs, 256);
         // Access: psd.f (frequencies), psd.Pxx (power spectrum)
 
         // 4. Spectrogram
-        SpectrogramResult spec = Signal.spectrogram(signal, fs);
+        Spectrogram.SpectrogramResult spec = Signal.spectrogram(signal, fs);
         // Access: spec.frequencies, spec.times, spec.Sxx
 
         // 5. Hilbert Transform (Analytic Signal)
@@ -243,7 +244,7 @@ public class SpectralExample {
 Common operations for signal conditioning and feature extraction.
 
 ```java
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.Signal;
 import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
 import com.hissain.jscipy.signal.filter.MedFilt;
 
@@ -271,7 +272,8 @@ public class OperationsExample {
         double[] detrended = Signal.detrend(signal, DetrendType.LINEAR);
         
         // 6. Resampling (Up/Down sampling)
-        double[] resampled = Signal.resample(signal, NEW_LENGTH);
+        // Note: Resampling is part of the Math module
+        double[] resampled = com.hissain.jscipy.Math.resample(signal, NEW_LENGTH);
     }
 }
 ```
@@ -280,18 +282,17 @@ public class OperationsExample {
 General-purpose numerical utilities.
 
 ```java
-import com.hissain.jscipy.signal.RK4Solver;
-import com.hissain.jscipy.signal.interpolate.Interpolation;
+import com.hissain.jscipy.math.RK4Solver;
+import com.hissain.jscipy.Math;
 
 public class MathExample {
     public static void main(String[] args) {
         // 1. Interpolation (Linear & Cubic)
-        Interpolation interp = new Interpolation();
         double[] x = {0, 1, 2}, y = {0, 1, 4};
         double[] query = {0.5, 1.5};
         
-        double[] lin = interp.linear(x, y, query);
-        double[] cub = interp.cubic(x, y, query);
+        double[] lin = Math.interp1d_linear(x, y, query);
+        double[] cub = Math.interp1d_cubic(x, y, query);
 
         // 2. RK4 ODE Solver (dy/dt = -y)
         RK4Solver solver = new RK4Solver();

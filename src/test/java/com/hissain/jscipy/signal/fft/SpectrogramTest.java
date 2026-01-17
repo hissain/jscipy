@@ -1,5 +1,6 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
+import com.hissain.jscipy.Signal;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -68,7 +69,7 @@ public class SpectrogramTest {
         double[] expectedTimes = readDataFile(testName + "_times.txt");
         double[][] expectedSxx = readMatrixFile(testName + "_Sxx.txt", testName + "_Sxx_shape.txt");
 
-        SpectrogramResult result = Signal.spectrogram(input, fs);
+        Spectrogram.SpectrogramResult result = Signal.spectrogram(input, fs);
 
         // Verify Frequencies
         assertEquals(expectedFreqs.length, result.frequencies.length, "Frequency array length mismatch");
@@ -105,7 +106,7 @@ public class SpectrogramTest {
         saveSpectrogramResult(testName + "_java", result);
     }
 
-    private void saveSpectrogramResult(String baseName, SpectrogramResult result) throws IOException {
+    private void saveSpectrogramResult(String baseName, Spectrogram.SpectrogramResult result) throws IOException {
         // Save frequencies
         try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + baseName + "_freqs.txt")) {
             for (double v : result.frequencies) {

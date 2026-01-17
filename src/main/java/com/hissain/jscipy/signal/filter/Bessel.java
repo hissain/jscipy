@@ -1,6 +1,6 @@
 package com.hissain.jscipy.signal.filter;
 
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.Signal;
 
 /**
  * Bessel (Thomson) Filter implementation.

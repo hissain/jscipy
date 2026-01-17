@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.fft.Welch;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WelchTest {
@@ -30,12 +29,13 @@ public class WelchTest {
         return data.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedFreqFilename, String expectedPsdFilename, double sampleRate, int nperseg) throws IOException {
+    private void runTest(String inputFilename, String expectedFreqFilename, String expectedPsdFilename,
+            double sampleRate, int nperseg) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedFreq = readDataFile(expectedFreqFilename);
         double[] expectedPsd = readDataFile(expectedPsdFilename);
 
-        WelchResult result = new Welch().welch(signal, sampleRate, nperseg);
+        Welch.WelchResult result = new Welch().welch(signal, sampleRate, nperseg);
 
         // Save output for plotting
         try (java.io.PrintWriter writer = new java.io.PrintWriter(TEST_DATA_DIR + "welch_output_psd1_java.txt")) {

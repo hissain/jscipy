@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.math;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,9 +8,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.math.RK4Solver;
-import com.hissain.jscipy.signal.math.RK4Solver.DifferentialEquation;
-import com.hissain.jscipy.signal.math.RK4Solver.Solution;
+import com.hissain.jscipy.math.RK4Solver.DifferentialEquation;
+import com.hissain.jscipy.math.RK4Solver.Solution;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

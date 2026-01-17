@@ -1,7 +1,20 @@
 package com.hissain.jscipy.signal;
 
-class Convolve {
+/**
+ * Utility class for signal convolution.
+ * Provides 1D and 2D convolution operations with various boundary modes.
+ */
+public class Convolve {
 
+    /**
+     * Convolves two 1D signals.
+     *
+     * @param signal The input signal.
+     * @param window The kernel/window to convolve with.
+     * @param mode   The convolution mode (only SAME is currently supported).
+     * @return The convolved signal.
+     * @throws UnsupportedOperationException if mode is not SAME.
+     */
     public double[] convolve(double[] signal, double[] window, ConvolutionMode mode) {
         if (mode != ConvolutionMode.SAME) {
             throw new UnsupportedOperationException("Only 'same' mode is supported for now.");
@@ -28,6 +41,14 @@ class Convolve {
         return result;
     }
 
+    /**
+     * Convolves two 2D signals (matrices).
+     *
+     * @param in1  The first input matrix.
+     * @param in2  The second input matrix (kernel).
+     * @param mode The convolution mode (FULL, SAME, VALID).
+     * @return The convolved matrix.
+     */
     public double[][] convolve2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
         int r1 = in1.length;
         int c1 = in1[0].length;

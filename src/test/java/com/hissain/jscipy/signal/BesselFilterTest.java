@@ -1,6 +1,6 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.Signal;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

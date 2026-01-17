@@ -1,8 +1,8 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.fft.FFT;
+import com.hissain.jscipy.signal.JComplex;
 
 import java.io.IOException;
 import java.nio.file.Files;

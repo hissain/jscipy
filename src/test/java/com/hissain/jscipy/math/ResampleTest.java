@@ -1,4 +1,4 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.math;
 
 import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;

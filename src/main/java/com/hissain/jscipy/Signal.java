@@ -1,10 +1,19 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy;
 
+import com.hissain.jscipy.signal.ConvolutionMode;
+import com.hissain.jscipy.signal.Convolve;
+import com.hissain.jscipy.signal.Detrend;
+import com.hissain.jscipy.signal.DetrendType;
+import com.hissain.jscipy.signal.FindPeaks;
+import com.hissain.jscipy.signal.filter.MedFilt;
+import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
+import com.hissain.jscipy.signal.JComplex;
+import com.hissain.jscipy.signal.Windows;
+import com.hissain.jscipy.signal.filter.Bessel;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
 import com.hissain.jscipy.signal.filter.Elliptic;
-import com.hissain.jscipy.signal.filter.Bessel;
 import com.hissain.jscipy.signal.fft.FFT;
 import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Welch;
@@ -13,6 +22,9 @@ import com.hissain.jscipy.signal.fft.Welch;
  * A facade class providing static utility methods for signal processing,
  * similar to {@code scipy.signal}.
  * This class delegates to specific implementations within the library.
+ * <p>
+ * For general mathematical operations (interpolation, resampling), see
+ * {@link com.hissain.jscipy.Math}.
  */
 public class Signal {
 
@@ -552,6 +564,54 @@ public class Signal {
     public static double[] hamming(int m, boolean symmetric) {
         return Windows.hamming(m, symmetric);
     }
+
+    /**
+     * Returns a symmetric Blackman window of length M.
+     *
+     * @param m The length of the window.
+     * @return The Blackman window.
+     */
+    public static double[] blackman(int m) {
+        return Windows.blackman(m);
+    }
+
+    /**
+     * Returns a Blackman window of length M.
+     *
+     * @param m         The length of the window.
+     * @param symmetric If true, generates a symmetric window (for filter design).
+     *                  If false, generates a periodic window (for spectral
+     *                  analysis).
+     * @return The Blackman window.
+     */
+    public static double[] blackman(int m, boolean symmetric) {
+        return Windows.blackman(m, symmetric);
+    }
+
+    /**
+     * Returns a symmetric Kaiser window of length M with shape parameter beta.
+     *
+     * @param m    The length of the window.
+     * @param beta The shape parameter.
+     * @return The Kaiser window.
+     */
+    public static double[] kaiser(int m, double beta) {
+        return Windows.kaiser(m, beta);
+    }
+
+    /**
+     * Returns a Kaiser window of length M with shape parameter beta.
+     *
+     * @param m         The length of the window.
+     * @param beta      The shape parameter.
+     * @param symmetric If true, generates a symmetric window (for filter design).
+     *                  If false, generates a periodic window (for spectral
+     *                  analysis).
+     * @return The Kaiser window.
+     */
+    public static double[] kaiser(int m, double beta, boolean symmetric) {
+        return Windows.kaiser(m, beta, symmetric);
+    }
     // --- FFT ---
 
     /**
@@ -627,8 +687,51 @@ public class Signal {
      * @param nperseg Length of each segment.
      * @return WelchResult containing frequency array (f) and PSD array (Pxx).
      */
-    public static WelchResult welch(double[] x, double fs, int nperseg) {
+    public static Welch.WelchResult welch(double[] x, double fs, int nperseg) {
         return new Welch().welch(x, fs, nperseg);
+    }
+
+    /**
+     * Applies a Savitzky-Golay filter to an array.
+     *
+     * @param x            The data to be filtered.
+     * @param windowLength The length of the filter window (i.e., the number of
+     *                     coefficients). window_length must be a positive odd
+     *                     integer.
+     * @param polyOrder    The order of the polynomial used to fit the samples.
+     *                     polyorder must be less than window_length.
+     * @param deriv        The order of the derivative to compute. This must be a
+     *                     non-negative integer. The default is 0, which means to
+     *                     filter the data.
+     * @param delta        The spacing of the samples to which the filter will be
+     *                     applied. This is only used if deriv > 0. Default is 1.0.
+     * @return The filtered data.
+     */
+    public static double[] savgol_filter(double[] x, int windowLength, int polyOrder, int deriv, double delta) {
+        return new SavitzkyGolayFilter().savgol_filter(x, windowLength, polyOrder, deriv, delta);
+    }
+
+    /**
+     * Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).
+     *
+     * @param x            The data to be filtered.
+     * @param windowLength The length of the filter window.
+     * @param polyOrder    The order of the polynomial.
+     * @return The filtered (smoothed) data.
+     */
+    public static double[] savgol_filter(double[] x, int windowLength, int polyOrder) {
+        return new SavitzkyGolayFilter().savgol_filter(x, windowLength, polyOrder);
+    }
+
+    /**
+     * Applies a median filter to the signal.
+     *
+     * @param signal     The input signal.
+     * @param kernelSize The size of the kernel (must be odd).
+     * @return The filtered signal.
+     */
+    public static double[] medfilt(double[] signal, int kernelSize) {
+        return new MedFilt().medfilt(signal, kernelSize);
     }
 
     /**
@@ -655,45 +758,6 @@ public class Signal {
         return new Convolve().convolve2d(in1, in2, mode);
     }
 
-    // --- Resample ---
-
-    /**
-     * Resamples x to num samples using Fourier method along the given axis.
-     *
-     * @param x   The input signal.
-     * @param num The number of samples in the resampled signal.
-     * @return The resampled signal.
-     */
-    public static double[] resample(double[] x, int num) {
-        return new Resample().resample(x, num);
-    }
-
-    // --- Interpolation ---
-
-    /**
-     * Performs linear interpolation on the given data points.
-     *
-     * @param x    The x-coordinates of the data points.
-     * @param y    The y-coordinates of the data points.
-     * @param newX The x-coordinates at which to evaluate the interpolated values.
-     * @return The interpolated values.
-     */
-    public static double[] interp1d_linear(double[] x, double[] y, double[] newX) {
-        return new Interpolation().linear(x, y, newX);
-    }
-
-    /**
-     * Performs cubic spline interpolation on the given data points.
-     *
-     * @param x    The x-coordinates of the data points.
-     * @param y    The y-coordinates of the data points.
-     * @param newX The x-coordinates at which to evaluate the interpolated values.
-     * @return The interpolated values.
-     */
-    public static double[] interp1d_cubic(double[] x, double[] y, double[] newX) {
-        return new Interpolation().cubic(x, y, newX);
-    }
-
     /**
      * Computes the spectrogram of a signal.
      * <p>
@@ -707,7 +771,7 @@ public class Signal {
      *         segment times,
      *         and the spectrogram (power spectral density).
      */
-    public static SpectrogramResult spectrogram(double[] signal, double fs) {
+    public static Spectrogram.SpectrogramResult spectrogram(double[] signal, double fs) {
         return new Spectrogram().spectrogram(signal, fs);
     }
 }

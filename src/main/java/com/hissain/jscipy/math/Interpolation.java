@@ -1,12 +1,26 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.math;
 
 import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
 import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 
 import java.util.Arrays;
 
-class Interpolation {
+/**
+ * Helper class for 1D interpolation operations.
+ * Supports Linear and Cubic Spline interpolation.
+ */
+public class Interpolation {
 
+    /**
+     * Performs linear interpolation.
+     *
+     * @param x    Known x-coordinates (must be sorted).
+     * @param y    Known y-coordinates corresponding to x.
+     * @param newX New x-coordinates to evaluate.
+     * @return Interpolated y-values at newX.
+     * @throws IllegalArgumentException if x and y lengths differ or are
+     *                                  insufficient.
+     */
     public double[] linear(double[] x, double[] y, double[] newX) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("x and y must have the same length");
@@ -22,6 +36,16 @@ class Interpolation {
         return newY;
     }
 
+    /**
+     * Performs cubic spline interpolation.
+     *
+     * @param x    Known x-coordinates (must be sorted).
+     * @param y    Known y-coordinates corresponding to x.
+     * @param newX New x-coordinates to evaluate.
+     * @return Interpolated y-values at newX.
+     * @throws IllegalArgumentException if x and y lengths differ or are
+     *                                  insufficient.
+     */
     public double[] cubic(double[] x, double[] y, double[] newX) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("x and y must have the same length");
