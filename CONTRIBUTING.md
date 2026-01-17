@@ -87,11 +87,11 @@ Create a Python script to verify and visualize the accuracy.
 *   **Save Plot**: Save the figure to `python/figs/`.
 
 ### 5. Finalize
-*   Run the orchestrators to ensure everything works:
+*   Run the master verification script to ensure everything works:
     ```bash
-    python3 python/generate_all_data.py
-    python3 python/generate_all_plots.py
+    ./verify_project.sh
     ```
+    This script sequentially runs data generation, Java tests, and plot generation.
 *   Add the generated plot to `README.md`.
 
 ## 📝 Coding Style
