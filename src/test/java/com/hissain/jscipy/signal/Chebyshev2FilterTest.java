@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Chebyshev2FilterTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 0.05;
+    private static final double TOLERANCE = 1e-13;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();
@@ -31,7 +31,8 @@ public class Chebyshev2FilterTest {
         return data.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff, double sampleRate, double stopBandDb) throws IOException {
+    private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff,
+            double sampleRate, double stopBandDb) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
         double[] output = Chebyshev2.filtfilt(signal, sampleRate, cutoff, order, stopBandDb);

@@ -157,10 +157,46 @@ public class Chebyshev1 {
 
     private static double[] runFiltFilt(double[] signal, Chebyshev1Design design) {
         Biquad[] biquads = design.getBiquads();
-        double[] output = signal.clone();
-        for (Biquad biquad : biquads) {
-            output = filtfilt_biquad(output, biquad);
+
+        // Calculate pad length based on total sections (matching SciPy sosfiltfilt)
+        int padlen = 3 * (2 * biquads.length + 1);
+
+        if (signal.length <= padlen) {
+            padlen = signal.length - 1;
         }
+
+        // Pad signal (odd extension)
+        double[] paddedSignal = new double[signal.length + 2 * padlen];
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[i] = 2 * signal[0] - signal[padlen - i];
+        }
+        System.arraycopy(signal, 0, paddedSignal, padlen, signal.length);
+        for (int i = 0; i < padlen; i++) {
+            paddedSignal[padlen + signal.length + i] = 2 * signal[signal.length - 1] - signal[signal.length - 2 - i];
+        }
+
+        // Forward pass through ALL biquads
+        double[] forward = paddedSignal;
+        for (Biquad biquad : biquads) {
+            forward = filter_biquad(forward, biquad.getBCoefficients(), biquad.getACoefficients());
+        }
+
+        // Reverse
+        double[] reversed = reverse(forward);
+
+        // Backward pass through ALL biquads
+        double[] backward = reversed;
+        for (Biquad biquad : biquads) {
+            backward = filter_biquad(backward, biquad.getBCoefficients(), biquad.getACoefficients());
+        }
+
+        // Reverse back
+        double[] reversedBackward = reverse(backward);
+
+        // Unpad
+        double[] output = new double[signal.length];
+        System.arraycopy(reversedBackward, padlen, output, 0, signal.length);
+
         return output;
     }
 
@@ -220,36 +256,6 @@ public class Chebyshev1 {
             }
         }
         return zi;
-    }
-
-    private static double[] filtfilt_biquad(double[] signal, Biquad biquad) {
-        double[] b = biquad.getBCoefficients();
-        double[] a = biquad.getACoefficients();
-
-        int padlen = 3 * (Math.max(a.length, b.length) - 1);
-
-        if (signal.length <= padlen) {
-            return signal; // Not enough data to pad
-        }
-
-        double[] paddedSignal = new double[signal.length + 2 * padlen];
-        for (int i = 0; i < padlen; i++) {
-            paddedSignal[i] = 2 * signal[0] - signal[padlen - i];
-        }
-        System.arraycopy(signal, 0, paddedSignal, padlen, signal.length);
-        for (int i = 0; i < padlen; i++) {
-            paddedSignal[padlen + signal.length + i] = 2 * signal[signal.length - 1] - signal[signal.length - 2 - i];
-        }
-
-        double[] forward = filter_biquad(paddedSignal, b, a);
-        double[] reversed = reverse(forward);
-        double[] backward = filter_biquad(reversed, b, a);
-        double[] reversedBackward = reverse(backward);
-
-        double[] output = new double[signal.length];
-        System.arraycopy(reversedBackward, padlen, output, 0, signal.length);
-
-        return output;
     }
 
     private static double[] filter_biquad(double[] signal, double[] b, double[] a) {
