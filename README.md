@@ -26,6 +26,8 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 | **Interpolation (Linear/Cubic)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
 | **ODE Solvers (RK4)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
 | **Signal Analysis (Peak/PSD)** | ✅ Yes | ❌ No | ⚠️ Partial | ⚠️ Partial | ❌ No | ❌ No |
+| **Welch PSD** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| **Spectrogram** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
 | **Window Functions** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
 
 ## Features
