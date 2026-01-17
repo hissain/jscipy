@@ -9,12 +9,34 @@ FIG_SIZE_SQUARE = (8, 8)
 FIG_SIZE_2D = (16, 5) # Standardized for 3-panel 2D comparisons
 DPI = 300
 FONT_SCALE = 1.1
-PALETTE = "muted"
-STYLE = "darkgrid" # Default seaborn theme (grey background with white grids)
+# --- Configuration ---
+FIG_SIZE_WIDE = (10, 6)
+FIG_SIZE_SQUARE = (8, 8)
+FIG_SIZE_2D = (16, 5) # Standardized for 3-panel 2D comparisons
+DPI = 300
+FONT_SCALE = 1.1
+
+def get_current_theme():
+    return os.environ.get("JSCIPY_PLOT_THEME", "light").lower()
 
 def apply_style():
-    """Applies the standard project plotting style."""
-    sns.set_theme(style=STYLE, palette=PALETTE, font_scale=FONT_SCALE)
+    """Applies the standard project plotting style based on JSCIPY_PLOT_THEME."""
+    theme = get_current_theme()
+    
+    if theme == "dark":
+        plt.style.use('dark_background')
+        # Custom dark adjustments if needed, though dark_background is usually good
+        # Ensure text is white/light
+        plt.rcParams['text.color'] = '0.9'
+        plt.rcParams['axes.labelcolor'] = '0.9'
+        plt.rcParams['xtick.color'] = '0.9'
+        plt.rcParams['ytick.color'] = '0.9'
+        plt.rcParams['grid.color'] = '0.3'
+        sns.set_palette("bright") # Brighter colors pop better on dark
+    else:
+        # Default light theme
+        sns.set_theme(style="darkgrid", palette="muted", font_scale=FONT_SCALE)
+
     plt.rcParams['font.family'] = 'sans-serif'
     plt.rcParams['axes.titlesize'] = 14
     plt.rcParams['axes.labelsize'] = 12
@@ -25,12 +47,24 @@ def apply_style():
     plt.rcParams['image.cmap'] = 'viridis' # Consistent colormap for images
 
 def save_plot(fig, filename):
-    """Saves the plot to the standardized figures directory."""
+    """Saves the plot to the standardized figures directory with theme suffix."""
     # Ensure directory exists
     figs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
     os.makedirs(figs_dir, exist_ok=True)
     
-    output_path = os.path.join(figs_dir, filename)
+    # Inject theme suffix
+    theme = get_current_theme()
+    name, ext = os.path.splitext(filename)
+    
+    # If the filename already has a theme suffix (e.g. manually added), avoid double suffixing?
+    # But for now, we assume scripts pass base filenames like "fft_comparison_1.png"
+    # We want "fft_comparison_1_light.png" or "fft_comparison_1_dark.png"
+    
+    output_filename = f"{name}_{theme}{ext}"
+    output_path = os.path.join(figs_dir, output_filename)
+    
+    # Transparent background for dark mode can be useful, but 'dark_background' style sets a black facecolor.
+    # We'll save with the facecolor defined by the style.
     fig.savefig(output_path, dpi=DPI, bbox_inches='tight')
     print(f"Saved plot to {output_path}")
 

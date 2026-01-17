@@ -38,3 +38,7 @@ Thumbs.db
 *.aab
 *.aar
 captures/
+
+# Python
+__pycache__/
+*.pyc
