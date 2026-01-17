@@ -19,7 +19,8 @@ class FindPeaks {
 
         /**
          * Constructs a new PeakResult.
-         * @param peaks The indices of the detected peaks.
+         * 
+         * @param peaks      The indices of the detected peaks.
          * @param properties Additional properties of the peaks.
          */
         public PeakResult(int[] peaks, Map<String, double[]> properties) {
@@ -36,14 +37,19 @@ class FindPeaks {
         public Double height = null;
         /** Required prominence of peaks. */
         public Double prominence = null;
-        /** Required minimal distance between peaks. */
-        public Integer distance = null;
+        /**
+         * Required minimal distance between peaks. Use -1 for default (no distance
+         * filter).
+         */
+        public int distance = -1;
     }
 
     /**
      * Finds peaks in a given signal based on specified parameters.
-     * @param x The input signal (array of double values).
-     * @param params Parameters for peak detection, can be null for default behavior.
+     * 
+     * @param x      The input signal (array of double values).
+     * @param params Parameters for peak detection, can be null for default
+     *               behavior.
      * @return A PeakResult object containing the peak indices and properties.
      */
     public PeakResult findPeaks(double[] x, PeakParams params) {
@@ -56,7 +62,7 @@ class FindPeaks {
             if (params.height != null) {
                 peaks = filterByHeight(x, peaks, params.height);
             }
-            if (params.distance != null) {
+            if (params.distance > 0) {
                 peaks = filterByDistance(x, peaks, params.distance);
             }
             if (params.prominence != null) {
@@ -70,6 +76,7 @@ class FindPeaks {
     /**
      * Finds raw peaks in a signal without applying any filtering.
      * A peak is defined as a point greater than its immediate neighbors.
+     * 
      * @param signal The input signal.
      * @return An array of indices where peaks are found.
      */
@@ -95,8 +102,9 @@ class FindPeaks {
 
     /**
      * Filters peaks based on a minimum height requirement.
-     * @param x The input signal.
-     * @param peaks The array of peak indices to filter.
+     * 
+     * @param x      The input signal.
+     * @param peaks  The array of peak indices to filter.
      * @param height The minimum height for a peak to be considered.
      * @return An array of filtered peak indices.
      */
@@ -112,8 +120,9 @@ class FindPeaks {
 
     /**
      * Filters peaks based on a minimum prominence requirement.
-     * @param x The input signal.
-     * @param peaks The array of peak indices to filter.
+     * 
+     * @param x          The input signal.
+     * @param peaks      The array of peak indices to filter.
      * @param prominence The minimum prominence for a peak to be considered.
      * @return An array of filtered peak indices.
      */
@@ -130,8 +139,10 @@ class FindPeaks {
 
     /**
      * Calculates the prominence of each peak.
-     * Prominence of a peak is the vertical distance between the peak and its lowest contour line.
-     * @param x The input signal.
+     * Prominence of a peak is the vertical distance between the peak and its lowest
+     * contour line.
+     * 
+     * @param x     The input signal.
      * @param peaks The array of peak indices.
      * @return An array of prominence values corresponding to each peak.
      */
@@ -165,9 +176,11 @@ class FindPeaks {
 
     /**
      * Filters peaks based on a minimum distance requirement between them.
-     * If two peaks are closer than the specified distance, the smaller one is removed.
-     * @param x The input signal.
-     * @param peaks The array of peak indices to filter.
+     * If two peaks are closer than the specified distance, the smaller one is
+     * removed.
+     * 
+     * @param x        The input signal.
+     * @param peaks    The array of peak indices to filter.
      * @param distance The minimum required distance between peaks.
      * @return An array of filtered peak indices.
      */
@@ -209,8 +222,9 @@ class FindPeaks {
 
         /**
          * Constructs a new PeakWithHeight object.
+         * 
          * @param position The index of the peak.
-         * @param height The height of the peak.
+         * @param height   The height of the peak.
          */
         PeakWithHeight(int position, double height) {
             this.position = position;

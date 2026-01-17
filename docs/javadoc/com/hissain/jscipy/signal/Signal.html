@@ -366,9 +366,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Finds peaks in a signal with default parameters.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D,java.lang.Double,java.lang.Integer,java.lang.Double)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D,java.lang.Double,int,java.lang.Double)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;height,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;distance,
+ int&nbsp;distance,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;prominence)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Finds peaks in a signal with optional parameters.</div>
@@ -1089,18 +1089,18 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="find_peaks(double[],java.lang.Double,java.lang.Integer,java.lang.Double)">
+<section class="detail" id="find_peaks(double[],java.lang.Double,int,java.lang.Double)">
 <h3>find_peaks</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">find_peaks</span><wbr><span class="parameters">(double[]&nbsp;x,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;height,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;distance,
+ int&nbsp;distance,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;prominence)</span></div>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>x</code> - The input signal.</dd>
 <dd><code>height</code> - Minimum height of peaks (optional, null to ignore).</dd>
-<dd><code>distance</code> - Minimum distance between peaks (optional, null to ignore).</dd>
+<dd><code>distance</code> - Minimum distance between peaks (optional, -1 to ignore).</dd>
 <dd><code>prominence</code> - Minimum prominence of peaks (optional, null to ignore).</dd>
 <dt>Returns:</dt>
 <dd>The indices of found peaks.</dd>

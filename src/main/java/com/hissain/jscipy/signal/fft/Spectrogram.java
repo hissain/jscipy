@@ -23,7 +23,7 @@ public class Spectrogram {
      *         density.
      */
     public SpectrogramResult spectrogram(double[] x, double fs) {
-        return spectrogram(x, fs, null, null, null, null, DetrendType.CONSTANT);
+        return spectrogram(x, fs, -1, -1, -1, null, DetrendType.CONSTANT);
     }
 
     /**
@@ -44,15 +44,15 @@ public class Spectrogram {
      * @return SpectrogramResult containing frequencies, times, and power spectral
      *         density.
      */
-    public SpectrogramResult spectrogram(double[] x, double fs, Integer nperseg, Integer noverlap,
-            Integer nfft, double[] window, DetrendType detrend) {
+    public SpectrogramResult spectrogram(double[] x, double fs, int nperseg, int noverlap,
+            int nfft, double[] window, DetrendType detrend) {
         // Set defaults (scipy spectrogram uses nperseg/8 for noverlap, not nperseg/2
         // like stft)
-        if (nperseg == null)
+        if (nperseg <= 0)
             nperseg = 256;
-        if (noverlap == null)
+        if (noverlap == -1)
             noverlap = nperseg / 8;
-        if (nfft == null)
+        if (nfft <= 0)
             nfft = nperseg;
 
         // Generate default Hann window if not provided

@@ -259,7 +259,7 @@ public class FFT {
      *         representing the STFT.
      */
     public JComplex[][] stft(double[] x) {
-        return stft(x, null, null, null, null, "zeros", true);
+        return stft(x, -1, -1, -1, null, "zeros", true);
     }
 
     /**
@@ -272,7 +272,7 @@ public class FFT {
      * @return The reconstructed time-domain signal.
      */
     public double[] istft(JComplex[][] stftMatrix) {
-        return istft(stftMatrix, null, null, null, null, "zeros", null);
+        return istft(stftMatrix, -1, -1, -1, null, "zeros", -1);
     }
 
     /**
@@ -282,9 +282,10 @@ public class FFT {
      * 
      * @param x        The input signal.
      * @param nperseg  The length of each segment (window size). Default is 256.
+     *                 Pass -1 to use default.
      * @param noverlap The number of points to overlap between segments. Default is
-     *                 nperseg // 2.
-     * @param nfft     The FFT size to use. If null, uses nperseg. Must be >=
+     *                 nperseg // 2. Pass -1 to use default.
+     * @param nfft     The FFT size to use. If -1, uses nperseg. Must be >=
      *                 nperseg.
      * @param window   The window function to apply. If null, uses Hann window.
      * @param boundary The boundary extension mode. "zeros" pads with zeros, null
@@ -293,17 +294,15 @@ public class FFT {
      * @return A 2D array of complex values [frequency bins][time frames]
      *         representing the STFT.
      */
-    public JComplex[][] stft(double[] x, Integer nperseg, Integer noverlap, Integer nfft,
-            double[] window, String boundary, Boolean padded) {
+    public JComplex[][] stft(double[] x, int nperseg, int noverlap, int nfft,
+            double[] window, String boundary, boolean padded) {
         // Set defaults
-        if (nperseg == null)
+        if (nperseg <= 0)
             nperseg = 256;
-        if (noverlap == null)
+        if (noverlap == -1)
             noverlap = nperseg / 2;
-        if (nfft == null)
+        if (nfft <= 0)
             nfft = nperseg;
-        if (padded == null)
-            padded = true;
         if (boundary == null)
             boundary = "zeros";
 
@@ -385,29 +384,29 @@ public class FFT {
      *                    STFT parameters.
      * @param noverlap    The number of points to overlap between segments. Must
      *                    match the STFT parameters.
-     * @param nfft        The FFT size used. If null, inferred from stftMatrix
+     * @param nfft        The FFT size used. If -1, inferred from stftMatrix
      *                    dimensions.
      * @param window      The window function used in STFT. If null, uses Hann
      *                    window.
      * @param boundary    The boundary extension mode used in STFT. "zeros" means
      *                    padding was used.
-     * @param inputLength The expected output length. If null, inferred from
+     * @param inputLength The expected output length. If -1, inferred from
      *                    stftMatrix.
      * @return The reconstructed time-domain signal.
      */
-    public double[] istft(JComplex[][] stftMatrix, Integer nperseg, Integer noverlap, Integer nfft,
-            double[] window, String boundary, Integer inputLength) {
+    public double[] istft(JComplex[][] stftMatrix, int nperseg, int noverlap, int nfft,
+            double[] window, String boundary, int inputLength) {
         // Set defaults
-        if (nperseg == null)
+        if (nperseg <= 0)
             nperseg = 256;
-        if (noverlap == null)
+        if (noverlap == -1)
             noverlap = nperseg / 2;
 
         int numFreqBins = stftMatrix.length;
         int numFrames = stftMatrix[0].length;
 
         // Infer nfft from frequency bins
-        if (nfft == null) {
+        if (nfft <= 0) {
             nfft = (numFreqBins - 1) * 2;
         }
         if (boundary == null)
