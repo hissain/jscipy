@@ -6,14 +6,13 @@ This script creates input signals and expected outputs using SciPy's ellip filte
 
 import numpy as np
 from scipy import signal
-import matplotlib.pyplot as plt
+import numpy as np
+from scipy import signal
 import os
 
 # Create output directory if it doesn't exist
 OUTPUT_DIR = "../../datasets"
-FIGS_DIR = "figs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs(FIGS_DIR, exist_ok=True)
 
 def generate_test_signal(length=1000, freq1=5, freq2=20, sample_rate=250):
     """Generate a test signal with two frequency components plus noise."""

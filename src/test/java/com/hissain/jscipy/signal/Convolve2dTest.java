@@ -53,6 +53,7 @@ public class Convolve2dTest {
         double[][] expected = loadMatrix("datasets/conv2d_out_full_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.FULL);
+        saveMatrix("datasets/conv2d_out_full_1_java.txt", actual);
         assertMatrixEquals(expected, actual, 1e-8);
     }
 
@@ -63,6 +64,7 @@ public class Convolve2dTest {
         double[][] expected = loadMatrix("datasets/conv2d_out_same_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.SAME);
+        saveMatrix("datasets/conv2d_out_same_1_java.txt", actual);
         assertMatrixEquals(expected, actual, 1e-8);
     }
 
@@ -73,6 +75,7 @@ public class Convolve2dTest {
         double[][] expected = loadMatrix("datasets/conv2d_out_valid_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.VALID);
+        saveMatrix("datasets/conv2d_out_valid_1_java.txt", actual);
         assertMatrixEquals(expected, actual, 1e-8);
     }
 

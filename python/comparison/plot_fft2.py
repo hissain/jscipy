@@ -5,70 +5,65 @@ import style_utils
 
 style_utils.apply_style()
 
+def load_matrix(filename):
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+        # Check if first line is header
+        if len(lines[0].split()) <= 2:
+             lines = lines[1:]
+    return np.loadtxt(lines)
+
 def load_complex_matrix(real_file, imag_file):
-    if not os.path.exists(real_file) or not os.path.exists(imag_file):
-        raise FileNotFoundError(f"Missing data files: {real_file} or {imag_file}")
-    real = np.loadtxt(real_file)
-    imag = np.loadtxt(imag_file)
+    real = load_matrix(real_file)
+    imag = load_matrix(imag_file)
     return real + 1j * imag
 
-def plot_comparison(input_file, py_real_file, py_imag_file, java_real_file, java_imag_file, output_name):
-    # Load data
+def plot_fft2_comparison(py_real, py_imag, java_real, java_imag, title_suffix):
+    if not os.path.exists(java_real):
+        print(f"Skipping {title_suffix}: {java_real} not found")
+        return
+
     try:
-        input_data = np.loadtxt(input_file)
-        # Input is likely complex too for general FFT, but for this test it's real
-        # If it's stored as real matrix:
-        if input_data.ndim == 2:
-            pass # already matrix
+        py_data = load_complex_matrix(py_real, py_imag)
+        java_data = load_complex_matrix(java_real, java_imag)
     except Exception as e:
-        print(f"Error loading inputs: {e}")
+        print(f"Error loading files: {e}")
         return
 
-    try:
-        py_out = load_complex_matrix(py_real_file, py_imag_file)
-        java_out = load_complex_matrix(java_real_file, java_imag_file)
-    except FileNotFoundError as e:
-        print(e)
-        return
-
-    # Compute Magnitude
-    mag_py = np.abs(py_out)
-    mag_java = np.abs(java_out)
+    # RMSE on magnitude
+    rmse = np.sqrt(np.mean(np.abs(py_data - java_data)**2))
     
-    # Shift for better visualization
-    mag_py_shifted = np.fft.fftshift(mag_py)
-    mag_java_shifted = np.fft.fftshift(mag_java)
-
-    # Calculate RMSE
-    rmse = np.sqrt(np.mean(np.abs(py_out - java_out)**2))
-
+    # Use log magnitude for better visualization of FFT
+    py_plot = np.log10(np.abs(py_data) + 1e-10)
+    java_plot = np.log10(np.abs(java_data) + 1e-10)
+    
     # Plot
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    fig, axes = plt.subplots(1, 3, figsize=style_utils.FIG_SIZE_2D, constrained_layout=True)
     
-    im0 = axes[0].imshow(np.log1p(mag_py_shifted), cmap='viridis')
-    axes[0].set_title('Python FFT2 (Log Mag)')
+    im0 = axes[0].imshow(py_plot, aspect='auto')
+    axes[0].set_title(f'SciPy {title_suffix} (Log Mag)')
     plt.colorbar(im0, ax=axes[0])
 
-    im1 = axes[1].imshow(np.log1p(mag_java_shifted), cmap='viridis')
-    axes[1].set_title('Java FFT2 (Log Mag)')
+    im1 = axes[1].imshow(java_plot, aspect='auto')
+    axes[1].set_title(f'jSciPy {title_suffix} (Log Mag)')
     plt.colorbar(im1, ax=axes[1])
 
-    # Difference
-    diff = np.abs(mag_py_shifted - mag_java_shifted)
-    im2 = axes[2].imshow(diff, cmap='inferno')
-    axes[2].set_title(f'Difference (RMSE={rmse:.2e})')
+    # Difference in magnitude
+    diff = np.abs(py_data) - np.abs(java_data)
+    im2 = axes[2].imshow(diff, cmap='coolwarm', aspect='auto')
+    axes[2].set_title(f'Diff Mag (RMSE={rmse:.2e})')
     plt.colorbar(im2, ax=axes[2])
-    
-    plt.tight_layout()
-    style_utils.save_plot(fig, output_name)
-    plt.close()
 
-if __name__ == '__main__':
-    plot_comparison(
-        'datasets/fft2_input.txt',
-        'datasets/fft2_output_real.txt',
-        'datasets/fft2_output_imag.txt',
-        'datasets/fft2_output_java_real.txt',
-        'datasets/fft2_output_java_imag.txt',
-        'fft2_comparison.png'
+    plt.suptitle(f"2D FFT Comparison ({title_suffix})")
+    
+    style_utils.save_plot(fig, f"fft2_comparison_{title_suffix.lower().replace(' ', '_')}.png")
+    plt.close(fig)
+
+if __name__ == "__main__":
+    plot_fft2_comparison(
+        'datasets/fft2_out_real.txt', 'datasets/fft2_out_imag.txt',
+        'datasets/java_fft2_out_real.txt', 'datasets/java_fft2_out_imag.txt',
+        'Forward'
     )
+    # Note: Inverse test data is currently just output check, might need update if IFFT comparison desired
+    # For now, just Forward is enough as per datasets availability

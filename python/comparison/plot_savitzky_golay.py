@@ -18,8 +18,8 @@ def read_data_file(filename):
 def plot_test(test_name, title):
     try:
         input_file = f"{test_name}_input.txt"
-        scipy_file = f"{test_name}_scipy.txt"
-        java_file = f"{test_name}_java.txt"
+        scipy_file = f"{test_name}_output.txt"
+        java_file = f"{test_name}_output_java.txt"
 
         signal_in = read_data_file(input_file)
         scipy_out = read_data_file(scipy_file)
