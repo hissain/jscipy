@@ -32,6 +32,19 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 *   **Math**: RK4 ODE Solver, Linear & Cubic Spline Interpolation.
 *   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
 
+## Accuracy & Precision
+
+jSciPy is rigorously tested against Python's SciPy using a "Golden Master" approach. Below is a summary of the precision (RMSE) achieved across various modules:
+
+| Module | Test Case | RMSE (Approx) | Status |
+| :--- | :--- | :--- | :--- |
+| **Filters** | Butterworth, Chebyshev, Elliptic, Bessel | `1e-14` to `1e-16` | ✅ Excellent |
+| **FFT** | 1D FFT, RFFT, IFFT | `1e-15` to `1e-16` | ✅ Excellent |
+| **Spectral** | Spectrogram, Welch | `1e-17` to `1e-18` | ✅ Excellent |
+| **2D Ops** | 2D FFT, 2D Convolution | `1e-16` | ✅ Excellent |
+| **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
+| **ODE** | RK4 Solver | `8e-5` | ✅ Good (Method dependent) |
+
 ## Documentation
 
 You can access full documentation javadoc of the jscipy library [HERE](https://hissain.github.io/jscipy).
@@ -655,6 +668,14 @@ public class WindowExample {
 ## Contributing
 
 Contributions are welcome! Please feel free to submit issues or pull requests.
+
+### Areas for Contribution (Help Wanted)
+
+We are actively looking for contributors to help with:
+1.  **Performance Benchmarking**: Creating benchmarks for large datasets to compare Java's performance vs NumPy/SciPy.
+2.  **Feature Expansion**: Implementing missing window functions or additional filter types.
+3.  **Edge Case Robustness**: Improving handling of `NaN`, `Infinity`, and edge cases in signal processing algorithms.
+4.  **Documentation**: Adding more usage examples and javadocs.
 
 ## License
 
