@@ -15,20 +15,135 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 
 ## Why jSciPy?
 
-| Feature / Characteristic | **jSciPy** | **Commons Math** | **JDSP** | **TarsosDSP** | **IIRJ** | **EJML** |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Primary Focus** | **SciPy‑style Scientific & Signal DSP** | General Math/Stats | Java DSP Toolbox | Audio Processing | IIR Filter Only | Linear Algebra |
-| **Zero‑Phase Filtering (`filtfilt`)** | ✅ **Yes (SciPy‑compatible)** | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **2D Signal Ops (`conv2d`, `fft2`)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **SciPy‑like API Consistency** | ✅ High (SciPy semantics) | ❌ Low | ⚠️ Partial | ❌ No | ❌ No | ❌ No |
-| **Filtering Capabilities** | ⭐⭐⭐⭐⭐ (IIR+FIR+advanced) | ⭐ Basic | ⭐⭐⭐ (IIR/FIR) | ⭐⭐ (audio filters) | ⭐⭐ (IIR only) | ❌ No |
-| **Transforms (FFT/Hilbert)** | ✅ FFT + Hilbert | Limited | ✅ FFT | ✅ FFT | ❌ No | ❌ No |
-| **Interpolation (Linear/Cubic)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **ODE Solvers (RK4)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Signal Analysis (Peak/PSD)** | ✅ Yes | ❌ No | ⚠️ Partial | ⚠️ Partial | ❌ No | ❌ No |
-| **Welch PSD** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Spectrogram** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
-| **Window Functions** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
+
+<div style="font-size: 0.9em;"> <!-- smaller font size -->
+
+<table>
+  <thead>
+    <tr>
+      <th style="padding: 0 15px;">Feature / Characteristic</th>
+      <th style="padding: 0 15px;">jSciPy</th>
+      <th style="padding: 0 15px;">Commons Math</th>
+      <th style="padding: 0 15px;">JDSP</th>
+      <th style="padding: 0 15px;">TarsosDSP</th>
+      <th style="padding: 0 15px;">IIRJ</th>
+      <th style="padding: 0 15px;">EJML</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Primary Focus</td>
+      <td><b>SciPy‑style Scientific & Signal DSP</b></td>
+      <td>General Math/Stats</td>
+      <td>Java DSP Toolbox</td>
+      <td>Audio Processing</td>
+      <td>IIR Filter Only</td>
+      <td>Linear Algebra</td>
+    </tr>
+    <tr>
+      <td>Zero-Phase Filtering (filtfilt)</td>
+      <td>✅ Yes (SciPy‑compatible)</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>2D Signal Ops (conv2d, fft2)</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>SciPy-like API Consistency</td>
+      <td>✅ High (SciPy semantics)</td>
+      <td>❌ Low</td>
+      <td>⚠️ Partial</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Filtering Capabilities</td>
+      <td>⭐⭐⭐⭐⭐ (IIR+FIR+advanced)</td>
+      <td>⭐ Basic</td>
+      <td>⭐⭐⭐ (IIR/FIR)</td>
+      <td>⭐⭐ (audio filters)</td>
+      <td>⭐⭐ (IIR only)</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Transforms (FFT/Hilbert)</td>
+      <td>✅ FFT + Hilbert</td>
+      <td>Limited</td>
+      <td>✅ FFT</td>
+      <td>✅ FFT</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Interpolation (Linear/Cubic)</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>ODE Solvers (RK4)</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Signal Analysis (Peak/PSD)</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>⚠️ Partial</td>
+      <td>⚠️ Partial</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Welch PSD</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Spectrogram</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+    <tr>
+      <td>Window Functions</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ## Features
 
