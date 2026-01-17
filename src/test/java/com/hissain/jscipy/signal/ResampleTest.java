@@ -18,12 +18,13 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class ResampleTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 0.05; // Adjust tolerance as needed
+    private static final double TOLERANCE = 1e-14; // Tightened after accuracy fix
 
     private double[] readDataFile(String fileName) throws IOException {
         Path path = Paths.get(TEST_DATA_DIR + fileName);
         if (!Files.exists(path)) {
-            System.err.println("Test data file not found: " + path.toString() + ". Please generate Python test data first.");
+            System.err.println(
+                    "Test data file not found: " + path.toString() + ". Please generate Python test data first.");
             fail("Test data file not found: " + path.toString());
         }
         List<Double> data = new ArrayList<>();
@@ -48,7 +49,8 @@ public class ResampleTest {
         }
     }
 
-    private void runResampleTest(String inputFilename, String expectedOutputFilename, int numSamples) throws IOException {
+    private void runResampleTest(String inputFilename, String expectedOutputFilename, int numSamples)
+            throws IOException {
         double[] input = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
 
