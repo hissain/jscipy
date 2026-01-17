@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import style_utils
 
-ARTIFACT_DIR = "python/figs"
+style_utils.apply_style()
+
 DATASET_DIR = "datasets"
 
 def read_data_file(filename):
@@ -69,11 +71,7 @@ def plot_spectrogram_comparison(test_name):
         plt.colorbar(im1, ax=axes[1], label='Power/Frequency (dB/Hz)')
         
         plt.tight_layout()
-        
-        os.makedirs(ARTIFACT_DIR, exist_ok=True)
-        output_path = os.path.join(ARTIFACT_DIR, f"{test_name}_comparison.png")
-        plt.savefig(output_path)
-        print(f"Saved plot to {output_path}")
+        style_utils.save_plot(fig, f"{test_name}_comparison.png")
         plt.close(fig)
         
     except FileNotFoundError as e:

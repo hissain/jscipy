@@ -1,52 +1,55 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import style_utils
 
-ARTIFACT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
+style_utils.apply_style()
 
 def load_matrix(filename):
     with open(filename, 'r') as f:
         # Skip header line (rows cols)
         lines = f.readlines()[1:]
-        data = []
-        for line in lines:
-            data.append([float(x) for x in line.split()])
-    return np.array(data)
+    return np.loadtxt(lines)
 
-def main():
-    print("Loading data...")
+def plot_comparison(py_file, java_file, title_suffix):
+    if not os.path.exists(java_file):
+        print(f"Skipping {title_suffix}: {java_file} not found")
+        return
+
+    # Load data
     try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        datasets_dir = os.path.join(script_dir, '../../datasets')
-        
-        java_res = load_matrix(os.path.join(datasets_dir, "java_conv2d_result.txt"))
-        scipy_res = load_matrix(os.path.join(datasets_dir, "conv2d_out_full_2.txt"))
-        
-        diff = np.abs(java_res - scipy_res)
-        rmse = np.sqrt(np.mean(diff**2))
-        max_diff = np.max(diff)
-
-        print(f"RMSE: {rmse}")
-        print(f"Max Diff: {max_diff}")
-
-        fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-        
-        im0 = axes[0].imshow(java_res, cmap='viridis')
-        axes[0].set_title("Java convolve2d")
-        plt.colorbar(im0, ax=axes[0])
-        
-        im1 = axes[1].imshow(scipy_res, cmap='viridis')
-        axes[1].set_title("SciPy convolve2d")
-        plt.colorbar(im1, ax=axes[1])
-        
-        plt.tight_layout()
-        
-        output_path = os.path.join(ARTIFACT_DIR, "convolve2d_comparison.png")
-        plt.savefig(output_path)
-        print(f"Comparison saved to {output_path}")
-
+        py_data = load_matrix(py_file)
+        java_data = load_matrix(java_file)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error loading files: {e}")
+        return
+
+    # RMSE
+    rmse = np.sqrt(np.mean((py_data - java_data)**2))
+
+    # Plot
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    
+    im0 = axes[0].imshow(py_data, cmap='viridis')
+    axes[0].set_title(f'SciPy {title_suffix}')
+    plt.colorbar(im0, ax=axes[0])
+
+    im1 = axes[1].imshow(java_data, cmap='viridis')
+    axes[1].set_title(f'jSciPy {title_suffix}')
+    plt.colorbar(im1, ax=axes[1])
+
+    diff = py_data - java_data
+    im2 = axes[2].imshow(diff, cmap='coolwarm')
+    axes[2].set_title(f'Diff (RMSE={rmse:.2e})')
+    plt.colorbar(im2, ax=axes[2])
+
+    plt.suptitle(f"2D Convolution Comparison ({title_suffix})")
+    plt.tight_layout()
+    
+    style_utils.save_plot(fig, f"convolve2d_comparison_{title_suffix.lower().replace(' ', '_')}.png")
+    plt.close(fig)
 
 if __name__ == "__main__":
-    main()
+    plot_comparison('datasets/conv2d_full_scipy.txt', 'datasets/conv2d_full_java.txt', 'FULL')
+    plot_comparison('datasets/conv2d_same_scipy.txt', 'datasets/conv2d_same_java.txt', 'SAME')
+    plot_comparison('datasets/conv2d_valid_scipy.txt', 'datasets/conv2d_valid_java.txt', 'VALID')

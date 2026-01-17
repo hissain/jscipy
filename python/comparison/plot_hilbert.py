@@ -1,16 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import os
+import style_utils
 
-sns.set_theme()
+style_utils.apply_style()
 
 def read_data_file(filename):
     with open(filename, 'r') as f:
-        return np.array([float(line.strip()) for line in f if line.strip()])
+        return np.array([float(line.strip()) for line in f])
 
-def plot_comparison(input_filename, py_real, java_real, py_imag, java_imag, output_image):
-    signal_in = read_data_file(input_filename)
+def plot_comparison(input_file, py_real, java_real, py_imag, java_imag, output_image):
+    if not os.path.exists(input_file) or not os.path.exists(java_real):
+        print(f"Skipping {output_image}: files not found")
+        return
+
+    signal_in = read_data_file(input_file)
     
     py_r = read_data_file(py_real)
     java_r = read_data_file(java_real)
@@ -24,32 +28,26 @@ def plot_comparison(input_filename, py_real, java_real, py_imag, java_imag, outp
     fig, axes = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
     
     # Real Part
-    axes[0].plot(signal_in, label='Input', color='gray', linestyle=':', linewidth=1)
-    axes[0].plot(py_r, label='Python Real', color='blue', alpha=0.7)
-    axes[0].plot(java_r, label='Java Real', color='orange', linestyle='--')
+    axes[0].plot(signal_in, label='Input', color='gray', linestyle=':', linewidth=1.5)
+    axes[0].plot(py_r, label='Python Real', color='C0', alpha=0.7, linewidth=1.5)
+    axes[0].plot(java_r, label='Java Real', color='C1', linestyle='--', linewidth=2.0)
     axes[0].set_title("Real Part Comparison")
     axes[0].legend()
-    axes[0].grid(True)
-
+    
     # Imaginary Part
-    axes[1].plot(py_i, label='Python Imag', color='green', alpha=0.7)
-    axes[1].plot(java_i, label='Java Imag', color='red', linestyle='--')
+    axes[1].plot(py_i, label='Python Imag', color='C2', alpha=0.7, linewidth=1.5)
+    axes[1].plot(java_i, label='Java Imag', color='C3', linestyle='--', linewidth=2.0)
     axes[1].set_title("Imaginary Part Comparison")
     axes[1].legend()
-    axes[1].grid(True)
     
     # Envelope
-    axes[2].plot(py_env, label='Python Envelope', color='purple', alpha=0.7)
-    axes[2].plot(java_env, label='Java Envelope', color='brown', linestyle='--')
+    axes[2].plot(py_env, label='Python Envelope', color='C4', alpha=0.7, linewidth=1.5)
+    axes[2].plot(java_env, label='Java Envelope', color='C5', linestyle='--', linewidth=2.0)
     axes[2].set_title("Envelope Comparison")
     axes[2].legend()
-    axes[2].grid(True)
 
     plt.tight_layout()
-    
-    os.makedirs(os.path.dirname(output_image), exist_ok=True)
-    plt.savefig(output_image)
-    print(f"Saved {output_image}")
+    style_utils.save_plot(fig, output_image.split('/')[-1]) # Correcting path handling
     plt.close(fig)
 
 if __name__ == '__main__':
@@ -59,7 +57,7 @@ if __name__ == '__main__':
         'datasets/hilbert_output_1_real_java.txt',
         'datasets/hilbert_output_1_imag.txt',
         'datasets/hilbert_output_1_imag_java.txt',
-        'python/figs/hilbert_comparison_1.png'
+        'hilbert_comparison_1.png'
     )
     
     plot_comparison(
@@ -68,5 +66,5 @@ if __name__ == '__main__':
         'datasets/hilbert_output_2_real_java.txt',
         'datasets/hilbert_output_2_imag.txt',
         'datasets/hilbert_output_2_imag_java.txt',
-        'python/figs/hilbert_comparison_2.png'
+        'hilbert_comparison_2.png'
     )

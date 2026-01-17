@@ -1,36 +1,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import os
+import style_utils
 
-sns.set_theme()
+style_utils.apply_style()
 
 def read_data_file(filename):
     with open(filename, 'r') as f:
         return np.array([float(line.strip()) for line in f])
 
 def plot_convolve_test(input_filename, window_filename, python_output_filename, java_output_filename):
+    if not os.path.exists(java_output_filename):
+        print(f"File not found: {java_output_filename}")
+        return
+
     signal_in = read_data_file(input_filename)
-    window = read_data_file(window_filename)
+    # window = read_data_file(window_filename) # Unused in plot
     python_output = read_data_file(python_output_filename)
     java_output = read_data_file(java_output_filename)
 
     # Plotting
-    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(10, 8))
-    ax1.plot(signal_in, label='Input Signal', linewidth=0.5)
-    # Scale window for visibility or just plot on separate axis if needed, but let's keep it simple
-    # ax1.plot(window, label='Window', linewidth=0.5) 
+    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=style_utils.FIG_SIZE_WIDE)
+    ax1.plot(signal_in, label='Input Signal', linewidth=1.5, color='gray')
     ax1.legend()
-    ax1.set_title(f"Input signal for {input_filename}")
+    ax1.set_title(f"Input Signal (Convolution)")
     
-    ax2.plot(python_output, label='Python', linewidth=1.5, alpha=0.7)
-    ax2.plot(java_output, label='Java', linestyle='--', linewidth=1.5, alpha=0.7)
+    ax2.plot(python_output, label='Python SciPy', linewidth=1.5, alpha=0.8)
+    ax2.plot(java_output, label='Java jSciPy', linestyle='--', linewidth=2.0)
     ax2.legend()
-    ax2.set_title(f"Comparison for {input_filename}")
+    ax2.set_title(f"Convolution Output Comparison")
     
-    output_path = f"python/figs/convolve_comparison.png"
-    plt.savefig(output_path)
-    print(f"Saved plot to {output_path}")
+    plt.tight_layout()
+    style_utils.save_plot(fig, "convolve_comparison.png")
     plt.close(fig)
 
 if __name__ == '__main__':

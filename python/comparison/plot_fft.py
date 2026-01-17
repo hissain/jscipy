@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+import os
+import style_utils
 
-sns.set_theme()
+style_utils.apply_style()
 
 def read_data_file(filename):
     with open(filename, 'r') as f:
@@ -27,26 +28,26 @@ def plot_test(test_id):
     rfft_freq = np.fft.rfftfreq(n)
 
     # Plotting
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8))
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=style_utils.FIG_SIZE_WIDE)
     
     # FFT plot
-    ax1.plot(fft_freq, np.abs(fft_python), label='Python FFT')
-    ax1.plot(fft_freq, np.abs(fft_java), '--', label='Java FFT')
-    ax1.set_title(f"FFT Magnitude Spectrum Comparison for test {test_id}")
+    ax1.plot(fft_freq, np.abs(fft_python), label='Python FFT', linewidth=1.5, alpha=0.8)
+    ax1.plot(fft_freq, np.abs(fft_java), '--', label='Java FFT', linewidth=2.0)
+    ax1.set_title(f"FFT Magnitude Spectrum (Test {test_id})")
     ax1.set_xlabel("Frequency")
     ax1.set_ylabel("Magnitude")
     ax1.legend()
 
     # RFFT plot
-    ax2.plot(rfft_freq, np.abs(rfft_python), label='Python RFFT')
-    ax2.plot(rfft_freq, np.abs(rfft_java), '--', label='Java RFFT')
-    ax2.set_title(f"RFFT Magnitude Spectrum Comparison for test {test_id}")
+    ax2.plot(rfft_freq, np.abs(rfft_python), label='Python RFFT', linewidth=1.5, alpha=0.8)
+    ax2.plot(rfft_freq, np.abs(rfft_java), '--', label='Java RFFT', linewidth=2.0)
+    ax2.set_title(f"RFFT Magnitude Spectrum (Test {test_id})")
     ax2.set_xlabel("Frequency")
     ax2.set_ylabel("Magnitude")
     ax2.legend()
 
     plt.tight_layout()
-    plt.savefig(f"python/figs/fft_comparison_{test_id}.png")
+    style_utils.save_plot(fig, f"fft_comparison_{test_id}.png")
     plt.close()
 
 if __name__ == '__main__':

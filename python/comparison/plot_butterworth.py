@@ -1,9 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-import os
+import style_utils
 
-sns.set_theme()
+style_utils.apply_style()
 
 def read_data_file(filename):
     with open(filename, 'r') as f:
@@ -20,28 +19,27 @@ def plot_test(input_filename, python_output_filename, java_output_filename, titl
         java_output = read_data_file(java_output_filename)
 
         # Plotting
-        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True, figsize=(10, 8))
+        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True, figsize=style_utils.FIG_SIZE_WIDE)
         
-        ax1.plot(signal_in, label='Input', linewidth=0.5, color='gray')
+        ax1.plot(signal_in, label='Input', linewidth=1.5, color='gray') # Thicker input
         ax1.legend()
         ax1.set_title(f"Input Signal {title_suffix}")
         
-        ax2.plot(python_output, label='Python SciPy', linewidth=1.0)
-        ax2.plot(java_output, label='Java jSciPy', linestyle=':', linewidth=2.0)
+        ax2.plot(python_output, label='Python SciPy', linewidth=1.5, alpha=0.8)
+        ax2.plot(java_output, label='Java jSciPy', linestyle='--', linewidth=2.0) # Dashed for visibility
         ax2.legend()
         ax2.set_title("Filtered Output Comparison")
 
         # Difference
         diff = python_output - java_output
         rmse = np.sqrt(np.mean(diff**2))
-        ax3.plot(diff, label=f'Diff (RMSE={rmse:.2e})', color='red', linewidth=0.5)
+        ax3.plot(diff, label=f'Diff (RMSE={rmse:.2e})', color='red', linewidth=1.0)
         ax3.legend()
         ax3.set_title("Difference (Python - Java)")
 
         plt.tight_layout()
-        output_filename = f"python/figs/{input_filename.split('/')[-1]}.png"
-        plt.savefig(output_filename)
-        print(f"Saved plot to {output_filename}")
+        output_filename = f"{input_filename.split('/')[-1]}.png"
+        style_utils.save_plot(fig, output_filename)
         plt.close(fig)
     except Exception as e:
         print(f"Error plotting {input_filename}: {e}")
