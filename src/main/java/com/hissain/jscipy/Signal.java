@@ -456,7 +456,15 @@ public class Signal {
     // --- Utilities ---
 
     /**
-     * Helper to pad signal with odd extension.
+     * Pads a signal using odd extension at both ends.
+     * <p>
+     * This extension mode (also known as "reflective" or "antisymmetric" padding)
+     * creates a smooth transition at the boundaries, which is useful for filtering
+     * operations to reduce edge artifacts.
+     *
+     * @param x      The input signal.
+     * @param padlen The number of samples to pad on both sides.
+     * @return The padded signal with length {@code x.length + 2 * padlen}.
      */
     public static double[] padSignal(double[] x, int padlen) {
         double[] padded = new double[x.length + 2 * padlen];
