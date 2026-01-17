@@ -60,7 +60,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:2.2.1' // Replace 2.2.1 with the desired version or commit hash
+    implementation 'com.github.hissain:jSciPy:2.3.0' // Replace 2.3.0 with the desired version or commit hash
 }
 ```
 
@@ -181,6 +181,37 @@ public class FilterExample {
             System.out.printf("%.2f ", value);
         }
         System.out.println();
+    }
+}
+```
+
+### Filter Modes (High-pass, Band-pass, Band-stop)
+
+All filter types support multiple modes: low-pass (default), high-pass, band-pass, and band-stop.
+
+```java
+import com.hissain.jscipy.signal.Signal;
+
+public class FilterModesExample {
+    public static void main(String[] args) {
+        double[] signal = generateSignal(); // your signal
+        double sampleRate = 250.0; // Hz
+        int order = 4;
+        
+        // High-pass: remove frequencies below 5 Hz
+        double[] highPass = Signal.filtfilt_highpass(signal, sampleRate, 5.0, order);
+        
+        // Band-pass: keep frequencies between 8-12 Hz (center=10, bandwidth=4)
+        double[] bandPass = Signal.filtfilt_bandpass(signal, sampleRate, 10.0, 4.0, order);
+        
+        // Band-stop (notch): remove 50 Hz power line noise (center=50, bandwidth=2)
+        double[] bandStop = Signal.filtfilt_bandstop(signal, sampleRate, 50.0, 2.0, order);
+        
+        // Same modes available for other filter types:
+        // Signal.cheby1_filtfilt_highpass(signal, sampleRate, cutoff, order, rippleDb);
+        // Signal.cheby2_filtfilt_bandpass(signal, sampleRate, center, width, order, stopBandDb);
+        // Signal.ellip_filtfilt_bandstop(signal, sampleRate, center, width, order, rippleDb, stopBandDb);
+        // Signal.bessel_filtfilt_highpass(signal, sampleRate, cutoff, order);
     }
 }
 ```

@@ -3,12 +3,9 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
-import com.hissain.jscipy.signal.filter.Chebyshev2;
 import com.hissain.jscipy.signal.filter.Elliptic;
 import com.hissain.jscipy.signal.filter.Bessel;
 import com.hissain.jscipy.signal.fft.FFT;
-
-import java.util.Map;
 
 /**
  * A facade class providing static utility methods for signal processing,

@@ -6,7 +6,7 @@ plugins {
 
 
 group = 'com.hissain.jscipy'
-version = '2.2.1'
+version = '2.3.0'
 
 application {
     mainClassName = 'com.hissain.jscipy.Main'
@@ -66,7 +66,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.hissain.jscipy'
             artifactId = 'jscipy'
-            version = '2.2.1'
+            version = '2.3.0'
 
             from components.java
         }
