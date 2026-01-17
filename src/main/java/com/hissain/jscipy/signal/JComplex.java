@@ -69,4 +69,14 @@ public class JComplex {
     public JComplex multiply(double factor) {
         return new JComplex(real * factor, imag * factor);
     }
+
+    /**
+     * Adds another complex number to this one.
+     *
+     * @param other The complex number to add.
+     * @return A new JComplex representing the sum.
+     */
+    public JComplex add(JComplex other) {
+        return new JComplex(real + other.real, imag + other.imag);
+    }
 }
