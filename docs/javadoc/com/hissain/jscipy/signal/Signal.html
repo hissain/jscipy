@@ -197,53 +197,63 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Computes the forward FFT of a real-valued signal.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#filtfilt(double%5B%5D,double,double,int)" class="member-name-link">filtfilt</a><wbr>(double[]&nbsp;signal,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fft2(double%5B%5D%5B%5D)" class="member-name-link">fft2</a><wbr>(double[][]&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Computes the 2D FFT of a real-valued 2D array.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#filtfilt(double%5B%5D,double,double,int)" class="member-name-link">filtfilt</a><wbr>(double[]&nbsp;signal,
  double&nbsp;sampleRate,
  double&nbsp;cutoff,
  int&nbsp;order)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Applies a zero-phase Butterworth low-pass filter (forward and backward).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Finds peaks in a signal with default parameters.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D,java.lang.Double,java.lang.Integer,java.lang.Double)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#find_peaks(double%5B%5D,java.lang.Double,java.lang.Integer,java.lang.Double)" class="member-name-link">find_peaks</a><wbr>(double[]&nbsp;x,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;height,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;distance,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;prominence)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns a Hamming window of length M.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
- boolean&nbsp;symmetric)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hamming window of length M.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns a Hanning window of length M.</div>
+<div class="block">Returns a Hamming window of length M.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
- boolean&nbsp;symmetric)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hanning window of length M.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)" class="member-name-link">ifft</a><wbr>(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Hanning window of length M.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)" class="member-name-link">ifft</a><wbr>(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ifft2(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)" class="member-name-link">ifft2</a><wbr>(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Computes the inverse 2D FFT.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#interp1d_cubic(double%5B%5D,double%5B%5D,double%5B%5D)" class="member-name-link">interp1d_cubic</a><wbr>(double[]&nbsp;x,
@@ -677,6 +687,32 @@ loadScripts(document, 'script');</script>
 <dd><code>n</code> - The length of the original signal.</dd>
 <dt>Returns:</dt>
 <dd>The real-valued inverse FFT of the signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="fft2(double[][])">
+<h3>fft2</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">fft2</span><wbr><span class="parameters">(double[][]&nbsp;input)</span></div>
+<div class="block">Computes the 2D FFT of a real-valued 2D array.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>input</code> - The 2D input array [rows][cols].</dd>
+<dt>Returns:</dt>
+<dd>The 2D complex-valued FFT.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="ifft2(com.hissain.jscipy.signal.JComplex[][])">
+<h3>ifft2</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</span>&nbsp;<span class="element-name">ifft2</span><wbr><span class="parameters">(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;input)</span></div>
+<div class="block">Computes the inverse 2D FFT.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>input</code> - The 2D complex spectrum [rows][cols].</dd>
+<dt>Returns:</dt>
+<dd>The 2D complex spatial domain signal.</dd>
 </dl>
 </section>
 </li>

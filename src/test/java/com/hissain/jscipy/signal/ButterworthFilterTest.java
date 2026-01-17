@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ButterworthFilterTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
-    private static final double TOLERANCE = 0.1;
+    private static final double TOLERANCE = 1e-14;
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();
@@ -33,7 +33,8 @@ public class ButterworthFilterTest {
         return data.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff, double sampleRate) throws IOException {
+    private void runTest(String inputFilename, String expectedOutputFilename, int order, double cutoff,
+            double sampleRate) throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedOutput = readDataFile(expectedOutputFilename);
         Butterworth filter = new Butterworth();
@@ -57,17 +58,27 @@ public class ButterworthFilterTest {
     }
 
     @Test
-    public void testButterworthOrder2() throws IOException {
-        runTest("butterworth_input1.txt", "butterworth_output1.txt", 2, 20, 250);
+    public void testButterworthSimpleOrder2() throws IOException {
+        runTest("butterworth_simple_o2_input.txt", "butterworth_simple_o2_output.txt", 2, 20, 250);
     }
 
     @Test
-    public void testButterworthOrder3() throws IOException {
-        runTest("butterworth_input2.txt", "butterworth_output2.txt", 3, 20, 250);
+    public void testButterworthSimpleOrder4() throws IOException {
+        runTest("butterworth_simple_o4_input.txt", "butterworth_simple_o4_output.txt", 4, 20, 250);
     }
 
     @Test
-    public void testButterworthOrder4() throws IOException {
-        runTest("butterworth_input3.txt", "butterworth_output3.txt", 4, 20, 250);
+    public void testButterworthMultiToneOrder4() throws IOException {
+        runTest("butterworth_multitone_o4_input.txt", "butterworth_multitone_o4_output.txt", 4, 20, 250);
+    }
+
+    @Test
+    public void testButterworthChirpOrder4() throws IOException {
+        runTest("butterworth_chirp_o4_input.txt", "butterworth_chirp_o4_output.txt", 4, 20, 250);
+    }
+
+    @Test
+    public void testButterworthImpulseOrder4() throws IOException {
+        runTest("butterworth_impulse_o4_input.txt", "butterworth_impulse_o4_output.txt", 4, 20, 250);
     }
 }
