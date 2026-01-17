@@ -15,13 +15,13 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 
 ## Why jSciPy?
 
-| Feature / Characteristic | **jSciPy** | **JDSP** | **TarsosDSP** |
-| :--- | :---: | :---: | :---: |
-| **Primary Goal** | **SciPy Clone** (Java) | Signal Processing | Audio Processing |
-| **Zero-Phase Filtering (`filtfilt`)** | ✅ **Yes** | ❌ No | ❌ No |
-| **SciPy Verified Accuracy** | ✅ **High** (RMSE ~1e-16) | ❓ Unknown | ❌ No |
-| **2D Signal Processing** | ✅ **Yes** (`convolve2d`, `fft2`) | ❌ No | ❌ No |
-| **Algorithm Variety** | 📶 Broad (Filters, FFT, RK4, Interp) | 📶 Broad | 🎵 Audio Focused (Pitch, MFCC) |
+| Feature / Characteristic | **jSciPy** | **Commons Math** | **JDSP** | **TarsosDSP** |
+| :--- | :---: | :---: | :---: | :---: |
+| **Primary Focus** | **SciPy Clone** (Signal/Math) | General Math/Stats | Signal Processing | Audio Processing |
+| **Zero-Phase Filtering (`filtfilt`)** | ✅ **Yes** | ❌ No | ❌ No | ❌ No |
+| **2D Signal Ops (`conv2d`, `fft2`)** | ✅ **Yes** | ❌ No | ❌ No | ❌ No |
+| **SciPy-like API** | ✅ **High** | ❌ Low | ⚠️ Partial | ❌ No |
+| **Filtering Capabilities** | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐ | ⭐⭐ |
 
 ## Features
 
@@ -667,7 +667,7 @@ public class WindowExample {
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
+Contributions are welcome! Please read our [Contribution Guidelines](CONTRIBUTING.md) for details on our workflow and coding standards. Feel free to submit issues or pull requests.
 
 ### Areas for Contribution (Help Wanted)
 
@@ -679,4 +679,4 @@ We are actively looking for contributors to help with:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
