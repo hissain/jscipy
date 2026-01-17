@@ -45,6 +45,60 @@ public class Signal {
         return new Butterworth().filter(signal, sampleRate, cutoff, order);
     }
 
+    /**
+     * Applies a zero-phase Butterworth high-pass filter (forward and backward).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order) {
+        return new Butterworth().filtfilt_highpass(signal, sampleRate, cutoff, order);
+    }
+
+    /**
+     * Applies a zero-phase Butterworth band-pass filter (forward and backward).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through
+     * while attenuating frequencies outside that range.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the passband in Hz.
+     * @param bandwidth       The width of the passband in Hz.
+     * @param order           The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] filtfilt_bandpass(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order) {
+        return new Butterworth().filtfilt_bandpass(signal, sampleRate, centerFrequency, bandwidth, order);
+    }
+
+    /**
+     * Applies a zero-phase Butterworth band-stop (notch) filter (forward and
+     * backward).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range
+     * while allowing frequencies outside that range to pass through.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the stopband in Hz.
+     * @param bandwidth       The width of the stopband in Hz.
+     * @param order           The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] filtfilt_bandstop(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order) {
+        return new Butterworth().filtfilt_bandstop(signal, sampleRate, centerFrequency, bandwidth, order);
+    }
+
     // --- Chebyshev Type I Filter ---
 
     /**

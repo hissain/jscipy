@@ -97,24 +97,11 @@ public class Butterworth {
      * (filtfilt).
      * This function applies a Butterworth low-pass filter.
      * <p>
-     * Zero-phase filtering avoids phase distortion by filtering forward and then
-     * backward.
-     * This doubles the effective order of the filter.
-     *
-     * @param signal     The input signal to filter.
-     * @param sampleRate The sample rate of the signal in Hz.
-     * @param cutoff     The cutoff frequency of the filter in Hz.
-     * @param order      The order of the Butterworth filter.
-     * @return The filtered signal.
-     */
-    /**
-     * Applies a zero-phase digital filter forward and backward to a signal
-     * (filtfilt).
-     * This function applies a Butterworth low-pass filter.
+     * /**
+     * Applies a zero-phase Butterworth low-pass filter (filtfilt).
      * <p>
      * Zero-phase filtering avoids phase distortion by filtering forward and then
-     * backward.
-     * This doubles the effective order of the filter.
+     * backward. This doubles the effective order of the filter.
      *
      * @param signal     The input signal to filter.
      * @param sampleRate The sample rate of the signal in Hz.
@@ -125,22 +112,84 @@ public class Butterworth {
     public double[] filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
         ButterworthDesign butterworth = new ButterworthDesign();
         butterworth.lowPass(order, sampleRate, cutoff);
+        return runSosFiltFilt(signal, butterworth.getBiquads());
+    }
 
-        Biquad[] biquads = butterworth.getBiquads();
+    /**
+     * Applies a zero-phase Butterworth high-pass filter (filtfilt).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     * Zero-phase filtering avoids phase distortion.
+     *
+     * @param signal     The input signal to filter.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency of the filter in Hz.
+     * @param order      The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
+    public double[] filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order) {
+        ButterworthDesign butterworth = new ButterworthDesign();
+        butterworth.highPass(order, sampleRate, cutoff);
+        return runSosFiltFilt(signal, butterworth.getBiquads());
+    }
 
+    /**
+     * Applies a zero-phase Butterworth band-pass filter (filtfilt).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through
+     * while attenuating frequencies outside that range.
+     * Zero-phase filtering avoids phase distortion.
+     *
+     * @param signal          The input signal to filter.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the passband in Hz.
+     * @param bandwidth       The width of the passband in Hz.
+     * @param order           The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
+    public double[] filtfilt_bandpass(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order) {
+        ButterworthDesign butterworth = new ButterworthDesign();
+        butterworth.bandPass(order, sampleRate, centerFrequency, bandwidth);
+        return runSosFiltFilt(signal, butterworth.getBiquads());
+    }
+
+    /**
+     * Applies a zero-phase Butterworth band-stop (notch) filter (filtfilt).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range
+     * while allowing frequencies outside that range to pass through.
+     * Zero-phase filtering avoids phase distortion.
+     *
+     * @param signal          The input signal to filter.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the stopband in Hz.
+     * @param bandwidth       The width of the stopband in Hz.
+     * @param order           The order of the Butterworth filter.
+     * @return The filtered signal.
+     */
+    public double[] filtfilt_bandstop(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order) {
+        ButterworthDesign butterworth = new ButterworthDesign();
+        butterworth.bandStop(order, sampleRate, centerFrequency, bandwidth);
+        return runSosFiltFilt(signal, butterworth.getBiquads());
+    }
+
+    /**
+     * Internal helper: applies zero-phase SOS filtering with global padding.
+     */
+    private double[] runSosFiltFilt(double[] signal, Biquad[] biquads) {
         // Calculate pad length based on the total order/sections
         // SciPy uses 3 * (2 * n_sections + 1). Here n_sections = biquads.length
         int padlen = 3 * (2 * biquads.length + 1);
 
         if (signal.length <= padlen) {
-            // Fallback or just return processed signal if too short (though unlikely for
-            // these tests)
-            // For strict correctness we should maybe handle short signals better, but
-            // sticking to basic logic for now.
             padlen = signal.length - 1;
         }
 
-        // Pad the signal
+        // Pad the signal (odd extension)
         double[] paddedSignal = new double[signal.length + 2 * padlen];
         // Left reflection
         for (int i = 0; i < padlen; i++) {
@@ -154,7 +203,7 @@ public class Butterworth {
         }
 
         // Forward filter (through all biquads)
-        double[] forward = paddedSignal; // In-place updates if possible, but filter_biquad creates new array
+        double[] forward = paddedSignal;
         for (Biquad biquad : biquads) {
             forward = filter_biquad(forward, biquad.getBCoefficients(), biquad.getACoefficients());
         }
