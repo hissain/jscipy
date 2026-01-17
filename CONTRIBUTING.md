@@ -2,7 +2,7 @@
 
 First off, thank you for considering contributing to jSciPy! It's people like you that make jSciPy such a great tool for the Java community.
 
-## 🤝 How Can I Contribute?
+## How Can I Contribute?
 
 ### Reporting Bugs
 This section guides you through submitting a bug report for jSciPy. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
@@ -28,7 +28,7 @@ The process is straightforward:
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-## 🧪 Development & Testing
+## Development & Testing
 
 jSciPy uses **Gradle** for building and testing.
 
@@ -47,7 +47,7 @@ jSciPy uses **Gradle** for building and testing.
 ./gradlew check
 ```
 
-## 🚀 Adding a New Feature (Workflow)
+## Adding a New Feature (Workflow)
 
 jSciPy follows a strict **"Golden Master"** testing approach where Java implementations are verified against Python's SciPy. When adding a new feature (e.g., a new filter or transform), please follow this workflow:
 
@@ -94,7 +94,7 @@ Create a Python script to verify and visualize the accuracy.
     This script sequentially runs data generation, Java tests, and plot generation.
 *   Add the generated plot to `README.md`.
 
-## 📝 Coding Style
+## Coding Style
 *   We follow standard Java naming conventions.
 *   Please include Javadoc for public methods and classes.
 *   Write unit tests for any new functionality.
