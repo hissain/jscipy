@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -221,26 +221,33 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(com.hissain.jscipy.signal.JComplex)">add</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>&nbsp;other)</code></th>
+<td class="colLast">
+<div class="block">Adds another complex number to this one.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#conjugate()">conjugate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the conjugate of this complex number.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getImaginary()">getImaginary</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the imaginary part of this complex number.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReal()">getReal</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the real part of this complex number.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#multiply(double)">multiply</a></span>&#8203;(double&nbsp;factor)</code></th>
 <td class="colLast">
@@ -383,7 +390,7 @@ extends java.lang.Object</pre>
 <a id="multiply(double)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>multiply</h4>
 <pre class="methodSignature">public&nbsp;<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>&nbsp;multiply&#8203;(double&nbsp;factor)</pre>
@@ -393,6 +400,22 @@ extends java.lang.Object</pre>
 <dd><code>factor</code> - The scalar value to multiply by.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A new JComplex representing the result.</dd>
+</dl>
+</li>
+</ul>
+<a id="add(com.hissain.jscipy.signal.JComplex)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>add</h4>
+<pre class="methodSignature">public&nbsp;<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>&nbsp;add&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>&nbsp;other)</pre>
+<div class="block">Adds another complex number to this one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - The complex number to add.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A new JComplex representing the sum.</dd>
 </dl>
 </li>
 </ul>
