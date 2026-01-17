@@ -6,6 +6,8 @@ import com.hissain.jscipy.signal.filter.Chebyshev2;
 import com.hissain.jscipy.signal.filter.Elliptic;
 import com.hissain.jscipy.signal.filter.Bessel;
 import com.hissain.jscipy.signal.fft.FFT;
+import com.hissain.jscipy.signal.fft.Spectrogram;
+import com.hissain.jscipy.signal.fft.Welch;
 
 /**
  * A facade class providing static utility methods for signal processing,
@@ -616,9 +618,18 @@ public class Signal {
 
     // --- Spectral (Welch) ---
 
-    // --- Convolution ---
-
-    // --- Convolution ---
+    /**
+     * Compute Power Spectral Density using Welch's method.
+     * Uses default Hanning window and 50% overlap.
+     *
+     * @param x       Input signal.
+     * @param fs      Sampling frequency.
+     * @param nperseg Length of each segment.
+     * @return WelchResult containing frequency array (f) and PSD array (Pxx).
+     */
+    public static WelchResult welch(double[] x, double fs, int nperseg) {
+        return new Welch().welch(x, fs, nperseg);
+    }
 
     /**
      * Convolves two signals using the specified mode.
@@ -681,5 +692,22 @@ public class Signal {
      */
     public static double[] interp1d_cubic(double[] x, double[] y, double[] newX) {
         return new Interpolation().cubic(x, y, newX);
+    }
+
+    /**
+     * Computes the spectrogram of a signal.
+     * <p>
+     * Spectrograms can be used as a way of visualizing the change of a
+     * nonstationary
+     * signal's frequency content over time.
+     *
+     * @param signal The input signal (time series).
+     * @param fs     The sampling frequency of the signal in Hz.
+     * @return A {@link SpectrogramResult} containing sample frequencies,
+     *         segment times,
+     *         and the spectrogram (power spectral density).
+     */
+    public static SpectrogramResult spectrogram(double[] signal, double fs) {
+        return new Spectrogram().spectrogram(signal, fs);
     }
 }

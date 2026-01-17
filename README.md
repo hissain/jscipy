@@ -8,7 +8,7 @@
 
 It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, 2D Convolution, Savitzky-Golay smoothing, Peak detection.
-*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Convolution.
+*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
@@ -28,7 +28,7 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 *   **Advanced Filtering**: Butterworth, Chebyshev (I & II), Elliptic, Bessel. Supports **zero-phase (`filtfilt`)** and causal (`lfilter`) modes.
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `hilbert` transform.
-*   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `detrend`, `resample`.
+*   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
 *   **Math**: RK4 ODE Solver, Linear & Cubic Spline Interpolation.
 *   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
 
@@ -111,6 +111,10 @@ A seperate demo android application is built on this library that might be helpf
 ### Welch's Method Comparison
 
 ![Welch Comparison](python/figs/welch_comparison.png)
+
+### Spectrogram Comparison
+
+![Spectrogram Comparison](python/figs/spectrogram_chirp_comparison.png)
 
 ### Resample Comparison
 
@@ -421,7 +425,7 @@ public class FFTExample {
 ### Welch's Method (PSD)
 
 ```java
-import com.hissain.jscipy.signal.fft.Welch;
+import com.hissain.jscipy.signal.Signal;
 import com.hissain.jscipy.signal.WelchResult;
 
 public class WelchExample {
@@ -437,13 +441,41 @@ public class WelchExample {
         }
         
         // Compute PSD with segment length 256
-        Welch welch = new Welch();
-        WelchResult result = welch.welch(signal, fs, 256);
+        WelchResult result = Signal.welch(signal, fs, 256);
         
         System.out.println("Frequencies (first 5):");
         for(int i=0; i<5; i++) System.out.printf("%.2f ", result.f[i]);
         System.out.println("\nPSD (first 5):");
         for(int i=0; i<5; i++) System.out.printf("%.2e ", result.Pxx[i]);
+        System.out.println();
+    }
+}
+```
+
+### Spectrogram
+
+```java
+import com.hissain.jscipy.signal.Signal;
+import com.hissain.jscipy.signal.fft.FFT;
+
+public class SpectrogramExample {
+    public static void main(String[] args) {
+        double fs = 1000.0;
+        int n = 10000;
+        double[] signal = new double[n];
+        // Generate chirp signal
+        for(int i=0; i<n; i++) {
+             double t = i / fs;
+             signal[i] = Math.cos(2 * Math.PI * (50 * t + 10 * t * t));
+        }
+        
+        // Compute Spectrogram
+        SpectrogramResult result = Signal.spectrogram(signal, fs);
+        
+        System.out.println("Frequencies (first 5):");
+        for(int i=0; i<5; i++) System.out.printf("%.2f ", result.frequencies[i]);
+        System.out.println("\nTimes (first 5):");
+        for(int i=0; i<5; i++) System.out.printf("%.2f ", result.times[i]);
         System.out.println();
     }
 }

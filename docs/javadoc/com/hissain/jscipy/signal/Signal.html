@@ -451,6 +451,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive
  frequency components (RFFT).</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SpectrogramResult.html" title="class in com.hissain.jscipy.signal">SpectrogramResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#spectrogram(double%5B%5D,double)" class="member-name-link">spectrogram</a><wbr>(double[]&nbsp;signal,
+ double&nbsp;fs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Computes the spectrogram of a signal.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="WelchResult.html" title="class in com.hissain.jscipy.signal">WelchResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#welch(double%5B%5D,double,int)" class="member-name-link">welch</a><wbr>(double[]&nbsp;x,
+ double&nbsp;fs,
+ int&nbsp;nperseg)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Compute Power Spectral Density using Welch's method.</div>
+</div>
 </div>
 </div>
 </div>
@@ -1249,6 +1262,24 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="welch(double[],double,int)">
+<h3>welch</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="WelchResult.html" title="class in com.hissain.jscipy.signal">WelchResult</a></span>&nbsp;<span class="element-name">welch</span><wbr><span class="parameters">(double[]&nbsp;x,
+ double&nbsp;fs,
+ int&nbsp;nperseg)</span></div>
+<div class="block">Compute Power Spectral Density using Welch's method.
+ Uses default Hanning window and 50% overlap.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - Input signal.</dd>
+<dd><code>fs</code> - Sampling frequency.</dd>
+<dd><code>nperseg</code> - Length of each segment.</dd>
+<dt>Returns:</dt>
+<dd>WelchResult containing frequency array (f) and PSD array (Pxx).</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="convolve(double[],double[],com.hissain.jscipy.signal.ConvolutionMode)">
 <h3>convolve</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">convolve</span><wbr><span class="parameters">(double[]&nbsp;signal,
@@ -1328,6 +1359,27 @@ loadScripts(document, 'script');</script>
 <dd><code>newX</code> - The x-coordinates at which to evaluate the interpolated values.</dd>
 <dt>Returns:</dt>
 <dd>The interpolated values.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="spectrogram(double[],double)">
+<h3>spectrogram</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SpectrogramResult.html" title="class in com.hissain.jscipy.signal">SpectrogramResult</a></span>&nbsp;<span class="element-name">spectrogram</span><wbr><span class="parameters">(double[]&nbsp;signal,
+ double&nbsp;fs)</span></div>
+<div class="block">Computes the spectrogram of a signal.
+ <p>
+ Spectrograms can be used as a way of visualizing the change of a
+ nonstationary
+ signal's frequency content over time.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>signal</code> - The input signal (time series).</dd>
+<dd><code>fs</code> - The sampling frequency of the signal in Hz.</dd>
+<dt>Returns:</dt>
+<dd>A <a href="SpectrogramResult.html" title="class in com.hissain.jscipy.signal"><code>SpectrogramResult</code></a> containing sample frequencies,
+         segment times,
+         and the spectrogram (power spectral density).</dd>
 </dl>
 </section>
 </li>

@@ -3,7 +3,7 @@ package com.hissain.jscipy.signal;
 /**
  * Implementation for removing trends from signals.
  */
-class Detrend {
+public class Detrend {
 
     public double[] detrend(double[] signal, DetrendType type) {
         if (signal == null) {
