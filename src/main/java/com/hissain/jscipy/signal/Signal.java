@@ -131,6 +131,64 @@ public class Signal {
         return Chebyshev1.filter(signal, sampleRate, cutoff, order, rippleDb);
     }
 
+    /**
+     * Applies a zero-phase Chebyshev Type I high-pass filter (forward and
+     * backward).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby1_filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order,
+            double rippleDb) {
+        return Chebyshev1.highPass(signal, sampleRate, cutoff, order, rippleDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Chebyshev Type I band-pass filter (forward and
+     * backward).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the passband in Hz.
+     * @param bandwidth       The width of the passband in Hz.
+     * @param order           The filter order.
+     * @param rippleDb        The passband ripple in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby1_filtfilt_bandpass(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double rippleDb) {
+        return Chebyshev1.bandPass(signal, sampleRate, centerFrequency, bandwidth, order, rippleDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Chebyshev Type I band-stop (notch) filter (forward and
+     * backward).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the stopband in Hz.
+     * @param bandwidth       The width of the stopband in Hz.
+     * @param order           The filter order.
+     * @param rippleDb        The passband ripple in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby1_filtfilt_bandstop(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double rippleDb) {
+        return Chebyshev1.bandStop(signal, sampleRate, centerFrequency, bandwidth, order, rippleDb, true);
+    }
+
     // --- Chebyshev Type II Filter ---
 
     /**
@@ -162,6 +220,64 @@ public class Signal {
     public static double[] cheby2_lfilter(double[] signal, double sampleRate, double cutoff, int order,
             double stopBandDb) {
         return Chebyshev2.filter(signal, sampleRate, cutoff, order, stopBandDb);
+    }
+
+    /**
+     * Applies a zero-phase Chebyshev Type II high-pass filter (forward and
+     * backward).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby2_filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order,
+            double stopBandDb) {
+        return Chebyshev2.highPass(signal, sampleRate, cutoff, order, stopBandDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Chebyshev Type II band-pass filter (forward and
+     * backward).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the passband in Hz.
+     * @param bandwidth       The width of the passband in Hz.
+     * @param order           The filter order.
+     * @param stopBandDb      The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby2_filtfilt_bandpass(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double stopBandDb) {
+        return Chebyshev2.bandPass(signal, sampleRate, centerFrequency, bandwidth, order, stopBandDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Chebyshev Type II band-stop (notch) filter (forward and
+     * backward).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the stopband in Hz.
+     * @param bandwidth       The width of the stopband in Hz.
+     * @param order           The filter order.
+     * @param stopBandDb      The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] cheby2_filtfilt_bandstop(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double stopBandDb) {
+        return Chebyshev2.bandStop(signal, sampleRate, centerFrequency, bandwidth, order, stopBandDb, true);
     }
 
     // --- Elliptic Filter ---
@@ -198,6 +314,65 @@ public class Signal {
         return Elliptic.filter(signal, sampleRate, cutoff, order, rippleDb, stopBandDb);
     }
 
+    /**
+     * Applies a zero-phase Elliptic high-pass filter (forward and backward).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @param rippleDb   The passband ripple in decibels.
+     * @param stopBandDb The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] ellip_filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order,
+            double rippleDb, double stopBandDb) {
+        return Elliptic.highPass(signal, sampleRate, cutoff, order, rippleDb, stopBandDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Elliptic band-pass filter (forward and backward).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the passband in Hz.
+     * @param bandwidth       The width of the passband in Hz.
+     * @param order           The filter order.
+     * @param rippleDb        The passband ripple in decibels.
+     * @param stopBandDb      The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] ellip_filtfilt_bandpass(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double rippleDb, double stopBandDb) {
+        return Elliptic.bandPass(signal, sampleRate, centerFrequency, bandwidth, order, rippleDb, stopBandDb, true);
+    }
+
+    /**
+     * Applies a zero-phase Elliptic band-stop (notch) filter (forward and
+     * backward).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range.
+     *
+     * @param signal          The input signal.
+     * @param sampleRate      The sample rate of the signal in Hz.
+     * @param centerFrequency The center frequency of the stopband in Hz.
+     * @param bandwidth       The width of the stopband in Hz.
+     * @param order           The filter order.
+     * @param rippleDb        The passband ripple in decibels.
+     * @param stopBandDb      The stopband attenuation in decibels.
+     * @return The filtered signal.
+     */
+    public static double[] ellip_filtfilt_bandstop(double[] signal, double sampleRate, double centerFrequency,
+            double bandwidth, int order, double rippleDb, double stopBandDb) {
+        return Elliptic.bandStop(signal, sampleRate, centerFrequency, bandwidth, order, rippleDb, stopBandDb, true);
+    }
+
     // --- Bessel Filter ---
 
     /**
@@ -211,6 +386,60 @@ public class Signal {
      */
     public static double[] bessel_filtfilt(double[] signal, double sampleRate, double cutoff, int order) {
         return Bessel.filtfilt(signal, sampleRate, cutoff, order);
+    }
+
+    /**
+     * Applies a zero-phase Bessel high-pass filter (forward and backward).
+     * <p>
+     * High-pass filtering removes low-frequency components below the cutoff
+     * frequency.
+     * Bessel filters are optimized for linear phase response.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param cutoff     The cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] bessel_filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order) {
+        return Bessel.filtfilt_highpass(signal, sampleRate, cutoff, order);
+    }
+
+    /**
+     * Applies a zero-phase Bessel band-pass filter (forward and backward).
+     * <p>
+     * Band-pass filtering allows frequencies within a specified range to pass
+     * through.
+     * Bessel filters are optimized for linear phase response.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param lowCutoff  The lower cutoff frequency in Hz.
+     * @param highCutoff The upper cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] bessel_filtfilt_bandpass(double[] signal, double sampleRate, double lowCutoff,
+            double highCutoff, int order) {
+        return Bessel.filtfilt_bandpass(signal, sampleRate, lowCutoff, highCutoff, order);
+    }
+
+    /**
+     * Applies a zero-phase Bessel band-stop (notch) filter (forward and backward).
+     * <p>
+     * Band-stop filtering attenuates frequencies within a specified range.
+     * Bessel filters are optimized for linear phase response.
+     *
+     * @param signal     The input signal.
+     * @param sampleRate The sample rate of the signal in Hz.
+     * @param lowCutoff  The lower cutoff frequency in Hz.
+     * @param highCutoff The upper cutoff frequency in Hz.
+     * @param order      The filter order.
+     * @return The filtered signal.
+     */
+    public static double[] bessel_filtfilt_bandstop(double[] signal, double sampleRate, double lowCutoff,
+            double highCutoff, int order) {
+        return Bessel.filtfilt_bandstop(signal, sampleRate, lowCutoff, highCutoff, order);
     }
 
     // --- Utilities ---

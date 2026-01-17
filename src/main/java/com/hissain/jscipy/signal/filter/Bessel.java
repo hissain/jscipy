@@ -87,6 +87,52 @@ public class Bessel {
         return runFiltFilt(signal, sos);
     }
 
+    /**
+     * Apply a zero-phase Bessel high-pass filter (filtfilt).
+     *
+     * @param signal     Input signal array.
+     * @param sampleRate Sampling rate in Hz.
+     * @param cutoff     Cutoff frequency in Hz.
+     * @param order      Filter order.
+     * @return Filtered signal with zero phase distortion.
+     */
+    public static double[] filtfilt_highpass(double[] signal, double sampleRate, double cutoff, int order) {
+        Biquad[] sos = highPass(sampleRate, cutoff, order);
+        return runFiltFilt(signal, sos);
+    }
+
+    /**
+     * Apply a zero-phase Bessel band-pass filter (filtfilt).
+     *
+     * @param signal     Input signal array.
+     * @param sampleRate Sampling rate in Hz.
+     * @param lowCutoff  Lower cutoff frequency in Hz.
+     * @param highCutoff Upper cutoff frequency in Hz.
+     * @param order      Filter order.
+     * @return Filtered signal with zero phase distortion.
+     */
+    public static double[] filtfilt_bandpass(double[] signal, double sampleRate, double lowCutoff,
+            double highCutoff, int order) {
+        Biquad[] sos = bandPass(sampleRate, lowCutoff, highCutoff, order);
+        return runFiltFilt(signal, sos);
+    }
+
+    /**
+     * Apply a zero-phase Bessel band-stop (notch) filter (filtfilt).
+     *
+     * @param signal     Input signal array.
+     * @param sampleRate Sampling rate in Hz.
+     * @param lowCutoff  Lower cutoff frequency in Hz.
+     * @param highCutoff Upper cutoff frequency in Hz.
+     * @param order      Filter order.
+     * @return Filtered signal with zero phase distortion.
+     */
+    public static double[] filtfilt_bandstop(double[] signal, double sampleRate, double lowCutoff,
+            double highCutoff, int order) {
+        Biquad[] sos = bandStop(sampleRate, lowCutoff, highCutoff, order);
+        return runFiltFilt(signal, sos);
+    }
+
     private static double[] runFiltFilt(double[] signal, Biquad[] sos) {
         int n = signal.length;
         int nSections = sos.length;
