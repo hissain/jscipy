@@ -15,13 +15,18 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 
 ## Why jSciPy?
 
-| Feature / Characteristic | **jSciPy** | **Commons Math** | **JDSP** | **TarsosDSP** |
-| :--- | :---: | :---: | :---: | :---: |
-| **Primary Focus** | **SciPy Clone** (Signal/Math) | General Math/Stats | Signal Processing | Audio Processing |
-| **Zero-Phase Filtering (`filtfilt`)** | ✅ **Yes** | ❌ No | ❌ No | ❌ No |
-| **2D Signal Ops (`conv2d`, `fft2`)** | ✅ **Yes** | ❌ No | ❌ No | ❌ No |
-| **SciPy-like API** | ✅ **High** | ❌ Low | ⚠️ Partial | ❌ No |
-| **Filtering Capabilities** | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Feature / Characteristic | **jSciPy** | **Commons Math** | **JDSP** | **TarsosDSP** | **IIRJ** | **EJML** |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Primary Focus** | **SciPy‑style Scientific & Signal DSP** | General Math/Stats | Java DSP Toolbox | Audio Processing | IIR Filter Only | Linear Algebra |
+| **Zero‑Phase Filtering (`filtfilt`)** | ✅ **Yes (SciPy‑compatible)** | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| **2D Signal Ops (`conv2d`, `fft2`)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| **SciPy‑like API Consistency** | ✅ High (SciPy semantics) | ❌ Low | ⚠️ Partial | ❌ No | ❌ No | ❌ No |
+| **Filtering Capabilities** | ⭐⭐⭐⭐⭐ (IIR+FIR+advanced) | ⭐ Basic | ⭐⭐⭐ (IIR/FIR) | ⭐⭐ (audio filters) | ⭐⭐ (IIR only) | ❌ No |
+| **Transforms (FFT/Hilbert)** | ✅ FFT + Hilbert | Limited | ✅ FFT | ✅ FFT | ❌ No | ❌ No |
+| **Interpolation (Linear/Cubic)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| **ODE Solvers (RK4)** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
+| **Signal Analysis (Peak/PSD)** | ✅ Yes | ❌ No | ⚠️ Partial | ⚠️ Partial | ❌ No | ❌ No |
+| **Window Functions** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ❌ No |
 
 ## Features
 
