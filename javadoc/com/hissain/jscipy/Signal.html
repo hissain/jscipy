@@ -613,7 +613,7 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#padSignal(double%5B%5D,int)">padSignal</a></span>&#8203;(double[]&nbsp;x,
          int&nbsp;padlen)</code></th>
 <td class="colLast">
-<div class="block">Helper to pad signal with odd extension.</div>
+<div class="block">Pads a signal using odd extension at both ends.</div>
 </td>
 </tr>
 <tr id="i44" class="altColor">
@@ -1354,7 +1354,18 @@ extends java.lang.Object</pre>
 <h4>padSignal</h4>
 <pre class="methodSignature">public static&nbsp;double[]&nbsp;padSignal&#8203;(double[]&nbsp;x,
                                  int&nbsp;padlen)</pre>
-<div class="block">Helper to pad signal with odd extension.</div>
+<div class="block">Pads a signal using odd extension at both ends.
+ <p>
+ This extension mode (also known as "reflective" or "antisymmetric" padding)
+ creates a smooth transition at the boundaries, which is useful for filtering
+ operations to reduce edge artifacts.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - The input signal.</dd>
+<dd><code>padlen</code> - The number of samples to pad on both sides.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The padded signal with length <code>x.length + 2 * padlen</code>.</dd>
+</dl>
 </li>
 </ul>
 <a id="detrend(double[],com.hissain.jscipy.signal.DetrendType)">
