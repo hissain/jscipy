@@ -3,7 +3,7 @@ import scipy.signal as signal
 import os
 
 # Ensure the datasets directory exists
-output_dir = "datasets"
+output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

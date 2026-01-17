@@ -21,9 +21,11 @@ def generate_data():
     y_scipy = signal.sosfiltfilt(sos, x)
     
     # Save data
-    os.makedirs('python/data', exist_ok=True)
-    np.savetxt('python/data/bessel_input.txt', x)
-    np.savetxt('python/data/bessel_output_scipy.txt', y_scipy)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    datasets_dir = os.path.join(script_dir, '../../datasets')
+    os.makedirs(datasets_dir, exist_ok=True)
+    np.savetxt(os.path.join(datasets_dir, 'bessel_input.txt'), x)
+    np.savetxt(os.path.join(datasets_dir, 'bessel_output_scipy.txt'), y_scipy)
     
     print("Bessel test data generated.")
 

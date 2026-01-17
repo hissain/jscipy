@@ -8,9 +8,9 @@ def load_data(path):
 def plot_comparison():
     # Load data
     try:
-        java_out = load_data('python/data/bessel_output_java.txt')
-        scipy_out = load_data('python/data/bessel_output_scipy.txt')
-        signal_in = load_data('python/data/bessel_input.txt')
+        java_out = load_data('datasets/bessel_output_java.txt')
+        scipy_out = load_data('datasets/bessel_output_scipy.txt')
+        signal_in = load_data('datasets/bessel_input.txt')
     except Exception as e:
         print(f"Error loading data: {e}")
         return

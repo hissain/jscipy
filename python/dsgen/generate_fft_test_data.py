@@ -25,7 +25,7 @@ def generate_fft_test_data(test_id, num_samples):
     irfft_result = irfft(rfft_result)
     
     # Create output directory if it doesn't exist
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
@@ -80,7 +80,7 @@ def generate_stft_test_data(test_id, num_samples, nperseg=256, noverlap=None, nf
                                     boundary='zeros')
     
     # Create output directory if it doesn't exist
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     

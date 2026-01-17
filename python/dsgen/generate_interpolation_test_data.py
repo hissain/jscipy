@@ -22,7 +22,7 @@ def generate_interpolation_test_data(test_id, num_samples, num_new_samples):
     cubic_y = cs(new_x)
     
     # Create output directory if it doesn't exist
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     

@@ -14,7 +14,7 @@ def generate_welch_test_data(test_id, sample_rate, num_samples, nperseg):
     f, Pxx = signal.welch(sig, fs=sample_rate, nperseg=nperseg, detrend=False)
     
     
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         

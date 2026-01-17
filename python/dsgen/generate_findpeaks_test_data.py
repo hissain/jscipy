@@ -15,7 +15,7 @@ def generate_test_data(signal_length, test_id, distance, height=None, prominence
     peak_indices = scipy.signal.find_peaks(signal, distance=distance, height=height, prominence=prominence)[0]
     
     # Create output directory if it doesn't exist
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     

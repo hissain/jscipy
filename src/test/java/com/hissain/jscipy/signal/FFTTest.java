@@ -1,6 +1,5 @@
 package com.hissain.jscipy.signal;
 
-import com.hissain.jscipy.signal.JComplex;
 import org.junit.jupiter.api.Test;
 
 import com.hissain.jscipy.signal.fft.FFT;

@@ -27,7 +27,7 @@ def generate_filter_test_data(filter_type, test_id, order, sample_rate, num_samp
 
     filtered_signal = signal.filtfilt(b, a, signal_data)
 
-    output_dir = "datasets"
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

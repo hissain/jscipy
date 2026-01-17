@@ -6,7 +6,7 @@ def generate_savgol_data(test_name, data, window_length, polyorder, deriv=0, del
     filtered_data = signal.savgol_filter(data, window_length, polyorder, deriv=deriv, delta=delta, mode='interp')
     
     script_dir = os.path.dirname(__file__)
-    datasets_dir = os.path.abspath(os.path.join(script_dir, '../datasets'))
+    datasets_dir = os.path.abspath(os.path.join(script_dir, '../../datasets'))
     
     input_filename = f'{test_name}_input.txt'
     output_filename = f'{test_name}_output.txt'

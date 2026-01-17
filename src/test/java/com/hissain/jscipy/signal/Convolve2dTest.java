@@ -15,7 +15,7 @@ public class Convolve2dTest {
         File file = new File(filename);
         if (!file.exists()) {
             // Try assuming running from project root
-            file = new File("test_data/" + filename);
+            file = new File("datasets/" + filename);
         }
         if (!file.exists()) {
             // Try explicit path if needed or fail
@@ -48,9 +48,9 @@ public class Convolve2dTest {
 
     @Test
     public void testConvolveFull() throws IOException {
-        double[][] in1 = loadMatrix("test_data/conv2d_in1_1.txt");
-        double[][] in2 = loadMatrix("test_data/conv2d_in2_1.txt");
-        double[][] expected = loadMatrix("test_data/conv2d_out_full_1.txt");
+        double[][] in1 = loadMatrix("datasets/conv2d_in1_1.txt");
+        double[][] in2 = loadMatrix("datasets/conv2d_in2_1.txt");
+        double[][] expected = loadMatrix("datasets/conv2d_out_full_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.FULL);
         assertMatrixEquals(expected, actual, 1e-8);
@@ -58,9 +58,9 @@ public class Convolve2dTest {
 
     @Test
     public void testConvolveSame() throws IOException {
-        double[][] in1 = loadMatrix("test_data/conv2d_in1_1.txt");
-        double[][] in2 = loadMatrix("test_data/conv2d_in2_1.txt");
-        double[][] expected = loadMatrix("test_data/conv2d_out_same_1.txt");
+        double[][] in1 = loadMatrix("datasets/conv2d_in1_1.txt");
+        double[][] in2 = loadMatrix("datasets/conv2d_in2_1.txt");
+        double[][] expected = loadMatrix("datasets/conv2d_out_same_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.SAME);
         assertMatrixEquals(expected, actual, 1e-8);
@@ -68,9 +68,9 @@ public class Convolve2dTest {
 
     @Test
     public void testConvolveValid() throws IOException {
-        double[][] in1 = loadMatrix("test_data/conv2d_in1_1.txt");
-        double[][] in2 = loadMatrix("test_data/conv2d_in2_1.txt");
-        double[][] expected = loadMatrix("test_data/conv2d_out_valid_1.txt");
+        double[][] in1 = loadMatrix("datasets/conv2d_in1_1.txt");
+        double[][] in2 = loadMatrix("datasets/conv2d_in2_1.txt");
+        double[][] expected = loadMatrix("datasets/conv2d_out_valid_1.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.VALID);
         assertMatrixEquals(expected, actual, 1e-8);
@@ -103,9 +103,9 @@ public class Convolve2dTest {
 
     @Test
     public void testRandomFull() throws IOException {
-        double[][] in1 = loadMatrix("test_data/conv2d_in1_2.txt");
-        double[][] in2 = loadMatrix("test_data/conv2d_in2_2.txt");
-        double[][] expected = loadMatrix("test_data/conv2d_out_full_2.txt");
+        double[][] in1 = loadMatrix("datasets/conv2d_in1_2.txt");
+        double[][] in2 = loadMatrix("datasets/conv2d_in2_2.txt");
+        double[][] expected = loadMatrix("datasets/conv2d_out_full_2.txt");
 
         double[][] actual = Signal.convolve2d(in1, in2, ConvolutionMode.FULL);
 
@@ -113,7 +113,7 @@ public class Convolve2dTest {
         System.out.println("RMSE for Convolve2d Random Full: " + rmse);
 
         // Export for Python visualization
-        saveMatrix("test_data/java_conv2d_result.txt", actual);
+        saveMatrix("datasets/java_conv2d_result.txt", actual);
 
         assertMatrixEquals(expected, actual, 1e-8);
     }

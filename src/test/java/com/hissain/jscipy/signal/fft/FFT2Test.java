@@ -15,7 +15,7 @@ public class FFT2Test {
     private double[][] loadMatrix(String filename) throws IOException {
         File file = new File(filename);
         if (!file.exists()) {
-            file = new File("test_data/" + filename);
+            file = new File("datasets/" + filename);
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -89,12 +89,12 @@ public class FFT2Test {
     @Test
     public void testFFT2() throws IOException {
         System.out.println("Testing FFT2:");
-        double[][] input = loadMatrix("test_data/fft2_in.txt");
-        JComplex[][] expected = loadComplexMatrix("test_data/fft2_out_real.txt", "test_data/fft2_out_imag.txt");
+        double[][] input = loadMatrix("datasets/fft2_in.txt");
+        JComplex[][] expected = loadComplexMatrix("datasets/fft2_out_real.txt", "datasets/fft2_out_imag.txt");
 
         JComplex[][] actual = Signal.fft2(input);
 
-        saveComplexMatrix("test_data/java_fft2_out_real.txt", "test_data/java_fft2_out_imag.txt", actual);
+        saveComplexMatrix("datasets/java_fft2_out_real.txt", "datasets/java_fft2_out_imag.txt", actual);
 
         assertComplexMatrixEquals(expected, actual, 1e-8);
     }
@@ -102,8 +102,8 @@ public class FFT2Test {
     @Test
     public void testIFFT2() throws IOException {
         System.out.println("Testing IFFT2:");
-        JComplex[][] input = loadComplexMatrix("test_data/ifft2_in_real.txt", "test_data/ifft2_in_imag.txt");
-        JComplex[][] expected = loadComplexMatrix("test_data/ifft2_out_real.txt", "test_data/ifft2_out_imag.txt");
+        JComplex[][] input = loadComplexMatrix("datasets/ifft2_in_real.txt", "datasets/ifft2_in_imag.txt");
+        JComplex[][] expected = loadComplexMatrix("datasets/ifft2_out_real.txt", "datasets/ifft2_out_imag.txt");
 
         JComplex[][] actual = Signal.ifft2(input);
 

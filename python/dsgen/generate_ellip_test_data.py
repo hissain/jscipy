@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Create output directory if it doesn't exist
-OUTPUT_DIR = "../datasets"
+OUTPUT_DIR = "../../datasets"
 FIGS_DIR = "figs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(FIGS_DIR, exist_ok=True)

@@ -1,3 +1,4 @@
+import os
 import numpy as np
 
 def analytical_solution(t):
@@ -7,11 +8,11 @@ def main():
     t_span = np.linspace(0, 2, 11)
     y = analytical_solution(t_span)
 
-    with open('datasets/rk4_input.txt', 'w') as f:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datasets', 'rk4_input.txt'), 'w') as f:
         for t_val in t_span:
             f.write(f"{t_val}\n")
 
-    with open('datasets/rk4_output.txt', 'w') as f:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datasets', 'rk4_output.txt'), 'w') as f:
         for y_val in y:
             f.write(f"{y_val}\n")
 

@@ -47,6 +47,53 @@ jSciPy uses **Gradle** for building and testing.
 ./gradlew check
 ```
 
+## 🚀 Adding a New Feature (Workflow)
+
+jSciPy follows a strict **"Golden Master"** testing approach where Java implementations are verified against Python's SciPy. When adding a new feature (e.g., a new filter or transform), please follow this workflow:
+
+### 1. Implement in Java
+Add your implementation in `src/main/java/com/hissain/jscipy/...`. Ensure it mirrors the SciPy API as closely as possible.
+
+### 2. Generate Ground Truth Data (Python)
+We use Python scripts to generate "correct" input/output data using SciPy.
+*   **Create a script**: `python/dsgen/generate_<feature>_test_data.py`
+*   **Output location**: Save all data to `datasets/` (use relative paths, e.g., `../../datasets`).
+*   **Content**: Generate random or representative inputs, run the SciPy function, and save inputs and expected outputs to `.txt` files.
+
+```python
+# Example: python/dsgen/generate_myfeature.py
+import numpy as np
+import os
+def generate():
+    # ... generate data ...
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    dataset_dir = os.path.join(script_dir, "../../datasets")
+    # ... save to dataset_dir ...
+```
+
+### 3. Verify with Java Tests
+Create a JUnit test that asserts your Java implementation matches the SciPy data.
+*   **Create a test**: `src/test/java/.../<Feature>Test.java`
+*   **Load Data**: Read the input and expected output from `datasets/`.
+*   **Run**: Execute your Java method.
+*   **Assert**: Compare Java output vs SciPy output (typically RMSE < 1e-15).
+*   **Save Output**: Save the Java execution result to `datasets/` (e.g., `myfeature_output_java.txt`) for plotting.
+
+### 4. Visualize Comparison
+Create a Python script to verify and visualize the accuracy.
+*   **Create a script**: `python/comparison/plot_<feature>.py`
+*   **Load Data**: Load SciPy output and Java output from `datasets/`.
+*   **Plot**: Create a visual comparison (e.g., overlaid signals or difference plot).
+*   **Save Plot**: Save the figure to `python/figs/`.
+
+### 5. Finalize
+*   Run the orchestrators to ensure everything works:
+    ```bash
+    python3 python/generate_all_data.py
+    python3 python/generate_all_plots.py
+    ```
+*   Add the generated plot to `README.md`.
+
 ## 📝 Coding Style
 *   We follow standard Java naming conventions.
 *   Please include Javadoc for public methods and classes.

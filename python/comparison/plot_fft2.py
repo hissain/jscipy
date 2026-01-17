@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-ARTIFACT_DIR = "/Users/hissain/git/github/jscipy/python/figs"
+ARTIFACT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
 
 def load_complex_matrix(real_file, imag_file):
     with open(real_file, 'r') as f:
@@ -25,8 +25,17 @@ def main():
     try:
         os.makedirs(ARTIFACT_DIR, exist_ok=True)
         
-        java_res = load_complex_matrix("test_data/java_fft2_out_real.txt", "test_data/java_fft2_out_imag.txt")
-        scipy_res = load_complex_matrix("test_data/fft2_out_real.txt", "test_data/fft2_out_imag.txt")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        datasets_dir = os.path.join(script_dir, '../../datasets')
+        
+        java_res = load_complex_matrix(
+            os.path.join(datasets_dir, "java_fft2_out_real.txt"), 
+            os.path.join(datasets_dir, "java_fft2_out_imag.txt")
+        )
+        scipy_res = load_complex_matrix(
+            os.path.join(datasets_dir, "fft2_out_real.txt"), 
+            os.path.join(datasets_dir, "fft2_out_imag.txt")
+        )
         
         # Compute Magnitude Spectrum
         java_mag = np.abs(java_res)

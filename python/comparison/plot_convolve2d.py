@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-ARTIFACT_DIR = "/Users/hissain/.gemini/antigravity/brain/1b86e521-ac93-4e92-bfd1-e25d910f4a60"
+ARTIFACT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
 
 def load_matrix(filename):
     with open(filename, 'r') as f:
@@ -16,8 +16,11 @@ def load_matrix(filename):
 def main():
     print("Loading data...")
     try:
-        java_res = load_matrix("test_data/java_conv2d_result.txt")
-        scipy_res = load_matrix("test_data/conv2d_out_full_2.txt")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        datasets_dir = os.path.join(script_dir, '../../datasets')
+        
+        java_res = load_matrix(os.path.join(datasets_dir, "java_conv2d_result.txt"))
+        scipy_res = load_matrix(os.path.join(datasets_dir, "conv2d_out_full_2.txt"))
         
         diff = np.abs(java_res - scipy_res)
         rmse = np.sqrt(np.mean(diff**2))
