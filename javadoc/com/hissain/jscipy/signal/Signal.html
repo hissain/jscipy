@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -307,13 +307,46 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filtfilt_bandpass(double%5B%5D,double,double,double,int)">filtfilt_bandpass</a></span>&#8203;(double[]&nbsp;signal,
+                 double&nbsp;sampleRate,
+                 double&nbsp;centerFrequency,
+                 double&nbsp;bandwidth,
+                 int&nbsp;order)</code></th>
+<td class="colLast">
+<div class="block">Applies a zero-phase Butterworth band-pass filter (forward and backward).</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filtfilt_bandstop(double%5B%5D,double,double,double,int)">filtfilt_bandstop</a></span>&#8203;(double[]&nbsp;signal,
+                 double&nbsp;sampleRate,
+                 double&nbsp;centerFrequency,
+                 double&nbsp;bandwidth,
+                 int&nbsp;order)</code></th>
+<td class="colLast">
+<div class="block">Applies a zero-phase Butterworth band-stop (notch) filter (forward and
+ backward).</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filtfilt_highpass(double%5B%5D,double,double,int)">filtfilt_highpass</a></span>&#8203;(double[]&nbsp;signal,
+                 double&nbsp;sampleRate,
+                 double&nbsp;cutoff,
+                 int&nbsp;order)</code></th>
+<td class="colLast">
+<div class="block">Applies a zero-phase Butterworth high-pass filter (forward and backward).</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D)">find_peaks</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Finds peaks in a signal with default parameters.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D,java.lang.Double,java.lang.Integer,java.lang.Double)">find_peaks</a></span>&#8203;(double[]&nbsp;x,
           java.lang.Double&nbsp;height,
@@ -323,14 +356,14 @@ extends java.lang.Object</pre>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int)">hamming</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int,boolean)">hamming</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -338,14 +371,14 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int)">hanning</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int,boolean)">hanning</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -353,21 +386,21 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)">ifft</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ifft2(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)">ifft2</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;input)</code></th>
 <td class="colLast">
 <div class="block">Computes the inverse 2D FFT.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#interp1d_cubic(double%5B%5D,double%5B%5D,double%5B%5D)">interp1d_cubic</a></span>&#8203;(double[]&nbsp;x,
               double[]&nbsp;y,
@@ -376,7 +409,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs cubic spline interpolation on the given data points.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#interp1d_linear(double%5B%5D,double%5B%5D,double%5B%5D)">interp1d_linear</a></span>&#8203;(double[]&nbsp;x,
                double[]&nbsp;y,
@@ -385,7 +418,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs linear interpolation on the given data points.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#irfft(com.hissain.jscipy.signal.JComplex%5B%5D,int)">irfft</a></span>&#8203;(<a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x,
      int&nbsp;n)</code></th>
@@ -393,7 +426,7 @@ extends java.lang.Object</pre>
 <div class="block">Computes the inverse FFT of a real-valued signal (IRFFT).</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lfilter(double%5B%5D,double,double,int)">lfilter</a></span>&#8203;(double[]&nbsp;signal,
        double&nbsp;sampleRate,
@@ -403,7 +436,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Butterworth low-pass filter.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#padSignal(double%5B%5D,int)">padSignal</a></span>&#8203;(double[]&nbsp;x,
          int&nbsp;padlen)</code></th>
@@ -411,7 +444,7 @@ extends java.lang.Object</pre>
 <div class="block">Helper to pad signal with odd extension.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resample(double%5B%5D,int)">resample</a></span>&#8203;(double[]&nbsp;x,
         int&nbsp;num)</code></th>
@@ -419,7 +452,7 @@ extends java.lang.Object</pre>
 <div class="block">Resamples x to num samples using Fourier method along the given axis.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>static <a href="JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rfft(double%5B%5D)">rfft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
@@ -508,6 +541,87 @@ extends java.lang.Object</pre>
 <dd><code>signal</code> - The input signal.</dd>
 <dd><code>sampleRate</code> - The sample rate of the signal.</dd>
 <dd><code>cutoff</code> - The cutoff frequency.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The filtered signal.</dd>
+</dl>
+</li>
+</ul>
+<a id="filtfilt_highpass(double[],double,double,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filtfilt_highpass</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;filtfilt_highpass&#8203;(double[]&nbsp;signal,
+                                         double&nbsp;sampleRate,
+                                         double&nbsp;cutoff,
+                                         int&nbsp;order)</pre>
+<div class="block">Applies a zero-phase Butterworth high-pass filter (forward and backward).
+ <p>
+ High-pass filtering removes low-frequency components below the cutoff
+ frequency.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal in Hz.</dd>
+<dd><code>cutoff</code> - The cutoff frequency in Hz.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The filtered signal.</dd>
+</dl>
+</li>
+</ul>
+<a id="filtfilt_bandpass(double[],double,double,double,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filtfilt_bandpass</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;filtfilt_bandpass&#8203;(double[]&nbsp;signal,
+                                         double&nbsp;sampleRate,
+                                         double&nbsp;centerFrequency,
+                                         double&nbsp;bandwidth,
+                                         int&nbsp;order)</pre>
+<div class="block">Applies a zero-phase Butterworth band-pass filter (forward and backward).
+ <p>
+ Band-pass filtering allows frequencies within a specified range to pass
+ through
+ while attenuating frequencies outside that range.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal in Hz.</dd>
+<dd><code>centerFrequency</code> - The center frequency of the passband in Hz.</dd>
+<dd><code>bandwidth</code> - The width of the passband in Hz.</dd>
+<dd><code>order</code> - The filter order.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The filtered signal.</dd>
+</dl>
+</li>
+</ul>
+<a id="filtfilt_bandstop(double[],double,double,double,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filtfilt_bandstop</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;filtfilt_bandstop&#8203;(double[]&nbsp;signal,
+                                         double&nbsp;sampleRate,
+                                         double&nbsp;centerFrequency,
+                                         double&nbsp;bandwidth,
+                                         int&nbsp;order)</pre>
+<div class="block">Applies a zero-phase Butterworth band-stop (notch) filter (forward and
+ backward).
+ <p>
+ Band-stop filtering attenuates frequencies within a specified range
+ while allowing frequencies outside that range to pass through.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sampleRate</code> - The sample rate of the signal in Hz.</dd>
+<dd><code>centerFrequency</code> - The center frequency of the stopband in Hz.</dd>
+<dd><code>bandwidth</code> - The width of the stopband in Hz.</dd>
 <dd><code>order</code> - The filter order.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The filtered signal.</dd>
