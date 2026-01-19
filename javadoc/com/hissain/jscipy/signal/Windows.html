@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -177,12 +177,27 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bartlett(int)">bartlett</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Returns a symmetric Bartlett window of length M.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bartlett(int,boolean)">bartlett</a></span>&#8203;(int&nbsp;m,
+        boolean&nbsp;symmetric)</code></th>
+<td class="colLast">
+<div class="block">Returns a Bartlett window of length M.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#blackman(int)">blackman</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a symmetric Blackman window of length M.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#blackman(int,boolean)">blackman</a></span>&#8203;(int&nbsp;m,
         boolean&nbsp;symmetric)</code></th>
@@ -190,14 +205,44 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Blackman window of length M.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bohman(int)">bohman</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Returns a symmetric Bohman window of length M.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bohman(int,boolean)">bohman</a></span>&#8203;(int&nbsp;m,
+      boolean&nbsp;symmetric)</code></th>
+<td class="colLast">
+<div class="block">Returns a Bohman window of length M.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#flattop(int)">flattop</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Returns a symmetric Flat top window of length M.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#flattop(int,boolean)">flattop</a></span>&#8203;(int&nbsp;m,
+       boolean&nbsp;symmetric)</code></th>
+<td class="colLast">
+<div class="block">Returns a Flat top window of length M.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int)">hamming</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a symmetric Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int,boolean)">hamming</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -205,14 +250,14 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int)">hanning</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a symmetric Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int,boolean)">hanning</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -220,7 +265,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta)</code></th>
@@ -228,13 +273,43 @@ extends java.lang.Object</pre>
 <div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double,boolean)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta,
       boolean&nbsp;symmetric)</code></th>
 <td class="colLast">
 <div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parzen(int)">parzen</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Returns a symmetric Parzen window of length M.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parzen(int,boolean)">parzen</a></span>&#8203;(int&nbsp;m,
+      boolean&nbsp;symmetric)</code></th>
+<td class="colLast">
+<div class="block">Returns a Parzen window of length M.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#triang(int)">triang</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Returns a symmetric Triangular window of length M.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#triang(int,boolean)">triang</a></span>&#8203;(int&nbsp;m,
+      boolean&nbsp;symmetric)</code></th>
+<td class="colLast">
+<div class="block">Returns a Triangular window of length M.</div>
 </td>
 </tr>
 </table>
@@ -409,7 +484,7 @@ extends java.lang.Object</pre>
 <a id="kaiser(int,double,boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>kaiser</h4>
 <pre class="methodSignature">public static&nbsp;double[]&nbsp;kaiser&#8203;(int&nbsp;m,
@@ -425,6 +500,180 @@ extends java.lang.Object</pre>
                   analysis).</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The Kaiser window.</dd>
+</dl>
+</li>
+</ul>
+<a id="bartlett(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bartlett</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;bartlett&#8203;(int&nbsp;m)</pre>
+<div class="block">Returns a symmetric Bartlett window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Bartlett window.</dd>
+</dl>
+</li>
+</ul>
+<a id="bartlett(int,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bartlett</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;bartlett&#8203;(int&nbsp;m,
+                                boolean&nbsp;symmetric)</pre>
+<div class="block">Returns a Bartlett window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Bartlett window.</dd>
+</dl>
+</li>
+</ul>
+<a id="triang(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>triang</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;triang&#8203;(int&nbsp;m)</pre>
+<div class="block">Returns a symmetric Triangular window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Triangular window.</dd>
+</dl>
+</li>
+</ul>
+<a id="triang(int,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>triang</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;triang&#8203;(int&nbsp;m,
+                              boolean&nbsp;symmetric)</pre>
+<div class="block">Returns a Triangular window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window (for filter design).
+                  If false, generates a periodic window (for spectral
+                  analysis).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Triangular window.</dd>
+</dl>
+</li>
+</ul>
+<a id="flattop(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>flattop</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;flattop&#8203;(int&nbsp;m)</pre>
+<div class="block">Returns a symmetric Flat top window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Flat top window.</dd>
+</dl>
+</li>
+</ul>
+<a id="flattop(int,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>flattop</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;flattop&#8203;(int&nbsp;m,
+                               boolean&nbsp;symmetric)</pre>
+<div class="block">Returns a Flat top window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Flat top window.</dd>
+</dl>
+</li>
+</ul>
+<a id="parzen(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parzen</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;parzen&#8203;(int&nbsp;m)</pre>
+<div class="block">Returns a symmetric Parzen window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Parzen window.</dd>
+</dl>
+</li>
+</ul>
+<a id="parzen(int,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parzen</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;parzen&#8203;(int&nbsp;m,
+                              boolean&nbsp;symmetric)</pre>
+<div class="block">Returns a Parzen window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Parzen window.</dd>
+</dl>
+</li>
+</ul>
+<a id="bohman(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bohman</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;bohman&#8203;(int&nbsp;m)</pre>
+<div class="block">Returns a symmetric Bohman window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Bohman window.</dd>
+</dl>
+</li>
+</ul>
+<a id="bohman(int,boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>bohman</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;bohman&#8203;(int&nbsp;m,
+                              boolean&nbsp;symmetric)</pre>
+<div class="block">Returns a Bohman window of length M.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - The length of the window.</dd>
+<dd><code>symmetric</code> - If true, generates a symmetric window.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The Bohman window.</dd>
 </dl>
 </li>
 </ul>
