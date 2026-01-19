@@ -22,19 +22,31 @@ jSciPy includes standard window functions matching SciPy's implementation:
 Below are comparisons between jSciPy (Java) and SciPy (Python) outputs for selected windows:
 
 <p align="center">
-  <img src="python/figs/plot_window_bartlett.png" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_bartlett_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_bartlett_light.png">
+    <img alt="Bartlett Window Comparison" src="python/figs/plot_window_bartlett_light.png" width="800">
+  </picture>
   <br>
   <em>Bartlett Window Comparison</em>
 </p>
 
 <p align="center">
-  <img src="python/figs/plot_window_flattop.png" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_flattop_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_flattop_light.png">
+    <img alt="Flat Top Window Comparison" src="python/figs/plot_window_flattop_light.png" width="800">
+  </picture>
   <br>
   <em>Flat Top Window Comparison</em>
 </p>
 
 <p align="center">
-  <img src="python/figs/plot_window_bohman.png" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_bohman_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_bohman_light.png">
+    <img alt="Bohman Window Comparison" src="python/figs/plot_window_bohman_light.png" width="800">
+  </picture>
   <br>
   <em>Bohman Window Comparison</em>
 </p>
