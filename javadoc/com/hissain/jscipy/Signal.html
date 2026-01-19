@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -575,13 +575,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i39" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)">istft</a></span>&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</code></th>
+<td class="colLast">
+<div class="block">Compute the Inverse Short-Time Fourier Transform (ISTFT).</div>
+</td>
+</tr>
+<tr id="i40" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta)</code></th>
 <td class="colLast">
 <div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double,boolean)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta,
@@ -590,7 +597,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lfilter(double%5B%5D,double,double,int)">lfilter</a></span>&#8203;(double[]&nbsp;signal,
        double&nbsp;sampleRate,
@@ -600,7 +607,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Butterworth low-pass filter.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#medfilt(double%5B%5D,int)">medfilt</a></span>&#8203;(double[]&nbsp;signal,
        int&nbsp;kernelSize)</code></th>
@@ -608,7 +615,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a median filter to the signal.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#padSignal(double%5B%5D,int)">padSignal</a></span>&#8203;(double[]&nbsp;x,
          int&nbsp;padlen)</code></th>
@@ -616,7 +623,7 @@ extends java.lang.Object</pre>
 <div class="block">Pads a signal using odd extension at both ends.</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rfft(double%5B%5D)">rfft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
@@ -624,7 +631,7 @@ extends java.lang.Object</pre>
  frequency components (RFFT).</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#savgol_filter(double%5B%5D,int,int)">savgol_filter</a></span>&#8203;(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -633,7 +640,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#savgol_filter(double%5B%5D,int,int,int,double)">savgol_filter</a></span>&#8203;(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -644,7 +651,15 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i48" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sosfilt(double%5B%5D,double%5B%5D%5B%5D)">sosfilt</a></span>&#8203;(double[]&nbsp;signal,
+       double[][]&nbsp;sos)</code></th>
+<td class="colLast">
+<div class="block">Filter data using a series of second-order sections (SOS).</div>
+</td>
+</tr>
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spectrogram(double%5B%5D,double)">spectrogram</a></span>&#8203;(double[]&nbsp;signal,
            double&nbsp;fs)</code></th>
@@ -652,7 +667,14 @@ extends java.lang.Object</pre>
 <div class="block">Computes the spectrogram of a signal.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i50" class="altColor">
+<td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stft(double%5B%5D)">stft</a></span>&#8203;(double[]&nbsp;x)</code></th>
+<td class="colLast">
+<div class="block">Compute the Short-Time Fourier Transform (STFT).</div>
+</td>
+</tr>
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/fft/Welch.WelchResult.html" title="class in com.hissain.jscipy.signal.fft">Welch.WelchResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#welch(double%5B%5D,double,int)">welch</a></span>&#8203;(double[]&nbsp;x,
      double&nbsp;fs,
@@ -1346,6 +1368,25 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="sosfilt(double[],double[][])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sosfilt</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;sosfilt&#8203;(double[]&nbsp;signal,
+                               double[][]&nbsp;sos)</pre>
+<div class="block">Filter data using a series of second-order sections (SOS).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>signal</code> - The input signal.</dd>
+<dd><code>sos</code> - Array of second-order sections of shape [n_sections][6].
+               Each section includes [b0, b1, b2, a0, a1, a2].</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The filtered signal.</dd>
+</dl>
+</li>
+</ul>
 <a id="padSignal(double[],int)">
 <!--   -->
 </a>
@@ -1803,7 +1844,7 @@ extends java.lang.Object</pre>
 <a id="spectrogram(double[],double)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>spectrogram</h4>
 <pre class="methodSignature">public static&nbsp;<a href="signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a>&nbsp;spectrogram&#8203;(double[]&nbsp;signal,
@@ -1821,6 +1862,41 @@ extends java.lang.Object</pre>
 <dd>A <code>SpectrogramResult</code> containing sample frequencies,
          segment times,
          and the spectrogram (power spectral density).</dd>
+</dl>
+</li>
+</ul>
+<a id="stft(double[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stft</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stft&#8203;(double[]&nbsp;x)</pre>
+<div class="block">Compute the Short-Time Fourier Transform (STFT).
+ <p>
+ Uses default parameters: nperseg=256, noverlap=128, Hann window.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - The input signal.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>2D complex array [frequency bins][time frames].</dd>
+</dl>
+</li>
+</ul>
+<a id="istft(com.hissain.jscipy.signal.JComplex[][])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>istft</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;istft&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</pre>
+<div class="block">Compute the Inverse Short-Time Fourier Transform (ISTFT).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>stftMatrix</code> - 2D complex array [frequency bins][time frames].</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Reconstructed time-domain signal.</dd>
 </dl>
 </li>
 </ul>
