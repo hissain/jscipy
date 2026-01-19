@@ -25,7 +25,7 @@ public class PolyTest {
         double[] y = loadData("polyfit_exact_y.txt");
         double[] expectedCoeffs = loadData("polyfit_exact_coeffs.txt");
 
-        double[] actualCoeffs = Poly.polyfit(x, y, 2);
+        double[] actualCoeffs = Math.polyfit(x, y, 2);
 
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Exact coefficients mismatch");
     }
@@ -36,7 +36,7 @@ public class PolyTest {
         double[] expectedY = loadData("polyval_exact_y.txt");
         double[] coeffs = loadData("polyfit_exact_coeffs.txt");
 
-        double[] actualY = Poly.polyval(coeffs, x);
+        double[] actualY = Math.polyval(coeffs, x);
 
         assertArrayEquals(expectedY, actualY, TOLERANCE, "Polyval Exact values mismatch");
     }
@@ -47,7 +47,7 @@ public class PolyTest {
         double[] y = loadData("polyfit_lstsq_y.txt");
         double[] expectedCoeffs = loadData("polyfit_lstsq_coeffs.txt");
 
-        double[] actualCoeffs = Poly.polyfit(x, y, 2);
+        double[] actualCoeffs = Math.polyfit(x, y, 2);
 
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Least Squares coefficients mismatch");
     }
@@ -58,7 +58,7 @@ public class PolyTest {
         double[] expectedY = loadData("polyval_lstsq_y.txt");
         double[] coeffs = loadData("polyfit_lstsq_coeffs.txt");
 
-        double[] actualY = Poly.polyval(coeffs, x);
+        double[] actualY = Math.polyval(coeffs, x);
 
         assertArrayEquals(expectedY, actualY, TOLERANCE, "Polyval Least Squares values mismatch");
     }
@@ -69,12 +69,12 @@ public class PolyTest {
         double[] p = { 3.0, 2.0, 1.0 };
         double[] expected = { 6.0, 2.0 };
 
-        double[] deriv = Poly.polyder(p);
+        double[] deriv = Math.polyder(p);
 
         assertArrayEquals(expected, deriv, TOLERANCE, "Polyder mismatch");
 
         // Test derivative of constant
-        assertArrayEquals(new double[] { 0.0 }, Poly.polyder(new double[] { 5.0 }), TOLERANCE,
+        assertArrayEquals(new double[] { 0.0 }, Math.polyder(new double[] { 5.0 }), TOLERANCE,
                 "Polyder constant mismatch");
     }
 }

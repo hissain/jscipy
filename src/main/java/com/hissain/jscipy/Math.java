@@ -47,4 +47,52 @@ public class Math {
     public static double[] interp1d_cubic(double[] x, double[] y, double[] newX) {
         return new Interpolation().cubic(x, y, newX);
     }
+
+    // --- Polynomials ---
+
+    /**
+     * Least squares polynomial fit.
+     * Fits a polynomial p(x) = p[0] * x**deg + ... + p[deg] of degree deg to points
+     * (x, y).
+     *
+     * @param x      x-coordinates of the sample points.
+     * @param y      y-coordinates of the sample points.
+     * @param degree Degree of the fitting polynomial.
+     * @return Polynomial coefficients, highest power first.
+     */
+    public static double[] polyfit(double[] x, double[] y, int degree) {
+        return com.hissain.jscipy.math.Poly.polyfit(x, y, degree);
+    }
+
+    /**
+     * Evaluate a polynomial at specific values.
+     *
+     * @param p Polynomial coefficients (highest degree first).
+     * @param x Points at which to evaluate.
+     * @return Evaluated values.
+     */
+    public static double[] polyval(double[] p, double[] x) {
+        return com.hissain.jscipy.math.Poly.polyval(p, x);
+    }
+
+    /**
+     * Evaluate a polynomial at a specific value.
+     *
+     * @param p Polynomial coefficients (highest degree first).
+     * @param x Point at which to evaluate.
+     * @return Evaluated value.
+     */
+    public static double polyval(double[] p, double x) {
+        return com.hissain.jscipy.math.Poly.polyval(p, x);
+    }
+
+    /**
+     * Compute the derivative of a polynomial.
+     *
+     * @param p Polynomial coefficients (highest degree first).
+     * @return Derivative polynomial coefficients.
+     */
+    public static double[] polyder(double[] p) {
+        return com.hissain.jscipy.math.Poly.polyder(p);
+    }
 }

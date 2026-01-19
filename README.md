@@ -48,7 +48,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 
 *   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
-*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `stft` / `istft` (Short-Time Fourier Transform), `hilbert` transform.
+*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` (Discrete Cosine Transform), `stft` / `istft` (Short-Time Fourier Transform), `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
@@ -66,6 +66,8 @@ jSciPy is rigorously tested against Python's SciPy using a "Golden Master" appro
 | **SOS Filt** | Second-Order Sections Filter | `1e-16` | ✅ Excellent |
 | **2D Ops** | 2D FFT, 2D Convolution | `1e-16` | ✅ Excellent |
 | **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
+| **DCT** | DCT Type-II, Ortho | `1e-15` to `1e-16` | ✅ Excellent |
+| **Poly** | Polyfit, Val, Der | `1e-14` to `1e-15` | ✅ Excellent |
 | **ODE** | RK4 Solver | `8e-5` | ✅ Good (Method dependent) |
 
 ## Documentation
@@ -263,6 +265,16 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="Cross-Correlation Comparison" src="python/figs/correlate_comparison_light.png">
 </picture>
 
+### DCT Comparison
+
+Comparison of DCT coefficients for a random signal. The error is effectively zero (~1e-27), confirming numerical precision.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/dct_comparison_light.png">
+  <img alt="DCT Comparison" src="python/figs/dct_comparison_light.png">
+</picture>
+
 ### 2D FFT Comparison
 
 <picture>
@@ -329,6 +341,43 @@ public class FilterExample {
         // If you have SOS coefficients (e.g., from Python/SciPy)
         double[][] sos = { /* ... 6 coefficients per section ... */ };
         double[] sosFiltered = Signal.sosfilt(signal, sos);
+    }
+}
+```
+
+### Correlation & Polynomials
+Cross-correlation and polynomial fitting/evaluation.
+
+```java
+import com.hissain.jscipy.Signal;
+import com.hissain.jscipy.Math;
+import com.hissain.jscipy.signal.ConvolutionMode;
+
+public class MathSignalExample {
+    public static void main(String[] args) {
+        // 1. Cross-Correlation
+        double[] x = {1, 2, 3};
+        double[] target = {0, 1, 0.5};
+        // equivalent to convolve(x, reverse(target), mode)
+        double[] corr = Signal.correlate(x, target, ConvolutionMode.FULL);
+        
+        // 2. Discrete Cosine Transform (DCT Type-II)
+        double[] dct = Signal.dct(x);             // Standard
+        double[] dctOrtho = Signal.dct(x, true);  // Ortho-normalized
+        
+        // 3. Polynomials
+        // Fit a 2nd degree polynomial to (x, y) points
+        double[] xPoints = {0, 1, 2, 3};
+        double[] yPoints = {1, 2, 5, 10}; // roughly x^2 + 1
+        
+        // Coefficients: [1.0, 0.0, 1.0] (for x^2 + 1)
+        double[] coeffs = Math.polyfit(xPoints, yPoints, 2);
+        
+        // Evaluate polynomial at new points
+        double[] val = Math.polyval(coeffs, new double[]{4, 5}); 
+        
+        // Compute derivative: [2.0, 0.0] (2x)
+        double[] deriv = Math.polyder(coeffs);
     }
 }
 ```

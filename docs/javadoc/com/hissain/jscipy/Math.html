@@ -121,6 +121,30 @@ loadScripts(document, 'script');</script>
 <div class="block">Performs linear interpolation on the given data points.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#polyder(double%5B%5D)" class="member-name-link">polyder</a><wbr>(double[]&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Compute the derivative of a polynomial.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#polyfit(double%5B%5D,double%5B%5D,int)" class="member-name-link">polyfit</a><wbr>(double[]&nbsp;x,
+ double[]&nbsp;y,
+ int&nbsp;degree)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Least squares polynomial fit.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#polyval(double%5B%5D,double)" class="member-name-link">polyval</a><wbr>(double[]&nbsp;p,
+ double&nbsp;x)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Evaluate a polynomial at a specific value.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#polyval(double%5B%5D,double%5B%5D)" class="member-name-link">polyval</a><wbr>(double[]&nbsp;p,
+ double[]&nbsp;x)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Evaluate a polynomial at specific values.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#resample(double%5B%5D,int)" class="member-name-link">resample</a><wbr>(double[]&nbsp;x,
  int&nbsp;num)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -203,6 +227,68 @@ loadScripts(document, 'script');</script>
 <dd><code>newX</code> - The x-coordinates at which to evaluate the interpolated values.</dd>
 <dt>Returns:</dt>
 <dd>The interpolated values.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="polyfit(double[],double[],int)">
+<h3>polyfit</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">polyfit</span><wbr><span class="parameters">(double[]&nbsp;x,
+ double[]&nbsp;y,
+ int&nbsp;degree)</span></div>
+<div class="block">Least squares polynomial fit.
+ Fits a polynomial p(x) = p[0] * x**deg + ... + p[deg] of degree deg to points
+ (x, y).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - x-coordinates of the sample points.</dd>
+<dd><code>y</code> - y-coordinates of the sample points.</dd>
+<dd><code>degree</code> - Degree of the fitting polynomial.</dd>
+<dt>Returns:</dt>
+<dd>Polynomial coefficients, highest power first.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="polyval(double[],double[])">
+<h3>polyval</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">polyval</span><wbr><span class="parameters">(double[]&nbsp;p,
+ double[]&nbsp;x)</span></div>
+<div class="block">Evaluate a polynomial at specific values.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - Polynomial coefficients (highest degree first).</dd>
+<dd><code>x</code> - Points at which to evaluate.</dd>
+<dt>Returns:</dt>
+<dd>Evaluated values.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="polyval(double[],double)">
+<h3>polyval</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">polyval</span><wbr><span class="parameters">(double[]&nbsp;p,
+ double&nbsp;x)</span></div>
+<div class="block">Evaluate a polynomial at a specific value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - Polynomial coefficients (highest degree first).</dd>
+<dd><code>x</code> - Point at which to evaluate.</dd>
+<dt>Returns:</dt>
+<dd>Evaluated value.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="polyder(double[])">
+<h3>polyder</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">polyder</span><wbr><span class="parameters">(double[]&nbsp;p)</span></div>
+<div class="block">Compute the derivative of a polynomial.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - Polynomial coefficients (highest degree first).</dd>
+<dt>Returns:</dt>
+<dd>Derivative polynomial coefficients.</dd>
 </dl>
 </section>
 </li>

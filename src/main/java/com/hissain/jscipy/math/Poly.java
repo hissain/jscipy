@@ -1,4 +1,4 @@
-package com.hissain.jscipy;
+package com.hissain.jscipy.math;
 
 import org.apache.commons.math3.fitting.PolynomialCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
