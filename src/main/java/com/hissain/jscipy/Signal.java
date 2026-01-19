@@ -17,6 +17,7 @@ import com.hissain.jscipy.signal.filter.Elliptic;
 import com.hissain.jscipy.signal.fft.FFT;
 import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Welch;
+import com.hissain.jscipy.signal.filter.SOSCascade;
 
 /**
  * A facade class providing static utility methods for signal processing,
@@ -453,6 +454,26 @@ public class Signal {
         return Bessel.filtfilt_bandstop(signal, sampleRate, lowCutoff, highCutoff, order);
     }
 
+    // --- SOS Filtering ---
+
+    /**
+     * Filter data using a series of second-order sections (SOS).
+     *
+     * @param signal The input signal.
+     * @param sos    Array of second-order sections of shape [n_sections][6].
+     *               Each section includes [b0, b1, b2, a0, a1, a2].
+     * @return The filtered signal.
+     */
+    public static double[] sosfilt(double[] signal, double[][] sos) {
+        SOSCascade filter = new SOSCascade();
+        filter.setup(sos);
+        double[] output = new double[signal.length];
+        for (int i = 0; i < signal.length; i++) {
+            output[i] = filter.filter(signal[i]);
+        }
+        return output;
+    }
+
     // --- Utilities ---
 
     /**
@@ -781,5 +802,28 @@ public class Signal {
      */
     public static Spectrogram.SpectrogramResult spectrogram(double[] signal, double fs) {
         return new Spectrogram().spectrogram(signal, fs);
+    }
+
+    /**
+     * Compute the Short-Time Fourier Transform (STFT).
+     * <p>
+     * Uses default parameters: nperseg=256, noverlap=128, Hann window.
+     * </p>
+     *
+     * @param x The input signal.
+     * @return 2D complex array [frequency bins][time frames].
+     */
+    public static JComplex[][] stft(double[] x) {
+        return new FFT().stft(x);
+    }
+
+    /**
+     * Compute the Inverse Short-Time Fourier Transform (ISTFT).
+     *
+     * @param stftMatrix 2D complex array [frequency bins][time frames].
+     * @return Reconstructed time-domain signal.
+     */
+    public static double[] istft(JComplex[][] stftMatrix) {
+        return new FFT().istft(stftMatrix);
     }
 }

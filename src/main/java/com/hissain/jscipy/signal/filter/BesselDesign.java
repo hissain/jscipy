@@ -1,7 +1,6 @@
 package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.complex.ComplexUtils;
 import org.apache.commons.math3.analysis.solvers.LaguerreSolver;
 
 /**
@@ -111,15 +110,11 @@ class BesselDesign extends Cascade {
         }
     }
 
-    private int order;
-    private String norm;
+    private final String norm;
 
     public BesselDesign(int order, String norm) {
-        this.order = order;
-        this.norm = norm;
-        if (this.norm == null) {
-            this.norm = "phase";
-        }
+        // order parameter is passed to setupXxx methods, not stored
+        this.norm = (norm != null) ? norm : "phase";
     }
 
     public BesselDesign(int order) {

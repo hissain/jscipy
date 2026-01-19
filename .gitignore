@@ -42,3 +42,6 @@ captures/
 # Python
 __pycache__/
 *.pyc
+
+# Agent
+.gemini/*

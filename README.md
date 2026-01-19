@@ -44,11 +44,10 @@ The table below compares jSciPy’s signal processing and scientific computing f
 
 ## Features
 
-*   **Advanced Filtering**: Butterworth, Chebyshev (I & II), Elliptic, Bessel. Supports **zero-phase (`filtfilt`)** and causal (`lfilter`) modes.
+*   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
-*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `hilbert` transform.
+*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `stft` / `istft` (Short-Time Fourier Transform), `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
-*   **Math**: RK4 ODE Solver, Linear & Cubic Spline Interpolation.
 *   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
 
 ## Accuracy & Precision
@@ -59,7 +58,8 @@ jSciPy is rigorously tested against Python's SciPy using a "Golden Master" appro
 | :--- | :--- | :--- | :--- |
 | **Filters** | Butterworth, Chebyshev, Elliptic, Bessel | `1e-14` to `1e-16` | ✅ Excellent |
 | **FFT** | 1D FFT, RFFT, IFFT | `1e-15` to `1e-16` | ✅ Excellent |
-| **Spectral** | Spectrogram, Welch | `1e-17` to `1e-18` | ✅ Excellent |
+| **Spectral** | Spectrogram, Welch, STFT/ISTFT | `1e-16` to `1e-18` | ✅ Excellent |
+| **SOS Filt** | Second-Order Sections Filter | `1e-16` | ✅ Excellent |
 | **2D Ops** | 2D FFT, 2D Convolution | `1e-16` | ✅ Excellent |
 | **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
 | **ODE** | RK4 Solver | `8e-5` | ✅ Good (Method dependent) |
@@ -266,6 +266,8 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="Hilbert Transform Comparison" src="python/figs/hilbert_comparison_1_light.png">
 </picture>
 
+
+
 ## Usage Examples
 
 ### Digital Filters
@@ -298,6 +300,11 @@ public class FilterExample {
         // Filter Modes: High-pass, Band-pass, Band-stop
         // Available for all filter types (suffix: _highpass, _bandpass, _bandstop)
         double[] bandPass = Signal.filtfilt_bandpass(signal, fs, 8.0, 4.0, order); // Center=10, Width=4
+
+        // 5. Second-Order Sections (SOS) Filtering
+        // If you have SOS coefficients (e.g., from Python/SciPy)
+        double[][] sos = { /* ... 6 coefficients per section ... */ };
+        double[] sosFiltered = Signal.sosfilt(signal, sos);
     }
 }
 ```
@@ -335,9 +342,18 @@ public class SpectralExample {
         // 5. Hilbert Transform (Analytic Signal)
         Hilbert h = new Hilbert();
         JComplex[] analytic = h.hilbert(signal);
+
+        // 6. Short-Time Fourier Transform (STFT)
+        JComplex[][] stft = Signal.stft(signal); // Uses default nperseg=256, noverlap=128
+        
+        // 7. Inverse STFT
+        double[] reconstructed = Signal.istft(stft);
     }
 }
 ```
+
+
+
 
 ### Smoothing & Signal Operations
 Common operations for signal conditioning and feature extraction.
