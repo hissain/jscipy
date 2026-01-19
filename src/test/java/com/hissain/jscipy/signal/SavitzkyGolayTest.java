@@ -2,7 +2,7 @@ package com.hissain.jscipy.signal;
 
 import org.junit.jupiter.api.Test;
 
-import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
+import com.hissain.jscipy.signal.filter.SavitzkyGolay;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class SavitzkyGolayFilterTest {
+public class SavitzkyGolayTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/savgol/";
     private static final double TOLERANCE = 1e-14; // Strict tolerance
@@ -65,7 +65,7 @@ public class SavitzkyGolayFilterTest {
         double[] input = readDataFile("savitzky_golay_smoothing_input.txt");
         double[] expectedOutput = readDataFile("savitzky_golay_smoothing_output.txt");
 
-        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
+        SavitzkyGolay filter = new SavitzkyGolay();
         double[] actualOutput = filter.savgol_filter(input, 11, 3);
 
         writeDataFile("savitzky_golay_smoothing_output_java.txt", actualOutput);
@@ -80,7 +80,7 @@ public class SavitzkyGolayFilterTest {
         double[] input = readDataFile("savitzky_golay_differentiation_input.txt");
         double[] expectedOutput = readDataFile("savitzky_golay_differentiation_output.txt");
 
-        SavitzkyGolayFilter filter = new SavitzkyGolayFilter();
+        SavitzkyGolay filter = new SavitzkyGolay();
         double[] actualOutput = filter.savgol_filter(input, 11, 3, 1, 1.0);
 
         writeDataFile("savitzky_golay_differentiation_output_java.txt", actualOutput);

@@ -8,10 +8,14 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}🚀 Starting Full Project Verification...${NC}"
 
-echo -e "${BLUE}1️⃣  Generating Ground Truth Data (Python)...${NC}"
+echo -e "${BLUE}1️⃣  Cleaning datasets and python figures...${NC}"
+rm -rf datasets/*
+rm -rf python/figs/*
+
+echo -e "${BLUE}2️⃣  Generating Ground Truth Data (Python)...${NC}"
 python3 python/generate_all_data.py
 
-echo -e "${BLUE}2️⃣  Running Java Tests...${NC}"
+echo -e "${BLUE}3️⃣  Running Java Tests...${NC}"
 ./gradlew clean test
 
 echo -e "${BLUE}3️⃣  Generating Comparison Plots...${NC}"

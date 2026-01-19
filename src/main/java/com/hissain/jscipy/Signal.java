@@ -6,7 +6,7 @@ import com.hissain.jscipy.signal.Detrend;
 import com.hissain.jscipy.signal.DetrendType;
 import com.hissain.jscipy.signal.FindPeaks;
 import com.hissain.jscipy.signal.filter.MedFilt;
-import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
+import com.hissain.jscipy.signal.filter.SavitzkyGolay;
 import com.hissain.jscipy.signal.JComplex;
 import com.hissain.jscipy.signal.Windows;
 import com.hissain.jscipy.signal.filter.Bessel;
@@ -739,7 +739,7 @@ public class Signal {
      * @return The filtered data.
      */
     public static double[] savgol_filter(double[] x, int windowLength, int polyOrder, int deriv, double delta) {
-        return new SavitzkyGolayFilter().savgol_filter(x, windowLength, polyOrder, deriv, delta);
+        return new SavitzkyGolay().savgol_filter(x, windowLength, polyOrder, deriv, delta);
     }
 
     /**
@@ -751,7 +751,7 @@ public class Signal {
      * @return The filtered (smoothed) data.
      */
     public static double[] savgol_filter(double[] x, int windowLength, int polyOrder) {
-        return new SavitzkyGolayFilter().savgol_filter(x, windowLength, polyOrder);
+        return new SavitzkyGolay().savgol_filter(x, windowLength, polyOrder);
     }
 
     /**

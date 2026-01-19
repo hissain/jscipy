@@ -430,7 +430,7 @@ Common operations for signal conditioning and feature extraction.
 
 ```java
 import com.hissain.jscipy.Signal;
-import com.hissain.jscipy.signal.filter.SavitzkyGolayFilter;
+import com.hissain.jscipy.signal.filter.SavitzkyGolay;
 import com.hissain.jscipy.signal.filter.MedFilt;
 
 public class OperationsExample {
@@ -438,7 +438,7 @@ public class OperationsExample {
         double[] signal = {/*... data ...*/};
 
         // 1. Savitzky-Golay Smoothing
-        SavitzkyGolayFilter sg = new SavitzkyGolayFilter();
+        SavitzkyGolay sg = new SavitzkyGolay();
         double[] smoothed = sg.savgol_filter(signal, 5, 2); // Window=5, PolyOrder=2
         double[] deriv = sg.savgol_filter(signal, 5, 2, 1, 1.0); // 1st Derivative
 
