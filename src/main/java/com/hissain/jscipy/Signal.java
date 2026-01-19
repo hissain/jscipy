@@ -17,7 +17,7 @@ import com.hissain.jscipy.signal.filter.Elliptic;
 import com.hissain.jscipy.signal.fft.FFT;
 import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Welch;
-import com.hissain.jscipy.signal.filter.SOSCascade;
+import com.hissain.jscipy.signal.filter.SosFilt;
 
 /**
  * A facade class providing static utility methods for signal processing,
@@ -465,13 +465,7 @@ public class Signal {
      * @return The filtered signal.
      */
     public static double[] sosfilt(double[] signal, double[][] sos) {
-        SOSCascade filter = new SOSCascade();
-        filter.setup(sos);
-        double[] output = new double[signal.length];
-        for (int i = 0; i < signal.length; i++) {
-            output[i] = filter.filter(signal[i]);
-        }
-        return output;
+        return SosFilt.sosfilt(signal, sos);
     }
 
     // --- Utilities ---
