@@ -47,24 +47,25 @@ def plot_comparison(input_file, py_real, java_real, py_imag, java_imag, output_i
     axes[2].legend()
 
     plt.tight_layout()
-    style_utils.save_plot(fig, output_image.split('/')[-1]) # Correcting path handling
+    os.makedirs('python/figs/hilbert', exist_ok=True)
+    style_utils.save_plot(fig, f"hilbert/{output_image.split('/')[-1]}") # Correcting path handling
     plt.close(fig)
 
 if __name__ == '__main__':
     plot_comparison(
-        'datasets/hilbert_input_1.txt',
-        'datasets/hilbert_output_1_real.txt',
-        'datasets/hilbert_output_1_real_java.txt',
-        'datasets/hilbert_output_1_imag.txt',
-        'datasets/hilbert_output_1_imag_java.txt',
+        'datasets/hilbert/hilbert_input_1.txt',
+        'datasets/hilbert/hilbert_output_1_real.txt',
+        'datasets/hilbert/hilbert_output_1_real_java.txt',
+        'datasets/hilbert/hilbert_output_1_imag.txt',
+        'datasets/hilbert/hilbert_output_1_imag_java.txt',
         'hilbert_comparison_1.png'
     )
     
     plot_comparison(
-        'datasets/hilbert_input_2.txt',
-        'datasets/hilbert_output_2_real.txt',
-        'datasets/hilbert_output_2_real_java.txt',
-        'datasets/hilbert_output_2_imag.txt',
-        'datasets/hilbert_output_2_imag_java.txt',
+        'datasets/hilbert/hilbert_input_2.txt',
+        'datasets/hilbert/hilbert_output_2_real.txt',
+        'datasets/hilbert/hilbert_output_2_real_java.txt',
+        'datasets/hilbert/hilbert_output_2_imag.txt',
+        'datasets/hilbert/hilbert_output_2_imag_java.txt',
         'hilbert_comparison_2.png'
     )

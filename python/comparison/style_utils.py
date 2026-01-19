@@ -63,6 +63,11 @@ def save_plot(fig, filename):
     output_filename = f"{name}_{theme}{ext}"
     output_path = os.path.join(figs_dir, output_filename)
     
+    # Create subdirectory if filename includes a path (e.g., "dct/dct_comparison.png")
+    output_dir = os.path.dirname(output_path)
+    if output_dir != figs_dir:
+        os.makedirs(output_dir, exist_ok=True)
+    
     # Transparent background for dark mode can be useful, but 'dark_background' style sets a black facecolor.
     # We'll save with the facecolor defined by the style.
     fig.savefig(output_path, dpi=DPI, bbox_inches='tight')

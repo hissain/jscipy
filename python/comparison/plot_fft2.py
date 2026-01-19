@@ -57,13 +57,13 @@ def plot_fft2_comparison(py_real, py_imag, java_real, java_imag, title_suffix):
 
     plt.suptitle(f"2D FFT Comparison ({title_suffix})")
     
-    style_utils.save_plot(fig, f"fft2_comparison_{title_suffix.lower().replace(' ', '_')}.png")
+    style_utils.save_plot(fig, f"fft2/fft2_comparison_{title_suffix.lower().replace(' ', '_')}.png")
     plt.close(fig)
 
 if __name__ == "__main__":
     plot_fft2_comparison(
-        'datasets/fft2_out_real.txt', 'datasets/fft2_out_imag.txt',
-        'datasets/java_fft2_out_real.txt', 'datasets/java_fft2_out_imag.txt',
+        'datasets/fft2/fft2_out_real.txt', 'datasets/fft2/fft2_out_imag.txt',
+        'datasets/fft2/java_fft2_out_real.txt', 'datasets/fft2/java_fft2_out_imag.txt',
         'Forward'
     )
     # Note: Inverse test data is currently just output check, might need update if IFFT comparison desired

@@ -39,9 +39,10 @@ def plot_test(input_filename, python_peaks_filename, java_peaks_filename):
     ax.set_title(f"Peak Detection Comparison")
     
     plt.tight_layout()
+    os.makedirs('python/figs/findpeaks', exist_ok=True)
     output_filename = f"{input_filename.split('/')[-1]}_peaks.png"
-    style_utils.save_plot(fig, output_filename)
+    style_utils.save_plot(fig, f"findpeaks/{output_filename}")
     plt.close(fig)
 
 if __name__ == '__main__':
-    plot_test('datasets/findpeaks_input1.txt', 'datasets/findpeaks_output1.txt', 'datasets/findpeaks_output1_java.txt')
+    plot_test('datasets/findpeaks/findpeaks_input1.txt', 'datasets/findpeaks/findpeaks_output1.txt', 'datasets/findpeaks/findpeaks_output1_java.txt')

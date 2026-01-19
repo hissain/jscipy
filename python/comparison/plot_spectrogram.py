@@ -71,7 +71,7 @@ def plot_spectrogram_comparison(test_name):
         plt.colorbar(im1, ax=axes[1], label='Power/Frequency (dB/Hz)')
         
         plt.tight_layout()
-        style_utils.save_plot(fig, f"{test_name}_comparison.png")
+        style_utils.save_plot(fig, f"spectrogram/{test_name}_comparison.png")
         plt.close(fig)
         
     except FileNotFoundError as e:

@@ -27,12 +27,13 @@ def plot_welch(freq_file, psd_py_file, psd_java_file):
     ax.legend()
     
     plt.tight_layout()
-    style_utils.save_plot(fig, "welch_comparison.png")
+    os.makedirs('python/figs/welch', exist_ok=True)
+    style_utils.save_plot(fig, "welch/welch_comparison.png")
     plt.close(fig)
 
 if __name__ == '__main__':
     plot_welch(
-        'datasets/welch_output_freq1.txt',
-        'datasets/welch_output_psd1.txt',
-        'datasets/welch_output_psd1_java.txt'
+        'datasets/welch/welch_output_freq1.txt',
+        'datasets/welch/welch_output_psd1.txt',
+        'datasets/welch/welch_output_psd1_java.txt'
     )

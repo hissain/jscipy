@@ -33,8 +33,9 @@ def plot_test(input_filename, python_output_filename, java_output_filename):
     ax2.set_title("Difference")
 
     plt.tight_layout()
-    style_utils.save_plot(fig, f"{input_filename.split('/')[-1]}.png")
+    os.makedirs('python/figs/rk4', exist_ok=True)
+    style_utils.save_plot(fig, f"rk4/{input_filename.split('/')[-1]}.png")
     plt.close(fig)
 
 if __name__ == '__main__':
-    plot_test('datasets/rk4_input.txt', 'datasets/rk4_output.txt', 'datasets/rk4_output_java.txt')
+    plot_test('datasets/rk4/rk4_input.txt', 'datasets/rk4/rk4_output.txt', 'datasets/rk4/rk4_output_java.txt')

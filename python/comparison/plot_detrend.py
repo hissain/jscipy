@@ -44,24 +44,25 @@ def plot_comparison(input_file, py_lin, java_lin, py_const, java_const, output_i
     axes[2].legend()
 
     plt.tight_layout()
-    style_utils.save_plot(fig, output_image.split('/')[-1])
+    os.makedirs('python/figs/detrend', exist_ok=True)
+    style_utils.save_plot(fig, f"detrend/{output_image.split('/')[-1]}")
     plt.close(fig)
 
 if __name__ == '__main__':
     plot_comparison(
-        'datasets/detrend_input_1.txt',
-        'datasets/detrend_output_linear_1.txt',
-        'datasets/detrend_output_linear_1_java.txt',
-        'datasets/detrend_output_constant_1.txt',
-        'datasets/detrend_output_constant_1_java.txt',
+        'datasets/detrend/detrend_input_1.txt',
+        'datasets/detrend/detrend_output_linear_1.txt',
+        'datasets/detrend/detrend_output_linear_1_java.txt',
+        'datasets/detrend/detrend_output_constant_1.txt',
+        'datasets/detrend/detrend_output_constant_1_java.txt',
         'detrend_comparison_1.png'
     )
     
     plot_comparison(
-        'datasets/detrend_input_2.txt',
-        'datasets/detrend_output_linear_2.txt',
-        'datasets/detrend_output_linear_2_java.txt',
-        'datasets/detrend_output_constant_2.txt',
-        'datasets/detrend_output_constant_2_java.txt',
+        'datasets/detrend/detrend_input_2.txt',
+        'datasets/detrend/detrend_output_linear_2.txt',
+        'datasets/detrend/detrend_output_linear_2_java.txt',
+        'datasets/detrend/detrend_output_constant_2.txt',
+        'datasets/detrend/detrend_output_constant_2_java.txt',
         'detrend_comparison_2.png'
     )

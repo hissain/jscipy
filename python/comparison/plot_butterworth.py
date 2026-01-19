@@ -40,8 +40,9 @@ def plot_test(input_filename, python_output_filename, java_output_filename, titl
         ax3.set_title("Difference (Python - Java)")
 
         plt.tight_layout()
+        os.makedirs('python/figs/butterworth', exist_ok=True)
         output_filename = f"{input_filename.split('/')[-1]}.png"
-        style_utils.save_plot(fig, output_filename)
+        style_utils.save_plot(fig, f"butterworth/{output_filename}")
         plt.close(fig)
     except Exception as e:
         print(f"Error plotting {input_filename}: {e}")
@@ -57,8 +58,8 @@ if __name__ == '__main__':
 
     for dataset_id, title in datasets:
         plot_test(
-            f'datasets/butterworth_{dataset_id}_input.txt',
-            f'datasets/butterworth_{dataset_id}_output.txt',
-            f'datasets/butterworth_{dataset_id}_output_java.txt',
+            f'datasets/butterworth/butterworth_{dataset_id}_input.txt',
+            f'datasets/butterworth/butterworth_{dataset_id}_output.txt',
+            f'datasets/butterworth/butterworth_{dataset_id}_output_java.txt',
             f"({title})"
         )

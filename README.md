@@ -267,8 +267,6 @@ A seperate demo android application is built on this library that might be helpf
 
 ### DCT Comparison
 
-Comparison of DCT coefficients for a random signal. The error is effectively zero (~1e-27), confirming numerical precision.
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/dct_comparison_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/dct/dct_comparison_light.png">
@@ -300,7 +298,6 @@ Comparison of DCT coefficients for a random signal. The error is effectively zer
     <img alt="Window Functions Comparison" src="python/figs/windows/windows_comparison_light.png" width="800">
   </picture>
   <br>
-  <em>Comparison of Bartlett, Flat Top, and Bohman Windows</em>
 </p>
 
 

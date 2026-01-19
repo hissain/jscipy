@@ -40,11 +40,12 @@ def plot_test(input_filename, python_output_filename, java_output_filename, titl
         ax3.set_title("Difference (Python - Java)")
         
         plt.tight_layout()
+        os.makedirs('python/figs/elliptic', exist_ok=True)
         output_filename = f"{input_filename.split('/')[-1]}.png"
-        style_utils.save_plot(fig, output_filename)
+        style_utils.save_plot(fig, f"elliptic/{output_filename}")
         plt.close(fig)
     except Exception as e:
         print(f"Error plotting {input_filename}: {e}")
 
 if __name__ == '__main__':
-    plot_test('datasets/ellip_input1.txt', 'datasets/ellip_output1.txt', 'datasets/ellip_output1_java.txt', 'Elliptic Filter')
+    plot_test('datasets/elliptic/ellip_input1.txt', 'datasets/elliptic/ellip_output1.txt', 'datasets/elliptic/ellip_output1_java.txt', 'Elliptic Filter')

@@ -41,7 +41,7 @@ def plot_dct_comparison(test_id):
     ax2.legend()
     
     # Save using style_utils to handle theme suffix
-    style_utils.save_plot(fig, "dct_comparison.png")
+    style_utils.save_plot(fig, "dct/dct_comparison.png")
     plt.close(fig)
 
 if __name__ == "__main__":

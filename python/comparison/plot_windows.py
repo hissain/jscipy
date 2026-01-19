@@ -58,7 +58,7 @@ def plot_comparisons():
             ax.set_xlabel('Sample')
 
     plt.tight_layout()
-    out_name = "windows_comparison.png"
+    out_name = "windows/windows_comparison.png"
     style_utils.save_plot(fig, out_name)
     plt.close(fig)
 

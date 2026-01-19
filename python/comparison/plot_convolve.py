@@ -31,11 +31,12 @@ def plot_convolve_test(input_filename, window_filename, python_output_filename, 
     ax2.set_title(f"Convolution Output Comparison")
     
     plt.tight_layout()
-    style_utils.save_plot(fig, "convolve_comparison.png")
+    os.makedirs('python/figs/convolve', exist_ok=True)
+    style_utils.save_plot(fig, "convolve/convolve_comparison.png")
     plt.close(fig)
 
 if __name__ == '__main__':
-    if os.path.exists('datasets/convolve_output_java.txt'):
-        plot_convolve_test('datasets/convolve_input_signal.txt', 'datasets/convolve_input_window.txt', 'datasets/convolve_output.txt', 'datasets/convolve_output_java.txt')
+    if os.path.exists('datasets/convolve/convolve_output_java.txt'):
+        plot_convolve_test('datasets/convolve/convolve_input_signal.txt', 'datasets/convolve/convolve_input_window.txt', 'datasets/convolve/convolve_output.txt', 'datasets/convolve/convolve_output_java.txt')
     else:
-        print("datasets/convolve_output_java.txt not found. Run tests first.")
+        print("datasets/convolve/convolve_output_java.txt not found. Run tests first.")

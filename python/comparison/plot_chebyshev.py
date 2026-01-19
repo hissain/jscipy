@@ -40,12 +40,13 @@ def plot_test(input_filename, python_output_filename, java_output_filename, titl
         ax3.set_title("Difference (Python - Java)")
         
         plt.tight_layout()
+        os.makedirs('python/figs/chebyshev', exist_ok=True)
         output_filename = f"{input_filename.split('/')[-1]}.png"
-        style_utils.save_plot(fig, output_filename)
+        style_utils.save_plot(fig, f"chebyshev/{output_filename}")
         plt.close(fig)
     except Exception as e:
         print(f"Error plotting {input_filename}: {e}")
 
 if __name__ == '__main__':
-    plot_test('datasets/cheby1_input1.txt', 'datasets/cheby1_output1.txt', 'datasets/cheby1_output1_java.txt', 'Chebyshev Type I')
-    plot_test('datasets/cheby2_input1.txt', 'datasets/cheby2_output1.txt', 'datasets/cheby2_output1_java.txt', 'Chebyshev Type II')
+    plot_test('datasets/chebyshev/cheby1_input1.txt', 'datasets/chebyshev/cheby1_output1.txt', 'datasets/chebyshev/cheby1_output1_java.txt', 'Chebyshev Type I')
+    plot_test('datasets/chebyshev/cheby2_input1.txt', 'datasets/chebyshev/cheby2_output1.txt', 'datasets/chebyshev/cheby2_output1_java.txt', 'Chebyshev Type II')

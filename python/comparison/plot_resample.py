@@ -16,9 +16,9 @@ def read_data_file(filename):
 
 def plot_test(test_id):
     try:
-        signal_in = read_data_file(f'datasets/resample_{test_id}_input.txt')
-        resampled_python = read_data_file(f'datasets/resample_{test_id}_output.txt')
-        resampled_java = read_data_file(f'datasets/resample_{test_id}_output_java.txt')
+        signal_in = read_data_file(f'datasets/resample/resample_{test_id}_input.txt')
+        resampled_python = read_data_file(f'datasets/resample/resample_{test_id}_output.txt')
+        resampled_java = read_data_file(f'datasets/resample/resample_{test_id}_output_java.txt')
     except FileNotFoundError as e:
         print(f"Skipping test {test_id}: {e}")
         return
@@ -39,7 +39,8 @@ def plot_test(test_id):
     ax.legend()
 
     plt.tight_layout()
-    style_utils.save_plot(fig, f"resample_comparison_{test_id}.png")
+    os.makedirs('python/figs/resample', exist_ok=True)
+    style_utils.save_plot(fig, f"resample/resample_comparison_{test_id}.png")
     plt.close(fig)
 
 if __name__ == '__main__':

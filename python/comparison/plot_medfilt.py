@@ -30,12 +30,13 @@ def plot_medfilt_comparison(input_file, py_file, java_file):
     ax2.set_title("Filtered Output Comparison")
     
     plt.tight_layout()
-    style_utils.save_plot(fig, "medfilt_comparison.png")
+    os.makedirs('python/figs/medfilt', exist_ok=True)
+    style_utils.save_plot(fig, "medfilt/medfilt_comparison.png")
     plt.close(fig)
 
 if __name__ == "__main__":
     plot_medfilt_comparison(
-        'datasets/medfilt_input.txt',
-        'datasets/medfilt_output.txt',
-        'datasets/medfilt_output_java.txt'
+        'datasets/medfilt/medfilt_input.txt',
+        'datasets/medfilt/medfilt_output.txt',
+        'datasets/medfilt/medfilt_output_java.txt'
     )

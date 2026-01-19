@@ -13,10 +13,10 @@ def read_data_file(filename):
         return np.array([float(line.strip()) for line in f])
 
 def plot_correlate_test(test_id):
-    input1_file = f"datasets/{test_id}_input1.txt"
-    input2_file = f"datasets/{test_id}_input2.txt"
-    expected_file = f"datasets/{test_id}_output.txt"
-    actual_file = f"datasets/{test_id}_output_java.txt"
+    input1_file = f"datasets/correlate/{test_id}_input1.txt"
+    input2_file = f"datasets/correlate/{test_id}_input2.txt"
+    expected_file = f"datasets/correlate/{test_id}_output.txt"
+    actual_file = f"datasets/correlate/{test_id}_output_java.txt"
 
     in1 = read_data_file(input1_file)
     in2 = read_data_file(input2_file)
@@ -42,8 +42,10 @@ def plot_correlate_test(test_id):
     ax2.set_title(f"Correlation Output Comparison")
     
     plt.tight_layout()
+    os.makedirs('python/figs/correlate', exist_ok=True)
     # The style_utils.save_plot will append _light.png or _dark.png automatically
-    style_utils.save_plot(fig, f"correlate_comparison.png")
+    os.makedirs('python/figs/correlate', exist_ok=True)
+    style_utils.save_plot(fig, f"correlate/correlate_comparison.png")
     plt.close(fig)
 
 if __name__ == '__main__':

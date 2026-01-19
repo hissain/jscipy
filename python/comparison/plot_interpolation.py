@@ -11,15 +11,15 @@ def read_data_file(filename):
 
 def plot_test(test_id):
     try:
-        x = read_data_file(f'datasets/interpolation_input_x_{test_id}.txt')
-        y = read_data_file(f'datasets/interpolation_input_y_{test_id}.txt')
-        new_x = read_data_file(f'datasets/interpolation_input_new_x_{test_id}.txt')
+        x = read_data_file(f'datasets/interpolation/interpolation_input_x_{test_id}.txt')
+        y = read_data_file(f'datasets/interpolation/interpolation_input_y_{test_id}.txt')
+        new_x = read_data_file(f'datasets/interpolation/interpolation_input_new_x_{test_id}.txt')
         
-        linear_y_python = read_data_file(f'datasets/interpolation_output_linear_{test_id}.txt')
-        cubic_y_python = read_data_file(f'datasets/interpolation_output_cubic_{test_id}.txt')
+        linear_y_python = read_data_file(f'datasets/interpolation/interpolation_output_linear_{test_id}.txt')
+        cubic_y_python = read_data_file(f'datasets/interpolation/interpolation_output_cubic_{test_id}.txt')
         
-        linear_y_java = read_data_file(f'datasets/interpolation_output_linear_java_{test_id}.txt')
-        cubic_y_java = read_data_file(f'datasets/interpolation_output_cubic_java_{test_id}.txt')
+        linear_y_java = read_data_file(f'datasets/interpolation/interpolation_output_linear_java_{test_id}.txt')
+        cubic_y_java = read_data_file(f'datasets/interpolation/interpolation_output_cubic_java_{test_id}.txt')
     except FileNotFoundError as e:
         print(f"Skipping interpolation {test_id}: {e}")
         return
@@ -42,7 +42,8 @@ def plot_test(test_id):
     ax2.set_title(f"Cubic Interpolation (Test {test_id})")
 
     plt.tight_layout()
-    style_utils.save_plot(fig, f"interpolation_comparison_{test_id}.png")
+    os.makedirs('python/figs/interpolation', exist_ok=True)
+    style_utils.save_plot(fig, f"interpolation/interpolation_comparison_{test_id}.png")
     plt.close(fig)
 
 if __name__ == '__main__':

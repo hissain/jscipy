@@ -10,9 +10,9 @@ def load_data(path):
 
 def plot_comparison():
     try:
-        java_out = load_data('datasets/bessel_output_java.txt')
-        scipy_out = load_data('datasets/bessel_output_scipy.txt')
-        signal_in = load_data('datasets/bessel_input.txt')
+        java_out = load_data('datasets/bessel/bessel_output_java.txt')
+        scipy_out = load_data('datasets/bessel/bessel_output_scipy.txt')
+        signal_in = load_data('datasets/bessel/bessel_input.txt')
     except Exception as e:
         print(f"Error loading data: {e}")
         return
@@ -39,7 +39,8 @@ def plot_comparison():
     ax3.set_title("Difference (Python - Java)")
 
     plt.tight_layout()
-    style_utils.save_plot(fig, 'bessel_comparison.png')
+    os.makedirs('python/figs/bessel', exist_ok=True)
+    style_utils.save_plot(fig, 'bessel/bessel_comparison.png')
     plt.close(fig)
 
 if __name__ == "__main__":

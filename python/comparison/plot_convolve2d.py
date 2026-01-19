@@ -46,10 +46,11 @@ def plot_comparison(py_file, java_file, title_suffix):
 
     plt.suptitle(f"2D Convolution Comparison ({title_suffix})")
     
-    style_utils.save_plot(fig, f"convolve2d_comparison_{title_suffix.lower().replace(' ', '_')}.png")
+    os.makedirs('python/figs/convolve2d', exist_ok=True)
+    style_utils.save_plot(fig, f"convolve2d/convolve2d_comparison_{title_suffix.lower().replace(' ', '_')}.png")
     plt.close(fig)
 
 if __name__ == "__main__":
-    plot_comparison('datasets/conv2d_out_full_1.txt', 'datasets/conv2d_out_full_1_java.txt', 'FULL')
-    plot_comparison('datasets/conv2d_out_same_1.txt', 'datasets/conv2d_out_same_1_java.txt', 'SAME')
-    plot_comparison('datasets/conv2d_out_valid_1.txt', 'datasets/conv2d_out_valid_1_java.txt', 'VALID')
+    plot_comparison('datasets/convolve2d/conv2d_out_full_1.txt', 'datasets/convolve2d/conv2d_out_full_1_java.txt', 'FULL')
+    plot_comparison('datasets/convolve2d/conv2d_out_same_1.txt', 'datasets/convolve2d/conv2d_out_same_1_java.txt', 'SAME')
+    plot_comparison('datasets/convolve2d/conv2d_out_valid_1.txt', 'datasets/convolve2d/conv2d_out_valid_1_java.txt', 'VALID')

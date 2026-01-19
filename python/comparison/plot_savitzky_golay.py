@@ -54,7 +54,7 @@ def plot_test(test_name, title):
     ax2.grid(True)
 
     plt.tight_layout()
-    style_utils.save_plot(fig, f"{test_name}.png")
+    style_utils.save_plot(fig, f"savgol/{test_name}.png")
     plt.close(fig)
 
 if __name__ == '__main__':

@@ -1,5 +1,0 @@
-nperseg=128
-noverlap=64
-nfft=128
-num_freq_bins=65
-num_time_frames=14
