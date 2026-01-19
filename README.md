@@ -10,6 +10,34 @@ It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, 2D Convolution, Savitzky-Golay smoothing, Peak detection.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
+### Window Functions
+
+jSciPy includes standard window functions matching SciPy's implementation:
+*   Bartlett
+*   Triangular
+*   Flat Top
+*   Parzen
+*   Bohman
+
+Below are comparisons between jSciPy (Java) and SciPy (Python) outputs for selected windows:
+
+<p align="center">
+  <img src="python/figs/plot_window_bartlett.png" width="800">
+  <br>
+  <em>Bartlett Window Comparison</em>
+</p>
+
+<p align="center">
+  <img src="python/figs/plot_window_flattop.png" width="800">
+  <br>
+  <em>Flat Top Window Comparison</em>
+</p>
+
+<p align="center">
+  <img src="python/figs/plot_window_bohman.png" width="800">
+  <br>
+  <em>Bohman Window Comparison</em>
+</p>
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
