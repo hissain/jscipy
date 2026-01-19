@@ -10,7 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class CorrelateTest {
 
+    private static final String DATASETS_DIR = "datasets";
     private static final double TOLERANCE = 1e-14;
+
+    private double[] loadData(String filename) throws IOException {
+        try (Stream<String> lines = Files.lines(Paths.get(DATASETS_DIR, filename))) {
+            return lines.mapToDouble(Double::parseDouble).toArray();
+        }
+    }
 
     private void runTest(String testId, ConvolutionMode mode) throws IOException {
         double[] in1 = loadData(testId + "_input1.txt");

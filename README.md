@@ -40,6 +40,8 @@ The table below compares jSciPy’s signal processing and scientific computing f
 | Resampling (`resample`)               | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ✅ Yes                           | ❌ No           | ❌ No           |
 | Signal Padding Utilities (`padSignal`)| ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
 | Configurable Peak Finding (`find_peaks` with prominence etc.) | ✅ Yes                 | ❌ No                   | ✅ Yes                                    | ⚠️ Partial (spectral peaks only)| ❌ No           | ❌ No           |
+| Cross-Correlation (`correlate`)       | ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
+| Polynomials (`polyfit`, `polyval`)    | ✅ Yes (via Commons Math)       | ✅ Yes                  | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
 
 
 ## Features
@@ -48,6 +50,8 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `stft` / `istft` (Short-Time Fourier Transform), `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
+*   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
+*   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
 
 ## Accuracy & Precision
