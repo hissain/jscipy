@@ -22,7 +22,7 @@ def generate_data():
     
     # Save data
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    datasets_dir = os.path.join(script_dir, '../../datasets')
+    datasets_dir = os.path.join(script_dir, '../../datasets/bessel')
     os.makedirs(datasets_dir, exist_ok=True)
     np.savetxt(os.path.join(datasets_dir, 'bessel_input.txt'), x)
     np.savetxt(os.path.join(datasets_dir, 'bessel_output_scipy.txt'), y_scipy)

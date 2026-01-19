@@ -4,7 +4,7 @@ import os
 # Set seed for reproducibility
 np.random.seed(42)
 
-DATA_DIR = "datasets"
+DATA_DIR = "datasets/poly"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 def save_data(filename, data):

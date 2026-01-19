@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EllipticFilterTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/elliptic/";
     private static final double TOLERANCE = 0.1;
 
     private double[] readDataFile(String filename) throws IOException {

@@ -17,8 +17,8 @@ public class BesselFilterTest {
     @Test
     public void testBesselFiltFilt() throws IOException {
         // Load input and expected data
-        double[] input = loadData("datasets/bessel_input.txt");
-        double[] expected = loadData("datasets/bessel_output_scipy.txt");
+        double[] input = loadData("datasets/bessel/bessel_input.txt");
+        double[] expected = loadData("datasets/bessel/bessel_output_scipy.txt");
 
         // Parameters (must match python generation)
         double fs = 1000.0;
@@ -29,7 +29,7 @@ public class BesselFilterTest {
         double[] actual = Signal.bessel_filtfilt(input, fs, cutoff, order);
 
         // Save output for plotting
-        saveData("datasets/bessel_output_java.txt", actual);
+        saveData("datasets/bessel/bessel_output_java.txt", actual);
 
         // Calculate RMSE
         double squaredError = 0;

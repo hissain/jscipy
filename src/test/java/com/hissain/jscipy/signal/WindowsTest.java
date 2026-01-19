@@ -79,7 +79,7 @@ public class WindowsTest {
 
     // --- New Window Functions (Bartlett, Triang, Flattop, Parzen, Bohman) ---
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/windows/";
 
     @Test
     void testBartlett() throws IOException {

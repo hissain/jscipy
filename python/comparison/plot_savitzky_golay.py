@@ -7,7 +7,7 @@ style_utils.apply_style()
 
 # Consistent path handling
 def get_path(filename):
-    return os.path.join("datasets", filename)
+    return os.path.join("datasets/savgol", filename)
 
 def read_data_file(filename):
     path = get_path(filename)

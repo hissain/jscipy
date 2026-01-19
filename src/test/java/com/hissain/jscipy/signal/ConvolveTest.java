@@ -13,14 +13,14 @@ public class ConvolveTest {
 
     @Test
     void testConvolve() throws IOException {
-        double[] signal = LoadTxt.read("datasets/convolve_input_signal.txt");
-        double[] window = LoadTxt.read("datasets/convolve_input_window.txt");
-        double[] expected = LoadTxt.read("datasets/convolve_output.txt");
+        double[] signal = LoadTxt.read("datasets/convolve/convolve_input_signal.txt");
+        double[] window = LoadTxt.read("datasets/convolve/convolve_input_window.txt");
+        double[] expected = LoadTxt.read("datasets/convolve/convolve_output.txt");
 
         Convolve convolve = new Convolve();
         double[] actual = convolve.convolve(signal, window, ConvolutionMode.SAME);
 
-        com.hissain.jscipy.signal.util.LoadTxt.write("datasets/convolve_output_java.txt", actual);
+        com.hissain.jscipy.signal.util.LoadTxt.write("datasets/convolve/convolve_output_java.txt", actual);
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for Convolve: " + rmse);

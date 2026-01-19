@@ -27,7 +27,16 @@ def generate_filter_test_data(filter_type, test_id, order, sample_rate, num_samp
 
     filtered_signal = signal.filtfilt(b, a, signal_data)
 
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
+    output_dir_base = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
+    
+    subdir_map = {
+        'cheby1': 'chebyshev',
+        'cheby2': 'chebyshev',
+        'ellip': 'elliptic'
+    }
+    subdir = subdir_map.get(filter_type, filter_type)
+    output_dir = os.path.join(output_dir_base, subdir)
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

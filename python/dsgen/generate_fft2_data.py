@@ -10,7 +10,7 @@ def save_matrix(filename, matrix):
 
 def generate_data():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    datasets_dir = os.path.join(script_dir, '../../datasets')
+    datasets_dir = os.path.join(script_dir, '../../datasets/fft2')
     os.makedirs(datasets_dir, exist_ok=True)
     
     np.random.seed(42)

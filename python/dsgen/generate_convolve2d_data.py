@@ -10,7 +10,7 @@ def save_matrix(filename, matrix):
 
 def generate_data():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    datasets_dir = os.path.join(script_dir, '../../datasets')
+    datasets_dir = os.path.join(script_dir, '../../datasets/convolve2d')
     os.makedirs(datasets_dir, exist_ok=True)
     
     # Test Case 1: Small Inputs, Mode FULL

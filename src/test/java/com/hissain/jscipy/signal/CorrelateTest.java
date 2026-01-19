@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class CorrelateTest {
 
-    private static final String DATASETS_DIR = "datasets";
+    private static final String DATASETS_DIR = "datasets/correlate";
     private static final double TOLERANCE = 1e-14;
 
     private double[] loadData(String filename) throws IOException {

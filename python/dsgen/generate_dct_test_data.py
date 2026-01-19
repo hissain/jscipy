@@ -5,7 +5,7 @@ import os
 # Set seed for reproducibility
 np.random.seed(42)
 
-DATA_DIR = "datasets"
+DATA_DIR = "datasets/dct"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 def save_data(filename, data):

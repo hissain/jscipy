@@ -14,7 +14,7 @@ import com.hissain.jscipy.signal.DetrendType;
 
 public class DetrendTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/detrend/";
     private static final double TOLERANCE = 2e-14;
 
     private double[] readDataFile(String filename) throws IOException {

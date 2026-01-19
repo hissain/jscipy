@@ -6,7 +6,7 @@ import style_utils
 
 def load_data(filename):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dataset_dir = os.path.join(script_dir, "../../datasets")
+    dataset_dir = os.path.join(script_dir, "../../datasets/windows")
     filepath = os.path.join(dataset_dir, filename)
     if not os.path.exists(filepath):
         print(f"File not found: {filepath}")
@@ -22,7 +22,7 @@ def plot_comparisons():
     ]
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dataset_dir = os.path.join(script_dir, "../../datasets")
+    dataset_dir = os.path.join(script_dir, "../../datasets/windows")
     
     # Create a 3-row, 1-column subplot
     fig, axes = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
@@ -65,7 +65,7 @@ def plot_comparisons():
 if __name__ == "__main__":
     # Ensure figs dir exists
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    figs_dir = os.path.join(script_dir, "../figs")
+    figs_dir = os.path.join(script_dir, "../figs/windows")
     if not os.path.exists(figs_dir):
         os.makedirs(figs_dir)
         

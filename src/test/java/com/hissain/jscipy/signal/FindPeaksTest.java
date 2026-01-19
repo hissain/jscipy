@@ -14,7 +14,7 @@ import com.hissain.jscipy.signal.FindPeaks;
 
 public class FindPeaksTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/findpeaks/";
 
     private double[] readDataFile(String filename) throws IOException {
         List<Double> data = new ArrayList<>();

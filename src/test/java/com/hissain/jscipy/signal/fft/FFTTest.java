@@ -25,11 +25,11 @@ public class FFTTest {
 
     @Test
     public void testFFTData1() throws IOException {
-        double[] input = readData("datasets/fft_input_1.txt");
-        JComplex[] expected = readComplexData("datasets/fft_output_1.txt");
+        double[] input = readData("datasets/fft/fft_input_1.txt");
+        JComplex[] expected = readComplexData("datasets/fft/fft_output_1.txt");
         JComplex[] actual = fft.fft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft_output_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/fft_output_java_1.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -45,11 +45,11 @@ public class FFTTest {
 
     @Test
     public void testFFTData2() throws IOException {
-        double[] input = readData("datasets/fft_input_2.txt");
-        JComplex[] expected = readComplexData("datasets/fft_output_2.txt");
+        double[] input = readData("datasets/fft/fft_input_2.txt");
+        JComplex[] expected = readComplexData("datasets/fft/fft_output_2.txt");
         JComplex[] actual = fft.fft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft_output_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/fft_output_java_2.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -65,11 +65,11 @@ public class FFTTest {
 
     @Test
     public void testRFFTData1() throws IOException {
-        double[] input = readData("datasets/fft_input_1.txt");
-        JComplex[] expected = readComplexData("datasets/rfft_output_1.txt");
+        double[] input = readData("datasets/fft/fft_input_1.txt");
+        JComplex[] expected = readComplexData("datasets/fft/rfft_output_1.txt");
         JComplex[] actual = fft.rfft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/rfft_output_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/rfft_output_java_1.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -85,11 +85,11 @@ public class FFTTest {
 
     @Test
     public void testRFFTData2() throws IOException {
-        double[] input = readData("datasets/fft_input_2.txt");
-        JComplex[] expected = readComplexData("datasets/rfft_output_2.txt");
+        double[] input = readData("datasets/fft/fft_input_2.txt");
+        JComplex[] expected = readComplexData("datasets/fft/rfft_output_2.txt");
         JComplex[] actual = fft.rfft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/rfft_output_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/rfft_output_java_2.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -105,11 +105,11 @@ public class FFTTest {
 
     @Test
     public void testIFFTData1() throws IOException {
-        JComplex[] input = readComplexData("datasets/fft_output_1.txt");
-        JComplex[] expected = readComplexData("datasets/ifft_output_1.txt");
+        JComplex[] input = readComplexData("datasets/fft/fft_output_1.txt");
+        JComplex[] expected = readComplexData("datasets/fft/ifft_output_1.txt");
         JComplex[] actual = fft.ifft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/ifft_output_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/ifft_output_java_1.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -123,11 +123,11 @@ public class FFTTest {
 
     @Test
     public void testIFFTData2() throws IOException {
-        JComplex[] input = readComplexData("datasets/fft_output_2.txt");
-        JComplex[] expected = readComplexData("datasets/ifft_output_2.txt");
+        JComplex[] input = readComplexData("datasets/fft/fft_output_2.txt");
+        JComplex[] expected = readComplexData("datasets/fft/ifft_output_2.txt");
         JComplex[] actual = fft.ifft(input);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/ifft_output_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/ifft_output_java_2.txt")) {
             for (JComplex c : actual) {
                 writer.println(c.getReal() + " " + c.getImaginary());
             }
@@ -141,11 +141,11 @@ public class FFTTest {
 
     @Test
     public void testIRFFTData1() throws IOException {
-        JComplex[] input = readComplexData("datasets/rfft_output_1.txt");
-        double[] expected = readData("datasets/irfft_output_1.txt");
+        JComplex[] input = readComplexData("datasets/fft/rfft_output_1.txt");
+        double[] expected = readData("datasets/fft/irfft_output_1.txt");
         double[] actual = fft.irfft(input, expected.length);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/irfft_output_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/irfft_output_java_1.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }
@@ -159,11 +159,11 @@ public class FFTTest {
 
     @Test
     public void testIRFFTData2() throws IOException {
-        JComplex[] input = readComplexData("datasets/rfft_output_2.txt");
-        double[] expected = readData("datasets/irfft_output_2.txt");
+        JComplex[] input = readComplexData("datasets/fft/rfft_output_2.txt");
+        double[] expected = readData("datasets/fft/irfft_output_2.txt");
         double[] actual = fft.irfft(input, expected.length);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/irfft_output_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/irfft_output_java_2.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }
@@ -177,15 +177,15 @@ public class FFTTest {
 
     @Test
     public void testSTFTData1() throws IOException {
-        double[] input = readData("datasets/stft_input_1.txt");
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_1.txt");
-        JComplex[][] expected = readSTFTData("datasets/stft_output_1.txt",
-                "datasets/stft_output_1_shape.txt");
+        double[] input = readData("datasets/fft/stft_input_1.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_1.txt");
+        JComplex[][] expected = readSTFTData("datasets/fft/stft_output_1.txt",
+                "datasets/fft/stft_output_1_shape.txt");
 
         JComplex[][] actual = fft.stft(input, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", true);
 
-        writeSTFTData("datasets/stft_output_java_1.txt", actual);
+        writeSTFTData("datasets/fft/stft_output_java_1.txt", actual);
 
         double rmse = calculateSTFTRMSE(expected, actual);
         double maxError = calculateSTFTMaxError(expected, actual);
@@ -197,15 +197,15 @@ public class FFTTest {
 
     @Test
     public void testSTFTData2() throws IOException {
-        double[] input = readData("datasets/stft_input_2.txt");
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_2.txt");
-        JComplex[][] expected = readSTFTData("datasets/stft_output_2.txt",
-                "datasets/stft_output_2_shape.txt");
+        double[] input = readData("datasets/fft/stft_input_2.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_2.txt");
+        JComplex[][] expected = readSTFTData("datasets/fft/stft_output_2.txt",
+                "datasets/fft/stft_output_2_shape.txt");
 
         JComplex[][] actual = fft.stft(input, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", true);
 
-        writeSTFTData("datasets/stft_output_java_2.txt", actual);
+        writeSTFTData("datasets/fft/stft_output_java_2.txt", actual);
 
         double rmse = calculateSTFTRMSE(expected, actual);
         double maxError = calculateSTFTMaxError(expected, actual);
@@ -217,15 +217,15 @@ public class FFTTest {
 
     @Test
     public void testSTFTData3() throws IOException {
-        double[] input = readData("datasets/stft_input_3.txt");
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_3.txt");
-        JComplex[][] expected = readSTFTData("datasets/stft_output_3.txt",
-                "datasets/stft_output_3_shape.txt");
+        double[] input = readData("datasets/fft/stft_input_3.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_3.txt");
+        JComplex[][] expected = readSTFTData("datasets/fft/stft_output_3.txt",
+                "datasets/fft/stft_output_3_shape.txt");
 
         JComplex[][] actual = fft.stft(input, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", true);
 
-        writeSTFTData("datasets/stft_output_java_3.txt", actual);
+        writeSTFTData("datasets/fft/stft_output_java_3.txt", actual);
 
         double rmse = calculateSTFTRMSE(expected, actual);
         double maxError = calculateSTFTMaxError(expected, actual);
@@ -237,15 +237,15 @@ public class FFTTest {
 
     @Test
     public void testSTFTData4() throws IOException {
-        double[] input = readData("datasets/stft_input_4.txt");
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_4.txt");
-        JComplex[][] expected = readSTFTData("datasets/stft_output_4.txt",
-                "datasets/stft_output_4_shape.txt");
+        double[] input = readData("datasets/fft/stft_input_4.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_4.txt");
+        JComplex[][] expected = readSTFTData("datasets/fft/stft_output_4.txt",
+                "datasets/fft/stft_output_4_shape.txt");
 
         JComplex[][] actual = fft.stft(input, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", true);
 
-        writeSTFTData("datasets/stft_output_java_4.txt", actual);
+        writeSTFTData("datasets/fft/stft_output_java_4.txt", actual);
 
         double rmse = calculateSTFTRMSE(expected, actual);
         double maxError = calculateSTFTMaxError(expected, actual);
@@ -257,15 +257,15 @@ public class FFTTest {
 
     @Test
     public void testISTFTData1() throws IOException {
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_1.txt");
-        JComplex[][] stftInput = readSTFTData("datasets/stft_output_1.txt",
-                "datasets/stft_output_1_shape.txt");
-        double[] expected = readData("datasets/istft_output_1.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_1.txt");
+        JComplex[][] stftInput = readSTFTData("datasets/fft/stft_output_1.txt",
+                "datasets/fft/stft_output_1_shape.txt");
+        double[] expected = readData("datasets/fft/istft_output_1.txt");
 
         double[] actual = fft.istft(stftInput, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", -1);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/istft_output_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/istft_output_java_1.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }
@@ -279,15 +279,15 @@ public class FFTTest {
 
     @Test
     public void testISTFTData2() throws IOException {
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_2.txt");
-        JComplex[][] stftInput = readSTFTData("datasets/stft_output_2.txt",
-                "datasets/stft_output_2_shape.txt");
-        double[] expected = readData("datasets/istft_output_2.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_2.txt");
+        JComplex[][] stftInput = readSTFTData("datasets/fft/stft_output_2.txt",
+                "datasets/fft/stft_output_2_shape.txt");
+        double[] expected = readData("datasets/fft/istft_output_2.txt");
 
         double[] actual = fft.istft(stftInput, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", -1);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/istft_output_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/istft_output_java_2.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }
@@ -301,15 +301,15 @@ public class FFTTest {
 
     @Test
     public void testISTFTData3() throws IOException {
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_3.txt");
-        JComplex[][] stftInput = readSTFTData("datasets/stft_output_3.txt",
-                "datasets/stft_output_3_shape.txt");
-        double[] expected = readData("datasets/istft_output_3.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_3.txt");
+        JComplex[][] stftInput = readSTFTData("datasets/fft/stft_output_3.txt",
+                "datasets/fft/stft_output_3_shape.txt");
+        double[] expected = readData("datasets/fft/istft_output_3.txt");
 
         double[] actual = fft.istft(stftInput, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", -1);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/istft_output_java_3.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/istft_output_java_3.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }
@@ -323,15 +323,15 @@ public class FFTTest {
 
     @Test
     public void testISTFTData4() throws IOException {
-        Map<String, Integer> params = readSTFTParams("datasets/stft_params_4.txt");
-        JComplex[][] stftInput = readSTFTData("datasets/stft_output_4.txt",
-                "datasets/stft_output_4_shape.txt");
-        double[] expected = readData("datasets/istft_output_4.txt");
+        Map<String, Integer> params = readSTFTParams("datasets/fft/stft_params_4.txt");
+        JComplex[][] stftInput = readSTFTData("datasets/fft/stft_output_4.txt",
+                "datasets/fft/stft_output_4_shape.txt");
+        double[] expected = readData("datasets/fft/istft_output_4.txt");
 
         double[] actual = fft.istft(stftInput, params.get("nperseg"), params.get("noverlap"),
                 params.get("nfft"), null, "zeros", -1);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/istft_output_java_4.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/fft/istft_output_java_4.txt")) {
             for (double v : actual) {
                 writer.println(v);
             }

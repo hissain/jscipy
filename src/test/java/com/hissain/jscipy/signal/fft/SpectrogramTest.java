@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class SpectrogramTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/spectrogram/";
     // Spectrogram values can be large, so relative error might be more appropriate,
     // but for now using a reasonable absolute tolerance given the values.
     private static final double TOLERANCE = 1e-15;

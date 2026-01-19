@@ -14,14 +14,14 @@ public class MedFiltTest {
 
     @Test
     void testMedFilt() throws IOException {
-        double[] input = LoadTxt.read("datasets/medfilt_input.txt");
-        double[] expected = LoadTxt.read("datasets/medfilt_output.txt");
-        int kernelSize = (int) LoadTxt.read("datasets/medfilt_kernel.txt")[0];
+        double[] input = LoadTxt.read("datasets/medfilt/medfilt_input.txt");
+        double[] expected = LoadTxt.read("datasets/medfilt/medfilt_output.txt");
+        int kernelSize = (int) LoadTxt.read("datasets/medfilt/medfilt_kernel.txt")[0];
 
         MedFilt medFilt = new MedFilt();
         double[] actual = medFilt.medfilt(input, kernelSize);
 
-        com.hissain.jscipy.signal.util.LoadTxt.write("datasets/medfilt_output_java.txt", actual);
+        com.hissain.jscipy.signal.util.LoadTxt.write("datasets/medfilt/medfilt_output_java.txt", actual);
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for MedFilt: " + rmse);

@@ -14,13 +14,13 @@ def read_complex_data_file(filename):
     return data[:, 0] + 1j * data[:, 1]
 
 def plot_test(test_id):
-    signal_in = read_data_file(f'datasets/fft_input_{test_id}.txt')
+    signal_in = read_data_file(f'datasets/fft/fft_input_{test_id}.txt')
     
-    fft_python = read_complex_data_file(f'datasets/fft_output_{test_id}.txt')
-    rfft_python = read_complex_data_file(f'datasets/rfft_output_{test_id}.txt')
+    fft_python = read_complex_data_file(f'datasets/fft/fft_output_{test_id}.txt')
+    rfft_python = read_complex_data_file(f'datasets/fft/rfft_output_{test_id}.txt')
     
-    fft_java = read_complex_data_file(f'datasets/fft_output_java_{test_id}.txt')
-    rfft_java = read_complex_data_file(f'datasets/rfft_output_java_{test_id}.txt')
+    fft_java = read_complex_data_file(f'datasets/fft/fft_output_java_{test_id}.txt')
+    rfft_java = read_complex_data_file(f'datasets/fft/rfft_output_java_{test_id}.txt')
 
     # Frequencies for plotting
     n = len(signal_in)
@@ -47,7 +47,10 @@ def plot_test(test_id):
     ax2.legend()
 
     plt.tight_layout()
-    style_utils.save_plot(fig, f"fft_comparison_{test_id}.png")
+    plt.tight_layout()
+    # Create directory if it doesn't exist
+    os.makedirs('python/figs/fft', exist_ok=True)
+    style_utils.save_plot(fig, f"fft/fft_comparison_{test_id}.png")
     plt.close()
 
 if __name__ == '__main__':

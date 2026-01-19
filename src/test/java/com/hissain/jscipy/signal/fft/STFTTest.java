@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class STFTTest {
 
-    private static final String DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String DATA_DIR = System.getProperty("user.dir") + "/datasets/stft/";
 
     @Test
     public void testSTFTMatchSciPy() throws IOException {

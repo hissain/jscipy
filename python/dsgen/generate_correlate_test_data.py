@@ -3,7 +3,7 @@ from scipy import signal
 import os
 
 def save_data(test_id, input1, input2, expected_output):
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets/correlate")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     

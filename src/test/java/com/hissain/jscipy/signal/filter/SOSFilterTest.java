@@ -10,14 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SOSFilterTest {
 
-    private static final String DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String BASE_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String SOS_DIR = BASE_DIR + "sos/";
+    private static final String STFT_DIR = BASE_DIR + "stft/";
 
     @Test
     public void testSOSFiltMatchSciPy() throws IOException {
-        double[] input = LoadTxt.read(DATA_DIR + "stft_input.txt"); // Reusing input signal
-        double[] sosFlat = LoadTxt.read(DATA_DIR + "sos_coeffs.txt");
-        double[] dims = LoadTxt.read(DATA_DIR + "sos_dims.txt");
-        double[] expectedOutput = LoadTxt.read(DATA_DIR + "sos_filtered_output.txt");
+        double[] input = LoadTxt.read(STFT_DIR + "stft_input.txt"); // Reusing input signal
+        double[] sosFlat = LoadTxt.read(SOS_DIR + "sos_coeffs.txt");
+        double[] dims = LoadTxt.read(SOS_DIR + "sos_dims.txt");
+        double[] expectedOutput = LoadTxt.read(SOS_DIR + "sos_filtered_output.txt");
 
         int nSections = (int) dims[0];
         int nCoeffs = (int) dims[1]; // Should be 6

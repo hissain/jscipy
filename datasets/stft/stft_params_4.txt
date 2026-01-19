@@ -1,0 +1,5 @@
+nperseg=256
+noverlap=192
+nfft=512
+num_freq_bins=257
+num_time_frames=17

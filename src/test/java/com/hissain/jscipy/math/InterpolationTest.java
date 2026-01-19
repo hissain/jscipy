@@ -16,14 +16,14 @@ public class InterpolationTest {
 
     @Test
     public void testLinearInterpolationData1() throws IOException {
-        double[] x = readData("datasets/interpolation_input_x_1.txt");
-        double[] y = readData("datasets/interpolation_input_y_1.txt");
-        double[] newX = readData("datasets/interpolation_input_new_x_1.txt");
-        double[] expectedY = readData("datasets/interpolation_output_linear_1.txt");
+        double[] x = readData("datasets/interpolation/interpolation_input_x_1.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_1.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_1.txt");
+        double[] expectedY = readData("datasets/interpolation/interpolation_output_linear_1.txt");
 
         double[] actualY = interpolation.linear(x, y, newX);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_linear_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation/interpolation_output_linear_java_1.txt")) {
             for (double v : actualY) {
                 writer.println(v);
             }
@@ -37,14 +37,14 @@ public class InterpolationTest {
 
     @Test
     public void testLinearInterpolationData2() throws IOException {
-        double[] x = readData("datasets/interpolation_input_x_2.txt");
-        double[] y = readData("datasets/interpolation_input_y_2.txt");
-        double[] newX = readData("datasets/interpolation_input_new_x_2.txt");
-        double[] expectedY = readData("datasets/interpolation_output_linear_2.txt");
+        double[] x = readData("datasets/interpolation/interpolation_input_x_2.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_2.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_2.txt");
+        double[] expectedY = readData("datasets/interpolation/interpolation_output_linear_2.txt");
 
         double[] actualY = interpolation.linear(x, y, newX);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_linear_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation/interpolation_output_linear_java_2.txt")) {
             for (double v : actualY) {
                 writer.println(v);
             }
@@ -58,14 +58,14 @@ public class InterpolationTest {
 
     @Test
     public void testCubicInterpolationData1() throws IOException {
-        double[] x = readData("datasets/interpolation_input_x_1.txt");
-        double[] y = readData("datasets/interpolation_input_y_1.txt");
-        double[] newX = readData("datasets/interpolation_input_new_x_1.txt");
-        double[] expectedY = readData("datasets/interpolation_output_cubic_1.txt");
+        double[] x = readData("datasets/interpolation/interpolation_input_x_1.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_1.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_1.txt");
+        double[] expectedY = readData("datasets/interpolation/interpolation_output_cubic_1.txt");
 
         double[] actualY = interpolation.cubic(x, y, newX);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_cubic_java_1.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation/interpolation_output_cubic_java_1.txt")) {
             for (double v : actualY) {
                 writer.println(v);
             }
@@ -79,14 +79,14 @@ public class InterpolationTest {
 
     @Test
     public void testCubicInterpolationData2() throws IOException {
-        double[] x = readData("datasets/interpolation_input_x_2.txt");
-        double[] y = readData("datasets/interpolation_input_y_2.txt");
-        double[] newX = readData("datasets/interpolation_input_new_x_2.txt");
-        double[] expectedY = readData("datasets/interpolation_output_cubic_2.txt");
+        double[] x = readData("datasets/interpolation/interpolation_input_x_2.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_2.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_2.txt");
+        double[] expectedY = readData("datasets/interpolation/interpolation_output_cubic_2.txt");
 
         double[] actualY = interpolation.cubic(x, y, newX);
 
-        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation_output_cubic_java_2.txt")) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("datasets/interpolation/interpolation_output_cubic_java_2.txt")) {
             for (double v : actualY) {
                 writer.println(v);
             }

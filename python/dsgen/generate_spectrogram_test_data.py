@@ -13,7 +13,7 @@ def generate_spectrogram_data(test_name, data, fs):
 
     
     script_dir = os.path.dirname(__file__)
-    datasets_dir = os.path.abspath(os.path.join(script_dir, '../../datasets'))
+    datasets_dir = os.path.abspath(os.path.join(script_dir, '../../datasets/spectrogram'))
     
     input_filename = f'{test_name}_input.txt'
     output_freqs_filename = f'{test_name}_freqs.txt'

@@ -57,7 +57,7 @@ Add your implementation in `src/main/java/com/hissain/jscipy/...`. Ensure it mir
 ### 2. Generate Ground Truth Data (Python)
 We use Python scripts to generate "correct" input/output data using SciPy.
 *   **Create a script**: `python/dsgen/generate_<feature>_test_data.py`
-*   **Output location**: Save all data to `datasets/` (use relative paths, e.g., `../../datasets`).
+*   **Output location**: Create a subdirectory for your feature: `datasets/<feature>/`. Save all data there.
 *   **Content**: Generate random or representative inputs, run the SciPy function, and save inputs and expected outputs to `.txt` files.
 
 ```python
@@ -67,24 +67,27 @@ import os
 def generate():
     # ... generate data ...
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dataset_dir = os.path.join(script_dir, "../../datasets")
+    # Create feature subdirectory
+    dataset_dir = os.path.join(script_dir, "../../datasets/myfeature")
+    os.makedirs(dataset_dir, exist_ok=True)
+    
     # ... save to dataset_dir ...
 ```
 
 ### 3. Verify with Java Tests
 Create a JUnit test that asserts your Java implementation matches the SciPy data.
 *   **Create a test**: `src/test/java/.../<Feature>Test.java`
-*   **Load Data**: Read the input and expected output from `datasets/`.
+*   **Load Data**: Read the input and expected output from `datasets/<feature>/`.
 *   **Run**: Execute your Java method.
 *   **Assert**: Compare Java output vs SciPy output (typically RMSE < 1e-15).
-*   **Save Output**: Save the Java execution result to `datasets/` (e.g., `myfeature_output_java.txt`) for plotting.
+*   **Save Output**: Save the Java execution result to `datasets/<feature>/` (e.g., `myfeature_output_java.txt`) for plotting.
 
 ### 4. Visualize Comparison
 Create a Python script to verify and visualize the accuracy.
 *   **Create a script**: `python/comparison/plot_<feature>.py`
-*   **Load Data**: Load SciPy output and Java output from `datasets/`.
+*   **Load Data**: Load SciPy output and Java output from `datasets/<feature>/`.
 *   **Plot**: Create a visual comparison (e.g., overlaid signals or difference plot).
-*   **Save Plot**: Save the figure to `python/figs/`.
+*   **Save Plot**: Save the figure to `python/figs/<feature>/`. Ensure the directory exists.
 
 ### 5. Finalize
 *   Run the master verification script to ensure everything works:

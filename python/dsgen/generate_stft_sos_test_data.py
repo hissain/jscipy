@@ -6,9 +6,15 @@ import numpy as np
 import scipy.signal as signal
 import os
 
-output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
+
+stft_dir = os.path.join(base_dir, "stft")
+os.makedirs(stft_dir, exist_ok=True)
+
+sos_dir = os.path.join(base_dir, "sos")
+os.makedirs(sos_dir, exist_ok=True)
+# Point output_dir to stft_dir for STFT section variables
+output_dir = stft_dir
 
 print("Generating STFT/SOS test data...")
 
@@ -49,14 +55,14 @@ np.savetxt(os.path.join(output_dir, "istft_output.txt"), x_rec)
 # Lowpass, Order 4, Cutoff 0.2 (normalized 0-1, so 0.2*Nyquist)
 sos = signal.butter(4, 0.2, output='sos')
 
-np.savetxt(os.path.join(output_dir, "sos_coeffs.txt"), sos.flatten()) # Flattened 2D array
-with open(os.path.join(output_dir, "sos_dims.txt"), 'w') as f:
+np.savetxt(os.path.join(sos_dir, "sos_coeffs.txt"), sos.flatten()) # Flattened 2D array
+with open(os.path.join(sos_dir, "sos_dims.txt"), 'w') as f:
     f.write(f"{sos.shape[0]}\n{sos.shape[1]}\n")
 
 # Filter the signal
 # Using same input x
 sos_filtered = signal.sosfilt(sos, x)
 
-np.savetxt(os.path.join(output_dir, "sos_filtered_output.txt"), sos_filtered)
+np.savetxt(os.path.join(sos_dir, "sos_filtered_output.txt"), sos_filtered)
 
 print("Done generating STFT and SOS data.")

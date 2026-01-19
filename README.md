@@ -111,9 +111,9 @@ A seperate demo android application is built on this library that might be helpf
 ### Butterworth Filter Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/butterworth_simple_o4_input.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/butterworth_simple_o4_input.txt_light.png">
-  <img alt="Butterworth Comparison" src="python/figs/butterworth_simple_o4_input.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/butterworth/butterworth_simple_o4_input.txt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/butterworth/butterworth_simple_o4_input.txt_light.png">
+  <img alt="Butterworth Comparison" src="python/figs/butterworth/butterworth_simple_o4_input.txt_light.png">
 </picture>
 
 ### Chebyshev Filter Comparison
@@ -121,89 +121,89 @@ A seperate demo android application is built on this library that might be helpf
 **Type I:**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/cheby1_input1.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/cheby1_input1.txt_light.png">
-  <img alt="Chebyshev Type I Comparison" src="python/figs/cheby1_input1.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/chebyshev/cheby1_input1.txt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/chebyshev/cheby1_input1.txt_light.png">
+  <img alt="Chebyshev Type I Comparison" src="python/figs/chebyshev/cheby1_input1.txt_light.png">
 </picture>
 
 **Type II:**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/cheby2_input1.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/cheby2_input1.txt_light.png">
-  <img alt="Chebyshev Type II Comparison" src="python/figs/cheby2_input1.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/chebyshev/cheby2_input1.txt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/chebyshev/cheby2_input1.txt_light.png">
+  <img alt="Chebyshev Type II Comparison" src="python/figs/chebyshev/cheby2_input1.txt_light.png">
 </picture>
 
 ### Elliptic Filter Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/ellip_input1.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/ellip_input1.txt_light.png">
-  <img alt="Elliptic Filter Comparison" src="python/figs/ellip_input1.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/elliptic/ellip_input1.txt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/elliptic/ellip_input1.txt_light.png">
+  <img alt="Elliptic Filter Comparison" src="python/figs/elliptic/ellip_input1.txt_light.png">
 </picture>
 
 ### Bessel Filter Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/bessel_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/bessel_comparison_light.png">
-  <img alt="Bessel Filter Comparison" src="python/figs/bessel_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/bessel/bessel_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/bessel/bessel_comparison_light.png">
+  <img alt="Bessel Filter Comparison" src="python/figs/bessel/bessel_comparison_light.png">
 </picture>
 
 ### RK4 Solver Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/rk4_input.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/rk4_input.txt_light.png">
-  <img alt="RK4 Comparison" src="python/figs/rk4_input.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/rk4/rk4_input.txt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/rk4/rk4_input.txt_light.png">
+  <img alt="RK4 Comparison" src="python/figs/rk4/rk4_input.txt_light.png">
 </picture>
 
 ### FindPeaks Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/findpeaks_input1.txt_peaks_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/findpeaks_input1.txt_peaks_light.png">
-  <img alt="FindPeaks Comparison" src="python/figs/findpeaks_input1.txt_peaks_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
+  <img alt="FindPeaks Comparison" src="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
 </picture>
 
 ### Interpolation Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/interpolation_comparison_1_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/interpolation_comparison_1_light.png">
-  <img alt="Interpolation Comparison" src="python/figs/interpolation_comparison_1_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/interpolation/interpolation_comparison_1_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/interpolation/interpolation_comparison_1_light.png">
+  <img alt="Interpolation Comparison" src="python/figs/interpolation/interpolation_comparison_1_light.png">
 </picture>
 
 ### FFT Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/fft_comparison_1_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/fft_comparison_1_light.png">
-  <img alt="FFT Comparison" src="python/figs/fft_comparison_1_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/fft/fft_comparison_1_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/fft/fft_comparison_1_light.png">
+  <img alt="FFT Comparison" src="python/figs/fft/fft_comparison_1_light.png">
 </picture>
 
 ### Welch's Method Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/welch_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/welch_comparison_light.png">
-  <img alt="Welch Comparison" src="python/figs/welch_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/welch/welch_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/welch/welch_comparison_light.png">
+  <img alt="Welch Comparison" src="python/figs/welch/welch_comparison_light.png">
 </picture>
 
 ### Spectrogram Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/spectrogram_chirp_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/spectrogram_chirp_comparison_light.png">
-  <img alt="Spectrogram Comparison" src="python/figs/spectrogram_chirp_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/spectrogram/spectrogram_chirp_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/spectrogram/spectrogram_chirp_comparison_light.png">
+  <img alt="Spectrogram Comparison" src="python/figs/spectrogram/spectrogram_chirp_comparison_light.png">
 </picture>
 
 ### Resample Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/resample_comparison_1_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/resample_comparison_1_light.png">
-  <img alt="Resample Comparison" src="python/figs/resample_comparison_1_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/resample/resample_comparison_1_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/resample/resample_comparison_1_light.png">
+  <img alt="Resample Comparison" src="python/figs/resample/resample_comparison_1_light.png">
 </picture>
 
 ### Savitzky-Golay Comparison
@@ -211,58 +211,58 @@ A seperate demo android application is built on this library that might be helpf
 **Smoothing:**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/savitzky_golay_smoothing_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/savitzky_golay_smoothing_light.png">
-  <img alt="Savitzky-Golay Smoothing" src="python/figs/savitzky_golay_smoothing_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/savgol/savitzky_golay_smoothing_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/savgol/savitzky_golay_smoothing_light.png">
+  <img alt="Savitzky-Golay Smoothing" src="python/figs/savgol/savitzky_golay_smoothing_light.png">
 </picture>
 
 **Differentiation:**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/savitzky_golay_differentiation_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/savitzky_golay_differentiation_light.png">
-  <img alt="Savitzky-Golay Differentiation" src="python/figs/savitzky_golay_differentiation_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/savgol/savitzky_golay_differentiation_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/savgol/savitzky_golay_differentiation_light.png">
+  <img alt="Savitzky-Golay Differentiation" src="python/figs/savgol/savitzky_golay_differentiation_light.png">
 </picture>
 
 ### Detrend Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/detrend_comparison_1_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/detrend_comparison_1_light.png">
-  <img alt="Detrend Comparison" src="python/figs/detrend_comparison_1_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/detrend/detrend_comparison_1_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/detrend/detrend_comparison_1_light.png">
+  <img alt="Detrend Comparison" src="python/figs/detrend/detrend_comparison_1_light.png">
 </picture>
 
 ### MedFilt Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/medfilt_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/medfilt_comparison_light.png">
-  <img alt="MedFilt Comparison" src="python/figs/medfilt_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/medfilt/medfilt_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/medfilt/medfilt_comparison_light.png">
+  <img alt="MedFilt Comparison" src="python/figs/medfilt/medfilt_comparison_light.png">
 </picture>
 
 ### 1D Convolve Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve_comparison_light.png">
-  <img alt="Convolve Comparison" src="python/figs/convolve_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve/convolve_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve/convolve_comparison_light.png">
+  <img alt="Convolve Comparison" src="python/figs/convolve/convolve_comparison_light.png">
 </picture>
 
 
 ### 2D Convolve Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve2d_comparison_full_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve2d_comparison_full_light.png">
-  <img alt="2D Convolve Comparison" src="python/figs/convolve2d_comparison_full_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve2d/convolve2d_comparison_full_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve2d/convolve2d_comparison_full_light.png">
+  <img alt="2D Convolve Comparison" src="python/figs/convolve2d/convolve2d_comparison_full_light.png">
 </picture>
 
 ### Cross-Correlation Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate_comparison_light.png">
-  <img alt="Cross-Correlation Comparison" src="python/figs/correlate_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate/correlate_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate/correlate_comparison_light.png">
+  <img alt="Cross-Correlation Comparison" src="python/figs/correlate/correlate_comparison_light.png">
 </picture>
 
 ### DCT Comparison
@@ -270,34 +270,34 @@ A seperate demo android application is built on this library that might be helpf
 Comparison of DCT coefficients for a random signal. The error is effectively zero (~1e-27), confirming numerical precision.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/dct_comparison_light.png">
-  <img alt="DCT Comparison" src="python/figs/dct_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/dct_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/dct/dct_comparison_light.png">
+  <img alt="DCT Comparison" src="python/figs/dct/dct_comparison_light.png">
 </picture>
 
 ### 2D FFT Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/fft2_comparison_forward_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/fft2_comparison_forward_light.png">
-  <img alt="2D FFT Comparison" src="python/figs/fft2_comparison_forward_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/fft2/fft2_comparison_forward_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/fft2/fft2_comparison_forward_light.png">
+  <img alt="2D FFT Comparison" src="python/figs/fft2/fft2_comparison_forward_light.png">
 </picture>
 
 ### Hilbert Transform Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/hilbert_comparison_1_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/hilbert_comparison_1_light.png">
-  <img alt="Hilbert Transform Comparison" src="python/figs/hilbert_comparison_1_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/hilbert/hilbert_comparison_1_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/hilbert/hilbert_comparison_1_light.png">
+  <img alt="Hilbert Transform Comparison" src="python/figs/hilbert/hilbert_comparison_1_light.png">
 </picture>
 
 ### Window Functions Comparison
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="python/figs/windows_comparison_dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="python/figs/windows_comparison_light.png">
-    <img alt="Window Functions Comparison" src="python/figs/windows_comparison_light.png" width="800">
+    <source media="(prefers-color-scheme: dark)" srcset="python/figs/windows/windows_comparison_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="python/figs/windows/windows_comparison_light.png">
+    <img alt="Window Functions Comparison" src="python/figs/windows/windows_comparison_light.png" width="800">
   </picture>
   <br>
   <em>Comparison of Bartlett, Flat Top, and Bohman Windows</em>

@@ -8,7 +8,7 @@ style_utils.apply_style()
 def read_data_file(filename):
     if not os.path.exists(filename):
          # Try prepending datasets/ if just filename given
-         filename = os.path.join("datasets", filename)
+         filename = os.path.join("datasets/resample", filename)
     
     with open(filename, 'r') as f:
         data = [float(line.strip()) for line in f if line.strip()]

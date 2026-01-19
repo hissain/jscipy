@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RK4SolverTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/rk4/";
     private static final double TOLERANCE = 1e-4;
 
     private double[] readDataFile(String filename) throws IOException {

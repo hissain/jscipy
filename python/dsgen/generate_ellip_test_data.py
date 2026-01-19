@@ -11,7 +11,7 @@ from scipy import signal
 import os
 
 # Create output directory if it doesn't exist
-OUTPUT_DIR = "../../datasets"
+OUTPUT_DIR = "../../datasets/elliptic"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 np.random.seed(42)
 

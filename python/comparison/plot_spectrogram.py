@@ -5,7 +5,7 @@ import style_utils
 
 style_utils.apply_style()
 
-DATASET_DIR = "datasets"
+DATASET_DIR = "datasets/spectrogram"
 
 def read_data_file(filename):
     with open(filename, 'r') as f:

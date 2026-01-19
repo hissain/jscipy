@@ -6,7 +6,7 @@ def generate_resample_data(test_name, data, num):
     resampled_data = signal.resample(data, num)
     
     script_dir = os.path.dirname(__file__)
-    datasets_dir = os.path.abspath(os.path.join(script_dir, '../../datasets'))
+    datasets_dir = os.path.abspath(os.path.join(script_dir, '../../datasets/resample'))
     
     input_filename = f'{test_name}_input.txt'
     output_filename = f'{test_name}_output.txt'

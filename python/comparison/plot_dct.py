@@ -7,8 +7,8 @@ import style_utils
 style_utils.apply_style()
 
 # File paths
-DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
-FIGS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets/dct")
+FIGS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs/dct")
 os.makedirs(FIGS_DIR, exist_ok=True)
 
 def load_data(filename):

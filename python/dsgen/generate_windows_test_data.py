@@ -4,8 +4,8 @@ import os
 
 def save_data(filename, data):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    # datasets is at ../../datasets relative to python/dsgen/
-    dataset_dir = os.path.join(script_dir, "../../datasets")
+    # datasets is at ../../datasets/windows relative to python/dsgen/
+    dataset_dir = os.path.join(script_dir, "../../datasets/windows")
     if not os.path.exists(dataset_dir):
         os.makedirs(dataset_dir)
         

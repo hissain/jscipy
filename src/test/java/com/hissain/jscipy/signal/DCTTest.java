@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class DCTTest {
 
-    private static final String DATASETS_DIR = "datasets";
+    private static final String DATASETS_DIR = "datasets/dct";
     private static final double TOLERANCE = 1e-12;
 
     private double[] loadData(String filename) throws IOException {

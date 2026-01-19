@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class ResampleTest {
 
-    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/";
+    private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/resample/";
     private static final double TOLERANCE = 1e-14; // Tightened after accuracy fix
 
     private double[] readDataFile(String fileName) throws IOException {
