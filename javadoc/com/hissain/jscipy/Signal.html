@@ -513,10 +513,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i31" class="rowColor">
 <td class="colFirst"><code>static int[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D,java.lang.Double,int,java.lang.Double)">find_peaks</a></span>&#8203;(double[]&nbsp;x,
-          java.lang.Double&nbsp;height,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find_peaks(double%5B%5D,double,int,double)">find_peaks</a></span>&#8203;(double[]&nbsp;x,
+          double&nbsp;height,
           int&nbsp;distance,
-          java.lang.Double&nbsp;prominence)</code></th>
+          double&nbsp;prominence)</code></th>
 <td class="colLast">
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </td>
@@ -1427,23 +1427,25 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="find_peaks(double[],java.lang.Double,int,java.lang.Double)">
+<a id="find_peaks(double[],double,int,double)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>find_peaks</h4>
 <pre class="methodSignature">public static&nbsp;int[]&nbsp;find_peaks&#8203;(double[]&nbsp;x,
-                               java.lang.Double&nbsp;height,
+                               double&nbsp;height,
                                int&nbsp;distance,
-                               java.lang.Double&nbsp;prominence)</pre>
+                               double&nbsp;prominence)</pre>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>x</code> - The input signal.</dd>
-<dd><code>height</code> - Minimum height of peaks (optional, null to ignore).</dd>
+<dd><code>height</code> - Minimum height of peaks (optional, <code>Double.NaN</code> to
+                   ignore).</dd>
 <dd><code>distance</code> - Minimum distance between peaks (optional, -1 to ignore).</dd>
-<dd><code>prominence</code> - Minimum prominence of peaks (optional, null to ignore).</dd>
+<dd><code>prominence</code> - Minimum prominence of peaks (optional, <code>Double.NaN</code>
+                   to ignore).</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The indices of found peaks.</dd>
 </dl>
