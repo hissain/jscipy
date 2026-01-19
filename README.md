@@ -35,6 +35,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 | Median Filter (`medfilt`)             | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
 | Detrending                            | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
 | Real-Optimized FFT (`rfft`/`irfft`)   | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
+| STFT / ISTFT Support                  | ✅ Yes (SciPy-like)             | ❌ No                   | ✅ Yes (dedicated classes)                | ⚠️ Partial (internal use only)  | ❌ No           | ❌ No           |
 | 1D Convolution with Modes (`convolve`)| ✅ Yes (with modes)             | ❌ No                   | ⚠️ Partial (convolve1d, limited modes)    | ⚠️ Partial (implied, no modes)  | ❌ No           | ❌ No           |
 | Resampling (`resample`)               | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ✅ Yes                           | ❌ No           | ❌ No           |
 | Signal Padding Utilities (`padSignal`)| ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
