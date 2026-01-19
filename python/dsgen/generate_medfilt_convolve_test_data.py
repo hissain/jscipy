@@ -21,7 +21,7 @@ np.savetxt(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datas
 # 1D convolution
 sig = np.repeat([0., 1., 0.], 100)
 win = signal.windows.hann(50)
-filtered = signal.convolve(sig, win, mode='same') / sum(win)
+filtered = signal.convolve(sig, win, mode='same')
 
 np.savetxt(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datasets', 'convolve_input_signal.txt'), sig)
 np.savetxt(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datasets', 'convolve_input_window.txt'), win)

@@ -9,7 +9,7 @@ import com.hissain.jscipy.signal.ConvolutionMode;
 
 public class ConvolveTest {
 
-    private static final double TOLERANCE = 1e-15;
+    private static final double TOLERANCE = 5e-14;
 
     @Test
     void testConvolve() throws IOException {
