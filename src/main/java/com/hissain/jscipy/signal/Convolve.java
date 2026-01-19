@@ -11,32 +11,65 @@ public class Convolve {
      *
      * @param signal The input signal.
      * @param window The kernel/window to convolve with.
-     * @param mode   The convolution mode (only SAME is currently supported).
+     * @param mode   The convolution mode (FULL, SAME, VALID).
      * @return The convolved signal.
-     * @throws UnsupportedOperationException if mode is not SAME.
      */
     public double[] convolve(double[] signal, double[] window, ConvolutionMode mode) {
-        if (mode != ConvolutionMode.SAME) {
-            throw new UnsupportedOperationException("Only 'same' mode is supported for now.");
-        }
-        int signalLen = signal.length;
-        int windowLen = window.length;
-        double[] result = new double[signalLen];
-        int windowCenter = windowLen / 2;
-        double windowSum = 0;
-        for (double v : window) {
-            windowSum += v;
+        int n = signal.length;
+        int m = window.length;
+        int resultLen;
+
+        switch (mode) {
+            case FULL:
+                resultLen = n + m - 1;
+                break;
+            case VALID:
+                resultLen = Math.max(n, m) - Math.min(n, m) + 1;
+                break;
+            case SAME:
+            default:
+                resultLen = Math.max(n, m);
+                break;
         }
 
-        for (int i = 0; i < signalLen; i++) {
+        double[] result = new double[resultLen];
+
+        // For 'same' mode, we need to determine the starting offset in the full
+        // convolution
+        // effectively centering the result.
+        // Full convolution ranges from k=0 to n+m-2.
+        // Same mode centers around the original signal center.
+
+        // Let's implement full convolution first, then slice? No, let's do direct
+        // indexing.
+        // y[k] = sum_j (signal[j] * window[k-j])
+
+        // Offset shift for result index k to mapped full-convolution index
+        int kShift = 0;
+        if (mode == ConvolutionMode.SAME) {
+            kShift = (m - 1) / 2;
+        } else if (mode == ConvolutionMode.VALID) {
+            kShift = m - 1;
+        }
+
+        for (int i = 0; i < resultLen; i++) {
+            // k is the index in the "full" convolution that corresponds to result[i]
+            int k = i + kShift;
+
             double sum = 0;
-            for (int j = 0; j < windowLen; j++) {
-                int signalIndex = i - windowCenter + j;
-                if (signalIndex >= 0 && signalIndex < signalLen) {
-                    sum += signal[signalIndex] * window[j];
-                }
+            // We want j such that 0 <= j < n AND 0 <= k-j < m
+            // => j >= 0
+            // => j < n
+            // => k-j >= 0 => j <= k
+            // => k-j < m => j > k - m
+
+            int startJ = Math.max(0, k - m + 1);
+            int endJ = Math.min(n - 1, k);
+
+            for (int j = startJ; j <= endJ; j++) {
+                sum += signal[j] * window[k - j];
             }
-            result[i] = sum / windowSum;
+            result[i] = sum;
         }
         return result;
     }

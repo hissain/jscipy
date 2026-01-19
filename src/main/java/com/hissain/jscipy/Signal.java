@@ -778,6 +778,29 @@ public class Signal {
     }
 
     /**
+     * Cross-correlate two 1-dimensional sequences.
+     * <p>
+     * This function computes the correlation as generally defined in signal
+     * processing texts:
+     * z[k] = (x * y)[k] = sum_l x[l] * y[l+k]
+     * <p>
+     * This is equivalent to {@code convolve(in1, reverse(in2), mode)}.
+     *
+     * @param in1  First input signal.
+     * @param in2  Second input signal.
+     * @param mode The convolution mode (FULL, SAME, VALID).
+     * @return Discrete cross-correlation of in1 and in2.
+     */
+    public static double[] correlate(double[] in1, double[] in2, ConvolutionMode mode) {
+        // Reverse in2
+        double[] in2Reversed = new double[in2.length];
+        for (int i = 0; i < in2.length; i++) {
+            in2Reversed[i] = in2[in2.length - 1 - i];
+        }
+        return convolve(in1, in2Reversed, mode);
+    }
+
+    /**
      * Convolves two 2D signals using the specified mode.
      *
      * @param in1  The first input array.
