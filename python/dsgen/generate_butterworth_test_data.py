@@ -56,6 +56,7 @@ def generate_impulse(test_id, order, cutoff, sample_rate, num_samples):
     save_data(test_id, input_signal, filtered_signal)
 
 if __name__ == "__main__":
+    np.random.seed(42)
     sample_rate = 250
     num_samples = 250
     cutoff = 20 # Hz

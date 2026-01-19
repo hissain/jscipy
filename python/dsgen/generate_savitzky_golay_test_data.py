@@ -17,6 +17,7 @@ def generate_savgol_data(test_name, data, window_length, polyorder, deriv=0, del
     print(f"Generated test data for {test_name}")
 
 if __name__ == '__main__':
+    np.random.seed(42)
     # Test 1: Smoothing (deriv=0)
     # Generate noisy signal
     x = np.linspace(0, 2*np.pi, 100)

@@ -13,6 +13,7 @@ import os
 # Create output directory if it doesn't exist
 OUTPUT_DIR = "../../datasets"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+np.random.seed(42)
 
 def generate_test_signal(length=1000, freq1=5, freq2=20, sample_rate=250):
     """Generate a test signal with two frequency components plus noise."""
