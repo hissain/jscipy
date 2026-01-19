@@ -1,56 +1,51 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 import os
-import glob
+import style_utils
 
-# Set style
-plt.style.use('dark_background')
-plt.rcParams['figure.facecolor'] = '#1e1e1e'
-plt.rcParams['axes.facecolor'] = '#1e1e1e'
-plt.rcParams['text.color'] = '#e0e0e0'
-plt.rcParams['axes.labelcolor'] = '#e0e0e0'
-plt.rcParams['xtick.color'] = '#e0e0e0'
-plt.rcParams['ytick.color'] = '#e0e0e0'
-plt.rcParams['grid.color'] = '#444444'
+style_utils.apply_style()
 
-def load_data(filename):
-    return np.loadtxt(filename)
+def read_data_file(filename):
+    if not os.path.exists(filename):
+        print(f"File not found: {filename}")
+        return None
+    with open(filename, 'r') as f:
+        return np.array([float(line.strip()) for line in f])
 
-def plot_comparison(test_id):
-    datasets_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets")
-    figs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../figs")
-    if not os.path.exists(figs_dir):
-        os.makedirs(figs_dir)
+def plot_correlate_test(test_id):
+    input1_file = f"datasets/{test_id}_input1.txt"
+    input2_file = f"datasets/{test_id}_input2.txt"
+    expected_file = f"datasets/{test_id}_output.txt"
+    actual_file = f"datasets/{test_id}_output_java.txt"
 
-    expected_file = os.path.join(datasets_dir, f"{test_id}_output.txt")
-    actual_file = os.path.join(datasets_dir, f"{test_id}_output_java.txt")
-    
-    if not os.path.exists(expected_file) or not os.path.exists(actual_file):
-        print(f"Skipping {test_id}: Missing data files.")
+    in1 = read_data_file(input1_file)
+    in2 = read_data_file(input2_file)
+    expected = read_data_file(expected_file)
+    actual = read_data_file(actual_file)
+
+    if in1 is None or in2 is None or expected is None or actual is None:
         return
 
-    expected = load_data(expected_file)
-    actual = load_data(actual_file)
+    # Plotting
+    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=False, figsize=style_utils.FIG_SIZE_WIDE)
     
-    plt.figure(figsize=(10, 6))
-    plt.plot(expected, 'g-', linewidth=2, label='SciPy (Expected)', alpha=0.7)
-    # Plot actual with a slight offset or different style to see overlap
-    plt.plot(actual, 'r--', linewidth=2, label='Java (Actual)')
+    # Subplot 1: Inputs
+    ax1.plot(in1, label='Input 1 (Signal)', linewidth=1.5, alpha=0.9)
+    ax1.plot(in2, label='Input 2 (Kernel)', linewidth=1.5, alpha=0.9, linestyle='--')
+    ax1.legend()
+    ax1.set_title(f"Cross-Correlation Inputs")
     
-    plt.title(f'Cross-Correlation: {test_id}')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
+    # Subplot 2: Output Comparison
+    ax2.plot(expected, label='Python SciPy', linewidth=2.5, alpha=0.6)
+    ax2.plot(actual, label='Java jSciPy', linestyle=':', linewidth=2.0)
+    ax2.legend()
+    ax2.set_title(f"Correlation Output Comparison")
     
-    output_path = os.path.join(figs_dir, f"correlate_comparison_{test_id}.png")
-    plt.savefig(output_path)
-    plt.close()
-    print(f"Generated plot: {output_path}")
+    plt.tight_layout()
+    # The style_utils.save_plot will append _light.png or _dark.png automatically
+    style_utils.save_plot(fig, f"correlate_comparison.png")
+    plt.close(fig)
 
-if __name__ == "__main__":
-    test_ids = [
-        "correlate_basic_full", "correlate_basic_same", "correlate_basic_valid",
-        "correlate_random_full", "correlate_random_same", "correlate_random_valid"
-    ]
-    
-    for tid in test_ids:
-        plot_comparison(tid)
+if __name__ == '__main__':
+    # Focus on the most representative test case
+    plot_correlate_test('correlate_random_full')
