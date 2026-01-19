@@ -10,46 +10,6 @@ It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, 2D Convolution, Savitzky-Golay smoothing, Peak detection.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
-### Window Functions
-
-jSciPy includes standard window functions matching SciPy's implementation:
-*   Bartlett
-*   Triangular
-*   Flat Top
-*   Parzen
-*   Bohman
-
-Below are comparisons between jSciPy (Java) and SciPy (Python) outputs for selected windows:
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_bartlett_dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_bartlett_light.png">
-    <img alt="Bartlett Window Comparison" src="python/figs/plot_window_bartlett_light.png" width="800">
-  </picture>
-  <br>
-  <em>Bartlett Window Comparison</em>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_flattop_dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_flattop_light.png">
-    <img alt="Flat Top Window Comparison" src="python/figs/plot_window_flattop_light.png" width="800">
-  </picture>
-  <br>
-  <em>Flat Top Window Comparison</em>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="python/figs/plot_window_bohman_dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="python/figs/plot_window_bohman_light.png">
-    <img alt="Bohman Window Comparison" src="python/figs/plot_window_bohman_light.png" width="800">
-  </picture>
-  <br>
-  <em>Bohman Window Comparison</em>
-</p>
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
@@ -306,6 +266,17 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="Hilbert Transform Comparison" src="python/figs/hilbert_comparison_1_light.png">
 </picture>
 
+### Window Functions Comparison
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="python/figs/windows_comparison_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="python/figs/windows_comparison_light.png">
+    <img alt="Window Functions Comparison" src="python/figs/windows_comparison_light.png" width="800">
+  </picture>
+  <br>
+  <em>Comparison of Bartlett, Flat Top, and Bohman Windows</em>
+</p>
 
 
 ## Usage Examples

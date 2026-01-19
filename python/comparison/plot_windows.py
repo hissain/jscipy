@@ -16,50 +16,51 @@ def load_data(filename):
 def plot_comparisons():
     # plot specific representative windows
     targets = [
-        "windows_bartlett_M51_sym_java.txt",
-        "windows_flattop_M51_sym_java.txt",
-        "windows_bohman_M51_sym_java.txt"
+        ("windows_bartlett_M51_sym_java.txt", "Bartlett Window (M=51)"),
+        ("windows_flattop_M51_sym_java.txt", "Flat Top Window (M=51)"),
+        ("windows_bohman_M51_sym_java.txt", "Bohman Window (M=51)")
     ]
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
     dataset_dir = os.path.join(script_dir, "../../datasets")
     
-    for filename in targets:
+    # Create a 3-row, 1-column subplot
+    fig, axes = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
+    
+    if len(targets) != 3:
+        print("Error: Expected exactly 3 targets for this layout")
+        return
+
+    for i, (filename, title) in enumerate(targets):
+        ax = axes[i]
         java_path = os.path.join(dataset_dir, filename)
+        
         if not os.path.exists(java_path):
             print(f"Skipping {filename}, not found.")
             continue
 
         source_filename = filename.replace("_java.txt", ".txt")
-        
-        # Parse info
-        parts = filename.split('_')
-        name = parts[1]
-        length = parts[2]
-        mode = parts[3]
-        
-        title = f"Window Comparison: {name} {length} {mode}"
-        
         java_data = np.loadtxt(java_path)
         source_data = load_data(source_filename)
         
         if source_data is None:
             continue
             
-        fig, ax = plt.subplots(figsize=style_utils.FIG_SIZE_WIDE)
-        ax.plot(source_data, label='SciPy (Golden Master)', linewidth=2, alpha=0.8)
-        ax.plot(java_data, label='jSciPy (Java)', linestyle='--', linewidth=2)
+        ax.plot(source_data, label='SciPy (Golden Master)', linewidth=2.5, alpha=0.7)
+        ax.plot(java_data, label='jSciPy (Java)', linestyle='--', linewidth=2.0)
         ax.set_title(title)
-        ax.set_xlabel('Sample')
         ax.set_ylabel('Amplitude')
-        ax.legend()
+        ax.legend(loc='upper right')
         ax.grid(True)
         
-        # style_utils.save_plot handles directory and theme suffix
-        # We provide the base name *without* suffix
-        out_name = f"plot_window_{name}.png"
-        style_utils.save_plot(fig, out_name)
-        plt.close(fig)
+        # Only set xlabel on bottom plot
+        if i == 2:
+            ax.set_xlabel('Sample')
+
+    plt.tight_layout()
+    out_name = "windows_comparison.png"
+    style_utils.save_plot(fig, out_name)
+    plt.close(fig)
 
 if __name__ == "__main__":
     # Ensure figs dir exists
