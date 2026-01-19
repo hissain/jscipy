@@ -33,10 +33,12 @@ public class FindPeaks {
      * Parameters for customizing the peak finding algorithm.
      */
     public static class PeakParams {
-        /** Required height of peaks. */
-        public Double height = null;
-        /** Required prominence of peaks. */
-        public Double prominence = null;
+        /** Required height of peaks. Use {@code Double.NaN} for no filter (default). */
+        public double height = Double.NaN;
+        /**
+         * Required prominence of peaks. Use {@code Double.NaN} for no filter (default).
+         */
+        public double prominence = Double.NaN;
         /**
          * Required minimal distance between peaks. Use -1 for default (no distance
          * filter).
@@ -59,13 +61,13 @@ public class FindPeaks {
         int[] peaks = findRawPeaks(x);
 
         if (params != null) {
-            if (params.height != null) {
+            if (!Double.isNaN(params.height)) {
                 peaks = filterByHeight(x, peaks, params.height);
             }
             if (params.distance > 0) {
                 peaks = filterByDistance(x, peaks, params.distance);
             }
-            if (params.prominence != null) {
+            if (!Double.isNaN(params.prominence)) {
                 peaks = filterByProminence(x, peaks, params.prominence);
             }
         }

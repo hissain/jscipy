@@ -521,12 +521,14 @@ public class Signal {
      * Finds peaks in a signal with optional parameters.
      *
      * @param x          The input signal.
-     * @param height     Minimum height of peaks (optional, null to ignore).
+     * @param height     Minimum height of peaks (optional, {@code Double.NaN} to
+     *                   ignore).
      * @param distance   Minimum distance between peaks (optional, -1 to ignore).
-     * @param prominence Minimum prominence of peaks (optional, null to ignore).
+     * @param prominence Minimum prominence of peaks (optional, {@code Double.NaN}
+     *                   to ignore).
      * @return The indices of found peaks.
      */
-    public static int[] find_peaks(double[] x, Double height, int distance, Double prominence) {
+    public static int[] find_peaks(double[] x, double height, int distance, double prominence) {
         FindPeaks.PeakParams params = new FindPeaks.PeakParams();
         params.height = height;
         params.distance = distance;
@@ -541,7 +543,7 @@ public class Signal {
      * @return The indices of found peaks.
      */
     public static int[] find_peaks(double[] x) {
-        return find_peaks(x, null, -1, null);
+        return find_peaks(x, Double.NaN, -1, Double.NaN);
     }
 
     // --- Hilbert Transform ---

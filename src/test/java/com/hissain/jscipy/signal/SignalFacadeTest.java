@@ -44,4 +44,24 @@ public class SignalFacadeTest {
 
         assertArrayEquals(expected, actual, 1e-6);
     }
+
+    @Test
+    void testFindPeaks() {
+        double[] signal = { 0, 1, 0, 2, 0, 3, 0 };
+        int[] expected = { 1, 3, 5 };
+
+        // Test convenience method
+        int[] actual1 = Signal.find_peaks(signal);
+        assertArrayEquals(expected, actual1);
+
+        // Test explicit method with NaNs
+        int[] actual2 = Signal.find_peaks(signal, Double.NaN, -1, Double.NaN);
+        assertArrayEquals(expected, actual2);
+
+        // Test with parameters
+        // Height filter: keep only peak > 1.5 (value 2 and 3)
+        int[] expectedHeight = { 3, 5 };
+        int[] actualHeight = Signal.find_peaks(signal, 1.5, -1, Double.NaN);
+        assertArrayEquals(expectedHeight, actualHeight);
+    }
 }
