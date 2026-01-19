@@ -87,7 +87,20 @@ Create a Python script to verify and visualize the accuracy.
 *   **Create a script**: `python/comparison/plot_<feature>.py`
 *   **Load Data**: Load SciPy output and Java output from `datasets/<feature>/`.
 *   **Plot**: Create a visual comparison (e.g., overlaid signals or difference plot).
-*   **Save Plot**: Save the figure to `python/figs/<feature>/`. Ensure the directory exists.
+*   **Save Plot**: Save the figure to `python/figs/<feature>/`. Pass the subdirectory path to `style_utils.save_plot`.
+
+```python
+# Example: python/comparison/plot_myfeature.py
+import style_utils
+import matplotlib.pyplot as plt
+
+# ... plotting code ...
+
+# Saves to python/figs/myfeature/myfeature_comparison.png
+style_utils.save_plot(fig, "myfeature/myfeature_comparison.png")
+```
+
+**Note on Themes**: `style_utils.save_plot` automatically appends `_light.png` or `_dark.png` based on the active theme. The `verify_project.sh` script runs your plot script twice (setting `JSCIPY_PLOT_THEME=light` and `JSCIPY_PLOT_THEME=dark`) to generate both versions. Ensure your script uses `style_utils.apply_style()` at the beginning.
 
 ### 5. Finalize
 *   Run the master verification script to ensure everything works:
