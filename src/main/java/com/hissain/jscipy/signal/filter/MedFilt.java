@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 /**
  * Implements a median filter for signal smoothing.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/medfilt/medfilt_comparison_light.png"
+ * alt="Median Filter Comparison" width="600">
  */
 public class MedFilt {
 

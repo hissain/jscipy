@@ -7,6 +7,10 @@ import com.hissain.jscipy.Signal;
  * <p>
  * Provides static methods for designing and applying Bessel filters,
  * characterized by maximal flatness of the group delay (linear phase response).
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/bessel/bessel_comparison_light.png"
+ * alt="Bessel Comparison" width="600">
  */
 public class Bessel {
 

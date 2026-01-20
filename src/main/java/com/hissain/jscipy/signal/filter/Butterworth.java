@@ -13,6 +13,10 @@ import org.apache.commons.math3.linear.RealVector;
  * as possible
  * in the passband (maximally flat magnitude filter).
  * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
+ * alt="Butterworth Comparison" width="600">
+ * <p>
  * This class provides methods to apply Butterworth low-pass filters to signals
  * using
  * both causal ({@link #filter(double[], double, double, int)}) and

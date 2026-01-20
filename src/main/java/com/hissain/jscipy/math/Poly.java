@@ -4,7 +4,15 @@ import org.apache.commons.math3.fitting.PolynomialCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
 
 /**
- * Polynomial functions matching NumPy/SciPy behavior.
+ * Polynomial Helper Class using Apache Commons Math.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/poly/polyfit_exact.png"
+ * alt="Polyfit Exact" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/poly/polyfit_lstsq.png"
+ * alt="Polyfit Least Squares" width="600">
  */
 public class Poly {
 
