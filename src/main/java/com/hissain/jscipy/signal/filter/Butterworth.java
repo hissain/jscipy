@@ -2,12 +2,9 @@ package com.hissain.jscipy.signal.filter;
 
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.ArrayRealVector;
-import org.apache.commons.math3.linear.LUDecomposition;
+
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
-
-import com.hissain.jscipy.signal.filter.Biquad;
-import com.hissain.jscipy.signal.filter.ButterworthDesign;
 
 /**
  * Implements Butterworth filter operations.
@@ -229,7 +226,11 @@ public class Butterworth {
 
     /**
      * Applies a biquad filter section to a signal.
-     * 
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
+     * alt="Butterworth Multitone" width="600">
+     *
      * @param signal The input signal.
      * @param b      The numerator coefficients of the filter.
      * @param a      The denominator coefficients of the filter.

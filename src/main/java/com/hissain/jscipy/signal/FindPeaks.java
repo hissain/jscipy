@@ -1,10 +1,13 @@
 package com.hissain.jscipy.signal;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 /**
  * A utility class for finding peaks in a signal.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png"
+ * alt="FindPeaks Comparison" width="600">
  */
 public class FindPeaks {
 

@@ -3,6 +3,10 @@ package com.hissain.jscipy.math;
 /**
  * Runge-Kutta 4th Order Method for solving ODEs
  * Usage similar to Python's scipy.integrate.odeint
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_input.txt_light.png"
+ * alt="RK4Solver Comparison" width="600">
  */
 public class RK4Solver {
 

@@ -2,6 +2,14 @@ package com.hissain.jscipy.signal;
 
 /**
  * Implementation for removing trends from signals.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/detrend/detrend_comparison_1_light.png"
+ * alt="Detrend Comparison 1" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/detrend/detrend_comparison_2_light.png"
+ * alt="Detrend Comparison 2" width="600">
  */
 public class Detrend {
 

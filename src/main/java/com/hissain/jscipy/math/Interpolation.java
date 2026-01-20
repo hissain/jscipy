@@ -8,6 +8,14 @@ import java.util.Arrays;
 /**
  * Helper class for 1D interpolation operations.
  * Supports Linear and Cubic Spline interpolation.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png"
+ * alt="Interpolation Comparison 1" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_2_light.png"
+ * alt="Interpolation Comparison 2" width="600">
  */
 public class Interpolation {
 

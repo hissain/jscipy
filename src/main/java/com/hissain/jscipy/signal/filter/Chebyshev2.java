@@ -15,6 +15,10 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * This class provides static methods for designing and applying Chebyshev Type
  * II filters.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/chebyshev/cheby2_input1.txt_light.png"
+ * alt="Chebyshev Type II Comparison" width="600">
  */
 public class Chebyshev2 {
 

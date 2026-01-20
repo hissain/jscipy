@@ -779,6 +779,10 @@ public class Signal {
      * z[k] = (x * y)[k] = sum_l x[l] * y[l+k]
      * <p>
      * This is equivalent to {@code convolve(in1, reverse(in2), mode)}.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate/correlate_comparison_light.png"
+     * alt="CrossCorrelation Comparison" width="600">
      *
      * @param in1  First input signal.
      * @param in2  Second input signal.
@@ -815,7 +819,8 @@ public class Signal {
      *
      * @param signal The input signal (time series).
      * @param fs     The sampling frequency of the signal in Hz.
-     * @return A {@link SpectrogramResult} containing sample frequencies,
+     * @return A {@link Spectrogram.SpectrogramResult} containing sample
+     *         frequencies,
      *         segment times,
      *         and the spectrogram (power spectral density).
      */
@@ -849,6 +854,10 @@ public class Signal {
     /**
      * Compute the 1D Discrete Cosine Transform (Type-II).
      * Matches scipy.fft.dct(x, type=2, norm=None).
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png"
+     * alt="DCT Comparison" width="600">
      *
      * @param x The input signal.
      * @return The transform coefficients (unnormalized).

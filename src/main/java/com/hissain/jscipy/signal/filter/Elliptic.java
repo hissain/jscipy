@@ -11,6 +11,10 @@ import org.apache.commons.math3.linear.RealVector;
  * 
  * Elliptic filters offer the steepest rolloff for a given filter order
  * by allowing ripple in both the passband and stopband.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/elliptic/ellip_input1.txt_light.png"
+ * alt="Elliptic Comparison" width="600">
  */
 public class Elliptic {
 

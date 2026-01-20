@@ -9,6 +9,10 @@ import com.hissain.jscipy.signal.Windows;
 /**
  * Implementation of Spectrogram using Short-Time Fourier Transform.
  * Matches scipy.signal.spectrogram behavior.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/spectrogram/spectrogram_chirp_comparison_light.png"
+ * alt="Spectrogram Comparison" width="600">
  */
 public class Spectrogram {
 

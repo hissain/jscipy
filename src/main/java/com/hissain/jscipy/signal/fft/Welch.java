@@ -6,6 +6,10 @@ import com.hissain.jscipy.signal.Windows;
 
 /**
  * Implementation of Welch's method for spectral density estimation.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/welch/welch_comparison_light.png"
+ * alt="Welch Comparison" width="600">
  */
 public class Welch {
 

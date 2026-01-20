@@ -1,7 +1,11 @@
 package com.hissain.jscipy.signal;
 
 /**
- * Utility class for window functions.
+ * Collection of window functions.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/windows/windows_comparison_light.png"
+ * alt="Windows Comparison" width="600">
  */
 public class Windows {
 

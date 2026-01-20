@@ -9,6 +9,10 @@ public class MedFilt {
 
     /**
      * Applies a median filter to the signal.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/medfilt/medfilt_comparison_light.png"
+     * alt="Median Filter Comparison" width="600">
      *
      * @param signal     The input signal.
      * @param kernelSize The size of the kernel (must be odd).

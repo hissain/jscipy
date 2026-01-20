@@ -3,6 +3,22 @@ package com.hissain.jscipy.signal;
 /**
  * Utility class for signal convolution.
  * Provides 1D and 2D convolution operations with various boundary modes.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve/convolve_comparison_light.png"
+ * alt="Convolve Comparison" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_full_light.png"
+ * alt="Convolve2D Comparison Full" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_same_light.png"
+ * alt="Convolve2D Comparison Same" width="600">
+ * <br>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_valid_light.png"
+ * alt="Convolve2D Comparison Valid" width="600">
  */
 public class Convolve {
 

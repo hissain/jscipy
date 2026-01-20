@@ -6,6 +6,13 @@ import org.apache.commons.math3.linear.*;
  * Implements Savitzky-Golay filter for data smoothing and differentiation.
  * Based on the method described in Numerical Recipes and SciPy's
  * implementation.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/savgol/savitzky_golay_smoothing_light.png"
+ * alt="Smoothing Comparison" width="400">
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/savgol/savitzky_golay_differentiation_light.png"
+ * alt="Differentiation Comparison" width="400">
  */
 public class SavitzkyGolay {
 

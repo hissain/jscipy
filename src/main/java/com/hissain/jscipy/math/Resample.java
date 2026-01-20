@@ -18,8 +18,17 @@ public class Resample {
     }
 
     /**
-     * Resamples a signal to a specific number of samples using the Fourier method.
-     *
+     * Resample a signal to a different length using the FFT method.
+     * Matches scipy.signal.resample.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/resample/resample_comparison_1_light.png"
+     * alt="Resample Comparison 1" width="600">
+     * <br>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/resample/resample_comparison_2_light.png"
+     * alt="Resample Comparison 2" width="600">
+     * 
      * @param signal The input signal.
      * @param num    The desired number of samples in the output.
      * @return The resampled signal.

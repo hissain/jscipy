@@ -14,6 +14,10 @@ import java.util.Arrays;
  * A class for performing Fast Fourier Transforms (FFT) and Short-Time Fourier
  * Transforms (STFT).
  * This class uses the Apache Commons Math library for FFT calculations.
+ * <p>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fft/fft_comparison_1_light.png"
+ * alt="FFT Comparison" width="600">
  */
 public class FFT {
 
@@ -138,6 +142,10 @@ public class FFT {
 
     /**
      * Computes the 2D FFT of a real-valued 2D array.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fft2/fft2_comparison_forward_light.png"
+     * alt="FFT2 Comparison" width="600">
      * 
      * @param input The 2D input array [rows][cols].
      * @return The 2D complex-valued FFT.
