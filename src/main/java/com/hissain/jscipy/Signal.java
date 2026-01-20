@@ -14,6 +14,7 @@ import com.hissain.jscipy.signal.filter.Butterworth;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 import com.hissain.jscipy.signal.filter.Chebyshev2;
 import com.hissain.jscipy.signal.filter.Elliptic;
+import com.hissain.jscipy.signal.fft.DCT;
 import com.hissain.jscipy.signal.fft.FFT;
 import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Welch;
@@ -883,52 +884,6 @@ public class Signal {
      * @return The transformed coefficients array of length N.
      */
     public static double[] dct(double[] x, boolean ortho) {
-        int N = x.length;
-        if (N == 0)
-            return new double[0];
-
-        // 1. Reorder signal to length N for FFT
-        // v[n] = x[2n]
-        // v[N-1-n] = x[2n+1]
-        double[] v = new double[N];
-        for (int n = 0; n < (N + 1) / 2; n++) {
-            v[n] = x[2 * n];
-            if (2 * n + 1 < N) {
-                v[N - 1 - n] = x[2 * n + 1];
-            }
-        }
-
-        // 2. Compute FFT of v
-        JComplex[] V = fft(v);
-
-        // 3. Compute DCT coefficients
-        // X[k] = 2 * Re( V[k] * exp(-j * pi * k / (2N)) )
-        double[] X = new double[N];
-        double scale = 2.0;
-
-        for (int k = 0; k < N; k++) {
-            double theta = -java.lang.Math.PI * k / (2.0 * N);
-            // V[k] = a + jb
-            // exp = cos(theta) + j*sin(theta)
-            // Re( (a+jb)(c+jd) ) = ac - bd
-            double a = V[k].real;
-            double b = V[k].imag;
-            double c = java.lang.Math.cos(theta);
-            double d = java.lang.Math.sin(theta);
-
-            X[k] = scale * (a * c - b * d);
-        }
-
-        // 4. Apply Ortho Normalization if requested
-        if (ortho) {
-            double s0 = java.lang.Math.sqrt(1.0 / (4.0 * N));
-            double sk = java.lang.Math.sqrt(1.0 / (2.0 * N));
-            X[0] *= s0; // Remove factor of 2 implicitly by scaling
-            for (int k = 1; k < N; k++) {
-                X[k] *= sk;
-            }
-        }
-
-        return X;
+        return new DCT().dct(x, ortho);
     }
 }
