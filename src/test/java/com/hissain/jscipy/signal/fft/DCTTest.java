@@ -1,6 +1,6 @@
-package com.hissain.jscipy.signal;
+package com.hissain.jscipy.signal.fft;
 
-import com.hissain.jscipy.Signal;
+import com.hissain.jscipy.signal.fft.DCT;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -45,7 +45,7 @@ public class DCTTest {
         double[] x = loadData("dct_basic_input.txt");
         double[] expected = loadData("dct_basic_output.txt");
 
-        double[] actual = Signal.dct(x);
+        double[] actual = new DCT().dct(x);
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Basic RMSE: %.6e%n", rmse);
@@ -58,7 +58,7 @@ public class DCTTest {
         double[] x = loadData("dct_random_even_input.txt");
         double[] expected = loadData("dct_random_even_output.txt");
 
-        double[] actual = Signal.dct(x);
+        double[] actual = new DCT().dct(x);
 
         saveData("dct_random_even_output_java.txt", actual);
 
@@ -73,7 +73,7 @@ public class DCTTest {
         double[] x = loadData("dct_random_odd_input.txt");
         double[] expected = loadData("dct_random_odd_output.txt");
 
-        double[] actual = Signal.dct(x);
+        double[] actual = new DCT().dct(x);
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Random Odd RMSE: %.6e%n", rmse);
@@ -86,7 +86,7 @@ public class DCTTest {
         double[] x = loadData("dct_ortho_input.txt");
         double[] expected = loadData("dct_ortho_output.txt");
 
-        double[] actual = Signal.dct(x, true); // Use ortho
+        double[] actual = new DCT().dct(x, true); // Use ortho
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Ortho RMSE: %.6e%n", rmse);
