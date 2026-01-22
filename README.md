@@ -75,7 +75,7 @@ jSciPy is rigorously tested against Python's SciPy using a "Golden Master" appro
 | **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
 | **DCT** | DCT Type-II, Ortho | `1e-15` to `1e-16` | ✅ Excellent |
 | **Poly** | Polyfit, Val, Der | `1e-14` to `1e-15` | ✅ Excellent |
-| **ODE** | RK4 Solver | `8e-5` | ✅ Good (Method dependent) |
+| **ODE** | RK4 Solver | `5e-13` | ✅ Excellent |
 
 ## Documentation
 
@@ -160,9 +160,9 @@ A seperate demo android application is built on this library that might be helpf
 ### RK4 Solver Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/rk4/rk4_input.txt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/rk4/rk4_input.txt_light.png">
-  <img alt="RK4 Comparison" src="python/figs/rk4/rk4_input.txt_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/rk4/rk4_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/rk4/rk4_comparison_light.png">
+  <img alt="RK4 Comparison" src="python/figs/rk4/rk4_comparison_light.png">
 </picture>
 
 ### FindPeaks Comparison

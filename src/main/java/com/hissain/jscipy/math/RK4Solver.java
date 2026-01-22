@@ -5,7 +5,7 @@ package com.hissain.jscipy.math;
  * Usage similar to Python's scipy.integrate.odeint
  * <p>
  * <img src=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_input.txt_light.png"
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_comparison_light.png"
  * alt="RK4Solver Comparison" width="600">
  */
 public class RK4Solver {
@@ -82,7 +82,8 @@ public class RK4Solver {
     }
 
     /**
-     * Solve ODE using RK4 method with specified time points
+     * Solve ODE using RK4 method with specified time points.
+     * Uses internal sub-stepping for improved accuracy when time points are sparse.
      * 
      * @param f     The differential equation dy/dt = f(t, y)
      * @param y0    Initial condition
@@ -90,20 +91,43 @@ public class RK4Solver {
      * @return Solution object containing t and y arrays
      */
     public Solution solve(DifferentialEquation f, double y0, double[] tSpan) {
+        return solve(f, y0, tSpan, 100); // Default 100 sub-steps for high accuracy
+    }
+
+    /**
+     * Solve ODE using RK4 method with specified time points and sub-stepping.
+     * 
+     * @param f        The differential equation dy/dt = f(t, y)
+     * @param y0       Initial condition
+     * @param tSpan    Array of time points where solution is desired
+     * @param subSteps Number of internal steps between each user-specified time
+     *                 point.
+     *                 Higher values give better accuracy. Use 1 for no
+     *                 sub-stepping.
+     * @return Solution object containing t and y arrays
+     */
+    public Solution solve(DifferentialEquation f, double y0, double[] tSpan, int subSteps) {
         int n = tSpan.length;
         double[] y = new double[n];
         y[0] = y0;
 
         for (int i = 0; i < n - 1; i++) {
             double t = tSpan[i];
-            double h = tSpan[i + 1] - tSpan[i];
+            double yVal = y[i];
+            double intervalH = (tSpan[i + 1] - tSpan[i]) / subSteps;
 
-            double k1 = h * f.compute(t, y[i]);
-            double k2 = h * f.compute(t + h / 2.0, y[i] + k1 / 2.0);
-            double k3 = h * f.compute(t + h / 2.0, y[i] + k2 / 2.0);
-            double k4 = h * f.compute(t + h, y[i] + k3);
+            // Perform sub-steps for improved accuracy
+            for (int s = 0; s < subSteps; s++) {
+                double k1 = intervalH * f.compute(t, yVal);
+                double k2 = intervalH * f.compute(t + intervalH / 2.0, yVal + k1 / 2.0);
+                double k3 = intervalH * f.compute(t + intervalH / 2.0, yVal + k2 / 2.0);
+                double k4 = intervalH * f.compute(t + intervalH, yVal + k3);
 
-            y[i + 1] = y[i] + (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
+                yVal = yVal + (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
+                t += intervalH;
+            }
+
+            y[i + 1] = yVal;
         }
 
         return new Solution(tSpan, y);
