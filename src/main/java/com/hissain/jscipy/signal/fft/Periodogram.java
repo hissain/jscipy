@@ -56,7 +56,7 @@ public class Periodogram {
      * @param x       The input signal.
      * @param fs      The sampling frequency in Hz.
      * @param window  The window function to apply. If null, uses Hann window.
-     * @param nfft    The FFT size. If <= 0, uses signal length.
+     * @param nfft    The FFT size. If &lt;= 0, uses signal length.
      * @param detrend Detrending type to apply before windowing. Null for none.
      * @return PeriodogramResult containing frequencies and PSD.
      */
