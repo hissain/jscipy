@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":10,"i2":10};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,7 +136,7 @@ extends java.lang.Object</pre>
 <div class="block">Runge-Kutta 4th Order Method for solving ODEs
  Usage similar to Python's scipy.integrate.odeint
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_input.txt_light.png" alt="RK4Solver Comparison" width="600"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_comparison_light.png" alt="RK4Solver Comparison" width="600"></div>
 </li>
 </ul>
 </div>
@@ -223,10 +223,20 @@ extends java.lang.Object</pre>
      double&nbsp;y0,
      double[]&nbsp;tSpan)</code></th>
 <td class="colLast">
-<div class="block">Solve ODE using RK4 method with specified time points</div>
+<div class="block">Solve ODE using RK4 method with specified time points.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="RK4Solver.Solution.html" title="class in com.hissain.jscipy.math">RK4Solver.Solution</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#solve(com.hissain.jscipy.math.RK4Solver.DifferentialEquation,double,double%5B%5D,int)">solve</a></span>&#8203;(<a href="RK4Solver.DifferentialEquation.html" title="interface in com.hissain.jscipy.math">RK4Solver.DifferentialEquation</a>&nbsp;f,
+     double&nbsp;y0,
+     double[]&nbsp;tSpan,
+     int&nbsp;subSteps)</code></th>
+<td class="colLast">
+<div class="block">Solve ODE using RK4 method with specified time points and sub-stepping.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="RK4Solver.Solution.html" title="class in com.hissain.jscipy.math">RK4Solver.Solution</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#solve(com.hissain.jscipy.math.RK4Solver.DifferentialEquation,double,double,double,double)">solve</a></span>&#8203;(<a href="RK4Solver.DifferentialEquation.html" title="interface in com.hissain.jscipy.math">RK4Solver.DifferentialEquation</a>&nbsp;f,
      double&nbsp;y0,
@@ -313,12 +323,38 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="RK4Solver.Solution.html" title="class in com.hissain.jscipy.math">RK4Solver.Solution</a>&nbsp;solve&#8203;(<a href="RK4Solver.DifferentialEquation.html" title="interface in com.hissain.jscipy.math">RK4Solver.DifferentialEquation</a>&nbsp;f,
                                 double&nbsp;y0,
                                 double[]&nbsp;tSpan)</pre>
-<div class="block">Solve ODE using RK4 method with specified time points</div>
+<div class="block">Solve ODE using RK4 method with specified time points.
+ Uses internal sub-stepping for improved accuracy when time points are sparse.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>f</code> - The differential equation dy/dt = f(t, y)</dd>
 <dd><code>y0</code> - Initial condition</dd>
 <dd><code>tSpan</code> - Array of time points where solution is desired</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Solution object containing t and y arrays</dd>
+</dl>
+</li>
+</ul>
+<a id="solve(com.hissain.jscipy.math.RK4Solver.DifferentialEquation,double,double[],int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>solve</h4>
+<pre class="methodSignature">public&nbsp;<a href="RK4Solver.Solution.html" title="class in com.hissain.jscipy.math">RK4Solver.Solution</a>&nbsp;solve&#8203;(<a href="RK4Solver.DifferentialEquation.html" title="interface in com.hissain.jscipy.math">RK4Solver.DifferentialEquation</a>&nbsp;f,
+                                double&nbsp;y0,
+                                double[]&nbsp;tSpan,
+                                int&nbsp;subSteps)</pre>
+<div class="block">Solve ODE using RK4 method with specified time points and sub-stepping.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>f</code> - The differential equation dy/dt = f(t, y)</dd>
+<dd><code>y0</code> - Initial condition</dd>
+<dd><code>tSpan</code> - Array of time points where solution is desired</dd>
+<dd><code>subSteps</code> - Number of internal steps between each user-specified time
+                 point.
+                 Higher values give better accuracy. Use 1 for no
+                 sub-stepping.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Solution object containing t and y arrays</dd>
 </dl>
