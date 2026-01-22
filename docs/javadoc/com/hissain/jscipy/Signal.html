@@ -482,50 +482,56 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Pads a signal using odd extension at both ends.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#rfft(double%5B%5D)" class="member-name-link">rfft</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/fft/Periodogram.PeriodogramResult.html" title="class in com.hissain.jscipy.signal.fft">Periodogram.PeriodogramResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#periodogram(double%5B%5D,double)" class="member-name-link">periodogram</a><wbr>(double[]&nbsp;x,
+ double&nbsp;fs)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Estimate power spectral density using a periodogram.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#rfft(double%5B%5D)" class="member-name-link">rfft</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive
  frequency components (RFFT).</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
  int&nbsp;windowLength,
  int&nbsp;polyOrder)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int,int,double)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#savgol_filter(double%5B%5D,int,int,int,double)" class="member-name-link">savgol_filter</a><wbr>(double[]&nbsp;x,
  int&nbsp;windowLength,
  int&nbsp;polyOrder,
  int&nbsp;deriv,
  double&nbsp;delta)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Applies a Savitzky-Golay filter to an array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sosfilt(double%5B%5D,double%5B%5D%5B%5D)" class="member-name-link">sosfilt</a><wbr>(double[]&nbsp;signal,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sosfilt(double%5B%5D,double%5B%5D%5B%5D)" class="member-name-link">sosfilt</a><wbr>(double[]&nbsp;signal,
  double[][]&nbsp;sos)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Filter data using a series of second-order sections (SOS).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#spectrogram(double%5B%5D,double)" class="member-name-link">spectrogram</a><wbr>(double[]&nbsp;signal,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#spectrogram(double%5B%5D,double)" class="member-name-link">spectrogram</a><wbr>(double[]&nbsp;signal,
  double&nbsp;fs)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Computes the spectrogram of a signal.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#stft(double%5B%5D)" class="member-name-link">stft</a><wbr>(double[]&nbsp;x)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#stft(double%5B%5D)" class="member-name-link">stft</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Compute the Short-Time Fourier Transform (STFT).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/fft/Welch.WelchResult.html" title="class in com.hissain.jscipy.signal.fft">Welch.WelchResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#welch(double%5B%5D,double,int)" class="member-name-link">welch</a><wbr>(double[]&nbsp;x,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/fft/Welch.WelchResult.html" title="class in com.hissain.jscipy.signal.fft">Welch.WelchResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#welch(double%5B%5D,double,int)" class="member-name-link">welch</a><wbr>(double[]&nbsp;x,
  double&nbsp;fs,
  int&nbsp;nperseg)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Compute Power Spectral Density using Welch's method.</div>
 </div>
 </div>
@@ -1642,6 +1648,26 @@ loadScripts(document, 'script');</script>
               norm='ortho').</dd>
 <dt>Returns:</dt>
 <dd>The transformed coefficients array of length N.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="periodogram(double[],double)">
+<h3>periodogram</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="signal/fft/Periodogram.PeriodogramResult.html" title="class in com.hissain.jscipy.signal.fft">Periodogram.PeriodogramResult</a></span>&nbsp;<span class="element-name">periodogram</span><wbr><span class="parameters">(double[]&nbsp;x,
+ double&nbsp;fs)</span></div>
+<div class="block">Estimate power spectral density using a periodogram.
+ <p>
+ Matches scipy.signal.periodogram with default Hann window and 'density'
+ scaling.
+ <p>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png" alt="Periodogram Comparison" width="600"></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input signal.</dd>
+<dd><code>fs</code> - The sampling frequency in Hz.</dd>
+<dt>Returns:</dt>
+<dd>PeriodogramResult containing frequencies and PSD.</dd>
 </dl>
 </section>
 </li>
