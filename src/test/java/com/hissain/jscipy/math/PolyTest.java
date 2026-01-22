@@ -19,6 +19,15 @@ public class PolyTest {
         }
     }
 
+    private void saveData(String filename, double[] data) throws IOException {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(
+                new java.io.FileWriter(Paths.get(DATASETS_DIR, filename).toFile()))) {
+            for (double value : data) {
+                writer.println(String.format("%.18e", value));
+            }
+        }
+    }
+
     @Test
     void testPolyfitExact() throws IOException {
         double[] x = loadData("polyfit_exact_x.txt");
@@ -26,6 +35,9 @@ public class PolyTest {
         double[] expectedCoeffs = loadData("polyfit_exact_coeffs.txt");
 
         double[] actualCoeffs = Poly.polyfit(x, y, 2);
+
+        // Save Java output for comparison plotting (Golden Master rule)
+        saveData("polyfit_exact_coeffs_java.txt", actualCoeffs);
 
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Exact coefficients mismatch");
     }
@@ -48,6 +60,9 @@ public class PolyTest {
         double[] expectedCoeffs = loadData("polyfit_lstsq_coeffs.txt");
 
         double[] actualCoeffs = Poly.polyfit(x, y, 2);
+
+        // Save Java output for comparison plotting (Golden Master rule)
+        saveData("polyfit_lstsq_coeffs_java.txt", actualCoeffs);
 
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Least Squares coefficients mismatch");
     }

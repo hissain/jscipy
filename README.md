@@ -288,6 +288,14 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="DCT Comparison" src="python/figs/dct/dct_comparison_light.png">
 </picture>
 
+### Polynomial Fit Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/poly/polyfit_lstsq_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/poly/polyfit_lstsq_comparison_light.png">
+  <img alt="Polynomial Fit Comparison" src="python/figs/poly/polyfit_lstsq_comparison_light.png">
+</picture>
+
 ### 2D FFT Comparison
 
 <picture>
