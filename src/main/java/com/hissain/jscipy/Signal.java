@@ -886,4 +886,24 @@ public class Signal {
     public static double[] dct(double[] x, boolean ortho) {
         return new DCT().dct(x, ortho);
     }
+
+    // --- Periodogram ---
+
+    /**
+     * Estimate power spectral density using a periodogram.
+     * <p>
+     * Matches scipy.signal.periodogram with default Hann window and 'density'
+     * scaling.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png"
+     * alt="Periodogram Comparison" width="600">
+     *
+     * @param x  The input signal.
+     * @param fs The sampling frequency in Hz.
+     * @return PeriodogramResult containing frequencies and PSD.
+     */
+    public static com.hissain.jscipy.signal.fft.Periodogram.PeriodogramResult periodogram(double[] x, double fs) {
+        return new com.hissain.jscipy.signal.fft.Periodogram().periodogram(x, fs);
+    }
 }

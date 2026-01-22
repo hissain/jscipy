@@ -15,7 +15,7 @@
 
 It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel filters, 2D Convolution, Savitzky-Golay smoothing, Peak detection.
-*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Convolution.
+*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Periodogram, Convolution.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
@@ -69,7 +69,7 @@ jSciPy is rigorously tested against Python's SciPy using a "Golden Master" appro
 | :--- | :--- | :--- | :--- |
 | **Filters** | Butterworth, Chebyshev, Elliptic, Bessel | `1e-14` to `1e-16` | ✅ Excellent |
 | **FFT** | 1D FFT, RFFT, IFFT | `1e-15` to `1e-16` | ✅ Excellent |
-| **Spectral** | Spectrogram, Welch, STFT/ISTFT | `1e-16` to `1e-18` | ✅ Excellent |
+| **Spectral** | Spectrogram, Welch, STFT/ISTFT, Periodogram | `1e-16` to `1e-18` | ✅ Excellent |
 | **SOS Filt** | Second-Order Sections Filter | `1e-16` | ✅ Excellent |
 | **2D Ops** | 2D FFT, 2D Convolution | `1e-16` | ✅ Excellent |
 | **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
@@ -203,6 +203,14 @@ A seperate demo android application is built on this library that might be helpf
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/spectrogram/spectrogram_chirp_comparison_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/spectrogram/spectrogram_chirp_comparison_light.png">
   <img alt="Spectrogram Comparison" src="python/figs/spectrogram/spectrogram_chirp_comparison_light.png">
+</picture>
+
+### Periodogram Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/periodogram/periodogram_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/periodogram/periodogram_comparison_light.png">
+  <img alt="Periodogram Comparison" src="python/figs/periodogram/periodogram_comparison_light.png">
 </picture>
 
 ### Resample Comparison
