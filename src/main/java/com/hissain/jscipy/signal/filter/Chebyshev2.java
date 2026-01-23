@@ -18,7 +18,7 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/chebyshev/cheby2_input1.txt_light.png"
- * alt="Chebyshev Type II Comparison" width="100%">
+ * alt="Chebyshev Type II Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class Chebyshev2 {
 

@@ -7,7 +7,7 @@ import com.hissain.jscipy.signal.JComplex;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png"
- * alt="DCT Comparison" width="100%">
+ * alt="DCT Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class DCT {
 

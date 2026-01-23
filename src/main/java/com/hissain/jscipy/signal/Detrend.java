@@ -5,11 +5,11 @@ package com.hissain.jscipy.signal;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/detrend/detrend_comparison_1_light.png"
- * alt="Detrend Comparison 1" width="100%">
+ * alt="Detrend Comparison 1" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/detrend/detrend_comparison_2_light.png"
- * alt="Detrend Comparison 2" width="100%">
+ * alt="Detrend Comparison 2" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class Detrend {
 
