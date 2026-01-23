@@ -8,11 +8,11 @@ import org.apache.commons.math3.fitting.WeightedObservedPoints;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/poly/polyfit_exact_comparison_light.png"
- * alt="Polyfit Exact" width="600">
+ * alt="Polyfit Exact" width="100%">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/poly/polyfit_lstsq_comparison_light.png"
- * alt="Polyfit Least Squares" width="600">
+ * alt="Polyfit Least Squares" width="100%">
  */
 public class Poly {
 

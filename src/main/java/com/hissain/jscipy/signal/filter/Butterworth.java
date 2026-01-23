@@ -15,7 +15,7 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
- * alt="Butterworth Comparison" width="600">
+ * alt="Butterworth Comparison" width="100%">
  * <p>
  * This class provides methods to apply Butterworth low-pass filters to signals
  * using
@@ -233,7 +233,7 @@ public class Butterworth {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
-     * alt="Butterworth Multitone" width="600">
+     * alt="Butterworth Multitone" width="100%">
      *
      * @param signal The input signal.
      * @param b      The numerator coefficients of the filter.

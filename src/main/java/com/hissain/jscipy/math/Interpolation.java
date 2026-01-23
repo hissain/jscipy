@@ -11,11 +11,11 @@ import java.util.Arrays;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png"
- * alt="Interpolation Comparison 1" width="600">
+ * alt="Interpolation Comparison 1" width="100%">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_2_light.png"
- * alt="Interpolation Comparison 2" width="600">
+ * alt="Interpolation Comparison 2" width="100%">
  */
 public class Interpolation {
 
