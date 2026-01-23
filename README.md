@@ -205,6 +205,14 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="Spectrogram Comparison" src="python/figs/spectrogram/spectrogram_chirp_comparison_light.png">
 </picture>
 
+### STFT/ISTFT Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/stft/stft_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/stft/stft_comparison_light.png">
+  <img alt="STFT Comparison" src="python/figs/stft/stft_comparison_light.png">
+</picture>
+
 ### Periodogram Comparison
 
 <picture>
@@ -310,6 +318,14 @@ A seperate demo android application is built on this library that might be helpf
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/hilbert/hilbert_comparison_1_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/hilbert/hilbert_comparison_1_light.png">
   <img alt="Hilbert Transform Comparison" src="python/figs/hilbert/hilbert_comparison_1_light.png">
+</picture>
+
+### SOS Filtering Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/sos/sos_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/sos/sos_comparison_light.png">
+  <img alt="SOS Filtering Comparison" src="python/figs/sos/sos_comparison_light.png">
 </picture>
 
 ### Window Functions Comparison
