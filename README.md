@@ -336,7 +336,7 @@ A seperate demo android application is built on this library that might be helpf
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/idct_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/idct_comparison_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/dct/idct_comparison_light.png">
   <img alt="IDCT Comparison" src="python/figs/dct/idct_comparison_light.png">
 </picture>
