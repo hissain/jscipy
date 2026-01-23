@@ -12,7 +12,7 @@ import com.hissain.jscipy.signal.JComplex;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/hilbert/hilbert_comparison_1_light.png"
- * alt="Hilbert Transform Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
+ * alt="Hilbert Transform Comparison" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
  */
 public class Hilbert {
 

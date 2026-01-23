@@ -5,7 +5,7 @@ package com.hissain.jscipy.signal;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/windows/windows_comparison_light.png"
- * alt="Windows Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
+ * alt="Windows Comparison" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
  */
 public class Windows {
 
