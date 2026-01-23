@@ -45,12 +45,11 @@ def plot_polyfit(test_name):
     
     # Plot 2: Difference (error)
     diff = y_java - y_scipy
-    axes[1].plot(x_smooth, diff, '-', linewidth=1.5)
+    axes[1].plot(x_smooth, diff, '-', linewidth=1.5, color='red')
+    style_utils.finalize_diff_plot(axes[1], y_scipy)
     axes[1].set_title("Difference (jSciPy - SciPy)")
     axes[1].set_xlabel("x")
     axes[1].set_ylabel("Difference")
-    axes[1].ticklabel_format(style='scientific', axis='y', scilimits=(-2,2))
-    axes[1].grid(True, alpha=0.3)
     
     plt.tight_layout()
     

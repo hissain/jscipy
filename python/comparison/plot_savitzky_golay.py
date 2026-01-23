@@ -47,11 +47,11 @@ def plot_test(test_name, title):
     rmse = np.sqrt(np.mean(residual**2))
     
     ax2.plot(t, residual, color='red', label=f'Residual (RMSE={rmse:.2e})')
+    style_utils.finalize_diff_plot(ax2, scipy_out)
     ax2.set_title('Difference (SciPy - Java)')
     ax2.set_xlabel('Sample Index')
     ax2.set_ylabel('Difference')
     ax2.legend()
-    ax2.grid(True)
 
     plt.tight_layout()
     style_utils.save_plot(fig, f"savgol/{test_name}.png")

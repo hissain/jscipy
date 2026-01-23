@@ -54,22 +54,35 @@ def plot_spectrogram_comparison(test_name):
         rmse = np.sqrt(np.mean((sxx_py - sxx_java)**2))
         print(f"RMSE for {test_name}: {rmse}")
         
-        # Plot
-        fig, axes = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
+        # Convert to dB for visualization
+        sxx_py_db = 10 * np.log10(sxx_py + 1e-10)
+        sxx_java_db = 10 * np.log10(sxx_java + 1e-10)
+        
+        # Plot with 3 panels: SciPy, jSciPy, and Diff
+        fig, axes = plt.subplots(1, 3, figsize=(18, 6), sharey=True)
         
         # Python Plot
-        im0 = axes[0].pcolormesh(times, freqs, 10 * np.log10(sxx_py + 1e-10), shading='gouraud', cmap='viridis')
-        axes[0].set_title(f'SciPy Spectrogram (dB)\n{test_name}')
+        im0 = axes[0].pcolormesh(times, freqs, sxx_py_db, shading='gouraud', cmap='viridis')
+        axes[0].set_title(f'SciPy Spectrogram (dB)')
         axes[0].set_ylabel('Frequency [Hz]')
         axes[0].set_xlabel('Time [sec]')
         plt.colorbar(im0, ax=axes[0], label='Power/Frequency (dB/Hz)')
         
         # Java Plot
-        im1 = axes[1].pcolormesh(times, freqs, 10 * np.log10(sxx_java + 1e-10), shading='gouraud', cmap='viridis')
-        axes[1].set_title(f'jSciPy Spectrogram (dB)\n{test_name}')
+        im1 = axes[1].pcolormesh(times, freqs, sxx_java_db, shading='gouraud', cmap='viridis')
+        axes[1].set_title(f'jSciPy Spectrogram (dB)')
         axes[1].set_xlabel('Time [sec]')
         plt.colorbar(im1, ax=axes[1], label='Power/Frequency (dB/Hz)')
         
+        # Difference Plot (in dB scale)
+        diff_db = sxx_py_db - sxx_java_db
+        vmin, vmax = style_utils.finalize_diff_plot(None, sxx_py_db, is_2d=True)
+        im2 = axes[2].pcolormesh(times, freqs, diff_db, shading='gouraud', cmap='coolwarm', vmin=vmin, vmax=vmax)
+        axes[2].set_title(f'Diff (RMSE={rmse:.2e})')
+        axes[2].set_xlabel('Time [sec]')
+        plt.colorbar(im2, ax=axes[2], label='Difference (dB)')
+        
+        plt.suptitle(f'Spectrogram Comparison: {test_name}')
         plt.tight_layout()
         style_utils.save_plot(fig, f"spectrogram/{test_name}_comparison.png")
         plt.close(fig)

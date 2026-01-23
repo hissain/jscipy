@@ -35,6 +35,7 @@ def plot_dct_comparison(test_id):
     # Plot 2: Difference (Error)
     diff = y_java - y_scipy
     ax2.plot(diff, color='red', label='Difference (Java - SciPy)')
+    style_utils.finalize_diff_plot(ax2, y_scipy)
     ax2.set_title("Difference (Error)")
     ax2.set_ylabel("Error")
     ax2.set_xlabel("Bin Index")
