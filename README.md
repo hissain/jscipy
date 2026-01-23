@@ -70,7 +70,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 | 2D Signal Ops (`conv2d`, `fft2`)      | ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
 | SciPy-like API Consistency            | ✅ High (SciPy semantics)       | ❌ Low                  | ⚠️ Partial Java DSP                       | ❌ No                           | ❌ No           | ❌ No           |
 | Filtering Capabilities                | ⭐⭐⭐⭐⭐ (IIR+FIR+advanced)      | ⭐ Basic                 | ⭐⭐⭐ (IIR/FIR & adaptive)                 | ⭐⭐ (audio filters)             | ⭐⭐ (IIR only)  | ❌ No           |
-| Transforms (FFT/Hilbert)              | ✅ FFT + Hilbert                | Limited / Basic FFT only| ✅ FFT + Hilbert                          | ✅ FFT spectrum tools (audio)   | ❌ No           | ❌ No           |
+| Transforms (FFT/DCT/Hilbert)        | ✅ FFT, DCT + Hilbert           | Limited / Basic FFT only| ✅ FFT + Hilbert                          | ✅ FFT spectrum tools (audio)   | ❌ No           | ❌ No           |
 | Interpolation (Linear/Cubic)          | ✅ Yes                          | ✅ Yes                  | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
 | ODE Solvers (RK4)                     | ✅ Yes                          | ✅ Yes                  | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
 | Signal Analysis (Peak/PSD)            | ✅ Yes                          | ❌ No                   | ⚠️ Partial (peak detection)               | ⚠️ Partial (audio metrics)      | ❌ No           | ❌ No           |
@@ -335,6 +335,12 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="DCT Comparison" src="python/figs/dct/dct_comparison_light.png">
 </picture>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/idct_comparison_light.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/dct/idct_comparison_light.png">
+  <img alt="IDCT Comparison" src="python/figs/dct/idct_comparison_light.png">
+</picture>
+
 ### Polynomial Fit Comparison
 
 <picture>
@@ -458,7 +464,7 @@ public class MathSignalExample {
 ```
 
 ### Spectral Analysis & Transforms
-Includes 1D/2D FFT, Hilbert Transform, Welch's Method, and Spectrograms.
+Includes 1D/2D FFT, DCT/IDCT, STFT/ISTFT, Welch's Method, Periodogram, spectrogram, and Hilbert Transform.
 
 ```java
 import com.hissain.jscipy.Signal;
