@@ -20,6 +20,45 @@ It currently includes modules for:
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
+## Table of Contents
+
+- [Why jSciPy?](#why-jscipy)
+- [Features](#features)
+- [Accuracy & Precision](#accuracy--precision)
+- [Documentation](#documentation)
+- [Getting Started](#getting-started)
+- [How to Include as a Dependency (JitPack)](#how-to-include-as-a-dependency-jitpack)
+- [Demo Android Application](#demo-android-application)
+- [Comparison Graphs](#comparison-graphs)
+  - [Butterworth Filter](#butterworth-filter-comparison)
+  - [Chebyshev Filter](#chebyshev-filter-comparison)
+  - [Elliptic Filter](#elliptic-filter-comparison)
+  - [Bessel Filter](#bessel-filter-comparison)
+  - [RK4 Solver](#rk4-solver-comparison)
+  - [FindPeaks](#findpeaks-comparison)
+  - [Interpolation](#interpolation-comparison)
+  - [FFT](#fft-comparison)
+  - [Welch's Method](#welchs-method-comparison)
+  - [Spectrogram](#spectrogram-comparison)
+  - [STFT/ISTFT](#stftistft-comparison)
+  - [Periodogram](#periodogram-comparison)
+  - [Resample](#resample-comparison)
+  - [Savitzky-Golay](#savitzky-golay-comparison)
+  - [Detrend](#detrend-comparison)
+  - [MedFilt](#medfilt-comparison)
+  - [1D Convolve](#1d-convolve-comparison)
+  - [2D Convolve](#2d-convolve-comparison)
+  - [Cross-Correlation](#cross-correlation-comparison)
+  - [DCT](#dct-comparison)
+  - [Polynomial Fit](#polynomial-fit-comparison)
+  - [2D FFT](#2d-fft-comparison)
+  - [Hilbert Transform](#hilbert-transform-comparison)
+  - [SOS Filtering](#sos-filtering-comparison)
+  - [Window Functions](#window-functions-comparison)
+- [Usage Examples](#usage-examples)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Why jSciPy?
 
 The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
