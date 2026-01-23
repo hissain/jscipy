@@ -6,7 +6,7 @@ package com.hissain.jscipy.math;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/rk4/rk4_comparison_light.png"
- * alt="RK4Solver Comparison" width="100%">
+ * alt="RK4Solver Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class RK4Solver {
 

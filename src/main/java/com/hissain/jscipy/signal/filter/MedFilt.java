@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/medfilt/medfilt_comparison_light.png"
- * alt="Median Filter Comparison" width="100%">
+ * alt="Median Filter Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class MedFilt {
 
@@ -16,7 +16,7 @@ public class MedFilt {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/medfilt/medfilt_comparison_light.png"
-     * alt="Median Filter Comparison" width="100%">
+     * alt="Median Filter Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
      *
      * @param signal     The input signal.
      * @param kernelSize The size of the kernel (must be odd).

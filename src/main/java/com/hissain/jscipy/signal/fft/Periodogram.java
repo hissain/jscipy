@@ -11,7 +11,7 @@ import com.hissain.jscipy.signal.Windows;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png"
- * alt="Periodogram Comparison" width="100%">
+ * alt="Periodogram Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
  */
 public class Periodogram {
 

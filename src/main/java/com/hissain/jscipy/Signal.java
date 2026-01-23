@@ -783,7 +783,7 @@ public class Signal {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate/correlate_comparison_light.png"
-     * alt="CrossCorrelation Comparison" width="100%">
+     * alt="CrossCorrelation Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
      *
      * @param in1  First input signal.
      * @param in2  Second input signal.
@@ -858,7 +858,7 @@ public class Signal {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png"
-     * alt="DCT Comparison" width="100%">
+     * alt="DCT Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
      *
      * @param x The input signal.
      * @return The transform coefficients (unnormalized).
@@ -897,7 +897,7 @@ public class Signal {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png"
-     * alt="Periodogram Comparison" width="100%">
+     * alt="Periodogram Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;">
      *
      * @param x  The input signal.
      * @param fs The sampling frequency in Hz.
