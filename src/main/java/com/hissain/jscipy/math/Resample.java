@@ -23,11 +23,11 @@ public class Resample {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/resample/resample_comparison_1_light.png"
-     * alt="Resample Comparison 1" width="600">
+     * alt="Resample Comparison 1" width="100%">
      * <br>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/resample/resample_comparison_2_light.png"
-     * alt="Resample Comparison 2" width="600">
+     * alt="Resample Comparison 2" width="100%">
      * 
      * @param signal The input signal.
      * @param num    The desired number of samples in the output.

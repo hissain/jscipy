@@ -10,7 +10,7 @@ import com.hissain.jscipy.Signal;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/bessel/bessel_comparison_light.png"
- * alt="Bessel Comparison" width="600">
+ * alt="Bessel Comparison" width="100%">
  */
 public class Bessel {
 

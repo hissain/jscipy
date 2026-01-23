@@ -14,7 +14,7 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/elliptic/ellip_input1.txt_light.png"
- * alt="Elliptic Comparison" width="600">
+ * alt="Elliptic Comparison" width="100%">
  */
 public class Elliptic {
 

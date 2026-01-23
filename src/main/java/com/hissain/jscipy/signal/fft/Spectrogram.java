@@ -12,7 +12,7 @@ import com.hissain.jscipy.signal.Windows;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/spectrogram/spectrogram_chirp_comparison_light.png"
- * alt="Spectrogram Comparison" width="600">
+ * alt="Spectrogram Comparison" width="100%">
  */
 public class Spectrogram {
 

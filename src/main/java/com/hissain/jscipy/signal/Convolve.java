@@ -6,19 +6,19 @@ package com.hissain.jscipy.signal;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve/convolve_comparison_light.png"
- * alt="Convolve Comparison" width="600">
+ * alt="Convolve Comparison" width="100%">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_full_light.png"
- * alt="Convolve2D Comparison Full" width="600">
+ * alt="Convolve2D Comparison Full" width="100%">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_same_light.png"
- * alt="Convolve2D Comparison Same" width="600">
+ * alt="Convolve2D Comparison Same" width="100%">
  * <br>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_valid_light.png"
- * alt="Convolve2D Comparison Valid" width="600">
+ * alt="Convolve2D Comparison Valid" width="100%">
  */
 public class Convolve {
 

@@ -19,7 +19,7 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/chebyshev/cheby1_input1.txt_light.png"
- * alt="Chebyshev Type I Comparison" width="600">
+ * alt="Chebyshev Type I Comparison" width="100%">
  */
 public class Chebyshev1 {
 

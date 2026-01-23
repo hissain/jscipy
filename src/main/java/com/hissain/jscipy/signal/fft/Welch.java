@@ -9,7 +9,7 @@ import com.hissain.jscipy.signal.Windows;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/welch/welch_comparison_light.png"
- * alt="Welch Comparison" width="600">
+ * alt="Welch Comparison" width="100%">
  */
 public class Welch {
 

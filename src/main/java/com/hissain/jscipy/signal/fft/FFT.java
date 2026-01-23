@@ -17,7 +17,7 @@ import java.util.Arrays;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fft/fft_comparison_1_light.png"
- * alt="FFT Comparison" width="600">
+ * alt="FFT Comparison" width="100%">
  */
 public class FFT {
 
@@ -145,7 +145,7 @@ public class FFT {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fft2/fft2_comparison_forward_light.png"
-     * alt="FFT2 Comparison" width="600">
+     * alt="FFT2 Comparison" width="100%">
      * 
      * @param input The 2D input array [rows][cols].
      * @return The 2D complex-valued FFT.

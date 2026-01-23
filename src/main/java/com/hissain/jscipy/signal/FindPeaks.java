@@ -7,7 +7,7 @@ import java.util.*;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png"
- * alt="FindPeaks Comparison" width="600">
+ * alt="FindPeaks Comparison" width="100%">
  */
 public class FindPeaks {
 
