@@ -29,12 +29,11 @@ def plot_test(input_filename, python_output_filename, java_output_filename):
     diff = python_output - java_output
     rmse = np.sqrt(np.mean(diff**2))
     ax2.plot(t_span, diff, label=f'Diff (RMSE={rmse:.2e})', color='red')
+    style_utils.finalize_diff_plot(ax2, python_output)
     ax2.legend()
     ax2.set_title("Difference (Analytical - jSciPy)")
     ax2.set_xlabel("t")
     ax2.set_ylabel("Error")
-    ax2.ticklabel_format(style='scientific', axis='y', scilimits=(-2,2))
-    ax2.grid(True, alpha=0.3)
 
     plt.tight_layout()
     os.makedirs('python/figs/rk4', exist_ok=True)
