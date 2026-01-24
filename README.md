@@ -145,7 +145,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:3.1.2' // Replace 3.1.2 with the desired version or commit hash
+    implementation 'com.github.hissain:jSciPy:3.1.3' // Replace 3.1.3 with the desired version or commit hash
 }
 ```
 
