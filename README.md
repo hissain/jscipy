@@ -92,13 +92,13 @@ The table below compares jSciPy’s signal processing and scientific computing f
 
 ## Features
 
-*   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
+*   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel, **FIR Design (`firwin`)**. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
-*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` (Discrete Cosine Transform), `stft` / `istft` (Short-Time Fourier Transform), `hilbert` transform.
-*   **Smoothing & Analysis**: Savitzky-Golay, `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
+*   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
+*   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
-*   **Window Functions**: Hanning, Hamming, Blackman, Kaiser.
+*   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
 
 ## Accuracy & Precision
 
@@ -339,6 +339,16 @@ A seperate demo android application is built on this library that might be helpf
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/dct/idct_comparison_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/dct/idct_comparison_light.png">
   <img alt="IDCT Comparison" src="python/figs/dct/idct_comparison_light.png">
+</picture>
+
+</picture>
+
+### FIR Filter Design
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/fir/fir_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/fir/fir_comparison_light.png">
+  <img alt="FIR Filter Verification" src="python/figs/fir/fir_comparison_light.png">
 </picture>
 
 ### Polynomial Fit Comparison

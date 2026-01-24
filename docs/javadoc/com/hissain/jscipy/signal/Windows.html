@@ -79,7 +79,8 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Collection of window functions.
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/windows/windows_comparison_light.png" alt="Windows Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/windows/windows_comparison_light.png" alt="Windows Comparison" style="width: 600px; max-width: 90%; display: block;
+ margin: 0 auto;"></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -152,60 +153,66 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns a Flat top window of length M.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#get_window(java.lang.String,int)" class="member-name-link">get_window</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;window,
+ int&nbsp;M)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Get a window by name.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Hamming window of length M.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
  boolean&nbsp;symmetric)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hamming window of length M.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Hanning window of length M.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
  boolean&nbsp;symmetric)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hanning window of length M.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
  double&nbsp;beta)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double,boolean)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kaiser(int,double,boolean)" class="member-name-link">kaiser</a><wbr>(int&nbsp;m,
  double&nbsp;beta,
  boolean&nbsp;symmetric)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parzen(int)" class="member-name-link">parzen</a><wbr>(int&nbsp;m)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parzen(int)" class="member-name-link">parzen</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Parzen window of length M.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parzen(int,boolean)" class="member-name-link">parzen</a><wbr>(int&nbsp;m,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parzen(int,boolean)" class="member-name-link">parzen</a><wbr>(int&nbsp;m,
  boolean&nbsp;symmetric)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Parzen window of length M.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#triang(int)" class="member-name-link">triang</a><wbr>(int&nbsp;m)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#triang(int)" class="member-name-link">triang</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a symmetric Triangular window of length M.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#triang(int,boolean)" class="member-name-link">triang</a><wbr>(int&nbsp;m,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#triang(int,boolean)" class="member-name-link">triang</a><wbr>(int&nbsp;m,
  boolean&nbsp;symmetric)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Triangular window of length M.</div>
 </div>
 </div>
@@ -504,6 +511,23 @@ loadScripts(document, 'script');</script>
 <dd><code>symmetric</code> - If true, generates a symmetric window.</dd>
 <dt>Returns:</dt>
 <dd>The Bohman window.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="get_window(java.lang.String,int)">
+<h3>get_window</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">get_window</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;window,
+ int&nbsp;M)</span></div>
+<div class="block">Get a window by name.
+ Supported: boxcar, triangle, blackman, hamming, hanning, bartlett, flattop,
+ parzen, bohman.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>window</code> - The window name (case insensitive).</dd>
+<dd><code>M</code> - The length of the window.</dd>
+<dt>Returns:</dt>
+<dd>The window coefficients.</dd>
 </dl>
 </section>
 </li>
