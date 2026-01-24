@@ -99,6 +99,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
+*   **Numerical Methods**: Interpolation (Linear, Cubic Spline), RK4 ODE Solver.
 
 ## Accuracy & Precision
 
