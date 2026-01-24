@@ -6,16 +6,10 @@ import com.hissain.jscipy.signal.Windows;
  * Finite Impulse Response (FIR) filter design methods.
  * Matches scipy.signal.firwin
  * <p>
- * <picture>
- * <source media="(prefers-color-scheme: dark)" srcset=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fir/fir_comparison_dark.png">
- * <source media="(prefers-color-scheme: light)" srcset=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fir/fir_comparison_light.png">
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/fir/fir_comparison_light.png"
  * alt="FIR Filter Verification" style="width: 600px; max-width: 90%; display:
  * block; margin: 0 auto;">
- * </picture>
  */
 public class FIR {
 
