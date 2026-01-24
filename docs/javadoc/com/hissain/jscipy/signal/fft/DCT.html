@@ -79,7 +79,8 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Discrete Cosine Transform (DCT) implementation.
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png" alt="DCT Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png" alt="DCT Comparison" style="width: 600px; max-width: 90%; display: block;
+ margin: 0 auto;"></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -117,6 +118,18 @@ loadScripts(document, 'script');</script>
  boolean&nbsp;ortho)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Compute the 1D Discrete Cosine Transform (Type-II) with optional
+ orthogonality normalization.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#idct(double%5B%5D)" class="member-name-link">idct</a><wbr>(double[]&nbsp;x)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#idct(double%5B%5D,boolean)" class="member-name-link">idct</a><wbr>(double[]&nbsp;x,
+ boolean&nbsp;ortho)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II) with optional
  orthogonality normalization.</div>
 </div>
 </div>
@@ -185,6 +198,38 @@ loadScripts(document, 'script');</script>
               norm='ortho').</dd>
 <dt>Returns:</dt>
 <dd>The transformed coefficients array of length N.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="idct(double[])">
+<h3>idct</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">idct</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).
+ This calculates the inverse of the DCT-II (which is DCT-III).
+ Matches scipy.fft.idct(x, type=2, norm=None).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input DCT coefficients.</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed signal.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="idct(double[],boolean)">
+<h3>idct</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">idct</span><wbr><span class="parameters">(double[]&nbsp;x,
+ boolean&nbsp;ortho)</span></div>
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II) with optional
+ orthogonality normalization.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input DCT coefficients.</dd>
+<dd><code>ortho</code> - If true, applies orthogonality normalization (matches scipy
+              norm='ortho').</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed signal.</dd>
 </dl>
 </section>
 </li>

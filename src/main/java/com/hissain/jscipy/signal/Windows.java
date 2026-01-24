@@ -1,11 +1,14 @@
 package com.hissain.jscipy.signal;
 
+import java.util.Arrays;
+
 /**
  * Collection of window functions.
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/windows/windows_comparison_light.png"
- * alt="Windows Comparison" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+ * alt="Windows Comparison" style="width: 600px; max-width: 90%; display: block;
+ * margin: 0 auto;">
  */
 public class Windows {
 
@@ -363,5 +366,48 @@ public class Windows {
             }
         }
         return w;
+    }
+
+    /**
+     * Get a window by name.
+     * Supported: boxcar, triangle, blackman, hamming, hanning, bartlett, flattop,
+     * parzen, bohman.
+     *
+     * @param window The window name (case insensitive).
+     * @param M      The length of the window.
+     * @return The window coefficients.
+     */
+    public static double[] get_window(String window, int M) {
+        switch (window.toLowerCase()) {
+            case "boxcar":
+                double[] w = new double[M];
+                Arrays.fill(w, 1.0);
+                return w;
+            case "hamming":
+                return hamming(M);
+            case "hanning":
+            case "hann":
+                return hanning(M);
+            case "blackman":
+                return blackman(M);
+            case "bartlett":
+                return bartlett(M);
+            case "triangle":
+            case "triang":
+                return triang(M);
+            case "flattop":
+                return flattop(M);
+            case "parzen":
+                return parzen(M);
+            case "bohman":
+                return bohman(M);
+            case "kaiser":
+                // Default beta? standard usually 14 or 8.6?
+                // SciPy doesn't default here easily without tuple.
+                // return kaiser(M, 14.0);
+                throw new UnsupportedOperationException("Kaiser requires beta parameter.");
+            default:
+                throw new IllegalArgumentException("Unknown window: " + window);
+        }
     }
 }

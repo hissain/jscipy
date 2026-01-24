@@ -455,6 +455,74 @@ public class Signal {
         return Bessel.filtfilt_bandstop(signal, sampleRate, lowCutoff, highCutoff, order);
     }
 
+    // --- FIR Filter Design ---
+
+    /**
+     * Design an FIR filter using the window method.
+     * Default window is "hamming".
+     *
+     * @param numtaps   The number of taps.
+     * @param cutoff    Cutoff frequency (Hz). Scalar or array.
+     * @param fs        Sampling frequency (Hz).
+     * @param pass_zero If true, the zero frequency is passed (Lowpass, Bandstop).
+     *                  If false, the zero frequency is stopped (Highpass,
+     *                  Bandpass).
+     * @return Filter coefficients.
+     */
+    public static double[] firwin(int numtaps, double[] cutoff, double fs, boolean pass_zero) {
+        return com.hissain.jscipy.signal.filter.FIR.firwin(numtaps, cutoff, fs, pass_zero);
+    }
+
+    /**
+     * Design a Lowpass FIR filter.
+     *
+     * @param numtaps The number of taps.
+     * @param cutoff  Cutoff frequency (Hz).
+     * @param fs      Sampling frequency (Hz).
+     * @return Filter coefficients.
+     */
+    public static double[] firwin_lowpass(int numtaps, double cutoff, double fs) {
+        return com.hissain.jscipy.signal.filter.FIR.firwin_lowpass(numtaps, cutoff, fs);
+    }
+
+    /**
+     * Design a Highpass FIR filter.
+     *
+     * @param numtaps The number of taps.
+     * @param cutoff  Cutoff frequency (Hz).
+     * @param fs      Sampling frequency (Hz).
+     * @return Filter coefficients.
+     */
+    public static double[] firwin_highpass(int numtaps, double cutoff, double fs) {
+        return com.hissain.jscipy.signal.filter.FIR.firwin_highpass(numtaps, cutoff, fs);
+    }
+
+    /**
+     * Design a Bandpass FIR filter.
+     *
+     * @param numtaps The number of taps.
+     * @param low     Lower cutoff frequency (Hz).
+     * @param high    Upper cutoff frequency (Hz).
+     * @param fs      Sampling frequency (Hz).
+     * @return Filter coefficients.
+     */
+    public static double[] firwin_bandpass(int numtaps, double low, double high, double fs) {
+        return com.hissain.jscipy.signal.filter.FIR.firwin_bandpass(numtaps, low, high, fs);
+    }
+
+    /**
+     * Design a Bandstop FIR filter.
+     *
+     * @param numtaps The number of taps.
+     * @param low     Lower cutoff frequency (Hz).
+     * @param high    Upper cutoff frequency (Hz).
+     * @param fs      Sampling frequency (Hz).
+     * @return Filter coefficients.
+     */
+    public static double[] firwin_bandstop(int numtaps, double low, double high, double fs) {
+        return com.hissain.jscipy.signal.filter.FIR.firwin_bandstop(numtaps, low, high, fs);
+    }
+
     // --- SOS Filtering ---
 
     /**

@@ -407,26 +407,69 @@ loadScripts(document, 'script');</script>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#firwin(int,double%5B%5D,double,boolean)" class="member-name-link">firwin</a><wbr>(int&nbsp;numtaps,
+ double[]&nbsp;cutoff,
+ double&nbsp;fs,
+ boolean&nbsp;pass_zero)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns a Hamming window of length M.</div>
+<div class="block">Design an FIR filter using the window method.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
- boolean&nbsp;symmetric)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#firwin_bandpass(int,double,double,double)" class="member-name-link">firwin_bandpass</a><wbr>(int&nbsp;numtaps,
+ double&nbsp;low,
+ double&nbsp;high,
+ double&nbsp;fs)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a Bandpass FIR filter.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#firwin_bandstop(int,double,double,double)" class="member-name-link">firwin_bandstop</a><wbr>(int&nbsp;numtaps,
+ double&nbsp;low,
+ double&nbsp;high,
+ double&nbsp;fs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a Bandstop FIR filter.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#firwin_highpass(int,double,double)" class="member-name-link">firwin_highpass</a><wbr>(int&nbsp;numtaps,
+ double&nbsp;cutoff,
+ double&nbsp;fs)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a Highpass FIR filter.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#firwin_lowpass(int,double,double)" class="member-name-link">firwin_lowpass</a><wbr>(int&nbsp;numtaps,
+ double&nbsp;cutoff,
+ double&nbsp;fs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Design a Lowpass FIR filter.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int)" class="member-name-link">hamming</a><wbr>(int&nbsp;m)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hamming window of length M.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hamming(int,boolean)" class="member-name-link">hamming</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Hamming window of length M.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int)" class="member-name-link">hanning</a><wbr>(int&nbsp;m)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a Hanning window of length M.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
+ boolean&nbsp;symmetric)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Hanning window of length M.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hanning(int,boolean)" class="member-name-link">hanning</a><wbr>(int&nbsp;m,
- boolean&nbsp;symmetric)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#idct(double%5B%5D)" class="member-name-link">idct</a><wbr>(double[]&nbsp;x)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns a Hanning window of length M.</div>
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)" class="member-name-link">ifft</a><wbr>(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></div>
@@ -1136,6 +1179,100 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="firwin(int,double[],double,boolean)">
+<h3>firwin</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">firwin</span><wbr><span class="parameters">(int&nbsp;numtaps,
+ double[]&nbsp;cutoff,
+ double&nbsp;fs,
+ boolean&nbsp;pass_zero)</span></div>
+<div class="block">Design an FIR filter using the window method.
+ Default window is "hamming".</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz). Scalar or array.</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dd><code>pass_zero</code> - If true, the zero frequency is passed (Lowpass, Bandstop).
+                  If false, the zero frequency is stopped (Highpass,
+                  Bandpass).</dd>
+<dt>Returns:</dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="firwin_lowpass(int,double,double)">
+<h3>firwin_lowpass</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">firwin_lowpass</span><wbr><span class="parameters">(int&nbsp;numtaps,
+ double&nbsp;cutoff,
+ double&nbsp;fs)</span></div>
+<div class="block">Design a Lowpass FIR filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt>Returns:</dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="firwin_highpass(int,double,double)">
+<h3>firwin_highpass</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">firwin_highpass</span><wbr><span class="parameters">(int&nbsp;numtaps,
+ double&nbsp;cutoff,
+ double&nbsp;fs)</span></div>
+<div class="block">Design a Highpass FIR filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt>Returns:</dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="firwin_bandpass(int,double,double,double)">
+<h3>firwin_bandpass</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">firwin_bandpass</span><wbr><span class="parameters">(int&nbsp;numtaps,
+ double&nbsp;low,
+ double&nbsp;high,
+ double&nbsp;fs)</span></div>
+<div class="block">Design a Bandpass FIR filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>low</code> - Lower cutoff frequency (Hz).</dd>
+<dd><code>high</code> - Upper cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt>Returns:</dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="firwin_bandstop(int,double,double,double)">
+<h3>firwin_bandstop</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">firwin_bandstop</span><wbr><span class="parameters">(int&nbsp;numtaps,
+ double&nbsp;low,
+ double&nbsp;high,
+ double&nbsp;fs)</span></div>
+<div class="block">Design a Bandstop FIR filter.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>low</code> - Lower cutoff frequency (Hz).</dd>
+<dd><code>high</code> - Upper cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt>Returns:</dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="sosfilt(double[],double[][])">
 <h3>sosfilt</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">sosfilt</span><wbr><span class="parameters">(double[]&nbsp;signal,
@@ -1532,7 +1669,8 @@ loadScripts(document, 'script');</script>
  <p>
  This is equivalent to <code>convolve(in1, reverse(in2), mode)</code>.
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate/correlate_comparison_light.png" alt="CrossCorrelation Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate/correlate_comparison_light.png" alt="CrossCorrelation Comparison" style="width: 600px; max-width: 90%;
+ display: block; margin: 0 auto;"></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>in1</code> - First input signal.</dd>
@@ -1618,12 +1756,30 @@ loadScripts(document, 'script');</script>
 <div class="block">Compute the 1D Discrete Cosine Transform (Type-II).
  Matches scipy.fft.dct(x, type=2, norm=None).
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png" alt="DCT Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/dct_comparison_light.png" alt="DCT Comparison" style="width: 600px; max-width: 90%; display: block;
+ margin: 0 auto;"></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>x</code> - The input signal.</dd>
 <dt>Returns:</dt>
 <dd>The transform coefficients (unnormalized).</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="idct(double[])">
+<h3>idct</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">idct</span><wbr><span class="parameters">(double[]&nbsp;x)</span></div>
+<div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).
+ Matches scipy.fft.idct(x, type=2, norm=None).
+ <p>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/dct/idct_comparison_light.png" alt="IDCT Comparison" style="width: 600px; max-width: 90%; display: block;
+ margin: 0 auto;"></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>x</code> - The input DCT coefficients.</dd>
+<dt>Returns:</dt>
+<dd>The reconstructed signal.</dd>
 </dl>
 </section>
 </li>
@@ -1661,7 +1817,8 @@ loadScripts(document, 'script');</script>
  Matches scipy.signal.periodogram with default Hann window and 'density'
  scaling.
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png" alt="Periodogram Comparison" style="width: 50%; min-width: 300px; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/periodogram/periodogram_comparison_light.png" alt="Periodogram Comparison" style="width: 600px; max-width: 90%; display:
+ block; margin: 0 auto;"></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>x</code> - The input signal.</dd>
