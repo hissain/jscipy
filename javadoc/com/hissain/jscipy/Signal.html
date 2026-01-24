@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9,"i57":9,"i58":9,"i59":9,"i60":9,"i61":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -548,12 +548,60 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i35" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#firwin(int,double%5B%5D,double,boolean)">firwin</a></span>&#8203;(int&nbsp;numtaps,
+      double[]&nbsp;cutoff,
+      double&nbsp;fs,
+      boolean&nbsp;pass_zero)</code></th>
+<td class="colLast">
+<div class="block">Design an FIR filter using the window method.</div>
+</td>
+</tr>
+<tr id="i36" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#firwin_bandpass(int,double,double,double)">firwin_bandpass</a></span>&#8203;(int&nbsp;numtaps,
+               double&nbsp;low,
+               double&nbsp;high,
+               double&nbsp;fs)</code></th>
+<td class="colLast">
+<div class="block">Design a Bandpass FIR filter.</div>
+</td>
+</tr>
+<tr id="i37" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#firwin_bandstop(int,double,double,double)">firwin_bandstop</a></span>&#8203;(int&nbsp;numtaps,
+               double&nbsp;low,
+               double&nbsp;high,
+               double&nbsp;fs)</code></th>
+<td class="colLast">
+<div class="block">Design a Bandstop FIR filter.</div>
+</td>
+</tr>
+<tr id="i38" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#firwin_highpass(int,double,double)">firwin_highpass</a></span>&#8203;(int&nbsp;numtaps,
+               double&nbsp;cutoff,
+               double&nbsp;fs)</code></th>
+<td class="colLast">
+<div class="block">Design a Highpass FIR filter.</div>
+</td>
+</tr>
+<tr id="i39" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#firwin_lowpass(int,double,double)">firwin_lowpass</a></span>&#8203;(int&nbsp;numtaps,
+              double&nbsp;cutoff,
+              double&nbsp;fs)</code></th>
+<td class="colLast">
+<div class="block">Design a Lowpass FIR filter.</div>
+</td>
+</tr>
+<tr id="i40" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int)">hamming</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hamming(int,boolean)">hamming</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -561,14 +609,14 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int)">hanning</a></span>&#8203;(int&nbsp;m)</code></th>
 <td class="colLast">
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hanning(int,boolean)">hanning</a></span>&#8203;(int&nbsp;m,
        boolean&nbsp;symmetric)</code></th>
@@ -576,28 +624,28 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#idct(double%5B%5D)">idct</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ifft(com.hissain.jscipy.signal.JComplex%5B%5D)">ifft</a></span>&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ifft2(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)">ifft2</a></span>&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;input)</code></th>
 <td class="colLast">
 <div class="block">Computes the inverse 2D FFT.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#irfft(com.hissain.jscipy.signal.JComplex%5B%5D,int)">irfft</a></span>&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x,
      int&nbsp;n)</code></th>
@@ -605,14 +653,14 @@ extends java.lang.Object</pre>
 <div class="block">Computes the inverse FFT of a real-valued signal (IRFFT).</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#istft(com.hissain.jscipy.signal.JComplex%5B%5D%5B%5D)">istft</a></span>&#8203;(<a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</code></th>
 <td class="colLast">
 <div class="block">Compute the Inverse Short-Time Fourier Transform (ISTFT).</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta)</code></th>
@@ -620,7 +668,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kaiser(int,double,boolean)">kaiser</a></span>&#8203;(int&nbsp;m,
       double&nbsp;beta,
@@ -629,7 +677,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lfilter(double%5B%5D,double,double,int)">lfilter</a></span>&#8203;(double[]&nbsp;signal,
        double&nbsp;sampleRate,
@@ -639,7 +687,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Butterworth low-pass filter.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#medfilt(double%5B%5D,int)">medfilt</a></span>&#8203;(double[]&nbsp;signal,
        int&nbsp;kernelSize)</code></th>
@@ -647,7 +695,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a median filter to the signal.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#padSignal(double%5B%5D,int)">padSignal</a></span>&#8203;(double[]&nbsp;x,
          int&nbsp;padlen)</code></th>
@@ -655,7 +703,7 @@ extends java.lang.Object</pre>
 <div class="block">Pads a signal using odd extension at both ends.</div>
 </td>
 </tr>
-<tr id="i49" class="rowColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>static <a href="signal/fft/Periodogram.PeriodogramResult.html" title="class in com.hissain.jscipy.signal.fft">Periodogram.PeriodogramResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#periodogram(double%5B%5D,double)">periodogram</a></span>&#8203;(double[]&nbsp;x,
            double&nbsp;fs)</code></th>
@@ -663,7 +711,7 @@ extends java.lang.Object</pre>
 <div class="block">Estimate power spectral density using a periodogram.</div>
 </td>
 </tr>
-<tr id="i50" class="altColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rfft(double%5B%5D)">rfft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
@@ -671,7 +719,7 @@ extends java.lang.Object</pre>
  frequency components (RFFT).</div>
 </td>
 </tr>
-<tr id="i51" class="rowColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#savgol_filter(double%5B%5D,int,int)">savgol_filter</a></span>&#8203;(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -680,7 +728,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#savgol_filter(double%5B%5D,int,int,int,double)">savgol_filter</a></span>&#8203;(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -691,7 +739,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sosfilt(double%5B%5D,double%5B%5D%5B%5D)">sosfilt</a></span>&#8203;(double[]&nbsp;signal,
        double[][]&nbsp;sos)</code></th>
@@ -699,7 +747,7 @@ extends java.lang.Object</pre>
 <div class="block">Filter data using a series of second-order sections (SOS).</div>
 </td>
 </tr>
-<tr id="i54" class="altColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spectrogram(double%5B%5D,double)">spectrogram</a></span>&#8203;(double[]&nbsp;signal,
            double&nbsp;fs)</code></th>
@@ -707,14 +755,14 @@ extends java.lang.Object</pre>
 <div class="block">Computes the spectrogram of a signal.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code>static <a href="signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stft(double%5B%5D)">stft</a></span>&#8203;(double[]&nbsp;x)</code></th>
 <td class="colLast">
 <div class="block">Compute the Short-Time Fourier Transform (STFT).</div>
 </td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/fft/Welch.WelchResult.html" title="class in com.hissain.jscipy.signal.fft">Welch.WelchResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#welch(double%5B%5D,double,int)">welch</a></span>&#8203;(double[]&nbsp;x,
      double&nbsp;fs,
@@ -1405,6 +1453,115 @@ extends java.lang.Object</pre>
 <dd><code>order</code> - The filter order.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The filtered signal.</dd>
+</dl>
+</li>
+</ul>
+<a id="firwin(int,double[],double,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firwin</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;firwin&#8203;(int&nbsp;numtaps,
+                              double[]&nbsp;cutoff,
+                              double&nbsp;fs,
+                              boolean&nbsp;pass_zero)</pre>
+<div class="block">Design an FIR filter using the window method.
+ Default window is "hamming".</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz). Scalar or array.</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dd><code>pass_zero</code> - If true, the zero frequency is passed (Lowpass, Bandstop).
+                  If false, the zero frequency is stopped (Highpass,
+                  Bandpass).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</li>
+</ul>
+<a id="firwin_lowpass(int,double,double)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firwin_lowpass</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;firwin_lowpass&#8203;(int&nbsp;numtaps,
+                                      double&nbsp;cutoff,
+                                      double&nbsp;fs)</pre>
+<div class="block">Design a Lowpass FIR filter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</li>
+</ul>
+<a id="firwin_highpass(int,double,double)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firwin_highpass</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;firwin_highpass&#8203;(int&nbsp;numtaps,
+                                       double&nbsp;cutoff,
+                                       double&nbsp;fs)</pre>
+<div class="block">Design a Highpass FIR filter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>cutoff</code> - Cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</li>
+</ul>
+<a id="firwin_bandpass(int,double,double,double)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firwin_bandpass</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;firwin_bandpass&#8203;(int&nbsp;numtaps,
+                                       double&nbsp;low,
+                                       double&nbsp;high,
+                                       double&nbsp;fs)</pre>
+<div class="block">Design a Bandpass FIR filter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>low</code> - Lower cutoff frequency (Hz).</dd>
+<dd><code>high</code> - Upper cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Filter coefficients.</dd>
+</dl>
+</li>
+</ul>
+<a id="firwin_bandstop(int,double,double,double)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>firwin_bandstop</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;firwin_bandstop&#8203;(int&nbsp;numtaps,
+                                       double&nbsp;low,
+                                       double&nbsp;high,
+                                       double&nbsp;fs)</pre>
+<div class="block">Design a Bandstop FIR filter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numtaps</code> - The number of taps.</dd>
+<dd><code>low</code> - Lower cutoff frequency (Hz).</dd>
+<dd><code>high</code> - Upper cutoff frequency (Hz).</dd>
+<dd><code>fs</code> - Sampling frequency (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Filter coefficients.</dd>
 </dl>
 </li>
 </ul>
