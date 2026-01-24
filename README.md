@@ -11,7 +11,7 @@
   ![License](https://img.shields.io/github/license/hissain/jscipy?color=blue)
 </div>
 
-**jSciPy** is a comprehensive **Java Scientific Computing Library** designed for **Signal Processing**, **Machine Learning**, and **Data Science** on the JVM and Android. Inspired by Python's **SciPy** and **NumPy**, it provides high-performance implementations of essential algorithms.
+**jSciPy** is a comprehensive **Java Scientific Computing and Signal Processing Library** designed for **Machine Learning** on the JVM and Android. Inspired by Python's **SciPy**, it provides high-performance implementations of essential algorithms.
 
 It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel, and FIR (`firwin`) filters, Window Functions, 2D Convolution, Savitzky-Golay smoothing, Peak detection, Detrending, Median Filter.
