@@ -2,6 +2,7 @@ package com.hissain.jscipy;
 
 import com.hissain.jscipy.signal.ConvolutionMode;
 import com.hissain.jscipy.signal.Convolve;
+import com.hissain.jscipy.signal.Correlate2d;
 import com.hissain.jscipy.signal.Detrend;
 import com.hissain.jscipy.signal.DetrendType;
 import com.hissain.jscipy.signal.FindPeaks;
@@ -878,6 +879,29 @@ public class Signal {
      */
     public static double[][] convolve2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
         return new Convolve().convolve2d(in1, in2, mode);
+    }
+
+    /**
+     * Cross-correlate two 2-dimensional arrays.
+     * <p>
+     * Cross-correlation is used extensively in pattern matching and image
+     * processing.
+     * This function computes the correlation as generally defined in signal
+     * processing texts, which is equivalent to
+     * {@code convolve2d(in1, flip(flip(in2, axis=0), axis=1), mode)}.
+     * <p>
+     * <img src=
+     * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate2d/correlate2d_comparison_light.png"
+     * alt="Correlate2D Comparison" style="width: 600px; max-width: 90%;
+     * display: block; margin: 0 auto;">
+     *
+     * @param in1  First input array (image/signal).
+     * @param in2  Second input array (kernel/template).
+     * @param mode The convolution mode (FULL, SAME, VALID).
+     * @return Discrete 2D cross-correlation of in1 and in2.
+     */
+    public static double[][] correlate2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
+        return new Correlate2d().correlate2d(in1, in2, mode);
     }
 
     /**
