@@ -303,9 +303,9 @@ A seperate demo android application is built on this library that might be helpf
 ### 2D Convolve Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve2d/convolve2d_comparison_full_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve2d/convolve2d_comparison_full_light.png">
-  <img alt="2D Convolve Comparison" src="python/figs/convolve2d/convolve2d_comparison_full_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/convolve2d/convolve2d_comparison_all_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/convolve2d/convolve2d_comparison_all_light.png">
+  <img alt="2D Convolve Comparison" src="python/figs/convolve2d/convolve2d_comparison_all_light.png">
 </picture>
 
 ### Cross-Correlation Comparison
