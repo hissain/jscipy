@@ -610,6 +610,72 @@ public class Signal {
         return find_peaks(x, Double.NaN, -1, Double.NaN);
     }
 
+    /**
+     * Calculate the prominence of each peak in a signal.
+     * <p>
+     * The prominence of a peak measures how much a peak stands out from the
+     * surrounding baseline of the signal.
+     *
+     * @param x     The signal data.
+     * @param peaks Indices of peaks in x.
+     * @param wlen  Window length (-1 for no window).
+     * @return ProminenceResult containing prominences and bases.
+     */
+    public static FindPeaks.ProminenceResult peak_prominences(double[] x, int[] peaks, int wlen) {
+        return FindPeaks.calculateProminences(x, peaks, wlen);
+    }
+
+    /**
+     * Calculate the prominence of each peak in a signal.
+     *
+     * @param x     The signal data.
+     * @param peaks Indices of peaks in x.
+     * @return ProminenceResult containing prominences and bases.
+     */
+    public static FindPeaks.ProminenceResult peak_prominences(double[] x, int[] peaks) {
+        return peak_prominences(x, peaks, -1); // Default wlen
+    }
+
+    /**
+     * Calculate the width of each peak.
+     *
+     * @param x           The signal data.
+     * @param peaks       Indices of peaks in x.
+     * @param relHeight   Relative height (default 0.5).
+     * @param prominences Peak prominences (optional).
+     * @param leftBases   Left bases (optional).
+     * @param rightBases  Right bases (optional).
+     * @param wlen        Window length (if prominences not provided).
+     * @return WidthResult containing widths and intersection points.
+     */
+    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks, double relHeight,
+            double[] prominences, int[] leftBases, int[] rightBases, int wlen) {
+        return FindPeaks.calculatePeakWidths(x, peaks, relHeight, prominences, leftBases, rightBases, wlen);
+    }
+
+    /**
+     * Calculate the width of each peak at half prominence (rel_height=0.5).
+     *
+     * @param x     The signal data.
+     * @param peaks Indices of peaks in x.
+     * @return WidthResult containing full width at half prominence.
+     */
+    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks) {
+        return peak_widths(x, peaks, 0.5, null, null, null, -1);
+    }
+
+    /**
+     * Calculate the width of each peak at relative height.
+     *
+     * @param x         The signal data.
+     * @param peaks     Indices of peaks in x.
+     * @param relHeight Relative height (0.0-1.0).
+     * @return WidthResult containing widths.
+     */
+    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks, double relHeight) {
+        return peak_widths(x, peaks, relHeight, null, null, null, -1);
+    }
+
     // --- Hilbert Transform ---
 
     // --- Window Functions ---
