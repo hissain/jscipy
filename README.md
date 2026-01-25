@@ -52,6 +52,7 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   - [1D Convolve](#1d-convolve-comparison)
   - [2D Convolve](#2d-convolve-comparison)
   - [Cross-Correlation](#cross-correlation-comparison)
+  - [2D Cross-Correlation](#2d-cross-correlation-comparison)
   - [DCT](#dct-comparison)
   - [Polynomial Fit](#polynomial-fit-comparison)
   - [2D FFT](#2d-fft-comparison)
@@ -314,6 +315,14 @@ A seperate demo android application is built on this library that might be helpf
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate/correlate_comparison_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate/correlate_comparison_light.png">
   <img alt="Cross-Correlation Comparison" src="python/figs/correlate/correlate_comparison_light.png">
+</picture>
+
+### 2D Cross-Correlation Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate2d/correlate2d_comparison_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate2d/correlate2d_comparison_comparison_light.png">
+  <img alt="2D Cross-Correlation Comparison" src="python/figs/correlate2d/correlate2d_comparison_comparison_light.png">
 </picture>
 
 ### DCT Comparison
