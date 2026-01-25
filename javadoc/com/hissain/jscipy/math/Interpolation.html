@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -134,7 +134,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Interpolation</span>
 extends java.lang.Object</pre>
 <div class="block">Helper class for 1D interpolation operations.
- Supports Linear and Cubic Spline interpolation.
+ Supports Linear, Quadratic, Cubic and general B-Spline interpolation.
  <p>
  <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png" alt="Interpolation Comparison 1" style="width: 600px; max-width: 90%;
  display: block; margin: 0 auto;">
@@ -184,6 +184,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bspline(double%5B%5D,double%5B%5D,double%5B%5D,int)">bspline</a></span>&#8203;(double[]&nbsp;x,
+       double[]&nbsp;y,
+       double[]&nbsp;newX,
+       int&nbsp;k)</code></th>
+<td class="colLast">
+<div class="block">Performs B-spline interpolation of degree k.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cubic(double%5B%5D,double%5B%5D,double%5B%5D)">cubic</a></span>&#8203;(double[]&nbsp;x,
      double[]&nbsp;y,
      double[]&nbsp;newX)</code></th>
@@ -191,7 +201,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs cubic spline interpolation.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#linear(double%5B%5D,double%5B%5D,double%5B%5D)">linear</a></span>&#8203;(double[]&nbsp;x,
       double[]&nbsp;y,
@@ -200,7 +210,7 @@ extends java.lang.Object</pre>
 <div class="block">Performs linear interpolation.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#quadratic(double%5B%5D,double%5B%5D,double%5B%5D)">quadratic</a></span>&#8203;(double[]&nbsp;x,
          double[]&nbsp;y,
@@ -301,7 +311,7 @@ extends java.lang.Object</pre>
 <a id="quadratic(double[],double[],double[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>quadratic</h4>
 <pre class="methodSignature">public&nbsp;double[]&nbsp;quadratic&#8203;(double[]&nbsp;x,
@@ -318,6 +328,28 @@ extends java.lang.Object</pre>
 <dd><code>x</code> - The x-coordinates of the data points (must be sorted).</dd>
 <dd><code>y</code> - The y-coordinates of the data points.</dd>
 <dd><code>newX</code> - The x-coordinates to evaluate.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The interpolated values.</dd>
+</dl>
+</li>
+</ul>
+<a id="bspline(double[],double[],double[],int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>bspline</h4>
+<pre class="methodSignature">public&nbsp;double[]&nbsp;bspline&#8203;(double[]&nbsp;x,
+                        double[]&nbsp;y,
+                        double[]&nbsp;newX,
+                        int&nbsp;k)</pre>
+<div class="block">Performs B-spline interpolation of degree k.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - The x-coordinates of the data points (must be sorted).</dd>
+<dd><code>y</code> - The y-coordinates of the data points.</dd>
+<dd><code>newX</code> - The x-coordinates to evaluate.</dd>
+<dd><code>k</code> - The degree of the B-spline.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The interpolated values.</dd>
 </dl>
