@@ -3,6 +3,10 @@ import subprocess
 import sys
 
 def main():
+    # Force UTF-8 encoding for stdout on Windows to support emojis
+    if sys.platform == "win32":
+        sys.stdout.reconfigure(encoding='utf-8')
+
     # Define the directory containing the data generation scripts
     dsgen_dir = os.path.join(os.path.dirname(__file__), 'dsgen')
     

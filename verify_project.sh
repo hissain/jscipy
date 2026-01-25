@@ -8,6 +8,23 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}🚀 Starting Full Project Verification...${NC}"
 
+# Auto-detect JAVA_HOME on Windows (Git Bash/MSYS) if not set
+if [[ -z "$JAVA_HOME" && ("$OSTYPE" == "msys" || "$OSTYPE" == "cygwin") ]]; then
+    echo -e "${BLUE}🔍 JAVA_HOME not set. Attempting to locate on Windows...${NC}"
+    # Common path for Microsoft OpenJDK
+    MS_JDK_PATH="C:\Program Files\Microsoft\jdk-17.0.17.10-hotspot"
+    if [ -d "$MS_JDK_PATH" ]; then
+        echo -e "${GREEN}Found Microsoft OpenJDK at: $MS_JDK_PATH${NC}"
+        export JAVA_HOME="$MS_JDK_PATH"
+    fi
+fi
+
+if [[ -z "$JAVA_HOME" ]]; then
+    echo -e "${BLUE}ℹ️  JAVA_HOME is: (Not Set)${NC}"
+else
+    echo -e "${BLUE}ℹ️  JAVA_HOME is: $JAVA_HOME${NC}"
+fi
+
 echo -e "${BLUE}1️⃣  Cleaning datasets and python figures...${NC}"
 rm -rf datasets/*
 rm -rf python/figs/*
