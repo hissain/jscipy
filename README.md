@@ -8,6 +8,10 @@
 
   ![Build Status](https://github.com/hissain/jscipy/actions/workflows/android.yml/badge.svg)
   [![](https://jitpack.io/v/hissain/jscipy.svg)](https://jitpack.io/#hissain/jscipy)
+  [![](https://jitpack.io/v/hissain/jscipy/javadoc.svg)](https://jitpack.io/com/github/hissain/jscipy/latest/javadoc/)
+  [![javadoc](https://javadoc.io/badge2/com.github.hissain/jscipy/javadoc.svg)](https://javadoc.io/doc/com.github.hissain/jscipy)
+  [![Javadoc](https://img.shields.io/badge/Javadoc-GitHub%20Pages-blue)](https://hissain.github.io/jscipy)
+  [![Discord](https://img.shields.io/discord/1335503063523098674?logo=discord&label=discord)](https://discord.gg/ZfAEWc84J)
   ![License](https://img.shields.io/github/license/hissain/jscipy?color=blue)
 </div>
 
