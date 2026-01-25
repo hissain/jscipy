@@ -19,7 +19,7 @@
 It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel, and FIR (`firwin`) filters, Window Functions, 2D Convolution, Savitzky-Golay smoothing, Peak detection, Detrending, Median Filter.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Periodogram, Convolution, DCT/IDCT.
-*   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling, Polynomial fitting.
+*   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline, Quadratic), Resampling, Polynomial fitting.
 
 In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
@@ -85,6 +85,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
+*   **Interpolation**: linear, cubic spline, quadratic interpolation.
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
