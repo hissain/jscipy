@@ -85,7 +85,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel, **FIR Design (`firwin`)**. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
 *   **2D Processing**: `convolve2d`, `correlate2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
-*   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, **`peak_prominences`**, **`peak_widths`**, Welch's PSD, `spectrogram`, `detrend`, `resample`.
+*   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, **`peakProminences`**, **`peakWidths`**, Welch's PSD, `spectrogram`, `detrend`, `resample`.
 *   **Interpolation**: linear, cubic spline, quadratic, and generalized B-spline interpolation.
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
@@ -194,13 +194,13 @@ A seperate demo android application is built on this library that might be helpf
   <img alt="RK4 Comparison" src="python/figs/rk4/rk4_comparison_light.png">
 </picture>
 
-### FindPeaks Comparison
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
-  <img alt="FindPeaks Comparison" src="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
-</picture>
+### Peak Detection & Properties
+ 
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="python/figs/peak_properties/test1_analysis_dark.png">
+   <source media="(prefers-color-scheme: light)" srcset="python/figs/peak_properties/test1_analysis_light.png">
+   <img alt="Peak Properties Comparison" src="python/figs/peak_properties/test1_analysis_light.png">
+ </picture>
 
 ### Interpolation Comparison
 
