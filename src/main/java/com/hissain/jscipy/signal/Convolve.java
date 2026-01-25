@@ -6,19 +6,14 @@ package com.hissain.jscipy.signal;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve/convolve_comparison_light.png"
- * alt="Convolve Comparison" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+ * alt="Convolve Comparison" style="width: 600px; max-width: 90%; display:
+ * block; margin: 0 auto;">
  * <br>
  * <img src=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_full_light.png"
- * alt="Convolve2D Comparison Full" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_all_light.png"
+ * alt="Convolve2D Comparison All" style="width: 600px; max-width: 90%;
+ * display: block; margin: 0 auto;">
  * <br>
- * <img src=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_same_light.png"
- * alt="Convolve2D Comparison Same" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
- * <br>
- * <img src=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/convolve2d/convolve2d_comparison_valid_light.png"
- * alt="Convolve2D Comparison Valid" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
  */
 public class Convolve {
 
