@@ -20,12 +20,15 @@ def plot_test(test_id):
         
         linear_y_java = read_data_file(f'datasets/interpolation/interpolation_output_linear_java_{test_id}.txt')
         cubic_y_java = read_data_file(f'datasets/interpolation/interpolation_output_cubic_java_{test_id}.txt')
+        
+        quadratic_y_python = read_data_file(f'datasets/interpolation/interpolation_output_quadratic_{test_id}.txt')
+        quadratic_y_java = read_data_file(f'datasets/interpolation/interpolation_output_quadratic_java_{test_id}.txt')
     except FileNotFoundError as e:
         print(f"Skipping interpolation {test_id}: {e}")
         return
 
     # Plotting
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=style_utils.FIG_SIZE_WIDE, sharex=True)
+    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
     
     # Linear
     ax1.plot(x, y, 'o', label='Original Data', color='gray')
@@ -40,6 +43,13 @@ def plot_test(test_id):
     ax2.plot(new_x, cubic_y_java, '--', label='Java Cubic', linewidth=2.0)
     ax2.legend()
     ax2.set_title(f"Cubic Interpolation (Test {test_id})")
+
+    # Quadratic
+    ax3.plot(x, y, 'o', label='Original Data', color='gray')
+    ax3.plot(new_x, quadratic_y_python, label='Python Quadratic', linewidth=1.5, alpha=0.8)
+    ax3.plot(new_x, quadratic_y_java, '--', label='Java Quadratic', linewidth=2.0)
+    ax3.legend()
+    ax3.set_title(f"Quadratic Interpolation (Test {test_id})")
 
     plt.tight_layout()
     os.makedirs('python/figs/interpolation', exist_ok=True)

@@ -88,7 +88,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **Correlation**: `correlate` (Cross-Correlation with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
-*   **Numerical Methods**: Interpolation (Linear, Cubic Spline), RK4 ODE Solver.
+*   **Numerical Methods**: Interpolation (Linear, Quadratic, Cubic Spline), RK4 ODE Solver.
 
 ## Accuracy & Precision
 
@@ -555,6 +555,7 @@ public class MathExample {
         double[] query = {0.5, 1.5};
         
         double[] lin = Math.interp1d_linear(x, y, query);
+        double[] quad = Math.interp1d_quadratic(x, y, query);
         double[] cub = Math.interp1d_cubic(x, y, query);
 
         // 2. RK4 ODE Solver (dy/dt = -y)

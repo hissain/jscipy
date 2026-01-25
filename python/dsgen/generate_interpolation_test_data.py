@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.interpolate import CubicSpline
+from scipy.interpolate import CubicSpline, interp1d
 import os
 
 def generate_interpolation_test_data(test_id, num_samples, num_new_samples):
@@ -20,6 +20,10 @@ def generate_interpolation_test_data(test_id, num_samples, num_new_samples):
     # Cubic interpolation with natural boundary conditions
     cs = CubicSpline(x, y, bc_type='natural')
     cubic_y = cs(new_x)
+
+    # Quadratic interpolation
+    f_quad = interp1d(x, y, kind='quadratic')
+    quadratic_y = f_quad(new_x)
     
     # Create output directory if it doesn't exist
     output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../datasets/interpolation")
@@ -38,6 +42,8 @@ def generate_interpolation_test_data(test_id, num_samples, num_new_samples):
         np.savetxt(f, linear_y, fmt='%.18e')
     with open(os.path.join(output_dir, f"interpolation_output_cubic_{test_id}.txt"), 'w', newline='\n') as f:
         np.savetxt(f, cubic_y, fmt='%.18e')
+    with open(os.path.join(output_dir, f"interpolation_output_quadratic_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, quadratic_y, fmt='%.18e')
     
     print(f"Generated test data for interpolation with num_samples={num_samples}, num_new_samples={num_new_samples}")
 
