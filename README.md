@@ -71,6 +71,10 @@ The table below compares jSciPy’s signal processing and scientific computing f
   <img alt="jSciPy Comparison Table" src="python/figs/comparison_summary_light.png">
 </picture>
 
+<p align="center">
+  <a href="python/figs/comparison_summary_light.png">🔍 View Full Size (Light)</a> &nbsp;|&nbsp; <a href="python/figs/comparison_summary_dark.png">🔍 View Full Size (Dark)</a>
+</p>
+
 
 ## Features
 
