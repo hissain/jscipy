@@ -192,12 +192,25 @@ A seperate demo android application is built on this library that might be helpf
 </picture>
 
 ### Peak Detection & Properties
- 
+
+  <picturer>
+   <source media="(prefers-color-scheme: dark)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_dark.png">
+   <source media="(prefers-color-scheme: light)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
+   <img alt="Peak Finding Comparison" src="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
+ </picture>
+    
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="python/figs/peak_properties/test1_analysis_dark.png">
    <source media="(prefers-color-scheme: light)" srcset="python/figs/peak_properties/test1_analysis_light.png">
    <img alt="Peak Properties Comparison" src="python/figs/peak_properties/test1_analysis_light.png">
  </picture>
+
+ <picturer>
+   <source media="(prefers-color-scheme: dark)" srcset="python/figs/peak_properties/test2_chirp_analysis_dark.png">
+   <source media="(prefers-color-scheme: light)" srcset="python/figs/peak_properties/test2_chirp_analysis_light.png">
+   <img alt="Peak Width Comparison" src="python/figs/peak_properties/test2_chirp_analysis_light.png">
+ </picture>
+ 
 
 ### Interpolation Comparison
 
