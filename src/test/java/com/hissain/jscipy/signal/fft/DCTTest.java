@@ -1,6 +1,5 @@
 package com.hissain.jscipy.signal.fft;
 
-import com.hissain.jscipy.signal.fft.DCT;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;

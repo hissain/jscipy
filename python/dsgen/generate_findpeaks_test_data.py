@@ -21,11 +21,13 @@ def generate_test_data(signal_length, test_id, distance, height=None, prominence
     
     # Save signal to file
     signal_filename = os.path.join(output_dir, f"findpeaks_input{test_id}.txt")
-    np.savetxt(signal_filename, signal, fmt='%.18e')
+    with open(signal_filename, 'w', newline='\n') as f:
+        np.savetxt(f, signal, fmt='%.18e')
     
     # Save peak indices to file
     peak_indices_filename = os.path.join(output_dir, f"findpeaks_output{test_id}.txt")
-    np.savetxt(peak_indices_filename, peak_indices, fmt='%d')
+    with open(peak_indices_filename, 'w', newline='\n') as f:
+        np.savetxt(f, peak_indices, fmt='%d')
     
     print(f"Generated test data with {len(peak_indices)} peaks and saved to:\n- Signal: {signal_filename}\n- Peak indices: {peak_indices_filename}")
 

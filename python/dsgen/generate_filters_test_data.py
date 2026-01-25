@@ -41,8 +41,10 @@ def generate_filter_test_data(filter_type, test_id, order, sample_rate, num_samp
         os.makedirs(output_dir)
 
     prefix = f"{filter_type}_"
-    np.savetxt(os.path.join(output_dir, f"{prefix}input{test_id}.txt"), signal_data, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"{prefix}output{test_id}.txt"), filtered_signal, fmt='%.18e')
+    with open(os.path.join(output_dir, f"{prefix}input{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, signal_data, fmt='%.18e')
+    with open(os.path.join(output_dir, f"{prefix}output{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, filtered_signal, fmt='%.18e')
     print(f"Generated {filter_type} test data {test_id}")
 
 if __name__ == "__main__":

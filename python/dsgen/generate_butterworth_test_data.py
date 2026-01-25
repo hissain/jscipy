@@ -7,8 +7,10 @@ def save_data(test_id, input_signal, filtered_signal):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
-    np.savetxt(os.path.join(output_dir, f"butterworth_{test_id}_input.txt"), input_signal, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"butterworth_{test_id}_output.txt"), filtered_signal, fmt='%.18e')
+    with open(os.path.join(output_dir, f"butterworth_{test_id}_input.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, input_signal, fmt='%.18e')
+    with open(os.path.join(output_dir, f"butterworth_{test_id}_output.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, filtered_signal, fmt='%.18e')
 
 def generate_simple_tone(test_id, order, cutoff, sample_rate, num_samples):
     print(f"Generating simple tone for test {test_id} (Order: {order}, Cutoff: {cutoff})")

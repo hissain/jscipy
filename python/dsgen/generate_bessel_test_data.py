@@ -24,8 +24,10 @@ def generate_data():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     datasets_dir = os.path.join(script_dir, '../../datasets/bessel')
     os.makedirs(datasets_dir, exist_ok=True)
-    np.savetxt(os.path.join(datasets_dir, 'bessel_input.txt'), x)
-    np.savetxt(os.path.join(datasets_dir, 'bessel_output_scipy.txt'), y_scipy)
+    with open(os.path.join(datasets_dir, 'bessel_input.txt'), 'w', newline='\n') as f:
+        np.savetxt(f, x)
+    with open(os.path.join(datasets_dir, 'bessel_output_scipy.txt'), 'w', newline='\n') as f:
+        np.savetxt(f, y_scipy)
     
     print("Bessel test data generated.")
 

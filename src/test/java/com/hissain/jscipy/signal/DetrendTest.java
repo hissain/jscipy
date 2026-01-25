@@ -9,9 +9,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.hissain.jscipy.signal.Detrend;
-import com.hissain.jscipy.signal.DetrendType;
-
 public class DetrendTest {
 
     private static final String TEST_DATA_DIR = System.getProperty("user.dir") + "/datasets/detrend/";

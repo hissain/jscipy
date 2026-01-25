@@ -5,7 +5,6 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.hissain.jscipy.signal.util.LoadTxt;
-import com.hissain.jscipy.signal.ConvolutionMode;
 
 public class ConvolveTest {
 

@@ -10,7 +10,8 @@ def save_data(filename, data):
         os.makedirs(dataset_dir)
         
     filepath = os.path.join(dataset_dir, filename)
-    np.savetxt(filepath, data, fmt='%.18e')
+    with open(filepath, 'w', newline='\n') as f:
+        np.savetxt(f, data, fmt='%.18e')
     print(f"Saved {filepath}")
 
 def generate():

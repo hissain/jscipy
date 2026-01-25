@@ -18,9 +18,12 @@ base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../datas
 # Medfilt output
 medfilt_dir = os.path.join(base_dir, 'medfilt')
 os.makedirs(medfilt_dir, exist_ok=True)
-np.savetxt(os.path.join(medfilt_dir, 'medfilt_input.txt'), y)
-np.savetxt(os.path.join(medfilt_dir, 'medfilt_kernel.txt'), [3])
-np.savetxt(os.path.join(medfilt_dir, 'medfilt_output.txt'), medfilt_y)
+with open(os.path.join(medfilt_dir, 'medfilt_input.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, y)
+with open(os.path.join(medfilt_dir, 'medfilt_kernel.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, [3])
+with open(os.path.join(medfilt_dir, 'medfilt_output.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, medfilt_y)
 
 # --- convolve ---
 # 1D convolution
@@ -31,8 +34,11 @@ filtered = signal.convolve(sig, win, mode='same')
 # Convolve output
 convolve_dir = os.path.join(base_dir, 'convolve')
 os.makedirs(convolve_dir, exist_ok=True)
-np.savetxt(os.path.join(convolve_dir, 'convolve_input_signal.txt'), sig)
-np.savetxt(os.path.join(convolve_dir, 'convolve_input_window.txt'), win)
-np.savetxt(os.path.join(convolve_dir, 'convolve_output.txt'), filtered)
+with open(os.path.join(convolve_dir, 'convolve_input_signal.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, sig)
+with open(os.path.join(convolve_dir, 'convolve_input_window.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, win)
+with open(os.path.join(convolve_dir, 'convolve_output.txt'), 'w', newline='\n') as f:
+    np.savetxt(f, filtered)
 
 print("Test data for medfilt and convolve generated successfully.")

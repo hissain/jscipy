@@ -27,11 +27,17 @@ def generate_interpolation_test_data(test_id, num_samples, num_new_samples):
         os.makedirs(output_dir)
     
     # Save the data
-    np.savetxt(os.path.join(output_dir, f"interpolation_input_x_{test_id}.txt"), x, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"interpolation_input_y_{test_id}.txt"), y, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"interpolation_input_new_x_{test_id}.txt"), new_x, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"interpolation_output_linear_{test_id}.txt"), linear_y, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"interpolation_output_cubic_{test_id}.txt"), cubic_y, fmt='%.18e')
+    # Save the data
+    with open(os.path.join(output_dir, f"interpolation_input_x_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, x, fmt='%.18e')
+    with open(os.path.join(output_dir, f"interpolation_input_y_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, y, fmt='%.18e')
+    with open(os.path.join(output_dir, f"interpolation_input_new_x_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, new_x, fmt='%.18e')
+    with open(os.path.join(output_dir, f"interpolation_output_linear_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, linear_y, fmt='%.18e')
+    with open(os.path.join(output_dir, f"interpolation_output_cubic_{test_id}.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, cubic_y, fmt='%.18e')
     
     print(f"Generated test data for interpolation with num_samples={num_samples}, num_new_samples={num_new_samples}")
 

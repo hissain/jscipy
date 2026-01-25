@@ -21,8 +21,11 @@ t2 = np.arange(N2)
 input_2 = np.sin(2 * np.pi * t2 / 10.0)
 
 # Save inputs
-np.savetxt(os.path.join(output_dir, "hilbert_input_1.txt"), input_1)
-np.savetxt(os.path.join(output_dir, "hilbert_input_2.txt"), input_2)
+# Save inputs
+with open(os.path.join(output_dir, "hilbert_input_1.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, input_1)
+with open(os.path.join(output_dir, "hilbert_input_2.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, input_2)
 
 # Apply hilbert
 output_1 = signal.hilbert(input_1)
@@ -40,10 +43,14 @@ output_2 = signal.hilbert(input_2)
 # If I can't check, I'll define my own format.
 # I'll save real part in _real.txt and imag part in _imag.txt
 
-np.savetxt(os.path.join(output_dir, "hilbert_output_1_real.txt"), output_1.real)
-np.savetxt(os.path.join(output_dir, "hilbert_output_1_imag.txt"), output_1.imag)
+with open(os.path.join(output_dir, "hilbert_output_1_real.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_1.real)
+with open(os.path.join(output_dir, "hilbert_output_1_imag.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_1.imag)
 
-np.savetxt(os.path.join(output_dir, "hilbert_output_2_real.txt"), output_2.real)
-np.savetxt(os.path.join(output_dir, "hilbert_output_2_imag.txt"), output_2.imag)
+with open(os.path.join(output_dir, "hilbert_output_2_real.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_2.real)
+with open(os.path.join(output_dir, "hilbert_output_2_imag.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_2.imag)
 
 print("Hilbert test data generated.")

@@ -1,6 +1,5 @@
 package com.hissain.jscipy.signal.fft;
 
-import com.hissain.jscipy.Signal;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;

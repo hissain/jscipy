@@ -7,9 +7,12 @@ def save_data(test_id, input1, input2, expected_output):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
-    np.savetxt(os.path.join(output_dir, f"{test_id}_input1.txt"), input1, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"{test_id}_input2.txt"), input2, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"{test_id}_output.txt"), expected_output, fmt='%.18e')
+    with open(os.path.join(output_dir, f"{test_id}_input1.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, input1, fmt='%.18e')
+    with open(os.path.join(output_dir, f"{test_id}_input2.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, input2, fmt='%.18e')
+    with open(os.path.join(output_dir, f"{test_id}_output.txt"), 'w', newline='\n') as f:
+        np.savetxt(f, expected_output, fmt='%.18e')
 
 if __name__ == "__main__":
     np.random.seed(42)

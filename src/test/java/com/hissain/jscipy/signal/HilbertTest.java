@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hissain.jscipy.signal.JComplex;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -32,7 +31,8 @@ public class HilbertTest {
         return data.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    private void runTest(String inputFilename, String expectedRealFilename, String expectedImagFilename) throws IOException {
+    private void runTest(String inputFilename, String expectedRealFilename, String expectedImagFilename)
+            throws IOException {
         double[] signal = readDataFile(inputFilename);
         double[] expectedReal = readDataFile(expectedRealFilename);
         double[] expectedImag = readDataFile(expectedImagFilename);

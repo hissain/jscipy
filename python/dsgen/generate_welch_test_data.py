@@ -18,9 +18,12 @@ def generate_welch_test_data(test_id, sample_rate, num_samples, nperseg):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         
-    np.savetxt(os.path.join(output_dir, f"welch_input{test_id}.txt"), sig, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"welch_output_freq{test_id}.txt"), f, fmt='%.18e')
-    np.savetxt(os.path.join(output_dir, f"welch_output_psd{test_id}.txt"), Pxx, fmt='%.18e')
+    with open(os.path.join(output_dir, f"welch_input{test_id}.txt"), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, sig, fmt='%.18e')
+    with open(os.path.join(output_dir, f"welch_output_freq{test_id}.txt"), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, f, fmt='%.18e')
+    with open(os.path.join(output_dir, f"welch_output_psd{test_id}.txt"), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, Pxx, fmt='%.18e')
     
     print(f"Generated welch test data {test_id} (nperseg={nperseg})")
 
