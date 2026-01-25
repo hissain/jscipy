@@ -1,3 +1,9 @@
+{"module": "Math", "test": "Interpolation Quadratic (Test 1)", "rmse": 1.089207e-16}
+{"module": "Math", "test": "Interpolation Quadratic (Test 2)", "rmse": 9.978506e-17}
+{"module": "Math", "test": "Interpolation Cubic (Test 1)", "rmse": 1.679155e-16}
+{"module": "Math", "test": "Interpolation Cubic (Test 2)", "rmse": 8.310032e-17}
+{"module": "Math", "test": "Interpolation Linear (Test 1)", "rmse": 7.021667e-17}
+{"module": "Math", "test": "Interpolation Linear (Test 2)", "rmse": 4.496917e-17}
 {"module": "Poly", "test": "Polyfit Exact", "rmse": 2.479222e-15}
 {"module": "Poly", "test": "Polyfit Lstsq", "rmse": 1.070954e-15}
 {"module": "ODE", "test": "RK4Solver", "rmse": 5.534298e-13}

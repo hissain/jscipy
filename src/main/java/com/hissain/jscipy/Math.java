@@ -48,6 +48,19 @@ public class Math {
         return new Interpolation().cubic(x, y, newX);
     }
 
+    /**
+     * Performs quadratic spline interpolation on the given data points.
+     * Matches SciPy's interp1d(kind='quadratic') using B-splines.
+     *
+     * @param x    The x-coordinates of the data points.
+     * @param y    The y-coordinates of the data points.
+     * @param newX The x-coordinates at which to evaluate the interpolated values.
+     * @return The interpolated values.
+     */
+    public static double[] interp1d_quadratic(double[] x, double[] y, double[] newX) {
+        return new Interpolation().quadratic(x, y, newX);
+    }
+
     // --- Polynomials ---
 
     /**
