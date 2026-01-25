@@ -101,6 +101,10 @@ jSciPy is rigorously tested against Python's SciPy using a "Golden Master" appro
   <img alt="Accuracy Summary" src="python/figs/accuracy_summary_light.png">
 </picture>
 
+<p align="center">
+  <a href="python/figs/accuracy_summary_light.png">View full size (light)</a> &nbsp;|&nbsp; <a href="python/figs/accuracy_summary_dark.png">View full size (dark)</a>
+</p>
+
 ## Documentation
 
 You can access full documentation javadoc of the jscipy library [HERE](https://hissain.github.io/jscipy).
