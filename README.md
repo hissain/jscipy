@@ -67,8 +67,6 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 
 The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
 
-The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="python/figs/comparison_summary_dark.png">
   <source media="(prefers-color-scheme: light)" srcset="python/figs/comparison_summary_light.png">
