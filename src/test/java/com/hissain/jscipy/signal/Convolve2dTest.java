@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.hissain.jscipy.TestMetrics;
 
 public class Convolve2dTest {
 
@@ -115,6 +116,7 @@ public class Convolve2dTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for Convolve2d Random Full: " + rmse);
+        TestMetrics.log("2D Ops", "Convolve2d Random Full", rmse);
 
         // Export for Python visualization
         saveMatrix("datasets/convolve2d/java_conv2d_result.txt", actual);

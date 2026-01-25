@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+import com.hissain.jscipy.TestMetrics;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -39,6 +40,15 @@ public class PolyTest {
         // Save Java output for comparison plotting (Golden Master rule)
         saveData("polyfit_exact_coeffs_java.txt", actualCoeffs);
 
+        double rmse = java.lang.Math.sqrt(0); // Using 0 as exact match check is array equality
+        // Calculate manually for logging
+        double sumSq = 0;
+        for (int i = 0; i < expectedCoeffs.length; i++)
+            sumSq += Math.pow(expectedCoeffs[i] - actualCoeffs[i], 2);
+        rmse = Math.sqrt(sumSq / expectedCoeffs.length);
+
+        TestMetrics.log("Poly", "Polyfit Exact", rmse);
+
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Exact coefficients mismatch");
     }
 
@@ -63,6 +73,13 @@ public class PolyTest {
 
         // Save Java output for comparison plotting (Golden Master rule)
         saveData("polyfit_lstsq_coeffs_java.txt", actualCoeffs);
+
+        double sumSq = 0;
+        for (int i = 0; i < expectedCoeffs.length; i++)
+            sumSq += Math.pow(expectedCoeffs[i] - actualCoeffs[i], 2);
+        double rmse = Math.sqrt(sumSq / expectedCoeffs.length);
+
+        TestMetrics.log("Poly", "Polyfit Lstsq", rmse);
 
         assertArrayEquals(expectedCoeffs, actualCoeffs, TOLERANCE, "Polyfit Least Squares coefficients mismatch");
     }

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import com.hissain.jscipy.math.RK4Solver.DifferentialEquation;
 import com.hissain.jscipy.math.RK4Solver.Solution;
+import com.hissain.jscipy.TestMetrics;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -59,6 +60,7 @@ public class RK4SolverTest {
         }
         rmse = Math.sqrt(rmse / solution.y.length);
         System.out.println("RMSE for " + inputFilename + ": " + rmse);
+        TestMetrics.log("ODE", "RK4Solver", rmse);
         assertTrue(rmse < TOLERANCE);
     }
 }

@@ -5,6 +5,7 @@ import com.hissain.jscipy.signal.util.LoadTxt;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import com.hissain.jscipy.TestMetrics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,6 +41,7 @@ public class SOSFilterTest {
 
         double rmse = calculateRMSE(expectedOutput, result);
         System.out.println("SOS Filter RMSE: " + rmse);
+        TestMetrics.log("SOS Filt", "SOS Filter", rmse);
 
         assertEquals(0.0, rmse, 1e-14, "SOS Filter output mismatch");
     }

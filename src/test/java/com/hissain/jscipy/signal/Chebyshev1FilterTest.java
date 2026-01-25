@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.hissain.jscipy.signal.filter.Chebyshev1;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.hissain.jscipy.TestMetrics;
 
 public class Chebyshev1FilterTest {
 
@@ -51,6 +52,7 @@ public class Chebyshev1FilterTest {
         }
         rmse = Math.sqrt(rmse / output.length);
         System.out.println("RMSE for " + inputFilename + ": " + rmse);
+        TestMetrics.log("Filters", "Chebyshev I " + inputFilename, rmse);
         assertTrue(rmse < TOLERANCE, "RMSE " + rmse + " is too high");
     }
 
