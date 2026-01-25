@@ -86,7 +86,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **2D Processing**: `convolve2d`, `correlate2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, **`peakProminences`**, **`peakWidths`**, Welch's PSD, `spectrogram`, `detrend`, `resample`.
-*   **Correlation & Convolution**: `correlate, `convolve` Cross-Correlation and convolution with FULL/SAME/VALID modes).
+*   **Correlation & Convolution**: `correlate`, `convolve` Cross-Correlation and convolution with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
 *   **Numerical Methods**: Interpolation (Linear, Quadratic, Cubic Spline, B-Spline), RK4 ODE Solver.
