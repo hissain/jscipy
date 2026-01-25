@@ -21,13 +21,17 @@ def generate_spectrogram_data(test_name, data, fs):
     output_Sxx_filename = f'{test_name}_Sxx.txt'
     
     os.makedirs(datasets_dir, exist_ok=True)
-    np.savetxt(os.path.join(datasets_dir, input_filename), data)
-    np.savetxt(os.path.join(datasets_dir, output_freqs_filename), f)
-    np.savetxt(os.path.join(datasets_dir, output_times_filename), t)
-    np.savetxt(os.path.join(datasets_dir, output_Sxx_filename), Sxx)
+    with open(os.path.join(datasets_dir, input_filename), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, data)
+    with open(os.path.join(datasets_dir, output_freqs_filename), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, f)
+    with open(os.path.join(datasets_dir, output_times_filename), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, t)
+    with open(os.path.join(datasets_dir, output_Sxx_filename), 'w', newline='\n') as f_out:
+        np.savetxt(f_out, Sxx)
     
     # Also save shape for Java reading convenience
-    with open(os.path.join(datasets_dir, f'{test_name}_Sxx_shape.txt'), 'w') as f_shape:
+    with open(os.path.join(datasets_dir, f'{test_name}_Sxx_shape.txt'), 'w', newline='\n') as f_shape:
         f_shape.write(f"{Sxx.shape[0]}\n{Sxx.shape[1]}")
 
 if __name__ == '__main__':

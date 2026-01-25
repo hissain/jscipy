@@ -12,8 +12,10 @@ def generate_resample_data(test_name, data, num):
     output_filename = f'{test_name}_output.txt'
     
     os.makedirs(datasets_dir, exist_ok=True)
-    np.savetxt(os.path.join(datasets_dir, input_filename), data)
-    np.savetxt(os.path.join(datasets_dir, output_filename), resampled_data)
+    with open(os.path.join(datasets_dir, input_filename), 'w', newline='\n') as f:
+        np.savetxt(f, data)
+    with open(os.path.join(datasets_dir, output_filename), 'w', newline='\n') as f:
+        np.savetxt(f, resampled_data)
 
 if __name__ == '__main__':
     # Test case 1: Upsampling

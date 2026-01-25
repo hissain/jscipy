@@ -12,8 +12,10 @@ def generate_savgol_data(test_name, data, window_length, polyorder, deriv=0, del
     output_filename = f'{test_name}_output.txt'
     
     os.makedirs(datasets_dir, exist_ok=True)
-    np.savetxt(os.path.join(datasets_dir, input_filename), data)
-    np.savetxt(os.path.join(datasets_dir, output_filename), filtered_data)
+    with open(os.path.join(datasets_dir, input_filename), 'w', newline='\n') as f:
+        np.savetxt(f, data)
+    with open(os.path.join(datasets_dir, output_filename), 'w', newline='\n') as f:
+        np.savetxt(f, filtered_data)
     print(f"Generated test data for {test_name}")
 
 if __name__ == '__main__':

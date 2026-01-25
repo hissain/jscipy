@@ -4,7 +4,7 @@ import os
 
 def save_matrix(filename, matrix):
     rows, cols = matrix.shape
-    with open(filename, 'w') as f:
+    with open(filename, 'w', newline='\n') as f:
         f.write(f"{rows} {cols}\n")
         np.savetxt(f, matrix, fmt='%.18e')
 

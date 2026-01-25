@@ -7,7 +7,8 @@ def ensure_dir(directory):
         os.makedirs(directory)
 
 def save_txt(filename, data, fmt='%.18e'):
-    np.savetxt(filename, data, fmt=fmt, delimiter=',')
+    with open(filename, 'w', newline='\n') as f:
+        np.savetxt(f, data, fmt=fmt, delimiter=',')
     print(f"Saved {filename}")
 
 def generate_data():

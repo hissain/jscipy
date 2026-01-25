@@ -36,7 +36,8 @@ def apply_elliptic_filter(signal_data, sample_rate, cutoff, order, rp, rs):
 def save_signal(filename, data):
     """Save signal to text file."""
     filepath = os.path.join(OUTPUT_DIR, filename)
-    np.savetxt(filepath, data, fmt='%.18e')
+    with open(filepath, 'w', newline='\n') as f:
+        np.savetxt(f, data, fmt='%.18e')
     print(f"Saved: {filepath}")
 
 

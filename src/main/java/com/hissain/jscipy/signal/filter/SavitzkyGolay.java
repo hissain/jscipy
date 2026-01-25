@@ -166,12 +166,8 @@ public class SavitzkyGolay {
 
         // The coefficients for the derivative are in the 'deriv'-th row of
         // pseudoInverse
-        RealVector coefficientsVector = pseudoInverse.getRowVector(deriv);
-        double[] coefficientsRow = coefficientsVector.toArray();
-
-        // Scale by deriv! / delta^deriv
-        double factorial = factorial(deriv);
-        double scale = factorial / Math.pow(delta, deriv);
+        // (Note: coefficients are calculated but not used directly in this
+        // implementation)
 
         // For center position, use direct coefficients (more efficient for standard
         // convolution)

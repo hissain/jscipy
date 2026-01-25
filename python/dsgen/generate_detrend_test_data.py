@@ -18,8 +18,11 @@ input_1 = linear_trend + noise
 input_2 = np.cumsum(np.random.normal(0, 0.5, 100)) + 10
 
 # Save inputs
-np.savetxt(os.path.join(output_dir, "detrend_input_1.txt"), input_1)
-np.savetxt(os.path.join(output_dir, "detrend_input_2.txt"), input_2)
+# Save inputs
+with open(os.path.join(output_dir, "detrend_input_1.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, input_1)
+with open(os.path.join(output_dir, "detrend_input_2.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, input_2)
 
 # Apply detrend (linear)
 output_linear_1 = signal.detrend(input_1, type='linear')
@@ -30,9 +33,14 @@ output_constant_1 = signal.detrend(input_1, type='constant')
 output_constant_2 = signal.detrend(input_2, type='constant')
 
 # Save outputs
-np.savetxt(os.path.join(output_dir, "detrend_output_linear_1.txt"), output_linear_1)
-np.savetxt(os.path.join(output_dir, "detrend_output_linear_2.txt"), output_linear_2)
-np.savetxt(os.path.join(output_dir, "detrend_output_constant_1.txt"), output_constant_1)
-np.savetxt(os.path.join(output_dir, "detrend_output_constant_2.txt"), output_constant_2)
+# Save outputs
+with open(os.path.join(output_dir, "detrend_output_linear_1.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_linear_1)
+with open(os.path.join(output_dir, "detrend_output_linear_2.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_linear_2)
+with open(os.path.join(output_dir, "detrend_output_constant_1.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_constant_1)
+with open(os.path.join(output_dir, "detrend_output_constant_2.txt"), 'w', newline='\n') as f:
+    np.savetxt(f, output_constant_2)
 
 print("Detrend test data generated.")

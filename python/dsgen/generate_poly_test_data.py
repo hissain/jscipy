@@ -9,7 +9,8 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 def save_data(filename, data):
     filepath = os.path.join(DATA_DIR, filename)
-    np.savetxt(filepath, data, fmt='%.16e')
+    with open(filepath, 'w', newline='\n') as f:
+        np.savetxt(f, data, fmt='%.16e')
     print(f"Saved {filepath}")
 
 def generate_poly_test_data():
