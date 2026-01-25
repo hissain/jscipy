@@ -61,6 +61,19 @@ public class Math {
         return new Interpolation().quadratic(x, y, newX);
     }
 
+    /**
+     * Performs B-spline interpolation of arbitrary degree.
+     *
+     * @param x    The x-coordinates of the data points.
+     * @param y    The y-coordinates of the data points.
+     * @param newX The x-coordinates at which to evaluate the interpolated values.
+     * @param k    The degree of the spline.
+     * @return The interpolated values.
+     */
+    public static double[] interp1d_bspline(double[] x, double[] y, double[] newX, int k) {
+        return new Interpolation().bspline(x, y, newX, k);
+    }
+
     // --- Polynomials ---
 
     /**

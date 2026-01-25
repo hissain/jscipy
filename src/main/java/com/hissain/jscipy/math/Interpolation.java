@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 /**
  * Helper class for 1D interpolation operations.
- * Supports Linear and Cubic Spline interpolation.
+ * Supports Linear, Quadratic, Cubic and general B-Spline interpolation.
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png"
@@ -88,16 +88,6 @@ public class Interpolation {
 
     /**
      * Performs quadratic spline interpolation.
-     *
-     * @param x    Known x-coordinates (must be sorted).
-     * @param y    Known y-coordinates corresponding to x.
-     * @param newX New x-coordinates to evaluate.
-     * @return Interpolated y-values at newX.
-     * @throws IllegalArgumentException if x and y lengths differ or are
-     *                                  insufficient.
-     */
-    /**
-     * Performs quadratic spline interpolation.
      * <p>
      * Replicates SciPy's `interp1d(kind='quadratic')` implementation using
      * B-splines
@@ -110,7 +100,20 @@ public class Interpolation {
      * @return The interpolated values.
      */
     public double[] quadratic(double[] x, double[] y, double[] newX) {
-        QuadraticSplineInterpolator interpolator = new QuadraticSplineInterpolator();
+        return bspline(x, y, newX, 2);
+    }
+
+    /**
+     * Performs B-spline interpolation of degree k.
+     *
+     * @param x    The x-coordinates of the data points (must be sorted).
+     * @param y    The y-coordinates of the data points.
+     * @param newX The x-coordinates to evaluate.
+     * @param k    The degree of the B-spline.
+     * @return The interpolated values.
+     */
+    public double[] bspline(double[] x, double[] y, double[] newX, int k) {
+        BSplineInterpolator interpolator = new BSplineInterpolator(k);
         try {
             org.apache.commons.math3.analysis.UnivariateFunction function = interpolator.interpolate(x, y);
             double[] newY = new double[newX.length];
@@ -149,7 +152,13 @@ public class Interpolation {
         return i;
     }
 
-    private static class QuadraticSplineInterpolator {
+    private static class BSplineInterpolator {
+
+        private final int k;
+
+        public BSplineInterpolator(int k) {
+            this.k = k;
+        }
 
         public UnivariateFunction interpolate(final double[] x, final double[] y)
                 throws DimensionMismatchException, NumberIsTooSmallException, NonMonotonicSequenceException {
@@ -158,45 +167,58 @@ public class Interpolation {
                 throw new DimensionMismatchException(x.length, y.length);
             }
 
-            if (x.length < 3) {
-                throw new NumberIsTooSmallException(x.length, 3, true);
+            if (x.length < k + 1) {
+                throw new NumberIsTooSmallException(x.length, k + 1, true);
             }
 
             MathArrays.checkOrder(x);
 
             final int n = x.length - 1; // Number of segments
             // Number of points = n + 1
-            // Degree k = 2
+            // Degree k
 
-            // 1. Knot Generation (matching SciPy make_interp_spline)
-            // Total knots = (n + 1) + k + 1 = n + 4
-            // Internal knots = n - 2
-            // Internal knots are midpoints of internal data intervals: (x[i]+x[i+1])/2 for
-            // i=1..n-1
+            // 1. Knot Generation
+            // Total knots = (n + 1) + k + 1 = n + k + 2
 
-            double[] t = new double[n + 4];
+            double[] t = new double[n + k + 2];
 
-            // Start Clamped
-            t[0] = x[0];
-            t[1] = x[0];
-            t[2] = x[0];
+            // Start Clamped: k+1 times x[0]
+            for (int i = 0; i <= k; i++) {
+                t[i] = x[0];
+            }
 
-            // End Clamped
-            t[n + 1] = x[n];
-            t[n + 2] = x[n];
-            t[n + 3] = x[n];
+            // End Clamped: k+1 times x[n]
+            for (int i = 0; i <= k; i++) {
+                t[t.length - 1 - i] = x[n];
+            }
 
             // Internal Knots
-            // We need n-2 internal knots.
-            // Internal points: x[1] ... x[n-1]
-            // We take averages of x[i], x[i+1] for i=1 to n-2 ?
-            // SciPy Example (N=4, 5 points): x0, x1, x2, x3, x4
-            // Internal points: x1, x2, x3.
-            // Knots: (x1+x2)/2, (x2+x3)/2.
-            // Indices: x[1],x[2] -> t[3]. x[2],x[3] -> t[4].
+            // We need n - k internal knots.
+            // If k is even: midpoints.
+            // If k is odd: data points.
 
-            for (int i = 0; i < n - 2; i++) {
-                t[3 + i] = (x[i + 1] + x[i + 2]) / 2.0;
+            int internalKnots = n - k;
+            if (internalKnots > 0) {
+                if (k % 2 == 0) {
+                    // Even degree: Midpoints
+                    // For k=2, start=1.
+                    // General start index in x logic: k/2
+                    int startIdx = k / 2;
+                    for (int i = 0; i < internalKnots; i++) {
+                        int idx = startIdx + i;
+                        t[k + 1 + i] = (x[idx] + x[idx + 1]) / 2.0;
+                    }
+                } else {
+                    // Odd degree: Data points
+                    // For k=1: internal knots x[1]...x[n-1]. (n-1 points). Start idx 1.
+                    // For k=3: internal knots x[2]...x[n-2]. (n-3 points). Start idx 2.
+                    // General start index: (k+1)/2.
+                    int startIdx = (k + 1) / 2;
+                    for (int i = 0; i < internalKnots; i++) {
+                        int idx = startIdx + i;
+                        t[k + 1 + i] = x[idx];
+                    }
+                }
             }
 
             // 2. Build Linear System to solve for Control Points c
@@ -210,7 +232,7 @@ public class Interpolation {
             for (int i = 0; i < dim; i++) {
                 double xi = x[i];
                 for (int j = 0; j < dim; j++) {
-                    matrixData[i][j] = bSplineBasis(j, 2, t, xi);
+                    matrixData[i][j] = bSplineBasis(j, k, t, xi);
                 }
             }
 
@@ -225,7 +247,7 @@ public class Interpolation {
             return new UnivariateFunction() {
                 @Override
                 public double value(double v) {
-                    return evaluateBSpline(v, 2, knots, c);
+                    return evaluateBSpline(v, k, knots, c);
                 }
             };
         }
@@ -256,17 +278,8 @@ public class Interpolation {
             return term1 + term2;
         }
 
-        // Evaluation using de Boor's algorithm formulation or just summing basis
-        // functions
-        // Summing basis functions is easier to implement using the helper above, though
-        // less efficient than de Boor
-        // Given complexity is small (k=2), direct basis summation is fine.
         private double evaluateBSpline(double x, int k, double[] t, double[] c) {
             double sum = 0;
-            // Iterate over relevant basis functions.
-            // Basis function N_{i,k} is non-zero in [t_i, t_{i+k+1})
-            // Optimization: Find span index and only sum k+1 functions?
-            // For now, simple loop over all coeffs is fine for N < 100.
             for (int i = 0; i < c.length; i++) {
                 sum += c[i] * bSplineBasis(i, k, t, x);
             }
