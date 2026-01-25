@@ -17,7 +17,7 @@
 **jSciPy** is a comprehensive **Java Scientific Computing and Signal Processing Library** designed for **Machine Learning** on the JVM and Android. Inspired by Python's **SciPy**, it provides high-performance implementations of essential algorithms.
 
 It currently includes modules for:
-*   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel, and FIR (`firwin`) filters, Window Functions, 2D Convolution, Savitzky-Golay smoothing, Peak detection, Detrending, Median Filter.
+*   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel, and FIR (`firwin`) filters, Window Functions, 2D Convolution, 2D Cross-Correlation, Savitzky-Golay smoothing, Peak detection, Detrending, Median Filter.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Periodogram, Convolution, DCT/IDCT.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline, Quadratic, B-Spline), Resampling, Polynomial fitting.
 
@@ -83,7 +83,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 ## Features
 
 *   **Advanced Filtering**: Butterworth, Chebyshev, Elliptic, Bessel, **FIR Design (`firwin`)**. Supports **zero-phase (`filtfilt`)**, causal (`lfilter`), and **Second-Order Sections (`sosfilt`)** modes.
-*   **2D Processing**: `convolve2d` (Full/Same/Valid), `fft2`, `ifft2`.
+*   **2D Processing**: `convolve2d`, `correlate2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, Welch's PSD, `spectrogram`, `detrend`, `resample`.
 *   **Interpolation**: linear, cubic spline, quadratic, and generalized B-spline interpolation.
