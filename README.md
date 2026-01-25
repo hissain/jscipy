@@ -330,9 +330,9 @@ A seperate demo android application is built on this library that might be helpf
 ### 2D Cross-Correlation Comparison
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate2d/correlate2d_comparison_comparison_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate2d/correlate2d_comparison_comparison_light.png">
-  <img alt="2D Cross-Correlation Comparison" src="python/figs/correlate2d/correlate2d_comparison_comparison_light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/correlate2d/correlate2d_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/correlate2d/correlate2d_comparison_light.png">
+  <img alt="2D Cross-Correlation Comparison" src="python/figs/correlate2d/correlate2d_comparison_light.png">
 </picture>
 
 ### DCT Comparison
