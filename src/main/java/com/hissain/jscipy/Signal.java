@@ -2,7 +2,7 @@ package com.hissain.jscipy;
 
 import com.hissain.jscipy.signal.ConvolutionMode;
 import com.hissain.jscipy.signal.Convolve;
-import com.hissain.jscipy.signal.Correlate2d;
+import com.hissain.jscipy.signal.Correlate;
 import com.hissain.jscipy.signal.Detrend;
 import com.hissain.jscipy.signal.DetrendType;
 import com.hissain.jscipy.signal.FindPeaks;
@@ -861,12 +861,7 @@ public class Signal {
      * @return Discrete cross-correlation of in1 and in2.
      */
     public static double[] correlate(double[] in1, double[] in2, ConvolutionMode mode) {
-        // Reverse in2
-        double[] in2Reversed = new double[in2.length];
-        for (int i = 0; i < in2.length; i++) {
-            in2Reversed[i] = in2[in2.length - 1 - i];
-        }
-        return convolve(in1, in2Reversed, mode);
+        return new Correlate().correlate(in1, in2, mode);
     }
 
     /**
@@ -901,7 +896,7 @@ public class Signal {
      * @return Discrete 2D cross-correlation of in1 and in2.
      */
     public static double[][] correlate2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
-        return new Correlate2d().correlate2d(in1, in2, mode);
+        return new Correlate().correlate2d(in1, in2, mode);
     }
 
     /**

@@ -1,20 +1,50 @@
 package com.hissain.jscipy.signal;
 
 /**
- * Utility class for 2D cross-correlation.
+ * Utility class for 1D and 2D cross-correlation.
  * <p>
- * Cross-correlation is similar to convolution but without flipping the kernel.
- * It is commonly used in image processing and pattern matching.
+ * Cross-correlation is commonly used in signal processing, image processing,
+ * and
+ * pattern matching.
+ * </p>
+ * <h3>1D Cross-Correlation</h3>
+ * <img src=
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate/correlate_comparison_light.png"
+ * alt="1D Correlation Comparison" style="width: 600px; max-width: 90%; display:
+ * block; margin: 0 auto;">
  * <p>
+ * <h3>2D Cross-Correlation</h3>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/correlate2d/correlate2d_comparison_light.png"
- * alt="Correlate2D Comparison" style="width: 600px; max-width: 90%; display:
+ * alt="2D Correlation Comparison" style="width: 600px; max-width: 90%; display:
  * block; margin: 0 auto;">
- * <br>
  *
  * @see Convolve
  */
-public class Correlate2d {
+public class Correlate {
+
+    /**
+     * Cross-correlate two 1-dimensional sequences.
+     * <p>
+     * This function computes the correlation as generally defined in signal
+     * processing texts:
+     * z[k] = (x * y)[k] = sum_l x[l] * y[l+k]
+     * <p>
+     * This is equivalent to {@code convolve(in1, reverse(in2), mode)}.
+     *
+     * @param in1  First input signal.
+     * @param in2  Second input signal.
+     * @param mode The convolution mode (FULL, SAME, VALID).
+     * @return Discrete cross-correlation of in1 and in2.
+     */
+    public double[] correlate(double[] in1, double[] in2, ConvolutionMode mode) {
+        // Reverse in2
+        double[] in2Reversed = new double[in2.length];
+        for (int i = 0; i < in2.length; i++) {
+            in2Reversed[i] = in2[in2.length - 1 - i];
+        }
+        return new Convolve().convolve(in1, in2Reversed, mode);
+    }
 
     /**
      * Cross-correlate two 2-dimensional arrays.
@@ -43,9 +73,6 @@ public class Correlate2d {
      * @param mode The convolution mode (FULL, SAME, VALID).
      * @return The 2D cross-correlation of in1 and in2.
      * @throws IllegalArgumentException if inputs are null or empty
-     *
-     * @see ConvolutionMode
-     * @see Convolve#convolve2d(double[][], double[][], ConvolutionMode)
      */
     public double[][] correlate2d(double[][] in1, double[][] in2, ConvolutionMode mode) {
         if (in1 == null || in1.length == 0 || in1[0].length == 0) {
