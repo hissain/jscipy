@@ -31,7 +31,7 @@ public class PeakPropertiesTest {
         double[] expectedRightBases = LoadTxt.read(DATA_DIR + testId + "_right_bases.txt");
 
         // Calculate
-        FindPeaks.ProminenceResult result = Signal.peak_prominences(x, peaks);
+        FindPeaks.ProminenceResult result = Signal.peakProminences(x, peaks);
 
         // Validate Prominences
         double rmseProminence = calculateRMSE(expectedProminences, result.prominences);
@@ -62,7 +62,7 @@ public class PeakPropertiesTest {
         double[] expectedRightIps = LoadTxt.read(DATA_DIR + testId + "_right_ips.txt");
 
         // Calculate
-        FindPeaks.WidthResult result = Signal.peak_widths(x, peaks, 0.5);
+        FindPeaks.WidthResult result = Signal.peakWidths(x, peaks, 0.5);
 
         // Validate
         double rmseWidths = calculateRMSE(expectedWidths, result.widths);
@@ -88,7 +88,7 @@ public class PeakPropertiesTest {
 
         double[] expectedWidths = LoadTxt.read(DATA_DIR + prefix + "widths.txt");
 
-        FindPeaks.WidthResult result = Signal.peak_widths(x, peaks, 1.0);
+        FindPeaks.WidthResult result = Signal.peakWidths(x, peaks, 1.0);
 
         double rmseWidths = calculateRMSE(expectedWidths, result.widths);
         System.out.println("RMSE Widths (MultiPeak, 1.0): " + rmseWidths);
@@ -111,7 +111,7 @@ public class PeakPropertiesTest {
 
         double[] expectedProminences = LoadTxt.read(DATA_DIR + testId + "_prominences.txt");
 
-        FindPeaks.ProminenceResult result = Signal.peak_prominences(x, peaks);
+        FindPeaks.ProminenceResult result = Signal.peakProminences(x, peaks);
 
         double rmse = calculateRMSE(expectedProminences, result.prominences);
         System.out.println("RMSE Prominence (Chirp): " + rmse);

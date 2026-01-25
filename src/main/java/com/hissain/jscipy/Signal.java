@@ -621,8 +621,8 @@ public class Signal {
      * @param wlen  Window length (-1 for no window).
      * @return ProminenceResult containing prominences and bases.
      */
-    public static FindPeaks.ProminenceResult peak_prominences(double[] x, int[] peaks, int wlen) {
-        return FindPeaks.calculateProminences(x, peaks, wlen);
+    public static FindPeaks.ProminenceResult peakProminences(double[] x, int[] peaks, int wlen) {
+        return FindPeaks.peakProminences(x, peaks, wlen);
     }
 
     /**
@@ -632,8 +632,8 @@ public class Signal {
      * @param peaks Indices of peaks in x.
      * @return ProminenceResult containing prominences and bases.
      */
-    public static FindPeaks.ProminenceResult peak_prominences(double[] x, int[] peaks) {
-        return peak_prominences(x, peaks, -1); // Default wlen
+    public static FindPeaks.ProminenceResult peakProminences(double[] x, int[] peaks) {
+        return peakProminences(x, peaks, -1); // Default wlen
     }
 
     /**
@@ -648,9 +648,9 @@ public class Signal {
      * @param wlen        Window length (if prominences not provided).
      * @return WidthResult containing widths and intersection points.
      */
-    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks, double relHeight,
+    public static FindPeaks.WidthResult peakWidths(double[] x, int[] peaks, double relHeight,
             double[] prominences, int[] leftBases, int[] rightBases, int wlen) {
-        return FindPeaks.calculatePeakWidths(x, peaks, relHeight, prominences, leftBases, rightBases, wlen);
+        return FindPeaks.peakWidths(x, peaks, relHeight, prominences, leftBases, rightBases, wlen);
     }
 
     /**
@@ -660,8 +660,8 @@ public class Signal {
      * @param peaks Indices of peaks in x.
      * @return WidthResult containing full width at half prominence.
      */
-    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks) {
-        return peak_widths(x, peaks, 0.5, null, null, null, -1);
+    public static FindPeaks.WidthResult peakWidths(double[] x, int[] peaks) {
+        return peakWidths(x, peaks, 0.5, null, null, null, -1);
     }
 
     /**
@@ -672,8 +672,8 @@ public class Signal {
      * @param relHeight Relative height (0.0-1.0).
      * @return WidthResult containing widths.
      */
-    public static FindPeaks.WidthResult peak_widths(double[] x, int[] peaks, double relHeight) {
-        return peak_widths(x, peaks, relHeight, null, null, null, -1);
+    public static FindPeaks.WidthResult peakWidths(double[] x, int[] peaks, double relHeight) {
+        return peakWidths(x, peaks, relHeight, null, null, null, -1);
     }
 
     // --- Hilbert Transform ---
