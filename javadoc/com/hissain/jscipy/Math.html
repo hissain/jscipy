@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -196,12 +196,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#interp1d_quadratic(double%5B%5D,double%5B%5D,double%5B%5D)">interp1d_quadratic</a></span>&#8203;(double[]&nbsp;x,
+                  double[]&nbsp;y,
+                  double[]&nbsp;newX)</code></th>
+<td class="colLast">
+<div class="block">Performs quadratic spline interpolation on the given data points.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polyder(double%5B%5D)">polyder</a></span>&#8203;(double[]&nbsp;p)</code></th>
 <td class="colLast">
 <div class="block">Compute the derivative of a polynomial.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polyfit(double%5B%5D,double%5B%5D,int)">polyfit</a></span>&#8203;(double[]&nbsp;x,
        double[]&nbsp;y,
@@ -210,7 +219,7 @@ extends java.lang.Object</pre>
 <div class="block">Least squares polynomial fit.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polyval(double%5B%5D,double)">polyval</a></span>&#8203;(double[]&nbsp;p,
        double&nbsp;x)</code></th>
@@ -218,7 +227,7 @@ extends java.lang.Object</pre>
 <div class="block">Evaluate a polynomial at a specific value.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polyval(double%5B%5D,double%5B%5D)">polyval</a></span>&#8203;(double[]&nbsp;p,
        double[]&nbsp;x)</code></th>
@@ -226,7 +235,7 @@ extends java.lang.Object</pre>
 <div class="block">Evaluate a polynomial at specific values.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resample(double%5B%5D,int)">resample</a></span>&#8203;(double[]&nbsp;x,
         int&nbsp;num)</code></th>
@@ -325,6 +334,27 @@ extends java.lang.Object</pre>
                                       double[]&nbsp;y,
                                       double[]&nbsp;newX)</pre>
 <div class="block">Performs cubic spline interpolation on the given data points.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - The x-coordinates of the data points.</dd>
+<dd><code>y</code> - The y-coordinates of the data points.</dd>
+<dd><code>newX</code> - The x-coordinates at which to evaluate the interpolated values.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The interpolated values.</dd>
+</dl>
+</li>
+</ul>
+<a id="interp1d_quadratic(double[],double[],double[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>interp1d_quadratic</h4>
+<pre class="methodSignature">public static&nbsp;double[]&nbsp;interp1d_quadratic&#8203;(double[]&nbsp;x,
+                                          double[]&nbsp;y,
+                                          double[]&nbsp;newX)</pre>
+<div class="block">Performs quadratic spline interpolation on the given data points.
+ Matches SciPy's interp1d(kind='quadratic') using B-splines.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>x</code> - The x-coordinates of the data points.</dd>

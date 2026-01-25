@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,9 +136,11 @@ extends java.lang.Object</pre>
 <div class="block">Helper class for 1D interpolation operations.
  Supports Linear and Cubic Spline interpolation.
  <p>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png" alt="Interpolation Comparison 1" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_1_light.png" alt="Interpolation Comparison 1" style="width: 600px; max-width: 90%;
+ display: block; margin: 0 auto;">
  <br>
- <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_2_light.png" alt="Interpolation Comparison 2" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;"></div>
+ <img src="https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/interpolation/interpolation_comparison_2_light.png" alt="Interpolation Comparison 2" style="width: 600px; max-width: 90%;
+ display: block; margin: 0 auto;"></div>
 </li>
 </ul>
 </div>
@@ -196,6 +198,15 @@ extends java.lang.Object</pre>
       double[]&nbsp;newX)</code></th>
 <td class="colLast">
 <div class="block">Performs linear interpolation.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#quadratic(double%5B%5D,double%5B%5D,double%5B%5D)">quadratic</a></span>&#8203;(double[]&nbsp;x,
+         double[]&nbsp;y,
+         double[]&nbsp;newX)</code></th>
+<td class="colLast">
+<div class="block">Performs quadratic spline interpolation.</div>
 </td>
 </tr>
 </table>
@@ -267,7 +278,7 @@ extends java.lang.Object</pre>
 <a id="cubic(double[],double[],double[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>cubic</h4>
 <pre class="methodSignature">public&nbsp;double[]&nbsp;cubic&#8203;(double[]&nbsp;x,
@@ -284,6 +295,31 @@ extends java.lang.Object</pre>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if x and y lengths differ or are
                                   insufficient.</dd>
+</dl>
+</li>
+</ul>
+<a id="quadratic(double[],double[],double[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>quadratic</h4>
+<pre class="methodSignature">public&nbsp;double[]&nbsp;quadratic&#8203;(double[]&nbsp;x,
+                          double[]&nbsp;y,
+                          double[]&nbsp;newX)</pre>
+<div class="block">Performs quadratic spline interpolation.
+ <p>
+ Replicates SciPy's `interp1d(kind='quadratic')` implementation using
+ B-splines
+ with clamped boundary conditions and internal knots at midpoints.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - The x-coordinates of the data points (must be sorted).</dd>
+<dd><code>y</code> - The y-coordinates of the data points.</dd>
+<dd><code>newX</code> - The x-coordinates to evaluate.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The interpolated values.</dd>
 </dl>
 </li>
 </ul>
