@@ -34,11 +34,3 @@
 {"module": "Spectral", "test": "Spectrogram spectrogram_chirp", "rmse": 1.481736e-17}
 {"module": "Spectral", "test": "Welch PSD", "rmse": 9.829564e-18}
 {"module": "SOS Filt", "test": "SOS Filter", "rmse": 3.224566e-16}
-{"module": "FFT", "test": "FFT Data 1", "rmse": 2.808216e-15}
-{"module": "FFT", "test": "FFT Data 2", "rmse": 6.376122e-15}
-{"module": "FFT", "test": "RFFT Data 1", "rmse": 2.488544e-15}
-{"module": "FFT", "test": "RFFT Data 2", "rmse": 5.077806e-15}
-{"module": "FFT", "test": "STFT Data 1", "rmse": 9.692188e-17}
-{"module": "FFT", "test": "IRFFT Data 1", "rmse": 2.737155e-16}
-{"module": "FFT", "test": "ISTFT Data 1", "rmse": 1.124138e-15}
-{"module": "FFT", "test": "IFFT Data 1", "rmse": 2.805885e-16}
