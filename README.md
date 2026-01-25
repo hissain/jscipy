@@ -196,7 +196,7 @@ A seperate demo android application is built on this library that might be helpf
   <picturer>
    <source media="(prefers-color-scheme: dark)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_dark.png">
    <source media="(prefers-color-scheme: light)" srcset="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
-   <img alt="Peak Finding Comparison" src="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
+   <img alt="FindPeaks Comparison" src="python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png">
  </picture>
     
  <picture>
