@@ -193,6 +193,97 @@ public class InterpolationTest {
         assertTrue(rmse2 < 1e-12, "Test 2 RMSE too high");
     }
 
+    @Test
+    public void testBSplineK2MatchesQuadratic() throws IOException {
+        double[] x = readData("datasets/interpolation/interpolation_input_x_1.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_1.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_1.txt");
+
+        double[] expected = interpolation.quadratic(x, y, newX);
+        double[] actual = interpolation.bspline(x, y, newX, 2);
+
+        assertArrayEquals(expected, actual, 1e-14, "BSpline k=2 should match Quadratic");
+    }
+
+    @Test
+    public void testBSplineK1MatchesLinear() throws IOException {
+        double[] x = readData("datasets/interpolation/interpolation_input_x_1.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_1.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_1.txt");
+
+        double[] expected = interpolation.linear(x, y, newX);
+        double[] actual = interpolation.bspline(x, y, newX, 1);
+
+        // Linear B-spline might differ slightly due to numeric precision or boundary
+        // handling,
+        // but it should be very close.
+        // Actually, internal knot at x[1] for k=1 (2 points x0, x1? No N points).
+        // My knot logic: k=1. internalKnots = N-1. x[1]...x[N-1]? No.
+        // k=1. N-k = N-1 internal knots. StartIdx = (1+1)/2 = 1.
+        // Knots at x[1], x[2], ..., x[N-1].
+        // This effectively places knots at all data points?
+        // t has size N + 1 + 2 = N+3.
+        // t[0]=t[1]=x0.
+        // t[N+1]=t[N+2]=xN.
+        // Internal t[2]...t[N].
+        // x[1]...x[N-1].
+        // So knots are x0, x0, x1, x2, ..., x[N-1], xN, xN.
+        // This is exactly the linear B-spline basis.
+
+        double rmse = calculateRMSE(expected, actual);
+        System.out.println("RMSE BSpline k=1 vs Linear: " + rmse);
+        assertTrue(rmse < 1e-10, "BSpline k=1 should match Linear");
+    }
+
+    @Test
+    public void testBSplineK3Works() throws IOException {
+        // Test 1
+        double[] x = readData("datasets/interpolation/interpolation_input_x_1.txt");
+        double[] y = readData("datasets/interpolation/interpolation_input_y_1.txt");
+        double[] newX = readData("datasets/interpolation/interpolation_input_new_x_1.txt");
+        double[] expectedY = readData("datasets/interpolation/interpolation_output_bspline_k3_1.txt");
+
+        double[] actualY = interpolation.bspline(x, y, newX, 3);
+
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(
+                "datasets/interpolation/interpolation_output_bspline_k3_java_1.txt")) {
+            for (double v : actualY) {
+                writer.println(v);
+            }
+        }
+
+        double rmse = calculateRMSE(expectedY, actualY);
+        System.out.println("RMSE BSpline k=3 (Test 1): " + rmse);
+        TestMetrics.log("Math", "Interpolation BSpline k=3 (Test 1)", rmse);
+
+        // We expect it to match SciPy's make_interp_spline(k=3) reasonably well
+        // However, boundary conditions logic might differ slightly.
+        // SciPy make_interp_spline uses "not-a-knot" by default for cubic? Or just
+        // standard B-spline?
+        // Let's check the result. 1e-10 is a good starting point.
+        assertTrue(rmse < 1e-10, "BSpline k=3 RMSE too high");
+
+        // Test 2
+        double[] x2 = readData("datasets/interpolation/interpolation_input_x_2.txt");
+        double[] y2 = readData("datasets/interpolation/interpolation_input_y_2.txt");
+        double[] newX2 = readData("datasets/interpolation/interpolation_input_new_x_2.txt");
+        double[] expectedY2 = readData("datasets/interpolation/interpolation_output_bspline_k3_2.txt");
+
+        double[] actualY2 = interpolation.bspline(x2, y2, newX2, 3);
+
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(
+                "datasets/interpolation/interpolation_output_bspline_k3_java_2.txt")) {
+            for (double v : actualY2) {
+                writer.println(v);
+            }
+        }
+
+        double rmse2 = calculateRMSE(expectedY2, actualY2);
+        System.out.println("RMSE BSpline k=3 (Test 2): " + rmse2);
+        TestMetrics.log("Math", "Interpolation BSpline k=3 (Test 2)", rmse2);
+        assertTrue(rmse2 < 1e-10, "BSpline k=3 RMSE too high for Test 2");
+    }
+
     private double[] readData(String filePath) throws IOException {
         return Files.lines(Paths.get(filePath))
                 .mapToDouble(Double::parseDouble)
