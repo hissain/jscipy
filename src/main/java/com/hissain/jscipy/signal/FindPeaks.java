@@ -6,7 +6,7 @@ import java.util.*;
  * A utility class for finding peaks in a signal.
  * <p>
  * <img src=
- * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/findpeaks/findpeaks_input1.txt_peaks_light.png"
+ * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/peak_properties/test1_analysis_light.png"
  * alt="FindPeaks Comparison" style="width: 600px; max-width: 90%; display:
  * block; margin: 0 auto;">
  */
