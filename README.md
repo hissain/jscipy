@@ -63,31 +63,13 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 
 The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
 
-| Feature / Characteristic              | jSciPy                          | Commons Math            | JDSP                                      | TarsosDSP                       | IIRJ            | EJML            |
-|---------------------------------------|---------------------------------|-------------------------|-------------------------------------------|---------------------------------|-----------------|-----------------|
-| Primary Focus                         | **SciPy-style Signal + Scientific** | General Math/Stats     | Java DSP Toolbox                          | Audio Processing                | IIR Filter Only | Linear Algebra  |
-| Zero-Phase Filtering (`filtfilt`)     | ✅ Yes (SciPy-compatible)       | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| 2D Signal Ops (`conv2d`, `fft2`)      | ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| SciPy-like API Consistency            | ✅ High (SciPy semantics)       | ❌ Low                  | ⚠️ Partial Java DSP                       | ❌ No                           | ❌ No           | ❌ No           |
-| Filtering Capabilities                | ⭐⭐⭐⭐⭐ (IIR+FIR+advanced)      | ⭐ Basic                 | ⭐⭐⭐ (IIR/FIR & adaptive)                 | ⭐⭐ (audio filters)             | ⭐⭐ (IIR only)  | ❌ No           |
-| Transforms (FFT/DCT/Hilbert)        | ✅ FFT, DCT + Hilbert           | Limited / Basic FFT only| ✅ FFT + Hilbert                          | ✅ FFT spectrum tools (audio)   | ❌ No           | ❌ No           |
-| Interpolation (Linear/Cubic)          | ✅ Yes                          | ✅ Yes                  | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
-| ODE Solvers (RK4)                     | ✅ Yes                          | ✅ Yes                  | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| Signal Analysis (Peak/PSD)            | ✅ Yes                          | ❌ No                   | ⚠️ Partial (peak detection)               | ⚠️ Partial (audio metrics)      | ❌ No           | ❌ No           |
-| Welch PSD                             | ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| Spectrogram                           | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ✅ Yes                           | ❌ No           | ❌ No           |
-| Window Functions                      | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ✅ Yes                           | ❌ No           | ❌ No           |
-| Savitzky-Golay Filter                 | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
-| Median Filter (`medfilt`)             | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
-| Detrending                            | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
-| Real-Optimized FFT (`rfft`/`irfft`)   | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
-| STFT / ISTFT Support                  | ✅ Yes (SciPy-like)             | ❌ No                   | ✅ Yes (dedicated classes)                | ⚠️ Partial (internal use only)  | ❌ No           | ❌ No           |
-| 1D Convolution with Modes (`convolve`)| ✅ Yes (with modes)             | ❌ No                   | ⚠️ Partial (convolve1d, limited modes)    | ⚠️ Partial (implied, no modes)  | ❌ No           | ❌ No           |
-| Resampling (`resample`)               | ✅ Yes                          | ❌ No                   | ✅ Yes                                    | ✅ Yes                           | ❌ No           | ❌ No           |
-| Signal Padding Utilities (`padSignal`)| ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| Configurable Peak Finding (`find_peaks` with prominence etc.) | ✅ Yes                 | ❌ No                   | ✅ Yes                                    | ⚠️ Partial (spectral peaks only)| ❌ No           | ❌ No           |
-| Cross-Correlation (`correlate`)       | ✅ Yes                          | ❌ No                   | ❌ No                                     | ❌ No                           | ❌ No           | ❌ No           |
-| Polynomials (`polyfit`, `polyval`)    | ✅ Yes (via Commons Math)       | ✅ Yes                  | ✅ Yes                                    | ❌ No                           | ❌ No           | ❌ No           |
+The table below compares jSciPy’s signal processing and scientific computing features with several other popular Java libraries, highlighting areas where jSciPy provides more comprehensive functionality.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/comparison_summary_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/comparison_summary_light.png">
+  <img alt="jSciPy Comparison Table" src="python/figs/comparison_summary_light.png">
+</picture>
 
 
 ## Features
