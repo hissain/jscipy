@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import com.hissain.jscipy.TestMetrics;
 
 public class ResampleTest {
 
@@ -61,6 +62,7 @@ public class ResampleTest {
 
         double rmse = calculateRMSE(expectedOutput, actualOutput);
         System.out.println("RMSE for " + inputFilename + " (numSamples=" + numSamples + "): " + rmse);
+        TestMetrics.log("Math", "Resample " + numSamples, rmse);
 
         assertTrue(rmse < TOLERANCE, "RMSE " + rmse + " is not less than tolerance " + TOLERANCE);
     }

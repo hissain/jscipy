@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import com.hissain.jscipy.TestMetrics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -81,6 +82,8 @@ public class FFT2Test {
 
         System.out.println("RMSE Real: " + rmseReal);
         System.out.println("RMSE Imag: " + rmseImag); // Print explicit newline
+        TestMetrics.log("2D Ops", "FFT2 Real", rmseReal);
+        TestMetrics.log("2D Ops", "FFT2 Imag", rmseImag);
 
         assertEquals(0, rmseReal, delta, "Real part RMSE too high");
         assertEquals(0, rmseImag, delta, "Imag part RMSE too high");
@@ -103,7 +106,8 @@ public class FFT2Test {
     public void testIFFT2() throws IOException {
         System.out.println("Testing IFFT2:");
         JComplex[][] input = loadComplexMatrix("datasets/fft2/ifft2_in_real.txt", "datasets/fft2/ifft2_in_imag.txt");
-        JComplex[][] expected = loadComplexMatrix("datasets/fft2/ifft2_out_real.txt", "datasets/fft2/ifft2_out_imag.txt");
+        JComplex[][] expected = loadComplexMatrix("datasets/fft2/ifft2_out_real.txt",
+                "datasets/fft2/ifft2_out_imag.txt");
 
         JComplex[][] actual = Signal.ifft2(input);
 

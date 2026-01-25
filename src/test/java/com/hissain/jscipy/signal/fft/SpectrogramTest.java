@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
+import com.hissain.jscipy.TestMetrics;
 
 public class SpectrogramTest {
 
@@ -101,6 +102,7 @@ public class SpectrogramTest {
         double rmse = Math.sqrt(sumSqErr / totalPoints);
         System.out.println("Testing " + testName + ":");
         System.out.println("RMSE Sxx: " + rmse);
+        TestMetrics.log("Spectral", "Spectrogram " + testName, rmse);
 
         // Save Java Output for Comparison
         saveSpectrogramResult(testName + "_java", result);

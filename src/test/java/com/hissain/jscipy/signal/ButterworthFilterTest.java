@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.hissain.jscipy.signal.filter.Butterworth;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.hissain.jscipy.TestMetrics;
 
 public class ButterworthFilterTest {
 
@@ -52,6 +53,7 @@ public class ButterworthFilterTest {
         }
         rmse = Math.sqrt(rmse / output.length);
         System.out.println("RMSE for " + inputFilename + ": " + rmse);
+        TestMetrics.log("Filters", "Butterworth " + inputFilename, rmse);
         assertTrue(rmse < TOLERANCE);
     }
 

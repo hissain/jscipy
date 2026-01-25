@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.hissain.jscipy.TestMetrics;
+
 public class FFTTest {
 
     private final FFT fft = new FFT();
@@ -39,6 +41,7 @@ public class FFTTest {
         double maxError = calculateMaxError(expected, actual);
         System.out.println("RMSE for FFT Data 1: " + rmse);
         System.out.println("Max Error for FFT Data 1: " + maxError);
+        com.hissain.jscipy.TestMetrics.log("FFT", "FFT Data 1", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -59,6 +62,7 @@ public class FFTTest {
         double maxError = calculateMaxError(expected, actual);
         System.out.println("RMSE for FFT Data 2: " + rmse);
         System.out.println("Max Error for FFT Data 2: " + maxError);
+        com.hissain.jscipy.TestMetrics.log("FFT", "FFT Data 2", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -79,6 +83,7 @@ public class FFTTest {
         double maxError = calculateMaxError(expected, actual);
         System.out.println("RMSE for RFFT Data 1: " + rmse);
         System.out.println("Max Error for RFFT Data 1: " + maxError);
+        com.hissain.jscipy.TestMetrics.log("FFT", "RFFT Data 1", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -99,6 +104,7 @@ public class FFTTest {
         double maxError = calculateMaxError(expected, actual);
         System.out.println("RMSE for RFFT Data 2: " + rmse);
         System.out.println("Max Error for RFFT Data 2: " + maxError);
+        com.hissain.jscipy.TestMetrics.log("FFT", "RFFT Data 2", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -117,6 +123,7 @@ public class FFTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for IFFT Data 1: " + rmse);
+        com.hissain.jscipy.TestMetrics.log("FFT", "IFFT Data 1", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertComplexArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -153,6 +160,7 @@ public class FFTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for IRFFT Data 1: " + rmse);
+        com.hissain.jscipy.TestMetrics.log("FFT", "IRFFT Data 1", rmse);
         assertTrue(rmse < FFT_RMSE_TOLERANCE, "RMSE is too high");
         assertArrayEquals(expected, actual, FFT_MAX_ERROR_TOLERANCE);
     }
@@ -191,6 +199,7 @@ public class FFTTest {
         double maxError = calculateSTFTMaxError(expected, actual);
         System.out.println("RMSE for STFT Data 1: " + rmse);
         System.out.println("Max Error for STFT Data 1: " + maxError);
+        com.hissain.jscipy.TestMetrics.log("FFT", "STFT Data 1", rmse);
         assertTrue(rmse < STFT_RMSE_TOLERANCE, "RMSE is too high");
         assertSTFTEquals(expected, actual, STFT_MAX_ERROR_TOLERANCE);
     }
@@ -273,6 +282,7 @@ public class FFTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.println("RMSE for ISTFT Data 1: " + rmse);
+        com.hissain.jscipy.TestMetrics.log("FFT", "ISTFT Data 1", rmse);
         assertTrue(rmse < STFT_RMSE_TOLERANCE, "RMSE is too high");
         assertArrayEquals(expected, actual, STFT_MAX_ERROR_TOLERANCE);
     }

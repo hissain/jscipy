@@ -80,6 +80,7 @@ Create a JUnit test that asserts your Java implementation matches the SciPy data
 *   **Load Data**: Read the input and expected output from `datasets/<feature>/`.
 *   **Run**: Execute your Java method.
 *   **Assert**: Compare Java output vs SciPy output (typically RMSE < 1e-15).
+*   **Log Metrics**: Use `TestMetrics.log("Module", "Test Name", rmse)` to record the accuracy. This is crucial for the automated accuracy report in the README.
 *   **Save Output**: Save the Java execution result to `datasets/<feature>/` (e.g., `myfeature_output_java.txt`) for plotting.
 
 ### 4. Visualize Comparison
@@ -109,6 +110,7 @@ style_utils.save_plot(fig, "myfeature/myfeature_comparison.png")
     ```
     This script sequentially runs data generation, Java tests, and plot generation.
 *   Add the generated plot to `README.md`.
+*   Note: The **Accuracy & Precision** table in `README.md` will be automatically updated based on your logged metrics. You do not need to edit it manually.
 
 ## Coding Style
 *   We follow standard Java naming conventions.

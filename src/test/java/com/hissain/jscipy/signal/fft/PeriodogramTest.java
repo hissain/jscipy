@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.hissain.jscipy.TestMetrics;
 
 /**
  * Tests for Periodogram implementation against SciPy reference data.
@@ -42,6 +43,7 @@ public class PeriodogramTest {
         // Verify PSD
         double psdRmse = calculateRMSE(expectedPsd, result.psd);
         System.out.println("Periodogram PSD RMSE: " + psdRmse);
+        TestMetrics.log("Spectral", "Periodogram PSD", psdRmse);
         assertTrue(psdRmse < 1e-10, "PSD RMSE should be < 1e-10");
     }
 

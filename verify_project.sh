@@ -37,5 +37,6 @@ echo -e "${BLUE}3️⃣  Running Java Tests...${NC}"
 
 echo -e "${BLUE}3️⃣  Generating Comparison Plots...${NC}"
 python3 python/generate_all_plots.py
+python3 python/generate_accuracy_plot.py
 
 echo -e "${GREEN}✅ All verification steps completed successfully!${NC}"

@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.hissain.jscipy.TestMetrics;
 
 public class WelchTest {
 
@@ -60,6 +61,7 @@ public class WelchTest {
         }
         psdRmse = Math.sqrt(psdRmse / result.Pxx.length);
         System.out.println("PSD RMSE: " + psdRmse);
+        TestMetrics.log("Spectral", "Welch PSD", psdRmse);
         assertTrue(psdRmse < TOLERANCE, "PSD RMSE too high");
     }
 

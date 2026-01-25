@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import com.hissain.jscipy.TestMetrics;
 
 public class DCTTest {
 
@@ -48,6 +49,7 @@ public class DCTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Basic RMSE: %.6e%n", rmse);
+        TestMetrics.log("DCT", "DCT Basic", rmse);
 
         assertArrayEquals(expected, actual, TOLERANCE, "DCT basic mismatch");
     }
@@ -63,6 +65,7 @@ public class DCTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Random Even RMSE: %.6e%n", rmse);
+        TestMetrics.log("DCT", "DCT Random Even", rmse);
 
         assertArrayEquals(expected, actual, TOLERANCE, "DCT random even length mismatch");
     }
@@ -89,6 +92,7 @@ public class DCTTest {
 
         double rmse = calculateRMSE(expected, actual);
         System.out.printf("DCT Ortho RMSE: %.6e%n", rmse);
+        TestMetrics.log("DCT", "DCT Ortho", rmse);
 
         assertArrayEquals(expected, actual, TOLERANCE, "DCT ortho mismatch");
     }

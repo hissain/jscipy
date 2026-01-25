@@ -105,17 +105,11 @@ The table below compares jSciPy’s signal processing and scientific computing f
 
 jSciPy is rigorously tested against Python's SciPy using a "Golden Master" approach. Below is a summary of the precision (RMSE) achieved across various modules:
 
-| Module | Test Case | RMSE (Approx) | Status |
-| :--- | :--- | :--- | :--- |
-| **Filters** | Butterworth, Chebyshev, Elliptic, Bessel | `1e-14` to `1e-16` | ✅ Excellent |
-| **FFT** | 1D FFT, RFFT, IFFT | `1e-15` to `1e-16` | ✅ Excellent |
-| **Spectral** | Spectrogram, Welch, STFT/ISTFT, Periodogram | `1e-16` to `1e-18` | ✅ Excellent |
-| **SOS Filt** | Second-Order Sections Filter | `1e-16` | ✅ Excellent |
-| **2D Ops** | 2D FFT, 2D Convolution | `1e-16` | ✅ Excellent |
-| **Math** | Interpolation, Resample | `1e-16` | ✅ Excellent |
-| **DCT** | DCT Type-II, Ortho | `1e-15` to `1e-16` | ✅ Excellent |
-| **Poly** | Polyfit, Val, Der | `1e-14` to `1e-15` | ✅ Excellent |
-| **ODE** | RK4 Solver | `5e-13` | ✅ Excellent |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/accuracy_summary_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/accuracy_summary_light.png">
+  <img alt="Accuracy Summary" src="python/figs/accuracy_summary_light.png">
+</picture>
 
 ## Documentation
 

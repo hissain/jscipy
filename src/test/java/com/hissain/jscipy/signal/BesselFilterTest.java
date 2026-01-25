@@ -3,6 +3,7 @@ package com.hissain.jscipy.signal;
 import com.hissain.jscipy.Signal;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.hissain.jscipy.TestMetrics;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,6 +53,9 @@ public class BesselFilterTest {
 
         System.out.println("Bessel Filter RMSE (Total): " + rmse);
         System.out.println("Bessel Filter RMSE (Center 50%): " + rmseCenter);
+
+        TestMetrics.log("Filters", "Bessel (Total)", rmse);
+        TestMetrics.log("Filters", "Bessel (Center 50%)", rmseCenter);
 
         // Assert RMSE is effectively zero (matching SciPy to machine precision)
         assertTrue(rmse < 1e-13, "RMSE should be negligible (" + rmse + ")");
