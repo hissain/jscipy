@@ -576,7 +576,7 @@ We are actively looking for contributors to help with:
 3.  **Edge Case Robustness**: Improving handling of `NaN`, `Infinity`, and edge cases in signal processing algorithms.
 4.  **Documentation**: Adding more usage examples and javadocs.
 
-Want to join in community discord? click [here](https://discord.gg/ZfAEWc84J)
+Want to join in community discord? click [here](https://discord.com/channels/1464079471790395404/1464079472407089313)
 
 ## License
 
