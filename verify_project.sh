@@ -36,7 +36,8 @@ echo -e "${BLUE}3️⃣  Running Java Tests...${NC}"
 ./gradlew clean test
 
 echo -e "${BLUE}3️⃣  Generating Comparison Plots...${NC}"
-python3 pytecho "Generating Accuracy Table..."
+python3 python/generate_all_plots.py
+echo "Generating Accuracy Table..."
 python python/generate_accuracy_plot.py
 
 echo "Generating Comparison Table..."
