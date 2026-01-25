@@ -116,7 +116,7 @@ if __name__ == '__main__':
     # 2D comparison
     print("Generating 2D plots...")
     dataset_dir = 'datasets/correlate2d/'
-    plot_correlate_2d('Correlate2D Comparison',
+    plot_correlate_2d('Correlate2d',
         dataset_dir + 'correlate2d_in1_2.txt',
         dataset_dir + 'correlate2d_in2_2.txt',
         dataset_dir + 'correlate2d_out_full_2.txt',
