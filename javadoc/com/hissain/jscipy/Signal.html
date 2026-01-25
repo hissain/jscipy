@@ -714,47 +714,47 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i55" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peak_prominences(double%5B%5D,int%5B%5D)">peak_prominences</a></span>&#8203;(double[]&nbsp;x,
-                int[]&nbsp;peaks)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peakProminences(double%5B%5D,int%5B%5D)">peakProminences</a></span>&#8203;(double[]&nbsp;x,
+               int[]&nbsp;peaks)</code></th>
 <td class="colLast">
 <div class="block">Calculate the prominence of each peak in a signal.</div>
 </td>
 </tr>
 <tr id="i56" class="altColor">
 <td class="colFirst"><code>static <a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peak_prominences(double%5B%5D,int%5B%5D,int)">peak_prominences</a></span>&#8203;(double[]&nbsp;x,
-                int[]&nbsp;peaks,
-                int&nbsp;wlen)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peakProminences(double%5B%5D,int%5B%5D,int)">peakProminences</a></span>&#8203;(double[]&nbsp;x,
+               int[]&nbsp;peaks,
+               int&nbsp;wlen)</code></th>
 <td class="colLast">
 <div class="block">Calculate the prominence of each peak in a signal.</div>
 </td>
 </tr>
 <tr id="i57" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peak_widths(double%5B%5D,int%5B%5D)">peak_widths</a></span>&#8203;(double[]&nbsp;x,
-           int[]&nbsp;peaks)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peakWidths(double%5B%5D,int%5B%5D)">peakWidths</a></span>&#8203;(double[]&nbsp;x,
+          int[]&nbsp;peaks)</code></th>
 <td class="colLast">
 <div class="block">Calculate the width of each peak at half prominence (rel_height=0.5).</div>
 </td>
 </tr>
 <tr id="i58" class="altColor">
 <td class="colFirst"><code>static <a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peak_widths(double%5B%5D,int%5B%5D,double)">peak_widths</a></span>&#8203;(double[]&nbsp;x,
-           int[]&nbsp;peaks,
-           double&nbsp;relHeight)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peakWidths(double%5B%5D,int%5B%5D,double)">peakWidths</a></span>&#8203;(double[]&nbsp;x,
+          int[]&nbsp;peaks,
+          double&nbsp;relHeight)</code></th>
 <td class="colLast">
 <div class="block">Calculate the width of each peak at relative height.</div>
 </td>
 </tr>
 <tr id="i59" class="rowColor">
 <td class="colFirst"><code>static <a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peak_widths(double%5B%5D,int%5B%5D,double,double%5B%5D,int%5B%5D,int%5B%5D,int)">peak_widths</a></span>&#8203;(double[]&nbsp;x,
-           int[]&nbsp;peaks,
-           double&nbsp;relHeight,
-           double[]&nbsp;prominences,
-           int[]&nbsp;leftBases,
-           int[]&nbsp;rightBases,
-           int&nbsp;wlen)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peakWidths(double%5B%5D,int%5B%5D,double,double%5B%5D,int%5B%5D,int%5B%5D,int)">peakWidths</a></span>&#8203;(double[]&nbsp;x,
+          int[]&nbsp;peaks,
+          double&nbsp;relHeight,
+          double[]&nbsp;prominences,
+          int[]&nbsp;leftBases,
+          int[]&nbsp;rightBases,
+          int&nbsp;wlen)</code></th>
 <td class="colLast">
 <div class="block">Calculate the width of each peak.</div>
 </td>
@@ -1720,15 +1720,15 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="peak_prominences(double[],int[],int)">
+<a id="peakProminences(double[],int[],int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>peak_prominences</h4>
-<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a>&nbsp;peak_prominences&#8203;(double[]&nbsp;x,
-                                                          int[]&nbsp;peaks,
-                                                          int&nbsp;wlen)</pre>
+<h4>peakProminences</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a>&nbsp;peakProminences&#8203;(double[]&nbsp;x,
+                                                         int[]&nbsp;peaks,
+                                                         int&nbsp;wlen)</pre>
 <div class="block">Calculate the prominence of each peak in a signal.
  <p>
  The prominence of a peak measures how much a peak stands out from the
@@ -1743,14 +1743,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="peak_prominences(double[],int[])">
+<a id="peakProminences(double[],int[])">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>peak_prominences</h4>
-<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a>&nbsp;peak_prominences&#8203;(double[]&nbsp;x,
-                                                          int[]&nbsp;peaks)</pre>
+<h4>peakProminences</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a>&nbsp;peakProminences&#8203;(double[]&nbsp;x,
+                                                         int[]&nbsp;peaks)</pre>
 <div class="block">Calculate the prominence of each peak in a signal.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1761,19 +1761,19 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="peak_widths(double[],int[],double,double[],int[],int[],int)">
+<a id="peakWidths(double[],int[],double,double[],int[],int[],int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>peak_widths</h4>
-<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peak_widths&#8203;(double[]&nbsp;x,
-                                                int[]&nbsp;peaks,
-                                                double&nbsp;relHeight,
-                                                double[]&nbsp;prominences,
-                                                int[]&nbsp;leftBases,
-                                                int[]&nbsp;rightBases,
-                                                int&nbsp;wlen)</pre>
+<h4>peakWidths</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peakWidths&#8203;(double[]&nbsp;x,
+                                               int[]&nbsp;peaks,
+                                               double&nbsp;relHeight,
+                                               double[]&nbsp;prominences,
+                                               int[]&nbsp;leftBases,
+                                               int[]&nbsp;rightBases,
+                                               int&nbsp;wlen)</pre>
 <div class="block">Calculate the width of each peak.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1789,14 +1789,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="peak_widths(double[],int[])">
+<a id="peakWidths(double[],int[])">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>peak_widths</h4>
-<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peak_widths&#8203;(double[]&nbsp;x,
-                                                int[]&nbsp;peaks)</pre>
+<h4>peakWidths</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peakWidths&#8203;(double[]&nbsp;x,
+                                               int[]&nbsp;peaks)</pre>
 <div class="block">Calculate the width of each peak at half prominence (rel_height=0.5).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1807,15 +1807,15 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="peak_widths(double[],int[],double)">
+<a id="peakWidths(double[],int[],double)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>peak_widths</h4>
-<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peak_widths&#8203;(double[]&nbsp;x,
-                                                int[]&nbsp;peaks,
-                                                double&nbsp;relHeight)</pre>
+<h4>peakWidths</h4>
+<pre class="methodSignature">public static&nbsp;<a href="signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a>&nbsp;peakWidths&#8203;(double[]&nbsp;x,
+                                               int[]&nbsp;peaks,
+                                               double&nbsp;relHeight)</pre>
 <div class="block">Calculate the width of each peak at relative height.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
