@@ -148,7 +148,7 @@ public class FindPeaks {
      */
     private int[] filterByProminence(double[] x, int[] peaks, double minProminence) {
         // Calculate prominences using the newly refactored public method
-        ProminenceResult result = calculateProminences(x, peaks, -1);
+        ProminenceResult result = peakProminences(x, peaks, -1);
         double[] prominences = result.prominences;
 
         List<Integer> filteredPeaks = new ArrayList<>();
@@ -174,7 +174,7 @@ public class FindPeaks {
      *              the peak. Use -1 for no window (search entire signal).
      * @return A ProminenceResult containing prominences and bases.
      */
-    public static ProminenceResult calculateProminences(double[] x, int[] peaks, int wlen) {
+    public static ProminenceResult peakProminences(double[] x, int[] peaks, int wlen) {
         int nPeaks = peaks.length;
         double[] prominences = new double[nPeaks];
         int[] leftBases = new int[nPeaks];
@@ -250,12 +250,12 @@ public class FindPeaks {
      * @param wlen        Window length used for prominence calculation (if needed).
      * @return A WidthResult containing widths and intersection points.
      */
-    public static WidthResult calculatePeakWidths(double[] x, int[] peaks, double relHeight,
+    public static WidthResult peakWidths(double[] x, int[] peaks, double relHeight,
             double[] prominences, int[] leftBases, int[] rightBases, int wlen) {
 
         int nPeaks = peaks.length;
         if (prominences == null || leftBases == null || rightBases == null) {
-            ProminenceResult pr = calculateProminences(x, peaks, wlen);
+            ProminenceResult pr = peakProminences(x, peaks, wlen);
             prominences = pr.prominences;
             leftBases = pr.leftBases;
             rightBases = pr.rightBases;
