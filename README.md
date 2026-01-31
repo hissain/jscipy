@@ -109,10 +109,9 @@ You can access full documentation javadoc of the jscipy library [HERE](https://h
 
 ## Getting Started
 
-### Prerequisites
+No prerequisites needed to use jSciPy in your project - just add the dependency below.
 
-* Java Development Kit (JDK) 8 or higher
-* Gradle (for building the project)
+For contributing to jSciPy development, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## How to Include as a Dependency (JitPack)
 
