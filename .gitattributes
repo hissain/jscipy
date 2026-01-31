@@ -1,25 +1,15 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Enforce Unix-style line endings
+* text=auto eol=lf
 
-# Explicitly declare text files you want to always be normalized and converted to native line endings on checkout
-*.py text eol=lf
-*.sh text eol=lf
-*.md text eol=lf
-*.gradle text eol=lf
-*.properties text eol=lf
+# Explicitly set types
+*.java text eol=lf
 *.xml text eol=lf
-*.json text eol=lf
-*.yml text eol=lf
-*.yaml text eol=lf
-
-# Dataset files should always use LF (Unix-style) line endings for cross-platform consistency
+*.gradle text eol=lf
+*.md text eol=lf
 *.txt text eol=lf
+*.sh text eol=lf
 
 # Binary files
+*.jar binary
 *.png binary
 *.jpg binary
-*.jpeg binary
-*.gif binary
-*.ico binary
-*.jar binary
-*.class binary
