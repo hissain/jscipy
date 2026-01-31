@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.hissain.jscipy"},{"l":"com.hissain.jscipy.math"},{"l":"com.hissain.jscipy.signal"},{"l":"com.hissain.jscipy.signal.fft"},{"l":"com.hissain.jscipy.signal.filter"}];updateSearchResults();
