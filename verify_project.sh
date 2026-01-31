@@ -242,10 +242,14 @@ echo "${BLUE}2️⃣  Generating Ground Truth Data (Python)...${NC}"
 $PYTHON_CMD python/generate_all_data.py
 
 echo "${BLUE}3️⃣  Running Java Tests...${NC}"
-./gradlew clean test
+./gradlew clean test --max-workers=1
 
 echo "${BLUE}4️⃣  Generating Comparison Plots...${NC}"
 $PYTHON_CMD python/generate_all_plots.py
+
+echo "Sorting and Stablizing Metrics..."
+$PYTHON_CMD -c "import json; lines = sorted([json.loads(l) for l in open('datasets/test_metrics.json') if l.strip()], key=lambda x: (x['module'], x['test'])); open('datasets/test_metrics.json', 'w').write('\n'.join(json.dumps(l) for l in lines) + '\n')"
+
 echo "Generating Accuracy Table..."
 $PYTHON_CMD python/generate_accuracy_plot.py
 
