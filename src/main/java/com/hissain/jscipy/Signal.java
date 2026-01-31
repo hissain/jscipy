@@ -20,6 +20,9 @@ import com.hissain.jscipy.signal.fft.FFT;
 import com.hissain.jscipy.signal.fft.Spectrogram;
 import com.hissain.jscipy.signal.fft.Welch;
 import com.hissain.jscipy.signal.filter.SosFilt;
+import com.hissain.jscipy.signal.filter.FIR;
+import com.hissain.jscipy.signal.fft.Periodogram;
+import com.hissain.jscipy.signal.fft.Spectrogram.SpectrogramResult;
 
 /**
  * A facade class providing static utility methods for signal processing,
@@ -471,7 +474,7 @@ public class Signal {
      * @return Filter coefficients.
      */
     public static double[] firwin(int numtaps, double[] cutoff, double fs, boolean pass_zero) {
-        return com.hissain.jscipy.signal.filter.FIR.firwin(numtaps, cutoff, fs, pass_zero);
+        return FIR.firwin(numtaps, cutoff, fs, pass_zero);
     }
 
     /**
@@ -483,7 +486,7 @@ public class Signal {
      * @return Filter coefficients.
      */
     public static double[] firwin_lowpass(int numtaps, double cutoff, double fs) {
-        return com.hissain.jscipy.signal.filter.FIR.firwin_lowpass(numtaps, cutoff, fs);
+        return FIR.firwin_lowpass(numtaps, cutoff, fs);
     }
 
     /**
@@ -495,7 +498,7 @@ public class Signal {
      * @return Filter coefficients.
      */
     public static double[] firwin_highpass(int numtaps, double cutoff, double fs) {
-        return com.hissain.jscipy.signal.filter.FIR.firwin_highpass(numtaps, cutoff, fs);
+        return FIR.firwin_highpass(numtaps, cutoff, fs);
     }
 
     /**
@@ -508,7 +511,7 @@ public class Signal {
      * @return Filter coefficients.
      */
     public static double[] firwin_bandpass(int numtaps, double low, double high, double fs) {
-        return com.hissain.jscipy.signal.filter.FIR.firwin_bandpass(numtaps, low, high, fs);
+        return FIR.firwin_bandpass(numtaps, low, high, fs);
     }
 
     /**
@@ -521,7 +524,7 @@ public class Signal {
      * @return Filter coefficients.
      */
     public static double[] firwin_bandstop(int numtaps, double low, double high, double fs) {
-        return com.hissain.jscipy.signal.filter.FIR.firwin_bandstop(numtaps, low, high, fs);
+        return FIR.firwin_bandstop(numtaps, low, high, fs);
     }
 
     // --- SOS Filtering ---
@@ -974,7 +977,7 @@ public class Signal {
      *
      * @param signal The input signal (time series).
      * @param fs     The sampling frequency of the signal in Hz.
-     * @return A {@link Spectrogram.SpectrogramResult} containing sample
+     * @return A {@link SpectrogramResult} containing sample
      *         frequencies,
      *         segment times,
      *         and the spectrogram (power spectral density).
@@ -1075,7 +1078,7 @@ public class Signal {
      * @param fs The sampling frequency in Hz.
      * @return PeriodogramResult containing frequencies and PSD.
      */
-    public static com.hissain.jscipy.signal.fft.Periodogram.PeriodogramResult periodogram(double[] x, double fs) {
-        return new com.hissain.jscipy.signal.fft.Periodogram().periodogram(x, fs);
+    public static Periodogram.PeriodogramResult periodogram(double[] x, double fs) {
+        return new Periodogram().periodogram(x, fs);
     }
 }

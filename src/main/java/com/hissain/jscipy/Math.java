@@ -2,6 +2,7 @@ package com.hissain.jscipy;
 
 import com.hissain.jscipy.math.Interpolation;
 import com.hissain.jscipy.math.Resample;
+import com.hissain.jscipy.math.Poly;
 
 /**
  * A facade class providing static utility methods for mathematical operations.
@@ -87,7 +88,7 @@ public class Math {
      * @return Polynomial coefficients, highest power first.
      */
     public static double[] polyfit(double[] x, double[] y, int degree) {
-        return com.hissain.jscipy.math.Poly.polyfit(x, y, degree);
+        return Poly.polyfit(x, y, degree);
     }
 
     /**
@@ -98,7 +99,7 @@ public class Math {
      * @return Evaluated values.
      */
     public static double[] polyval(double[] p, double[] x) {
-        return com.hissain.jscipy.math.Poly.polyval(p, x);
+        return Poly.polyval(p, x);
     }
 
     /**
@@ -109,7 +110,7 @@ public class Math {
      * @return Evaluated value.
      */
     public static double polyval(double[] p, double x) {
-        return com.hissain.jscipy.math.Poly.polyval(p, x);
+        return Poly.polyval(p, x);
     }
 
     /**
@@ -119,6 +120,6 @@ public class Math {
      * @return Derivative polynomial coefficients.
      */
     public static double[] polyder(double[] p) {
-        return com.hissain.jscipy.math.Poly.polyder(p);
+        return Poly.polyder(p);
     }
 }
