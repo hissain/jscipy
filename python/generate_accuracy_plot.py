@@ -103,7 +103,7 @@ def generate_table(theme_name):
     summary['RMSE (Approx)'] = summary['rmse'].apply(format_rmse)
     
     # Sort
-    module_order = ["Filters", "FFT", "Spectral", "SOS Filt", "2D Ops", "Math", "DCT", "ODE", "Poly"]
+    module_order = ["Filters", "FFT", "Spectral", "SOS Filt", "2D Ops", "Math", "DCT", "ODE", "Poly", "Signal"]
     summary["module"] = pd.Categorical(summary["module"], categories=module_order, ordered=True)
     summary = summary.sort_values(["module", "Sub-Feature"]).dropna()
 
