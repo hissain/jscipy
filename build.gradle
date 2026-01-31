@@ -23,6 +23,13 @@ dependencies {
 }
 
 java {
+    // Gradle Toolchain: Requires Adoptium JDK 8
+    // This forces auto-download if only JRE or non-Adoptium Java is found
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+        vendor = JvmVendorSpec.ADOPTIUM
+    }
+    
     withSourcesJar()
     withJavadocJar()
 }

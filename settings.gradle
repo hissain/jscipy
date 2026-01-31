@@ -1,1 +1,9 @@
+// Enable automatic JDK provisioning
+// Gradle will auto-download JDK 8 from Adoptium if not found locally
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
 rootProject.name = 'jscipy'
+
+

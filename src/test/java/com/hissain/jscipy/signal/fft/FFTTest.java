@@ -387,7 +387,7 @@ public class FFTTest {
         // Read shape
         String[] shapeParts = Files.lines(Paths.get(shapePath))
                 .findFirst()
-                .orElseThrow()
+                .orElseThrow(() -> new IOException("Empty shape file: " + shapePath))
                 .trim()
                 .split("\\s+");
         int numFreqBins = Integer.parseInt(shapeParts[0]);

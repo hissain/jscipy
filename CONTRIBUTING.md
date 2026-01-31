@@ -28,6 +28,37 @@ The process is straightforward:
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
+## Development Prerequisites
+
+Before contributing, ensure you have the following:
+
+* **Java Development Kit (JDK) 8 or higher**
+  * **Recommended**: Let Gradle auto-download - just run `./gradlew build` and Gradle will automatically download Adoptium JDK 8
+  * Or install manually: [Adoptium Temurin JDK 8](https://adoptium.net/temurin/releases/?version=8)
+    * Windows: `choco install temurin8jdk` or `winget install EclipseAdoptium.Temurin.8.JDK`
+    * macOS: `brew install openjdk@8`
+    * Linux: `sudo apt install openjdk-8-jdk`
+
+* **Python 3.7+** (for generating test data from SciPy)
+  * Auto-installed via `verify_project.sh` if you use a virtual environment
+
+* **Gradle** (included via wrapper - `./gradlew`)
+
+## Full Project Verification
+
+To run the complete verification pipeline (generates test data, runs tests, creates plots):
+
+```bash
+./verify_project.sh
+```
+
+This script will:
+1. Create a Python virtual environment (`.venv`) if missing
+2. Install Python dependencies automatically
+3. Generate ground truth data from SciPy
+4. Run all Java tests
+5. Generate comparison plots
+
 ## Development & Testing
 
 jSciPy uses **Gradle** for building and testing.
