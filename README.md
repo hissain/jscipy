@@ -129,7 +129,7 @@ allprojects {
 
 // In your app's build.gradle
 dependencies {
-    implementation 'io.github.hissain:jscipy:3.1.4'
+    implementation 'io.github.hissain:jscipy:3.1.5'
 }
 ```
 
