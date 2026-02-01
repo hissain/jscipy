@@ -10,6 +10,7 @@
   [![](https://jitpack.io/v/hissain/jscipy.svg)](https://jitpack.io/#hissain/jscipy)
   [![](https://jitpack.io/v/hissain/jscipy/javadoc.svg)](https://jitpack.io/com/github/hissain/jscipy/latest/javadoc/)
   [![Javadoc](https://img.shields.io/badge/Javadoc-GitHub%20Pages-blue)](https://hissain.github.io/jscipy)
+  [![Maven Central](https://img.shields.io/maven-central/v/io.github.hissain/jscipy?color=blue)](https://central.sonatype.com/artifact/io.github.hissain/jscipy)
   [![Discord](https://img.shields.io/discord/1335503063523098674?logo=discord&label=discord)](https://discord.gg/ZfAEWc84J)
   ![License](https://img.shields.io/github/license/hissain/jscipy?color=blue)
 </div>
