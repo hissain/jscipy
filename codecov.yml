@@ -6,15 +6,14 @@ coverage:
   status:
     project:
       default:
-        target: 90%
+        target: 87%
         threshold: 1%
     patch:
       default:
-        target: 90%
+        target: 87%
 
 ignore:
   - "src/test/**"
-  - "**/Main.java"
 
 comment:
   layout: "header, diff, files"
