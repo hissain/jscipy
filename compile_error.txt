@@ -1,0 +1,30 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+
+> Task :compileTestJava FAILED
+E:\Hissain\Github\jscipy\src\test\java\com\hissain\jscipy\SignalCoverageTest.java:13: error: cannot find symbol
+            signal[i] = Math.sin(2 * Math.PI * i / 20.0);
+                                         ^
+  symbol:   variable PI
+  location: class com.hissain.jscipy.Math
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+2 actionable tasks: 1 executed, 1 up-to-date

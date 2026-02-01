@@ -2,36 +2,25 @@ Found 67 classes.
 Class                                                        Cov%       Missed/Total
 ------------------------------------------------------------------------------------------
 com/hissain/jscipy.com/hissain/jscipy/Math                     0.00%    59/59
-com/hissain/jscipy/math.com/hissain/jscipy/math/RK4Solver$Solution  19.15%    38/47
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/ButterworthDesign  20.44%    144/181
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/ComplexPair  23.91%    70/92
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev1Design  24.53%    120/159
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev2Design  24.53%    120/159
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/EllipticDesign  24.55%    126/167
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/BesselDesign  26.32%    126/171
-com/hissain/jscipy/math.com/hissain/jscipy/math/RK4Solver     26.35%    383/520
-com/hissain/jscipy.com/hissain/jscipy/Signal                  37.34%    344/549
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/MathSupplement  39.53%    78/129
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Biquad  55.46%    159/357
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/LayoutBase  55.48%    65/146
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/EllipticFunctions  57.77%    144/341
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/SOSCascade  61.54%    5/13
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/PoleZeroPair  64.71%    24/68
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Bessel  69.85%    98/325
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/HighPassTransform  73.98%    32/123
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Butterworth  74.13%    194/750
+com/hissain/jscipy.com/hissain/jscipy/Signal                  74.68%    139/549
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/LowPassTransform  77.19%    26/114
+com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/HighPassTransform  78.86%    26/123
 com/hissain/jscipy/signal.com/hissain/jscipy/signal/Detrend   83.09%    35/207
+com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/ButterworthDesign  83.43%    30/181
 com/hissain/jscipy/math.com/hissain/jscipy/math/Interpolation  83.89%    34/211
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Elliptic  84.26%    105/667
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev2  84.34%    104/664
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev1  84.34%    104/664
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/BandStopTransform  84.66%    48/313
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Cascade  87.50%    43/344
+com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Butterworth  86.00%    105/750
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/SavitzkyGolay  88.81%    47/420
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev1Design$AnalogLowPass  89.17%    13/120
-com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/BandPassTransform  89.17%    38/351
+com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/BandStopTransform  89.46%    33/313
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/ButterworthDesign$AnalogLowPass  89.55%    7/67
+com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Cascade  89.83%    35/344
 com/hissain/jscipy/signal/filter.com/hissain/jscipy/signal/filter/Chebyshev2Design$AnalogLowPass  89.84%    13/128
 
-Total Project Coverage: 78.81% (11996/15222)
+Total Project Coverage: 90.34% (13752/15222)
