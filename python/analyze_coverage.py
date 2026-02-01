@@ -1,7 +1,8 @@
 import xml.etree.ElementTree as ET
 import os
 
-report_path = '../build/reports/jacoco/test/jacocoTestReport.xml'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+report_path = os.path.join(script_dir, '../build/reports/jacoco/test/jacocoTestReport.xml')
 
 if not os.path.exists(report_path):
     print("Report file not found!")
@@ -81,16 +82,20 @@ with open('coverage_report.txt', 'w') as f:
     if (total_missed + total_covered) > 0:
         total_instructions = total_missed + total_covered
         total_coverage = (total_covered / total_instructions) * 100
-        f.write(f"\nTotal Project Coverage: {total_coverage:.2f}% ({total_covered}/{total_instructions})")
-        
-        print("\nTop 10 Classes by Missed Instructions:")
-        print(f"{'Class':<60} {'Missed':<10} {'Total':<10} {'Coverage':<10}")
-        print("-" * 90)
-        
-        # Sort by missed instructions descending
-        sorted_by_missed = sorted(classes_data, key=lambda x: x[2], reverse=True)
-        
-        for name, coverage, missed, total in sorted_by_missed[:10]:
-             print(f"{name:<60} {missed:<10} {total:<10} {coverage:.2f}%")
+        f.write(f"\nTotal Project Coverage (Instructions): {total_coverage:.2f}% ({total_covered}/{total_instructions})")
+        print(f"\nTotal Project Coverage (Instructions): {total_coverage:.2f}% ({total_covered}/{total_instructions})")
 
-        print(f"\nTotal Project Coverage: {total_coverage:.2f}% ({total_covered}/{total_instructions})")
+    # Calculate LINE coverage
+    line_missed = 0
+    line_covered = 0
+    for cnt in root.findall('counter'):
+        if cnt.get('type') == 'LINE':
+            line_missed = int(cnt.get('missed'))
+            line_covered = int(cnt.get('covered'))
+            break
+            
+    if (line_missed + line_covered) > 0:
+        total_lines = line_missed + line_covered
+        line_curr = (line_covered / total_lines) * 100
+        f.write(f"\nTotal Project Coverage (Lines):       {line_curr:.2f}% ({line_covered}/{total_lines})")
+        print(f"Total Project Coverage (Lines):        {line_curr:.2f}% ({line_covered}/{total_lines})")
