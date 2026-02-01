@@ -133,6 +133,21 @@ dependencies {
 }
 ```
 
+### Alternative: JitPack (Bleeding Edge)
+If you want to use the latest commits or if Maven Central is delayed, you can still use JitPack.
+
+```gradle
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.github.hissain:jscipy:3.1.5'
+}
+```
+
 ## Demo Android Application
 
 A seperate demo android application is built on this library that might be helpful to understand how to consume this library. The application can be accessed [here](https://github.com/hissain/jscipy-android).
