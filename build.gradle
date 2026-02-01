@@ -2,10 +2,12 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'application'
+    id 'signing'
+    id 'io.github.sgtsilvio.gradle.maven-central-publish' version '0.1.2'
 }
 
 
-group = 'com.hissain.jscipy'
+group = 'io.github.hissain'
 version = '3.1.4'
 
 application {
@@ -71,11 +73,49 @@ tasks.withType(Javadoc) {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.hissain.jscipy'
-            artifactId = 'jscipy'
-            version = '3.1.4'
-
             from components.java
+            
+            pom {
+                name = 'jscipy'
+                description = 'A pure Java implementation of scientific computing library similar to SciPy.'
+                url = 'https://github.com/hissain/jscipy'
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'hissain'
+                        name = 'Md. Sazzad Hissain Khan'
+                        email = 'hissain.khan@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/hissain/jscipy.git'
+                    developerConnection = 'scm:git:ssh://github.com:hissain/jscipy.git'
+                    url = 'https://github.com/hissain/jscipy'
+                }
+            }
         }
+    }
+}
+
+signing {
+    // Only sign if keys are present (avoids failure in non-release builds)
+    def signingKey = System.getenv("SIGNING_KEY")
+    def signingPassword = System.getenv("SIGNING_PASSWORD")
+    if (signingKey && signingPassword) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+        sign publishing.publications.maven
+    }
+}
+
+centralPortal {
+    username = System.getenv("MAVEN_CENTRAL_USERNAME")
+    password = System.getenv("MAVEN_CENTRAL_PASSWORD")
+    pom {
+        packaging = 'jar'
     }
 }

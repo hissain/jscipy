@@ -124,13 +124,12 @@ To use this library in your Gradle project, add the JitPack repository and the d
 allprojects {
     repositories {
         mavenCentral()
-        maven { url 'https://jitpack.io' }
     }
 }
 
 // In your app's build.gradle
 dependencies {
-    implementation 'com.github.hissain:jSciPy:3.1.4' // Replace 3.1.4 with the desired version or commit hash
+    implementation 'io.github.hissain:jscipy:3.1.4'
 }
 ```
 
