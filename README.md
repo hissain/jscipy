@@ -31,7 +31,7 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
 - [Accuracy & Precision](#accuracy--precision)
 - [Documentation](#documentation)
 - [Getting Started](#getting-started)
-- [How to Include as a Dependency (JitPack)](#how-to-include-as-a-dependency-jitpack)
+- [How to Include as a Dependency](#how-to-include-as-a-dependency)
 - [Demo Android Application](#demo-android-application)
 - [Comparison Graphs](#comparison-graphs)
   - [Butterworth Filter](#butterworth-filter-comparison)
