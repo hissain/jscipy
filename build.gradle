@@ -112,10 +112,8 @@ signing {
     }
 }
 
-centralPortal {
-    username = System.getenv("MAVEN_CENTRAL_USERNAME")
-    password = System.getenv("MAVEN_CENTRAL_PASSWORD")
-    pom {
-        packaging = 'jar'
-    }
+// Configure properties for Maven Central Publishing plugin
+ext {
+    mavenCentralUsername = System.getenv("MAVEN_CENTRAL_USERNAME")
+    mavenCentralPassword = System.getenv("MAVEN_CENTRAL_PASSWORD")
 }
