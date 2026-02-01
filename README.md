@@ -114,40 +114,38 @@ No prerequisites needed to use jSciPy in your project - just add the dependency 
 
 For contributing to jSciPy development, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## How to Include as a Dependency (JitPack)
 
-JitPack is a novel package repository for JVM projects. It builds GitHub projects on demand and provides ready-to-use artifacts (jar, javadoc, sources).
+## How to Include as a Dependency
 
-To use this library in your Gradle project, add the JitPack repository and the dependency to your `build.gradle` file:
+### Maven Central (Recommended)
+
+jSciPy is published to **Maven Central** for stable releases. Simply add the dependency to your `build.gradle`:
 
 ```gradle
-// In your root build.gradle (or settings.gradle for repository definition)
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-
-// In your app's build.gradle
 dependencies {
     implementation 'io.github.hissain:jscipy:3.1.5'
 }
 ```
 
-### Alternative: JitPack (Bleeding Edge)
-If you want to use the latest commits or if Maven Central is delayed, you can still use JitPack.
+Maven Central is automatically included in Gradle projects, so no additional repository configuration is needed.
+
+### JitPack (Alternative for Latest Commits)
+
+If you need **bleeding-edge features** or the latest unreleased commits, use JitPack:
 
 ```gradle
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
+// Add JitPack repository
+repositories {
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.github.hissain:jscipy:3.1.5'
+    implementation 'com.github.hissain:jscipy:3.1.5'  // Note: com.github for JitPack
 }
 ```
+
+**Note:** JitPack uses `com.github.<username>`, while Maven Central uses `io.github.<username>`. Choose one based on your needs.
+
 
 ## Demo Android Application
 
