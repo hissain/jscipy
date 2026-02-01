@@ -3,6 +3,7 @@ plugins {
     id 'maven-publish'
     id 'application'
     id 'signing'
+    id 'jacoco'
     id 'io.github.sgtsilvio.gradle.maven-central-publishing' version '0.4.1'
 }
 
@@ -59,6 +60,29 @@ test {
     useJUnitPlatform()
     testLogging {
         showStandardStreams = true
+    }
+    finalizedBy jacocoTestReport
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+        html.destination file("${buildDir}/reports/jacoco/test/html")
+    }
+    
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                '**/Main.class'
+            ])
+        }))
     }
 }
 

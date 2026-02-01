@@ -12,6 +12,7 @@
   [![Javadoc](https://img.shields.io/badge/Javadoc-GitHub%20Pages-blue)](https://hissain.github.io/jscipy)
   [![Maven Central](https://img.shields.io/maven-central/v/io.github.hissain/jscipy?color=blue)](https://central.sonatype.com/artifact/io.github.hissain/jscipy)
   [![Discord](https://img.shields.io/discord/1335503063523098674?logo=discord&label=discord)](https://discord.gg/ZfAEWc84J)
+  [![codecov](https://codecov.io/gh/hissain/jscipy/branch/main/graph/badge.svg)](https://codecov.io/gh/hissain/jscipy)
   ![License](https://img.shields.io/github/license/hissain/jscipy?color=blue)
 </div>
 
