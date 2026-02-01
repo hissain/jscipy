@@ -99,3 +99,18 @@ with open('coverage_report.txt', 'w') as f:
         line_curr = (line_covered / total_lines) * 100
         f.write(f"\nTotal Project Coverage (Lines):       {line_curr:.2f}% ({line_covered}/{total_lines})")
         print(f"Total Project Coverage (Lines):        {line_curr:.2f}% ({line_covered}/{total_lines})")
+
+    # Calculate BRANCH coverage
+    branch_missed = 0
+    branch_covered = 0
+    for cnt in root.findall('counter'):
+        if cnt.get('type') == 'BRANCH':
+            branch_missed = int(cnt.get('missed'))
+            branch_covered = int(cnt.get('covered'))
+            break
+
+    if (branch_missed + branch_covered) > 0:
+        total_branches = branch_missed + branch_covered
+        branch_curr = (branch_covered / total_branches) * 100
+        f.write(f"\nTotal Project Coverage (Branches):    {branch_curr:.2f}% ({branch_covered}/{total_branches})")
+        print(f"Total Project Coverage (Branches):     {branch_curr:.2f}% ({branch_covered}/{total_branches})")
