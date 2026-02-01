@@ -64,6 +64,10 @@ test {
     finalizedBy jacocoTestReport
 }
 
+clean {
+    delete 'datasets/test_metrics.json'
+}
+
 jacoco {
     toolVersion = "0.8.11"
 }
