@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import os
 
-report_path = 'build/reports/jacoco/test/jacocoTestReport.xml'
+report_path = '../build/reports/jacoco/test/jacocoTestReport.xml'
 
 if not os.path.exists(report_path):
     print("Report file not found!")
