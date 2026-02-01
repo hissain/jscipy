@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
     id 'application'
     id 'signing'
-    id 'io.github.sgtsilvio.gradle.maven-central-publish' version '0.1.2'
+    id 'io.github.sgtsilvio.gradle.maven-central-publishing' version '0.4.1'
 }
 
 
