@@ -11,29 +11,22 @@ root = ET.parse(report_path).getroot()
 
 classes_data = []
 
-# print(f"ROOT TAG: {root.tag}")
 packages = list(root.iter('package'))
-# print(f"FOUND PACKAGES: {len(packages)}")
 
 for p in packages:
-    # print(f"Package: {p.get('name')} Children: {[c.tag for c in p]}")
     package_name = p.get('name')
-    # print(f"Processing Package: {package_name}")
     for c in p.iter('class'):
         class_name = c.get('name')
-        # print(f"  Class: {class_name}")
         full_name = f"{package_name}.{class_name}"
         
         # Find instruction counter
         instruction_counter = None
         for cnt in c.iter('counter'):
-            # print(f"    Counter: {cnt.get('type')}")
             if cnt.get('type') == 'INSTRUCTION':
                 instruction_counter = cnt
                 pass 
         
-        # Retrying to find direct child counter for class level
-        # Try to find class-level counter
+        # Try to find class-level counter direct child
         for cnt in c.findall('counter'):
              if cnt.get('type') == 'INSTRUCTION':
                  instruction_counter = cnt
@@ -64,7 +57,7 @@ for p in packages:
                      coverage = (covered_sum / total) * 100
                      classes_data.append((full_name, coverage, missed_sum, total))
 
-# Sort by coverage (ascending)
+# Sort by coverage (ascending) for the detailed report
 classes_data.sort(key=lambda x: x[1])
 
 with open('coverage_report.txt', 'w') as f:
@@ -89,4 +82,15 @@ with open('coverage_report.txt', 'w') as f:
         total_instructions = total_missed + total_covered
         total_coverage = (total_covered / total_instructions) * 100
         f.write(f"\nTotal Project Coverage: {total_coverage:.2f}% ({total_covered}/{total_instructions})")
+        
+        print("\nTop 10 Classes by Missed Instructions:")
+        print(f"{'Class':<60} {'Missed':<10} {'Total':<10} {'Coverage':<10}")
+        print("-" * 90)
+        
+        # Sort by missed instructions descending
+        sorted_by_missed = sorted(classes_data, key=lambda x: x[2], reverse=True)
+        
+        for name, coverage, missed, total in sorted_by_missed[:10]:
+             print(f"{name:<60} {missed:<10} {total:<10} {coverage:.2f}%")
+
         print(f"\nTotal Project Coverage: {total_coverage:.2f}% ({total_covered}/{total_instructions})")
