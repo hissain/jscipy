@@ -112,8 +112,4 @@ signing {
     }
 }
 
-// Configure properties for Maven Central Publishing plugin
-ext {
-    mavenCentralUsername = System.getenv("MAVEN_CENTRAL_USERNAME")
-    mavenCentralPassword = System.getenv("MAVEN_CENTRAL_PASSWORD")
-}
+
