@@ -15,7 +15,8 @@ import org.apache.commons.math3.linear.RealVector;
  * <p>
  * <img src=
  * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
- * alt="Butterworth Comparison" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+ * alt="Butterworth Comparison" style="width: 600px; max-width: 90%; display:
+ * block; margin: 0 auto;">
  * <p>
  * This class provides methods to apply Butterworth low-pass filters to signals
  * using
@@ -233,7 +234,8 @@ public class Butterworth {
      * <p>
      * <img src=
      * "https://raw.githubusercontent.com/hissain/jscipy/main/python/figs/butterworth/butterworth_multitone_o4_input.txt_light.png"
-     * alt="Butterworth Multitone" style="width: 600px; max-width: 90%; display: block; margin: 0 auto;">
+     * alt="Butterworth Multitone" style="width: 600px; max-width: 90%; display:
+     * block; margin: 0 auto;">
      *
      * @param signal The input signal.
      * @param b      The numerator coefficients of the filter.
@@ -311,41 +313,4 @@ public class Butterworth {
         return reversed;
     }
 
-    /**
-     * Main method for command-line execution of the Butterworth filter.
-     * Expects input file, order, cutoff, and sample rate as arguments.
-     * 
-     * @param args Command-line arguments: `input_file`, `order`, `cutoff`,
-     *             `sample_rate`
-     * @throws java.io.IOException If there is an error reading the input file.
-     */
-    public static void main(String[] args) throws java.io.IOException {
-        if (args.length != 4) {
-            System.err.println("Usage: Butterworth <input_file> <order> <cutoff> <sample_rate>");
-            System.exit(1);
-        }
-        String inputFile = args[0];
-        int order = Integer.parseInt(args[1]);
-        double cutoff = Double.parseDouble(args[2]);
-        double sampleRate = Double.parseDouble(args[3]);
-
-        java.util.List<Double> data = new java.util.ArrayList<>();
-        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(inputFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                line = line.trim();
-                if (!line.isEmpty()) {
-                    data.add(Double.parseDouble(line));
-                }
-            }
-        }
-        double[] signal = data.stream().mapToDouble(Double::doubleValue).toArray();
-
-        Butterworth filterInstance = new Butterworth();
-        double[] output = filterInstance.filtfilt(signal, sampleRate, cutoff, order);
-
-        for (double v : output) {
-            System.out.println(v);
-        }
-    }
 }

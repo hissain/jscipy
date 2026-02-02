@@ -35,11 +35,6 @@ class LayoutBase {
 	private double m_normalW;
 	private double m_normalGain;
 
-	public LayoutBase(PoleZeroPair[] pairs) {
-		m_numPoles = pairs.length * 2;
-		m_pair = pairs;
-	}
-
 	public LayoutBase(int numPoles) {
 		m_numPoles = 0;
 		if ((numPoles % 2) == 1) {
@@ -63,9 +58,6 @@ class LayoutBase {
 	}
 
 	public void addPoleZeroConjugatePairs(Complex pole, Complex zero) {
-		if (pole == null) System.out.println("LayoutBase addConj() pole == null");
-		if (zero == null) System.out.println("LayoutBase addConj() zero == null");
-		if (m_pair == null) System.out.println("LayoutBase addConj() m_pair == null");
 		m_pair[m_numPoles / 2] = new PoleZeroPair(pole, zero, pole.conjugate(),
 				zero.conjugate());
 		m_numPoles += 2;
