@@ -59,7 +59,7 @@ public class SignalCoverageTest {
         assertNotNull(Signal.find_peaks(signal));
         assertNotNull(Signal.find_peaks(signal, 1.0, 1, 0.1));
 
-        // Windows
+        // All Window functions that exist
         assertNotNull(Signal.hanning(10));
         assertNotNull(Signal.hamming(10));
         assertNotNull(Signal.blackman(10));
