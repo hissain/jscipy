@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9,"i57":9,"i58":9,"i59":9,"i60":9,"i61":9,"i62":9,"i63":9,"i64":9,"i65":9,"i66":9,"i67":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9,"i57":9,"i58":9,"i59":9,"i60":9,"i61":9,"i62":9,"i63":9,"i64":9,"i65":9,"i66":9,"i67":9,"i68":9,"i69":9,"i70":9,"i71":9,"i72":9,"i73":9,"i74":9,"i75":9,"i76":9,"i77":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -314,13 +314,32 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#chirp-double:A-double-double-double-">chirp</a></span>(double[]&nbsp;t,
+     double&nbsp;f0,
+     double&nbsp;t1,
+     double&nbsp;f1)</code>
+<div class="block">Frequency-swept cosine generator using linear sweep.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#chirp-double:A-double-double-double-java.lang.String-">chirp</a></span>(double[]&nbsp;t,
+     double&nbsp;f0,
+     double&nbsp;t1,
+     double&nbsp;f1,
+     java.lang.String&nbsp;method)</code>
+<div class="block">Frequency-swept cosine generator (chirp signal).</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#convolve-double:A-double:A-com.hissain.jscipy.signal.ConvolutionMode-">convolve</a></span>(double[]&nbsp;signal,
         double[]&nbsp;window,
         <a href="../../../com/hissain/jscipy/signal/ConvolutionMode.html" title="enum in com.hissain.jscipy.signal">ConvolutionMode</a>&nbsp;mode)</code>
 <div class="block">Convolves two signals using the specified mode.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static double[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#convolve2d-double:A:A-double:A:A-com.hissain.jscipy.signal.ConvolutionMode-">convolve2d</a></span>(double[][]&nbsp;in1,
           double[][]&nbsp;in2,
@@ -328,7 +347,7 @@ extends java.lang.Object</pre>
 <div class="block">Convolves two 2D signals using the specified mode.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#correlate-double:A-double:A-com.hissain.jscipy.signal.ConvolutionMode-">correlate</a></span>(double[]&nbsp;in1,
          double[]&nbsp;in2,
@@ -336,7 +355,7 @@ extends java.lang.Object</pre>
 <div class="block">Cross-correlate two 1-dimensional sequences.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static double[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#correlate2d-double:A:A-double:A:A-com.hissain.jscipy.signal.ConvolutionMode-">correlate2d</a></span>(double[][]&nbsp;in1,
            double[][]&nbsp;in2,
@@ -344,13 +363,13 @@ extends java.lang.Object</pre>
 <div class="block">Cross-correlate two 2-dimensional arrays.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#dct-double:A-">dct</a></span>(double[]&nbsp;x)</code>
 <div class="block">Compute the 1D Discrete Cosine Transform (Type-II).</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#dct-double:A-boolean-">dct</a></span>(double[]&nbsp;x,
    boolean&nbsp;ortho)</code>
@@ -358,14 +377,14 @@ extends java.lang.Object</pre>
  orthogonality normalization.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#detrend-double:A-com.hissain.jscipy.signal.DetrendType-">detrend</a></span>(double[]&nbsp;signal,
        <a href="../../../com/hissain/jscipy/signal/DetrendType.html" title="enum in com.hissain.jscipy.signal">DetrendType</a>&nbsp;type)</code>
 <div class="block">Removes a linear or constant trend from the signal.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ellip_filtfilt_bandpass-double:A-double-double-double-int-double-double-">ellip_filtfilt_bandpass</a></span>(double[]&nbsp;signal,
                        double&nbsp;sampleRate,
@@ -377,7 +396,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Elliptic band-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ellip_filtfilt_bandstop-double:A-double-double-double-int-double-double-">ellip_filtfilt_bandstop</a></span>(double[]&nbsp;signal,
                        double&nbsp;sampleRate,
@@ -390,7 +409,7 @@ extends java.lang.Object</pre>
  backward).</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ellip_filtfilt_highpass-double:A-double-double-int-double-double-">ellip_filtfilt_highpass</a></span>(double[]&nbsp;signal,
                        double&nbsp;sampleRate,
@@ -401,7 +420,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Elliptic high-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ellip_filtfilt-double:A-double-double-int-double-double-">ellip_filtfilt</a></span>(double[]&nbsp;signal,
               double&nbsp;sampleRate,
@@ -412,7 +431,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Elliptic low-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ellip_lfilter-double:A-double-double-int-double-double-">ellip_lfilter</a></span>(double[]&nbsp;signal,
              double&nbsp;sampleRate,
@@ -423,19 +442,19 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Elliptic low-pass filter.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#fft-double:A-">fft</a></span>(double[]&nbsp;x)</code>
 <div class="block">Computes the forward FFT of a real-valued signal.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#fft2-double:A:A-">fft2</a></span>(double[][]&nbsp;input)</code>
 <div class="block">Computes the 2D FFT of a real-valued 2D array.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#filtfilt_bandpass-double:A-double-double-double-int-">filtfilt_bandpass</a></span>(double[]&nbsp;signal,
                  double&nbsp;sampleRate,
@@ -445,7 +464,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Butterworth band-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#filtfilt_bandstop-double:A-double-double-double-int-">filtfilt_bandstop</a></span>(double[]&nbsp;signal,
                  double&nbsp;sampleRate,
@@ -456,7 +475,7 @@ extends java.lang.Object</pre>
  backward).</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#filtfilt_highpass-double:A-double-double-int-">filtfilt_highpass</a></span>(double[]&nbsp;signal,
                  double&nbsp;sampleRate,
@@ -465,7 +484,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Butterworth high-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#filtfilt-double:A-double-double-int-">filtfilt</a></span>(double[]&nbsp;signal,
         double&nbsp;sampleRate,
@@ -474,13 +493,13 @@ extends java.lang.Object</pre>
 <div class="block">Applies a zero-phase Butterworth low-pass filter (forward and backward).</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>static int[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#find_peaks-double:A-">find_peaks</a></span>(double[]&nbsp;x)</code>
 <div class="block">Finds peaks in a signal with default parameters.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>static int[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#find_peaks-double:A-double-int-double-">find_peaks</a></span>(double[]&nbsp;x,
           double&nbsp;height,
@@ -489,7 +508,7 @@ extends java.lang.Object</pre>
 <div class="block">Finds peaks in a signal with optional parameters.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#firwin_bandpass-int-double-double-double-">firwin_bandpass</a></span>(int&nbsp;numtaps,
                double&nbsp;low,
@@ -498,7 +517,7 @@ extends java.lang.Object</pre>
 <div class="block">Design a Bandpass FIR filter.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#firwin_bandstop-int-double-double-double-">firwin_bandstop</a></span>(int&nbsp;numtaps,
                double&nbsp;low,
@@ -507,7 +526,7 @@ extends java.lang.Object</pre>
 <div class="block">Design a Bandstop FIR filter.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#firwin_highpass-int-double-double-">firwin_highpass</a></span>(int&nbsp;numtaps,
                double&nbsp;cutoff,
@@ -515,7 +534,7 @@ extends java.lang.Object</pre>
 <div class="block">Design a Highpass FIR filter.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#firwin_lowpass-int-double-double-">firwin_lowpass</a></span>(int&nbsp;numtaps,
               double&nbsp;cutoff,
@@ -523,7 +542,7 @@ extends java.lang.Object</pre>
 <div class="block">Design a Lowpass FIR filter.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#firwin-int-double:A-double-boolean-">firwin</a></span>(int&nbsp;numtaps,
       double[]&nbsp;cutoff,
@@ -532,71 +551,86 @@ extends java.lang.Object</pre>
 <div class="block">Design an FIR filter using the window method.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i43" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#gausspulse-double:A-double-">gausspulse</a></span>(double[]&nbsp;t,
+          double&nbsp;fc)</code>
+<div class="block">Return a Gaussian modulated sinusoid with default bandwidth of 0.5.</div>
+</td>
+</tr>
+<tr id="i44" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#gausspulse-double:A-double-double-">gausspulse</a></span>(double[]&nbsp;t,
+          double&nbsp;fc,
+          double&nbsp;bw)</code>
+<div class="block">Return a Gaussian modulated sinusoid (Gaussian pulse).</div>
+</td>
+</tr>
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#hamming-int-">hamming</a></span>(int&nbsp;m)</code>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#hamming-int-boolean-">hamming</a></span>(int&nbsp;m,
        boolean&nbsp;symmetric)</code>
 <div class="block">Returns a Hamming window of length M.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#hanning-int-">hanning</a></span>(int&nbsp;m)</code>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#hanning-int-boolean-">hanning</a></span>(int&nbsp;m,
        boolean&nbsp;symmetric)</code>
 <div class="block">Returns a Hanning window of length M.</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#idct-double:A-">idct</a></span>(double[]&nbsp;x)</code>
 <div class="block">Compute the 1D Inverse Discrete Cosine Transform (Type-II).</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ifft-com.hissain.jscipy.signal.JComplex:A-">ifft</a></span>(<a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x)</code>
 <div class="block">Computes the inverse FFT of a complex-valued signal.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#ifft2-com.hissain.jscipy.signal.JComplex:A:A-">ifft2</a></span>(<a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;input)</code>
 <div class="block">Computes the inverse 2D FFT.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#irfft-com.hissain.jscipy.signal.JComplex:A-int-">irfft</a></span>(<a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]&nbsp;x,
      int&nbsp;n)</code>
 <div class="block">Computes the inverse FFT of a real-valued signal (IRFFT).</div>
 </td>
 </tr>
-<tr id="i49" class="rowColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#istft-com.hissain.jscipy.signal.JComplex:A:A-">istft</a></span>(<a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]&nbsp;stftMatrix)</code>
 <div class="block">Compute the Inverse Short-Time Fourier Transform (ISTFT).</div>
 </td>
 </tr>
-<tr id="i50" class="altColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#kaiser-int-double-">kaiser</a></span>(int&nbsp;m,
       double&nbsp;beta)</code>
 <div class="block">Returns a symmetric Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i51" class="rowColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#kaiser-int-double-boolean-">kaiser</a></span>(int&nbsp;m,
       double&nbsp;beta,
@@ -604,7 +638,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns a Kaiser window of length M with shape parameter beta.</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#lfilter-double:A-double-double-int-">lfilter</a></span>(double[]&nbsp;signal,
        double&nbsp;sampleRate,
@@ -613,28 +647,28 @@ extends java.lang.Object</pre>
 <div class="block">Applies a standard (causal) Butterworth low-pass filter.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#medfilt-double:A-int-">medfilt</a></span>(double[]&nbsp;signal,
        int&nbsp;kernelSize)</code>
 <div class="block">Applies a median filter to the signal.</div>
 </td>
 </tr>
-<tr id="i54" class="altColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#padSignal-double:A-int-">padSignal</a></span>(double[]&nbsp;x,
          int&nbsp;padlen)</code>
 <div class="block">Pads a signal using odd extension at both ends.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#peakProminences-double:A-int:A-">peakProminences</a></span>(double[]&nbsp;x,
                int[]&nbsp;peaks)</code>
 <div class="block">Calculate the prominence of each peak in a signal.</div>
 </td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/FindPeaks.ProminenceResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.ProminenceResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#peakProminences-double:A-int:A-int-">peakProminences</a></span>(double[]&nbsp;x,
                int[]&nbsp;peaks,
@@ -642,14 +676,14 @@ extends java.lang.Object</pre>
 <div class="block">Calculate the prominence of each peak in a signal.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#peakWidths-double:A-int:A-">peakWidths</a></span>(double[]&nbsp;x,
           int[]&nbsp;peaks)</code>
 <div class="block">Calculate the width of each peak at half prominence (rel_height=0.5).</div>
 </td>
 </tr>
-<tr id="i58" class="altColor">
+<tr id="i62" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#peakWidths-double:A-int:A-double-">peakWidths</a></span>(double[]&nbsp;x,
           int[]&nbsp;peaks,
@@ -657,7 +691,7 @@ extends java.lang.Object</pre>
 <div class="block">Calculate the width of each peak at relative height.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i63" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/FindPeaks.WidthResult.html" title="class in com.hissain.jscipy.signal">FindPeaks.WidthResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#peakWidths-double:A-int:A-double-double:A-int:A-int:A-int-">peakWidths</a></span>(double[]&nbsp;x,
           int[]&nbsp;peaks,
@@ -669,21 +703,21 @@ extends java.lang.Object</pre>
 <div class="block">Calculate the width of each peak.</div>
 </td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i64" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/fft/Periodogram.PeriodogramResult.html" title="class in com.hissain.jscipy.signal.fft">Periodogram.PeriodogramResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#periodogram-double:A-double-">periodogram</a></span>(double[]&nbsp;x,
            double&nbsp;fs)</code>
 <div class="block">Estimate power spectral density using a periodogram.</div>
 </td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#rfft-double:A-">rfft</a></span>(double[]&nbsp;x)</code>
 <div class="block">Computes the forward FFT of a real-valued signal and returns the positive
  frequency components (RFFT).</div>
 </td>
 </tr>
-<tr id="i62" class="altColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#savgol_filter-double:A-int-int-">savgol_filter</a></span>(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -691,7 +725,7 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array (smoothing, derivative=0).</div>
 </td>
 </tr>
-<tr id="i63" class="rowColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#savgol_filter-double:A-int-int-int-double-">savgol_filter</a></span>(double[]&nbsp;x,
              int&nbsp;windowLength,
@@ -701,27 +735,66 @@ extends java.lang.Object</pre>
 <div class="block">Applies a Savitzky-Golay filter to an array.</div>
 </td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i68" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#sawtooth-double:A-">sawtooth</a></span>(double[]&nbsp;t)</code>
+<div class="block">Return a periodic sawtooth wave (width=1).</div>
+</td>
+</tr>
+<tr id="i69" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#sawtooth-double:A-double-">sawtooth</a></span>(double[]&nbsp;t,
+        double&nbsp;width)</code>
+<div class="block">Return a periodic sawtooth or triangle wave.</div>
+</td>
+</tr>
+<tr id="i70" class="altColor">
 <td class="colFirst"><code>static double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#sosfilt-double:A-double:A:A-">sosfilt</a></span>(double[]&nbsp;signal,
        double[][]&nbsp;sos)</code>
 <div class="block">Filter data using a series of second-order sections (SOS).</div>
 </td>
 </tr>
-<tr id="i65" class="rowColor">
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/fft/Spectrogram.SpectrogramResult.html" title="class in com.hissain.jscipy.signal.fft">Spectrogram.SpectrogramResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#spectrogram-double:A-double-">spectrogram</a></span>(double[]&nbsp;signal,
            double&nbsp;fs)</code>
 <div class="block">Computes the spectrogram of a signal.</div>
 </td>
 </tr>
-<tr id="i66" class="altColor">
+<tr id="i72" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#square-double:A-">square</a></span>(double[]&nbsp;t)</code>
+<div class="block">Return a periodic square wave with duty cycle 0.5.</div>
+</td>
+</tr>
+<tr id="i73" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#square-double:A-double-">square</a></span>(double[]&nbsp;t,
+      double&nbsp;duty)</code>
+<div class="block">Return a periodic square wave.</div>
+</td>
+</tr>
+<tr id="i74" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/JComplex.html" title="class in com.hissain.jscipy.signal">JComplex</a>[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#stft-double:A-">stft</a></span>(double[]&nbsp;x)</code>
 <div class="block">Compute the Short-Time Fourier Transform (STFT).</div>
 </td>
 </tr>
-<tr id="i67" class="rowColor">
+<tr id="i75" class="rowColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#unitImpulse-int-">unitImpulse</a></span>(int&nbsp;shape)</code>
+<div class="block">Return a unit impulse signal with impulse at index 0.</div>
+</td>
+</tr>
+<tr id="i76" class="altColor">
+<td class="colFirst"><code>static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#unitImpulse-int-int-">unitImpulse</a></span>(int&nbsp;shape,
+           int&nbsp;idx)</code>
+<div class="block">Return a unit impulse signal.</div>
+</td>
+</tr>
+<tr id="i77" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/hissain/jscipy/signal/fft/Welch.WelchResult.html" title="class in com.hissain.jscipy.signal.fft">Welch.WelchResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/hissain/jscipy/Signal.html#welch-double:A-double-int-">welch</a></span>(double[]&nbsp;x,
      double&nbsp;fs,
@@ -2291,6 +2364,197 @@ extends java.lang.Object</pre>
               norm='ortho').</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The transformed coefficients array of length N.</dd>
+</dl>
+</li>
+</ul>
+<a name="chirp-double:A-double-double-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>chirp</h4>
+<pre>public static&nbsp;double[]&nbsp;chirp(double[]&nbsp;t,
+                             double&nbsp;f0,
+                             double&nbsp;t1,
+                             double&nbsp;f1,
+                             java.lang.String&nbsp;method)</pre>
+<div class="block">Frequency-swept cosine generator (chirp signal).
+ Matches <code>scipy.signal.chirp</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array (seconds).</dd>
+<dd><code>f0</code> - Frequency at time t=0 (Hz).</dd>
+<dd><code>t1</code> - Time at which <code>f1</code> is defined (seconds).</dd>
+<dd><code>f1</code> - Frequency at time <code>t1</code> (Hz).</dd>
+<dd><code>method</code> - Sweep type: "linear", "quadratic", "logarithmic", or "hyperbolic".</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Chirp signal evaluated at each time in <code>t</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="chirp-double:A-double-double-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>chirp</h4>
+<pre>public static&nbsp;double[]&nbsp;chirp(double[]&nbsp;t,
+                             double&nbsp;f0,
+                             double&nbsp;t1,
+                             double&nbsp;f1)</pre>
+<div class="block">Frequency-swept cosine generator using linear sweep.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array (seconds).</dd>
+<dd><code>f0</code> - Frequency at time t=0 (Hz).</dd>
+<dd><code>t1</code> - Time at which <code>f1</code> is defined (seconds).</dd>
+<dd><code>f1</code> - Frequency at time <code>t1</code> (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Linear chirp signal.</dd>
+</dl>
+</li>
+</ul>
+<a name="square-double:A-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>square</h4>
+<pre>public static&nbsp;double[]&nbsp;square(double[]&nbsp;t,
+                              double&nbsp;duty)</pre>
+<div class="block">Return a periodic square wave.
+ Matches <code>scipy.signal.square</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array. The period is 2*pi radians.</dd>
+<dd><code>duty</code> - Duty cycle (0 to 1).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Square wave evaluated at each element of <code>t</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="square-double:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>square</h4>
+<pre>public static&nbsp;double[]&nbsp;square(double[]&nbsp;t)</pre>
+<div class="block">Return a periodic square wave with duty cycle 0.5.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array. The period is 2*pi radians.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Square wave.</dd>
+</dl>
+</li>
+</ul>
+<a name="sawtooth-double:A-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sawtooth</h4>
+<pre>public static&nbsp;double[]&nbsp;sawtooth(double[]&nbsp;t,
+                                double&nbsp;width)</pre>
+<div class="block">Return a periodic sawtooth or triangle wave.
+ Matches <code>scipy.signal.sawtooth</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array. The period is 2*pi radians.</dd>
+<dd><code>width</code> - Width of the rising ramp (0 to 1).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Sawtooth wave evaluated at each element of <code>t</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="sawtooth-double:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sawtooth</h4>
+<pre>public static&nbsp;double[]&nbsp;sawtooth(double[]&nbsp;t)</pre>
+<div class="block">Return a periodic sawtooth wave (width=1).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array. The period is 2*pi radians.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Sawtooth wave.</dd>
+</dl>
+</li>
+</ul>
+<a name="gausspulse-double:A-double-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>gausspulse</h4>
+<pre>public static&nbsp;double[]&nbsp;gausspulse(double[]&nbsp;t,
+                                  double&nbsp;fc,
+                                  double&nbsp;bw)</pre>
+<div class="block">Return a Gaussian modulated sinusoid (Gaussian pulse).
+ Matches <code>scipy.signal.gausspulse</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array (seconds).</dd>
+<dd><code>fc</code> - Center frequency (Hz).</dd>
+<dd><code>bw</code> - Fractional bandwidth at -6 dB.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Gaussian pulse evaluated at each element of <code>t</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="gausspulse-double:A-double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>gausspulse</h4>
+<pre>public static&nbsp;double[]&nbsp;gausspulse(double[]&nbsp;t,
+                                  double&nbsp;fc)</pre>
+<div class="block">Return a Gaussian modulated sinusoid with default bandwidth of 0.5.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - Time array (seconds).</dd>
+<dd><code>fc</code> - Center frequency (Hz).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Gaussian pulse.</dd>
+</dl>
+</li>
+</ul>
+<a name="unitImpulse-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unitImpulse</h4>
+<pre>public static&nbsp;double[]&nbsp;unitImpulse(int&nbsp;shape,
+                                   int&nbsp;idx)</pre>
+<div class="block">Return a unit impulse signal.
+ Matches <code>scipy.signal.unit_impulse</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>shape</code> - Total length of the output signal.</dd>
+<dd><code>idx</code> - Index at which the impulse occurs. Use -1 for center.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Unit impulse signal.</dd>
+</dl>
+</li>
+</ul>
+<a name="unitImpulse-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unitImpulse</h4>
+<pre>public static&nbsp;double[]&nbsp;unitImpulse(int&nbsp;shape)</pre>
+<div class="block">Return a unit impulse signal with impulse at index 0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>shape</code> - Total length of the output signal.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Unit impulse signal.</dd>
 </dl>
 </li>
 </ul>
