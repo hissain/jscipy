@@ -23,6 +23,7 @@ import com.hissain.jscipy.signal.filter.SosFilt;
 import com.hissain.jscipy.signal.filter.FIR;
 import com.hissain.jscipy.signal.fft.Periodogram;
 import com.hissain.jscipy.signal.fft.Spectrogram.SpectrogramResult;
+import com.hissain.jscipy.signal.Waveform;
 
 /**
  * A facade class providing static utility methods for signal processing,
@@ -1059,6 +1060,126 @@ public class Signal {
      */
     public static double[] dct(double[] x, boolean ortho) {
         return new DCT().dct(x, ortho);
+    }
+
+    // --- Waveform Generation ---
+
+    /**
+     * Frequency-swept cosine generator (chirp signal).
+     * Matches {@code scipy.signal.chirp}.
+     *
+     * @param t      Time array (seconds).
+     * @param f0     Frequency at time t=0 (Hz).
+     * @param t1     Time at which {@code f1} is defined (seconds).
+     * @param f1     Frequency at time {@code t1} (Hz).
+     * @param method Sweep type: "linear", "quadratic", "logarithmic", or "hyperbolic".
+     * @return Chirp signal evaluated at each time in {@code t}.
+     */
+    public static double[] chirp(double[] t, double f0, double t1, double f1, String method) {
+        return new Waveform().chirp(t, f0, t1, f1, method);
+    }
+
+    /**
+     * Frequency-swept cosine generator using linear sweep.
+     *
+     * @param t  Time array (seconds).
+     * @param f0 Frequency at time t=0 (Hz).
+     * @param t1 Time at which {@code f1} is defined (seconds).
+     * @param f1 Frequency at time {@code t1} (Hz).
+     * @return Linear chirp signal.
+     */
+    public static double[] chirp(double[] t, double f0, double t1, double f1) {
+        return new Waveform().chirp(t, f0, t1, f1);
+    }
+
+    /**
+     * Return a periodic square wave.
+     * Matches {@code scipy.signal.square}.
+     *
+     * @param t    Time array. The period is 2*pi radians.
+     * @param duty Duty cycle (0 to 1).
+     * @return Square wave evaluated at each element of {@code t}.
+     */
+    public static double[] square(double[] t, double duty) {
+        return new Waveform().square(t, duty);
+    }
+
+    /**
+     * Return a periodic square wave with duty cycle 0.5.
+     *
+     * @param t Time array. The period is 2*pi radians.
+     * @return Square wave.
+     */
+    public static double[] square(double[] t) {
+        return new Waveform().square(t);
+    }
+
+    /**
+     * Return a periodic sawtooth or triangle wave.
+     * Matches {@code scipy.signal.sawtooth}.
+     *
+     * @param t     Time array. The period is 2*pi radians.
+     * @param width Width of the rising ramp (0 to 1).
+     * @return Sawtooth wave evaluated at each element of {@code t}.
+     */
+    public static double[] sawtooth(double[] t, double width) {
+        return new Waveform().sawtooth(t, width);
+    }
+
+    /**
+     * Return a periodic sawtooth wave (width=1).
+     *
+     * @param t Time array. The period is 2*pi radians.
+     * @return Sawtooth wave.
+     */
+    public static double[] sawtooth(double[] t) {
+        return new Waveform().sawtooth(t);
+    }
+
+    /**
+     * Return a Gaussian modulated sinusoid (Gaussian pulse).
+     * Matches {@code scipy.signal.gausspulse}.
+     *
+     * @param t  Time array (seconds).
+     * @param fc Center frequency (Hz).
+     * @param bw Fractional bandwidth at -6 dB.
+     * @return Gaussian pulse evaluated at each element of {@code t}.
+     */
+    public static double[] gausspulse(double[] t, double fc, double bw) {
+        return new Waveform().gausspulse(t, fc, bw);
+    }
+
+    /**
+     * Return a Gaussian modulated sinusoid with default bandwidth of 0.5.
+     *
+     * @param t  Time array (seconds).
+     * @param fc Center frequency (Hz).
+     * @return Gaussian pulse.
+     */
+    public static double[] gausspulse(double[] t, double fc) {
+        return new Waveform().gausspulse(t, fc);
+    }
+
+    /**
+     * Return a unit impulse signal.
+     * Matches {@code scipy.signal.unit_impulse}.
+     *
+     * @param shape Total length of the output signal.
+     * @param idx   Index at which the impulse occurs. Use -1 for center.
+     * @return Unit impulse signal.
+     */
+    public static double[] unitImpulse(int shape, int idx) {
+        return new Waveform().unitImpulse(shape, idx);
+    }
+
+    /**
+     * Return a unit impulse signal with impulse at index 0.
+     *
+     * @param shape Total length of the output signal.
+     * @return Unit impulse signal.
+     */
+    public static double[] unitImpulse(int shape) {
+        return new Waveform().unitImpulse(shape);
     }
 
     // --- Periodogram ---

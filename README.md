@@ -20,6 +20,7 @@
 
 It currently includes modules for:
 *   **Signal Processing**: Butterworth, Chebyshev, Elliptic, Bessel, and FIR (`firwin`) filters, Window Functions, 2D Convolution, 2D Cross-Correlation, Savitzky-Golay smoothing, Peak detection, Detrending, Median Filter.
+*   **Waveform Generation**: Chirp (linear, quadratic, logarithmic, hyperbolic), Square wave, Sawtooth wave, Gaussian pulse (`gausspulse`), Unit impulse.
 *   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Welch PSD, Spectrogram, Periodogram, Convolution, DCT/IDCT.
 *   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline, Quadratic, B-Spline), Resampling, Polynomial fitting.
 
@@ -61,6 +62,7 @@ In modern machine learning workflows, most signal processing tasks rely on Pytho
   - [Hilbert Transform](#hilbert-transform-comparison)
   - [SOS Filtering](#sos-filtering-comparison)
   - [Window Functions](#window-functions-comparison)
+  - [Waveform Generation](#waveform-generation-comparison)
 - [Usage Examples](#usage-examples)
 - [Contributing](#contributing)
 - [License](#license)
@@ -86,6 +88,7 @@ The table below compares jSciPy’s signal processing and scientific computing f
 *   **2D Processing**: `convolve2d`, `correlate2d` (Full/Same/Valid), `fft2`, `ifft2`.
 *   **Transforms**: standard 1D `fft` / `ifft`, real-optimized `rfft` / `irfft`, `dct` / `idct` (Discrete Cosine Transform), `stft` / `istft`, `hilbert` transform.
 *   **Smoothing & Analysis**: Savitzky-Golay, `medfilt` (Median Filter), `find_peaks`, **`peakProminences`**, **`peakWidths`**, Welch's PSD, `spectrogram`, `detrend`, `resample`.
+*   **Waveform Generation**: `chirp` (linear/quadratic/logarithmic/hyperbolic), `square`, `sawtooth`, `gausspulse`, `unit_impulse`.
 *   **Correlation & Convolution**: `correlate`, `convolve` (Cross-Correlation and convolution with FULL/SAME/VALID modes).
 *   **Polynomials**: `polyfit`, `polyval`, `polyder`.
 *   **Window Functions**: Hamming, Hanning, Blackman, Kaiser, Bartlett, Flat-top, Parzen, Bohman, Triangle.
@@ -415,8 +418,53 @@ A seperate demo android application is built on this library that might be helpf
   <br>
 </p>
 
+### Waveform Generation Comparison
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="python/figs/waveform/waveform_comparison_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="python/figs/waveform/waveform_comparison_light.png">
+  <img alt="Waveform Generation Comparison" src="python/figs/waveform/waveform_comparison_light.png">
+</picture>
+
 
 ## Usage Examples
+
+### Waveform Generation
+Generate standard test and analysis signals.
+
+```java
+import com.hissain.jscipy.Signal;
+
+public class WaveformExample {
+    public static void main(String[] args) {
+        // Time array: 1 second at 1000 Hz
+        double fs = 1000.0;
+        double[] t = new double[1000];
+        for (int i = 0; i < t.length; i++) t[i] = i / fs;
+
+        // 1. Chirp (linear: 1 Hz -> 100 Hz over 1 second)
+        double[] linear  = Signal.chirp(t, 1.0, 1.0, 100.0, "linear");
+        double[] logChirp = Signal.chirp(t, 1.0, 1.0, 100.0, "logarithmic");
+        double[] hypChirp = Signal.chirp(t, 1.0, 1.0, 100.0, "hyperbolic");
+
+        // 2. Square wave (period = 2*pi radians)
+        double[] tRad = new double[600];
+        for (int i = 0; i < tRad.length; i++) tRad[i] = 2 * Math.PI * i / 200.0;
+        double[] square   = Signal.square(tRad, 0.5);   // 50% duty cycle
+        double[] sawtooth = Signal.sawtooth(tRad, 1.0); // pure sawtooth
+        double[] triangle = Signal.sawtooth(tRad, 0.5); // triangle wave
+
+        // 3. Gaussian pulse (fc=1000 Hz, bw=0.5)
+        double[] tGauss = new double[200];
+        for (int i = 0; i < tGauss.length; i++) tGauss[i] = -1.0 + 2.0 * i / 200.0;
+        double[] pulse = Signal.gausspulse(tGauss, 1000.0, 0.5);
+
+        // 4. Unit impulse
+        double[] impulse = Signal.unitImpulse(100, 0);   // at index 0
+        double[] centred = Signal.unitImpulse(100, -1);  // at centre (index 50)
+    }
+}
+```
 
 ### Digital Filters
 All standard IIR filters (Butterworth, Chebyshev I/II, Elliptic, Bessel) are supported with consistent APIs.
